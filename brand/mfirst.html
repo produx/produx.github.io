@@ -173,9 +173,9 @@ a {color:#026dc5; text-decoration: none;}
 
 		<!-- Scripts -->
 		<!-- JQuery Google CDN -->
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="https://use.fontawesome.com/37c289f6f2.js"></script>
-		<script src="../handlebars.js"></script>
+		<script src="handlebars.js"></script>
 
 		<script type="text/javascript">
 
@@ -183,7 +183,7 @@ a {color:#026dc5; text-decoration: none;}
 			$(function(){
       			
 				//$( "#header-wrapper" ).load( "../components/c-header-n/ew.html" );
-				$.getJSON( "../ny-json.js", function(data){
+				$.getJSON( "ny-json.js", function(data){
 					console.log(data);
 					displayHotels(data);
 				});
