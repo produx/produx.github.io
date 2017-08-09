@@ -10,7 +10,7 @@
 
 		<link rel="stylesheet" type="text/css">
 		<style type="text/css">
-				body {padding:0; margin:0; font-family:-apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, “Fira Sans”, “Droid Sans”, “Helvetica Neue”, Arial, sans-serif; background-color:#fff; color:#555;}
+				body {padding:0; margin:0; font-family: “Helvetica Neue”, Arial, sans-serif; background-color:#ffffff; color:#000;}
 				#header {background-color: #EC3824; }	
 		#header-content {padding:8px 8px;}	
 		#header-content h1 {margin:0; padding:0; float:left;}
@@ -19,17 +19,19 @@
 
 div {box-sizing:border-box;}
 ul {list-style-type: none; padding:0; margin:0;}
-a {color:#026dc5; text-decoration: none;}
+a {color:#000; text-decoration: none;}
 
-.tools {padding:0px 8px 8px; display:flex; flex-direction: row; margin:8px 0 0px; backgrou/nd-color:#EEE8D8;}
+.tools {padding:0px 8px 8px; display:flex; flex-direction: row; margin:8px 0 0px; background-color:#EEE8D8;}
 		.tools li {flex-grow:1; }
 		.tools li {display:block; font-size:13px; background-color:#fff; border:solid 1px #026dc5; padding:4px 8px; border-radius:0px;}
+
+		#page-wrapper {background-color:#EEE8D8;}
 
 		@media screen and (min-width: 420px) {
     		#page-wrapper {
         		max-width:360px;
         		margin:0 auto;
-        		background-color:#f5f4f0;
+        		
         		border-left:1px solid #ddd;
         		border-right:1px solid #ddd;
     		}
@@ -152,7 +154,7 @@ a {color:#026dc5; text-decoration: none;}
 			.hotel-card .thumbnail img { position: relative; left: 100%; margin-left: -200%; height:100%;}
 			.hotel-card .details, .hotel-card .price, .hotel-card .rating {margin-left:30%; box-sizing:border-box; padding-left:16px;}
 			.hotel-card .details {margin-top:8px;}
-			.hotel-card .name {font-size:14px; line-height: 18px;}
+			.hotel-card .name {font-size:14px; line-height: 18px; font-weight: bold}
 			.hotel-card .neighbourhood {font-size:12px; line-height: 16px}
 			.hotel-card .proximity-base {font-size:12px; line-height: 16px}
 
@@ -164,9 +166,9 @@ a {color:#026dc5; text-decoration: none;}
 			.hotel-card .rating .taGuestReview .numReviews {font-size:11px; line-height: 15px; color:#999; display:inline-block;}
 
 			.hotel-card .price {text-align:right; margin-top:8px; padding:0 12px 4px 0;}
-			.promo-price-description {display:block; font-size:12px; line-height:16px; font-weight:bold; color:#d41200;}
+			.promo-price-description {display:block; font-size:12px; line-height:16px; font-weight:bold; color:#EC3824;}
 			.strikethrough {font-size: 14px; text-decoration: line-through;}
-			.total {font-size:20px; color:#d41200; font-weight:bold;}
+			.total {font-size:20px; color:#EC3824; font-weight:bold;}
 			.summary {font-size:11px; color:#999;}
 			.standard {font-size:20px; font-weight:bold;}
     	</style>
