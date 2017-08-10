@@ -164,13 +164,14 @@ a {color:#000; text-decoration: none;}
 			.hotel-card .rating .taGuestReview .numReviews {font-size:11px; line-height: 15px; color:#999; display:inline-block;}
 
 			.hotel-card .price {text-align:right; margin-top:8px; padding:0 12px 4px 0;}
-			.promo-price-description {display:block; font-size:12px; line-height:16px; font-weight:bold; color:#C12E1D;}
+			.promo-price-description {display:inline-block; font-size:12px; line-height:16px; font-weight:bold; color:#C12E1D;}
 			.strikethrough {font-size: 14px; text-decoration: line-through;}
 			.total {font-size:24px; color:#C12E1D; font-weight:bold;}
 			.summary {font-size:11px; color:#999;}
 			.standard {font-size:24px; font-weight:bold;}
 
-			.secret-price .label {color:#fff; background-color:#7F3C68; display: inline-block; padding:4px 12px; font-size: 13px; font-weight: bold}
+			.special-deal .label {color:#fff; background-color:#C12E1D; display: inline-block; padding:4px 12px; font-size: 12px; font-weight: bold; margin-left:8px;}
+			.secret-price .label {color:#fff; background-color:#7F3C68; display: inline-block; padding:4px 12px; font-size: 12px; font-weight: bold}
 			.secret-price .total {color:#7F3C68;}
     	</style>
 
@@ -220,7 +221,7 @@ a {color:#000; text-decoration: none;}
 				console.log(pricepromotion);
 				var dealType = ""
 
-				if (index == 2) {
+				if (index == 2 || index == 6 || index == 10) {
 					dealType = '<div class="secret-price">'
 					+ '<div style="text-align:right; margin-bottom:4px; margin-right:-12px"><div class="label">Secret Price</div></div>'
 					+ '<span class="strikethrough">' + avgPrice + '</span> '
@@ -228,7 +229,7 @@ a {color:#000; text-decoration: none;}
 					+ '</div>'
 				} else {
 					dealType = '<div class="special-deal">'
-					+ '<span class="promo-price-description">' + promoPriceDescription + '</span>'
+					+ '<div style="text-align:right; margin-bottom:4px; margin-right:-12px"><span class="promo-price-description">' + promoPriceDescription + '</span>' + '<div class="label">Special deal</div></div>'
 					+ '<span class="strikethrough">' + avgPrice + '</span> '
 					+ '<span class="total">' + pricepromotion.prefix + '' + pricepromotion.formattedValue + '</span>'
 					+ '</div>'
