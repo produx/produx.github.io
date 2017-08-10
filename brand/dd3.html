@@ -128,11 +128,9 @@ a {color:#000; text-decoration: none;}
  					<div class="price">
  						{{#if promoPriceDetails}}
 										{{#if promoPriceDescription.length}}
-       	 								<div class="special-deal">
-       	 									<span class="promo-price-description">{{promoPriceDescription}}</span>
-       	 									<span class="strikethrough">{{avgPrice}}</span> 
-       	 									<span class="total">{{promoPriceDetails.prefix}}{{promoPriceDetails.formattedValue}}</span>
-       	 								</div>
+											{{showDeal promoPriceDetails @index avgPrice promoPriceDescription}}
+
+       	 								
        	 							{{else}}
        	 								<div class="standard">{{promoPriceDetails.prefix}}{{promoPriceDetails.formattedValue}}</div>
        	 							{{/if}}
@@ -171,6 +169,9 @@ a {color:#000; text-decoration: none;}
 			.total {font-size:20px; color:#C12E1D; font-weight:bold;}
 			.summary {font-size:11px; color:#999;}
 			.standard {font-size:20px; font-weight:bold;}
+
+			.secret-price .label {color:#fff; background-color:#7F3C68; display: inline-block; padding:4px 12px; font-size: 12px; font-weight: bold}
+			.secret-price .total {color:#7F3C68;}
     	</style>
 
 		<!-- Scripts -->
@@ -212,6 +213,38 @@ a {color:#000; text-decoration: none;}
 				//var url = imageUrl.replace("_b.jpg", "_l.jpg");
 				return res[0];
 			});
+
+			Handlebars.registerHelper("showDeal", function(pricepromotion, index, avgPrice, promoPriceDescription){
+				//var res = location.split("/");
+				//var url = imageUrl.replace("_b.jpg", "_l.jpg");
+				console.log(pricepromotion);
+				var dealType = ""
+
+				if (index == 2) {
+					dealType = '<div class="secret-price">'
+					+ '<div style="text-align:right; margin-bottom:4px; margin-right:-12px"><div class="label">Secret Price</div></div>'
+					+ '<span class="strikethrough">' + avgPrice + '</span> '
+					+ '<span class="total">' + pricepromotion.prefix + '' + pricepromotion.formattedValue + '</span>'
+					+ '</div>'
+				} else {
+					dealType = '<div class="special-deal">'
+					+ '<span class="promo-price-description">' + promoPriceDescription + '</span>'
+					+ '<span class="strikethrough">' + avgPrice + '</span> '
+					+ '<span class="total">' + pricepromotion.prefix + '' + pricepromotion.formattedValue + '</span>'
+					+ '</div>'
+
+				}
+
+				return new Handlebars.SafeString(
+    				dealType
+  				);
+			});
+
+			
+       	 			
+       	 			
+       	 			
+       	 	
 
 		</script>
 	</body>
