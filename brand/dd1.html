@@ -213,6 +213,32 @@ a {color:#000; text-decoration: none;}
 				return res[0];
 			});
 
+			Handlebars.registerHelper("showDeal", function(pricepromotion, index, avgPrice, promoPriceDescription){
+				//var res = location.split("/");
+				//var url = imageUrl.replace("_b.jpg", "_l.jpg");
+				console.log(pricepromotion);
+				var dealType = ""
+
+				if (index == 2 || index == 6 || index == 10) {
+					dealType = '<div class="secret-price">'
+					+ '<div style="text-align:right; margin-bottom:4px; margin-right:-12px"><div class="label">Secret Price</div></div>'
+					+ '<span class="strikethrough">' + avgPrice + '</span> '
+					+ '<span class="total">' + pricepromotion.prefix + '' + pricepromotion.formattedValue + '</span>'
+					+ '</div>'
+				} else {
+					dealType = '<div class="special-deal">'
+					+ '<div style="text-align:right; margin-bottom:4px; margin-right:-12px"><span class="promo-price-description">' + promoPriceDescription + '</span>' + '<div class="label">Special deal</div></div>'
+					+ '<span class="strikethrough">' + avgPrice + '</span> '
+					+ '<span class="total">' + pricepromotion.prefix + '' + pricepromotion.formattedValue + '</span>'
+					+ '</div>'
+
+				}
+
+				return new Handlebars.SafeString(
+    				dealType
+  				);
+			});
+
 		</script>
 	</body>
 </html>
