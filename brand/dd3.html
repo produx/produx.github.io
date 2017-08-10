@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+
+		<link rel="stylesheet" type="text/css">
+		<style type="text/css">
+				body {padding:0; margin:0; font-family: “Helvetica Neue”, Arial, sans-serif; background-color:#ffffff; color:#000;}
+				#header {background-color: #C12E1D; }	
+		#header-content {padding:8px 8px;}	
+		#header-content h1 {margin:0; padding:0; float:left;}
+		#header-content .phone {padding:8px 0; float:left;}
+		#header-content .link {font-size:13px;}
+
+div {box-sizing:border-box;}
+ul {list-style-type: none; padding:0; margin:0;}
+a {color:#000; text-decoration: none;}
+
+.tools {padding:0px 8px 8px; display:flex; flex-direction: row; margin:8px 0 0px; background-color:#E3DACC;}
+		.tools li {flex-grow:1; }
+		.tools li {display:block; font-size:13px; background-color:#fff; border:solid 1px #555; padding:4px 8px; border-radius:0px;}
+
+		#page-wrapper {background-color:#E3DACC;}
+
+		@media screen and (min-width: 420px) {
+    		#page-wrapper {
+        		max-width:360px;
+        		margin:0 auto;
+        		
+        		border-left:1px solid #ddd;
+        		border-right:1px solid #ddd;
+    		}
+		}
+
+		</style>
+
+	</head>
+
+	<body>
+
+	<div id="page-wrapper">
+		
+
+	
+
+		<div id="header-wrapper">
+			<div id="header">
+
+		<div id="header-content">
+			
+			
+			
+				<div style="height:24px; overflow:hidden; color:#fff; font-size:20px; width:100%">
+					<!--<img src="https://a2.cdn-hotels.com/da/assets/s/41.0/images/brands/hcom/logos/logo_en_GB.png" style="height:70px; float:left;"/>-->
+					<div style="float:right">
+						<i class="fa fa-phone" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;<i class="fa fa-user" aria-hidden="true"></i>
+					</div> 
+				</div>
+				
+				
+			
+			
+		</div>
+	</div>
+
+		</div>
+		<div style="background-color:#C12E1D; padding:0px 8px 8px; ">
+			<div style="border-radius:2px; background-color:#fff; min-height:20px; font-size:13px; position:relative; margin:0px 0px 0px; color:#555; padding:8px 8px 8px 8px;">
+					<div style=" font-weight:bold; font-size:14px">London, United Kingdom</div>
+					<div style="padding:4px 0 0 0; font-size:12px;">Fri 24 - Sat 25 June 2016, 1 room 2 adults</div>
+					<div style="position:absolute; right:0px; top:8px; bottom:8px; backgrou/nd-color:#026dc5; color:#026dc5;  padding:0px 8px 0; border-radius:0px; text-align:center; box-sha/dow: inset 0 -2px 0 #003789; border-left:solid 0px #026dc5">
+						<i class="fa fa-search" aria-hidden="true" style="font-size:16px"></i> 
+						<span style="display:block; font-size:10px; text-align:center; margin-top:4px">EDIT</span>
+					</div>
+				</div>
+		</div>
+			
+		<ul class="tools">
+			<li style=" margin-right:4px; background-color:#fff;"><label style="font-size:11px; font-weight:normal; display:block; padding-bottom:2px;">Open</label><a href="" >Filters</a></li>
+			<li style="margin-right:4px; background-color:#fff;"><label style="font-size:11px; font-weight:normal; display:block; padding-bottom:2px;">View on</label><a href="#" >Map</a></li>
+			<li style="position:relative; background-color:#fff; border:solid 1px #555; font-weight:bold; padding:4px 4px; border-radius:0px;  flex-grow:1;">
+				
+				<label style="font-size:11px; font-weight:normal; display:block; padding:0 4px">Sort by:</label>
+				<select style="font-size:13px; font-family:arial; padding:0; color:#000; background: transparent; border:none; width:100%; outline:none;">
+					<option>Our favourites</option>
+					<option>Stars (high to low)</option>
+					<option>Stars (low to high)</option>
+					<option>Distance to city center</option>
+					<option>Guest rating</option>
+					<option>Price (high to low)</option>
+					<option>Price (low to high)</option>
+				</select>
+				
+			</li>
+			
+		</ul>
+		
+
+		<div id="hotel-list"></div>
+
+		<script id="hotel-card-template" type="text/x-handlebars-template">
+ 			{{#each hotels}}
+ 				<div class="hotel-card">
+ 					<div class="thumbnail">
+ 						<img src="{{thumbnailUrl imageUrl}}" />
+ 					</div>
+ 					<div class="details">
+ 						<div class="name"><a href="#">{{hotelName}}</a></div>
+ 						<div class="neighbourhood">{{neighbourhood location}}</div>
+ 						<div class="proximity-base">{{distanceFromBaseLandmark}} to city center</div>
+ 					</div>
+ 					<div class="rating">
+ 						<div class="guestRating">
+ 							<span class="qual">{{qualitativeBadgeText}}</span> 
+ 							<span class="score">{{guestReviewRating}}</span> / 5 
+ 							<span class="numReviews">{{numberOfGuestReviews}} reviews</span>
+ 						</div>
+       	 				<div class="taGuestReview">
+       	 					<img class="owl" src="i/ta-owl.png" /><img class="circles" src="i/ta-circles.png" /> 
+       	 					<span class="numReviews">100 reviews</span>
+       	 				</div>
+ 					</div>
+ 					<div class="price">
+ 						{{#if promoPriceDetails}}
+										{{#if promoPriceDescription.length}}
+       	 								<div class="special-deal">
+       	 									<span class="promo-price-description">{{promoPriceDescription}}</span>
+       	 									<span class="strikethrough">{{avgPrice}}</span> 
+       	 									<span class="total">{{promoPriceDetails.prefix}}{{promoPriceDetails.formattedValue}}</span>
+       	 								</div>
+       	 							{{else}}
+       	 								<div class="standard">{{promoPriceDetails.prefix}}{{promoPriceDetails.formattedValue}}</div>
+       	 							{{/if}}
+       	 				
+       	 						{{else}}
+       	 							<div class="standard">{{avgPrice}}</div>
+       	 						{{/if}}
+       	 						<span class="summary">price for 1 night including taxes and fees</span>
+ 					</div>
+ 				</div>
+ 			{{/each}}
+    	</script>	
+
+    	</div>
+
+    	<style type="text/css">
+    		.hotel-card {background-color: #fff; min-height:120px; margin-bottom:4px; border-bottom: solid 1px #e5e3db; border-top: solid 1px #e5e3db; position:relative;}
+    		.hotel-card .thumbnail {position:absolute; top:8px; left:8px; bottom:8px; width:30%; text-align: center; overflow: hidden;}
+			.hotel-card .thumbnail img { position: relative; left: 100%; margin-left: -200%; height:100%;}
+			.hotel-card .details, .hotel-card .price, .hotel-card .rating {margin-left:30%; box-sizing:border-box; padding-left:16px;}
+			.hotel-card .details {margin-top:8px;}
+			.hotel-card .name {font-size:14px; line-height: 18px; font-weight: bold}
+			.hotel-card .neighbourhood {font-size:12px; line-height: 16px}
+			.hotel-card .proximity-base {font-size:12px; line-height: 16px}
+
+			.hotel-card .rating {margin-top:8px;}
+			.hotel-card .rating .guestRating {font-size: 14px; line-height: 16px; font-weight:bold;}
+			.hotel-card .rating .guestRating .numReviews {font-size: 11px; line-height: 13px; color:#999; font-weight: normal; display:inline-block; vertical-align: bottom; margin-left:4px;}
+			.hotel-card .rating .taGuestReview {}
+			.hotel-card .rating .taGuestReview .owl {height:13px; display:inline-block;}
+			.hotel-card .rating .taGuestReview .numReviews {font-size:11px; line-height: 15px; color:#999; display:inline-block;}
+
+			.hotel-card .price {text-align:right; margin-top:8px; padding:0 12px 4px 0;}
+			.promo-price-description {display:block; font-size:12px; line-height:16px; font-weight:bold; color:#C12E1D;}
+			.strikethrough {font-size: 14px; text-decoration: line-through;}
+			.total {font-size:20px; color:#C12E1D; font-weight:bold;}
+			.summary {font-size:11px; color:#999;}
+			.standard {font-size:20px; font-weight:bold;}
+    	</style>
+
+		<!-- Scripts -->
+		<!-- JQuery Google CDN -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="https://use.fontawesome.com/37c289f6f2.js"></script>
+		<script src="handlebars.js"></script>
+
+		<script type="text/javascript">
+
+			// run things on page load
+			$(function(){
+      			
+				//$( "#header-wrapper" ).load( "../components/c-header-n/ew.html" );
+				$.getJSON( "ny-json.js", function(data){
+					console.log(data);
+					displayHotels(data);
+				});
+			});
+
+			var displayHotels = function(data){
+				// get hotel data
+				var hotels = data.result;
+				console.log(hotels);
+				
+				// attach to handle bar template
+        		var source   = $("#hotel-card-template").html();
+  				var template = Handlebars.compile(source);
+  				$("#hotel-list").html(template(hotels));
+			}
+
+			Handlebars.registerHelper("thumbnailUrl", function(imageUrl){
+				var url = imageUrl.replace("_b.jpg", "_l.jpg");
+				return url;
+			});
+
+			Handlebars.registerHelper("neighbourhood", function(location){
+				var res = location.split("/");
+				//var url = imageUrl.replace("_b.jpg", "_l.jpg");
+				return res[0];
+			});
+
+		</script>
+	</body>
+</html>
