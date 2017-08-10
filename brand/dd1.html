@@ -127,12 +127,8 @@ a {color:#000; text-decoration: none;}
  					</div>
  					<div class="price">
  						{{#if promoPriceDetails}}
-										{{#if promoPriceDescription.length}}
-       	 								<div class="special-deal">
-       	 									<span class="promo-price-description">{{promoPriceDescription}}</span>
-       	 									<span class="strikethrough">{{avgPrice}}</span> 
-       	 									<span class="total">{{promoPriceDetails.prefix}}{{promoPriceDetails.formattedValue}}</span>
-       	 								</div>
+									{{#if promoPriceDescription.length}}
+       	 								{{showDeal promoPriceDetails @index avgPrice promoPriceDescription}}
        	 							{{else}}
        	 								<div class="standard">{{promoPriceDetails.prefix}}{{promoPriceDetails.formattedValue}}</div>
        	 							{{/if}}
@@ -166,11 +162,15 @@ a {color:#000; text-decoration: none;}
 			.hotel-card .rating .taGuestReview .numReviews {font-size:11px; line-height: 15px; color:#999; display:inline-block;}
 
 			.hotel-card .price {text-align:right; margin-top:8px; padding:0 12px 4px 0;}
-			.promo-price-description {display:block; font-size:12px; line-height:16px; font-weight:bold; color:#EC3824;}
+			.promo-price-description {display:inline-block; font-size:12px; line-height:16px; font-weight:bold; color:#EC3824;}
 			.strikethrough {font-size: 14px; text-decoration: line-through;}
 			.total {font-size:20px; color:#EC3824; font-weight:bold;}
 			.summary {font-size:11px; color:#999;}
 			.standard {font-size:20px; font-weight:bold;}
+
+			.special-deal .label {color:#fff; background-color:#EC3824; display: inline-block; padding:4px 12px; font-size: 12px; font-weight: bold; margin-left:8px;}
+			.secret-price .label {color:#592459; background-color:#D1E8E3; display: inline-block; padding:4px 12px; font-size: 12px; font-weight: bold}
+			.secret-price .total {color:#592459;}
     	</style>
 
 		<!-- Scripts -->
