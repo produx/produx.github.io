@@ -10,7 +10,7 @@
 
 		<link rel="stylesheet" type="text/css">
 		<style type="text/css">
-				body {padding:0; margin:0; font-family: “Helvetica Neue”, Arial, sans-serif; background-color:#ffffff; color:#000;}
+				body {padding:0; margin:0; font-family: “proxima-soft”, Arial, sans-serif; background-color:#ffffff; color:#000;}
 				#header {background-color: #EC3824; }	
 		#header-content {padding:8px 8px;}	
 		#header-content h1 {margin:0; padding:0; float:left;}
@@ -38,6 +38,9 @@ a {color:#000; text-decoration: none;}
 		}
 
 		</style>
+
+		<script src="https://use.typekit.net/ttt1poq.js"></script>
+		<script>try{Typekit.load({ async: true });}catch(e){}</script>
 
 	</head>
 
@@ -216,7 +219,7 @@ a {color:#000; text-decoration: none;}
 			Handlebars.registerHelper("showDeal", function(pricepromotion, index, avgPrice, promoPriceDescription){
 				//var res = location.split("/");
 				//var url = imageUrl.replace("_b.jpg", "_l.jpg");
-				console.log(pricepromotion);
+				//console.log(pricepromotion);
 				var dealType = ""
 
 				if (index == 2 || index == 6 || index == 10) {
