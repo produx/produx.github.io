@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+
+		<style type="text/css">
+			@media screen and (min-width: 600px) {}
+			@media screen and (min-width: 750px) {}
+			@media screen and (min-width: 850px) {}
+			@media screen and (min-width: 960px) {}
+			@media screen and (min-width: 1160px) {}
+
+			body {margin:50px; font-family: Helvetica}
+
+			.row {white-space: nowrap; padding:30px 0;}
+
+			.block {display:inline-block; vertical-align: top; margin-right:60px;}
+			
+			.block .proposed {margin-bottom:20px;}
+			.block h4 {margin:0 0 8px 0; padding:0; font-size: 14px; text-transform: uppercase; color:#999;}
+			.block .proposed  h4 {color:#000;}
+			.block .proposed .hex {display:inline-block; width:30px; height:30px; border-radius: 4px; vertical-align: top;}
+			.block .proposed .value {display:inline-block; vertical-align: top; font-weight: bold; font-size: 20px; padding-top:4px;}
+
+
+			.block .hds { margin-bottom:12px}
+			.block .hds .hex {display:inline-block; width:30px; height:30px; border-radius: 4px; vertical-align: top;}
+			.block .hds .value {display:inline-block; vertical-align: top;  font-size: 20px; padding-top:4px;}
+
+			.block .dio {}
+			.block .dio ul {margin:0; padding:0;}
+			.block .dio ul li {list-style-type: none; margin-bottom: 8px;}
+			.block .dio .hex {display:inline-block; width:30px; height:20px; border-radius: 4px; vertical-align: top;}
+			.block .dio .value {display:inline-block; vertical-align: top; font-size: 13px; padding-top:4px;}
+
+		</style>
+
+	</head>
+
+	<body>
+		
+		<div id="header"></div>
+
+		<div class="row">
+			<div class="block">
+				<div class="proposed">
+					<h4>Proposed</h4>
+					<div class="hex" style="background-color:#d41200"></div>
+					<div class="value">$hds-brand-1 - #d41200</div>
+				</div>
+				<div class="hds">
+					<h4>HDS (current)</h4>
+					<div class="hex" style="background-color:#d41200"></div>
+					<div class="value">$hds-brand-1 - #d41200</div>
+				</div>
+				<div class="dio">
+					<h4>CI MAPPED COLOURS</h4>
+					<ul>
+						<li>
+							<div class="hex" style="background-color:#d41200"></div>
+							<div class="value">$colour-brand - #d41200</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#d41200"></div>
+							<div class="value">$colour-price - #d41200</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#d41200"></div>
+							<div class="value">$colour-brand-gradient-bottom - #d41200</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#f61800"></div>
+							<div class="value">$colour-message-overlay-text - #f61800</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#f61800"></div>
+							<div class="value">$colour-star - #f61800</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#f61800"></div>
+							<div class="value">$colour-brand-gradient-top - #f61800</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="block">
+				<div class="proposed">
+					<h4>Proposed</h4>
+					<div class="hex" style="background-color:#9c0c1e"></div>
+					<div class="value">$hds-brand-2 - #9c0c1e</div>
+				</div>
+				<div class="hds">
+				<h4>HDS (current)</h4>
+					<div class="hex" style="background-color:#9c0c1e"></div>
+					<div class="value">$hds-brand-2 - #9c0c1e</div>
+				</div>
+				<div class="dio">
+				<h4>CI MAPPED COLOURS</h4>
+					<ul>
+						<li>
+							<div class="hex" style="background-color:#9c0c1e"></div>
+							<div class="value">$colour-brand-dark - #9c0c1e</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#9c0c1e"></div>
+							<div class="value">$colour-header-pos-toggle-hover-active - #9c0c1e</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#9c0c1e"></div>
+							<div class="value">$colour-header-popup-menu-hover-bg - #9c0c1e</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#9c0c1e"></div>
+							<div class="value">$colour-header-bottom - #9c0c1e</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="row">
+
+		<div class="block">
+				<div class="proposed">
+					<h4>Proposed</h4>
+					<div class="hex" style="background-color:#000000"></div>
+					<div class="value">$hds-arch-0 - #000000</div>
+				</div>
+				<div class="hds">
+					<h4>HDS (current)</h4>
+					<div class="hex" style="background-color:#ffffff"></div>
+					<div class="value" style="font-style:italic;">No HDS equivalent</div>
+				</div>
+				<div class="dio">
+					<h4>CI MAPPED COLOURS</h4>
+					<ul>
+						<li>
+							<div class="hex" style="background-color:#000000"></div>
+							<div class="value">$colour-change-search - #000000</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#000000"></div>
+							<div class="value">$colour-sqm-inline-border - #000000</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#000000"></div>
+							<div class="value">$colour-black - #000000</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#000000"></div>
+							<div class="value">$colour-sort-text - #000000</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			
+
+			<div class="block">
+				<div class="proposed">
+					<h4>Proposed</h4>
+					<div class="hex" style="background-color:#333333"></div>
+					<div class="value">$hds-arch-1 - #333333</div>
+				</div>
+				<div class="hds">
+					<h4>HDS (current)</h4>
+					<div class="hex" style="background-color:#333333"></div>
+					<div class="value">$hds-arch-1 - #333333</div>
+				</div>
+				<div class="dio">
+					<h4>CI MAPPED COLOURS</h4>
+					<ul>
+						<li>
+							<div class="hex" style="background-color:#333333"></div>
+							<div class="value">$colour-headings - #333333</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#333333"></div>
+							<div class="value">$colour-header-menu-bg - #333333</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#333333"></div>
+							<div class="value">$colour-daterange-text - #333333</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#333333"></div>
+							<div class="value">$colour-header-pos-toggle-bg - #333333</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#222222"></div>
+							<div class="value">$colour-header-menu-background-hover - #222222</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="block">
+				<div class="proposed">
+					<h4>Proposed</h4>
+					<div class="hex" style="background-color:#4e4e4e"></div>
+					<div class="value">$hds-arch-2 - #4e4e4e</div>
+				</div>
+				<div class="hds">
+					<h4>HDS (current)</h4>
+					<div class="hex" style="background-color:#5B5B5B"></div>
+					<div class="value">$hds-arch-2 - #5B5B5B</div>
+				</div>
+				<div class="dio">
+					<h4>CI MAPPED COLOURS</h4>
+					<ul>
+						<li>
+							<div class="hex" style="background-color:#4e4e4e"></div>
+							<div class="value">$colour-text - #4e4e4e</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#4e4e4e"></div>
+							<div class="value">$colour-footer-ml-bg - #4e4e4e</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#4e4e4e"></div>
+							<div class="value">$colour-header-popup-menu-list-background - #4e4e4e</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#4e4e4e"></div>
+							<div class="value">$colour-text-sqm - #4e4e4e</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="block">
+				<div class="proposed">
+					<h4>Proposed</h4>
+					<div class="hex" style="background-color:#7e7e7e"></div>
+					<div class="value">$hds-arch-3 - #7e7e7e</div>
+				</div>
+				<div class="hds">
+					<h4>HDS (current)</h4>
+					<div class="hex" style="background-color:#848484"></div>
+					<div class="value">$hds-arch-3 - #848484</div>
+				</div>
+				<div class="dio">
+					<h4>CI MAPPED COLOURS</h4>
+					<ul>
+						<li>
+							<div class="hex" style="background-color:#7e7e7e"></div>
+							<div class="value">$colour-grey-darkish - #7e7e7e</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#7e7e7e"></div>
+							<div class="value">$colour-header-popup-active-background - #7e7e7e</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#7e7e7e"></div>
+							<div class="value">$colour-tooltip-border - #7e7e7e</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#7e7e7e"></div>
+							<div class="value">$colour-sqm-datepicker- #7e7e7e</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#7e7e7e"></div>
+							<div class="value">$colour-tool-tip-text - #7e7e7e</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="block">
+				<div class="proposed">
+					<h4>Proposed</h4>
+					<div class="hex" style="background-color:#a5a5a5"></div>
+					<div class="value">$hds-arch-4 - #a5a5a5</div>
+				</div>
+				<div class="hds">
+					<h4>HDS (current)</h4>
+					<div class="hex" style="background-color:#adadad"></div>
+					<div class="value">$hds-arch-4 - #adadad</div>
+				</div>
+				<div class="dio">
+					<h4>CI MAPPED COLOURS</h4>
+					<ul>
+						<li>
+							<div class="hex" style="background-color:#a5a5a5"></div>
+							<div class="value">$colour-daterange-disabled - #a5a5a5</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#a5a5a5"></div>
+							<div class="value">$colour-gray-light - #a5a5a5</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="block">
+				<div class="proposed">
+					<h4>Proposed</h4>
+					<div class="hex" style="background-color:#cccccc"></div>
+					<div class="value">$hds-arch-5 - #cccccc</div>
+				</div>
+				<div class="hds">
+					<h4>HDS (current)</h4>
+					<div class="hex" style="background-color:#D6D6D6"></div>
+					<div class="value">$hds-arch-5 - #D6D6D6</div>
+				</div>
+				<div class="dio">
+					<h4>CI MAPPED COLOURS</h4>
+					<ul>
+						<li>
+							<div class="hex" style="background-color:#dcdcdc"></div>
+							<div class="value">$colour-grey-dark - #dcdcdc</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#dcdcdc"></div>
+							<div class="value">$colour-footer-ml-text - #dcdcdc</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#cccccc"></div>
+							<div class="value">$colour-grey-mid - #cccccc</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#cccccc"></div>
+							<div class="value">$colour-sqm-border - #cccccc</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#cccccc"></div>
+							<div class="value">$colour-sqm-border-top - #cccccc</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#cccccc"></div>
+							<div class="value">$colour-sort-border - #cccccc</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#cccccc"></div>
+							<div class="value">$colour-border-container - #cccccc</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#cccccc"></div>
+							<div class="value">$colour-star-inactive - #cccccc</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#cccccc"></div>
+							<div class="value">$colour-form-border - #cccccc</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#cccccc"></div>
+							<div class="value">$colour-card-border - #cccccc</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#cccccc"></div>
+							<div class="value">$colour-smallprint- #cccccc</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#cccccc"></div>
+							<div class="value">$colour-pdp-room-rates-border - #cccccc</div>
+						</li>
+					</ul>
+
+				</div>
+			</div>
+
+			<div class="block">
+				<div class="proposed">
+					<h4>Proposed</h4>
+					<div class="hex" style="background-color:#e8e8e8"></div>
+					<div class="value">$hds-arch-6 - #e8e8e8</div>
+				</div>
+				<div class="hds">
+					<h4>HDS (current)</h4>
+					<div class="hex" style="background-color:#EAEAEA"></div>
+					<div class="value">$hds-arch-6 - #EAEAEA</div>
+				</div>
+				<div class="dio">
+					<h4>CI MAPPED COLOURS</h4>
+					<ul>
+						<li>
+							<div class="hex" style="background-color:#e8e8e8"></div>
+							<div class="value">$colour-grey-lighter - #e8e8e8</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#e8e8e8"></div>
+							<div class="value">$colour-trust-you-bar-background - #e8e8e8</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="row">
+			<div class="block">
+				<div class="proposed">
+					<h4>Proposed</h4>
+					<div class="hex" style="background-color:#e5e3db"></div>
+					<div class="value">$hds-canvas-1 - #e5e3db</div>
+				</div>
+				<div class="hds">
+					<h4>HDS (current)</h4>
+					<div class="hex" style="background-color:#E8D9BB"></div>
+					<div class="value">$hds-canvas-1 - #E8D9BB</div>
+				</div>
+				<div class="dio">
+					<h4>CI MAPPED COLOURS</h4>
+					<ul>
+						<li>
+							<div class="hex" style="background-color:#e5e3db"></div>
+							<div class="value">$colour-background-dark - #e5e3db</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#e5e3db"></div>
+							<div class="value">$colour-overlay-title-background - #e5e3db</div>
+						</li>
+
+						<li>
+							<div class="hex" style="background-color:#e5e3db"></div>
+							<div class="value">$colour-body-homepage - #e5e3db</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#e5e3db"></div>
+							<div class="value">$colour-pdp-rooms-rates-header-background - #e5e3db</div>
+						</li>
+
+						<li>
+							<div class="hex" style="background-color:#dae9cc"></div>
+							<div class="value">$colour-nudge-background - #dae9cc</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="block">
+				<div class="proposed">
+					<h4>Proposed</h4>
+					<div class="hex" style="background-color:#f5f4f0"></div>
+					<div class="value">$hds-canvas-2 - #f5f4f0</div>
+				</div>
+				<div class="hds">
+					<h4>HDS (current)</h4>
+					<div class="hex" style="background-color:#F9F5EE"></div>
+					<div class="value">$hds-canvas-2 - #F9F5EE</div>
+				</div>
+				<div class="dio">
+					<h4>CI MAPPED COLOURS</h4>
+					<ul>
+						<li>
+							<div class="hex" style="background-color:#f5f4f0"></div>
+							<div class="value">$colour-background-light - #f5f4f0</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#f5f4f0"></div>
+							<div class="value">$colour-sqm-overlay-background - #f5f4f0</div>
+						</li>
+
+						<li>
+							<div class="hex" style="background-color:#f5f4f0"></div>
+							<div class="value">$colour-pdp-description-background-end - #f5f4f0</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#f5f4f0"></div>
+							<div class="value">$colour-sqm-background-horizontal - #f5f4f0</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#f5f4f0"></div>
+							<div class="value">$colour-header-pos-panel-background - #f5f4f0</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#f5f4f0"></div>
+							<div class="value">$colour-card-background - #f5f4f0</div>
+						</li>
+
+						<li>
+							<div class="hex" style="background-color:#f5f4f0"></div>
+							<div class="value">$colour-sort-bg-hover - #f5f4f0</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#f5f4f0"></div>
+							<div class="value">$colour-footer-bg - #f5f4f0</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="block">
+				<div class="proposed">
+					<h4>Proposed</h4>
+					<div class="hex" style="background-color:#eae8e0"></div>
+					<div class="value">$hds-canvas-3 - #eae8e0</div>
+				</div>
+				<div class="hds">
+					<h4>HDS (current)</h4>
+					<div class="hex" style="background-color:#fff"></div>
+					<div class="value" style="font-style:italic;">No HDS equivalent</div>
+				</div>
+				<div class="dio">
+					<h4>CI MAPPED COLOURS</h4>
+					<ul>
+						<li>
+							<div class="hex" style="background-color:#eae8e0"></div>
+							<div class="value">$colour-sqm-background - #eae8e0</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#eae8e0"></div>
+							<div class="value">$colour-background - #eae8e0</div>
+						</li>
+
+						<li>
+							<div class="hex" style="background-color:#eae8e0"></div>
+							<div class="value">$colour-popupmenu-background - #eae8e0</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#eae8e0"></div>
+							<div class="value">$colour-header-pos-location-background - #eae8e0</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#eae8e0"></div>
+							<div class="value">$colour-search-header - #eae8e0</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="block">
+				<div class="proposed">
+					<h4>Proposed</h4>
+					<div class="hex" style="background-color:#026dc5"></div>
+					<div class="value">$hds-button-1 - #026dc5</div>
+				</div>
+				<div class="hds">
+					<h4>HDS (current)</h4>
+					<div class="hex" style="background-color:#026dc5"></div>
+					<div class="value">$hds-button-1 - #026dc5</div>
+				</div>
+				<div class="dio">
+					<h4>CI MAPPED COLOURS</h4>
+					<ul>
+						<li>
+							<div class="hex" style="background-color:#026dc5"></div>
+							<div class="value">$colour-link - #026dc5</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#026dc5"></div>
+							<div class="value">$colour-cta-theme-border - #026dc5</div>
+						</li>
+
+						<li>
+							<div class="hex" style="background-color:#026dc5"></div>
+							<div class="value">$colour-daterange-selected-date-bg - #026dc5</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#026dc5"></div>
+							<div class="value">$colour-cta-theme-processing-border - #026dc5</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#026dc5"></div>
+							<div class="value">$colour-cta-theme-processing-bg - #026dc5</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#026dc5"></div>
+							<div class="value">$colour-cta-theme-bg - #026dc5</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="block">
+				<div class="proposed">
+					<h4>Proposed</h4>
+					<div class="hex" style="background-color:#003789"></div>
+					<div class="value">$hds-button-2 - #003789</div>
+				</div>
+				<div class="hds">
+					<h4>HDS (current)</h4>
+					<div class="hex" style="background-color:#003789"></div>
+					<div class="value">$hds-button-2 - #003789</div>
+				</div>
+				<div class="dio">
+					<h4>CI MAPPED COLOURS</h4>
+					<ul>
+						<li>
+							<div class="hex" style="background-color:#003789"></div>
+							<div class="value">$colour-link-visited - #003789</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#003789"></div>
+							<div class="value">$colour-cta-theme-hover-border - #003789</div>
+						</li>
+
+						<li>
+							<div class="hex" style="background-color:#003789"></div>
+							<div class="value">$colour-best-price-guarantee - #003789</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#003789"></div>
+							<div class="value">$colour-link-active - #003789</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#003789"></div>
+							<div class="value">$colour-cta-theme-hover-bg - #003789</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#4b0157"></div>
+							<div class="value">* $colour-popular-destinations-apac - #4b0157</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			
+
+			
+
+			
+
+		</div>
+
+
+
+		<div class="row">
+			<div class="block">
+				<div class="proposed">
+					<h4>Proposed</h4>
+					<div class="hex" style="background-color:#3e6e00"></div>
+					<div class="value">$hds-success-1 - #3e6e00</div>
+				</div>
+				<div class="hds">
+				<h4>HDS (current)</h4>
+					<div class="hex" style="background-color:#2b812b"></div>
+					<div class="value">$hds-success-1 - #2b812b6</div>
+				</div>
+				<div class="dio">
+				<h4>CI MAPPED COLOURS</h4>
+					<ul>
+						<li>
+							<div class="hex" style="background-color:#028017"></div>
+							<div class="value">$colour-nudge-title - #028017</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#3e6e00"></div>
+							<div class="value">$colour-assurance-msg - #3e6e00</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#458f00"></div>
+							<div class="value">$colour-deals-discounts - #458f00</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#855d16"></div>
+							<div class="value">* $colour-neutral-msg-text - #855d16</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#ceb26f"></div>
+							<div class="value">* $colour-neutral-msg-border - #ceb26f</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="block">
+				<div class="proposed">
+					<h4>Proposed</h4>
+					<div class="hex" style="background-color:#b5d299"></div>
+					<div class="value">$hds-success-2 - #b5d299</div>
+				</div>
+				<div class="hds">
+				<h4>HDS (current)</h4>
+					<div class="hex" style="background-color:#C1DFC1"></div>
+					<div class="value">$hds-success-2 - #C1DFC1</div>
+				</div>
+				<div class="dio">
+				<h4>CI MAPPED COLOURS</h4>
+					<ul>
+						<li>
+							<div class="hex" style="background-color:#b5d299"></div>
+							<div class="value">$colour-assurance-msg-border - #b5d299</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="block">
+				<div class="proposed">
+					<h4>Proposed</h4>
+					<div class="hex" style="background-color:#ffd542"></div>
+					<div class="value">$hds-alert-1 - #b5d299</div>
+				</div>
+				<div class="hds">
+				<h4>HDS (current)</h4>
+				
+					<div class="hex" style="background-color:#ffd542"></div>
+					<div class="value">$hds-alert-1 - #FFE066</div>
+				</div>
+				<div class="dio">
+				<h4>CI MAPPED COLOURS</h4>
+					<ul>
+						<li>
+							<div class="hex" style="background-color:#ffd542"></div>
+							<div class="value">$colour-header-loggedin-user - #ffd542</div>
+						</li>
+						
+						<li>
+							<div class="hex" style="background-color:#ffd542"></div>
+							<div class="value">$colour-cta-processing-urgency-multiuse - #ffd542</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#ffd542"></div>
+							<div class="value">$colour-form-focus-bg - #ffd542</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#ffff99"></div>
+							<div class="value">$colour-loading-highlight-multiuse - #ffff99</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="block">
+				<div class="proposed">
+					<h4>Proposed</h4>
+					<div class="hex" style="background-color:#fefdca"></div>
+					<div class="value">$hds-alert-2 - #fefdca</div>
+				</div>
+				<div class="hds">
+					<h4>HDS (current)</h4>
+					<div class="hex" style="background-color:#FFF4CC"></div>
+					<div class="value">$hds-alert-2 - #FFF4CC</div>
+				</div>
+				<div class="dio">
+				<h4>CI MAPPED COLOURS</h4>
+					<ul>
+						<li>
+							<div class="hex" style="background-color:#fefdca"></div>
+							<div class="value">$colour-message-notice - #fefdca</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#fefdca"></div>
+							<div class="value">$colour-message-notice - #fefdca</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#efffc5"></div>
+							<div class="value">* $colour-assurance-msg-text - #efffc5</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="block">
+				<div class="proposed">
+					<h4>Proposed</h4>
+					<div class="hex" style="background-color:#f6d0cc"></div>
+					<div class="value">$hds-fault-2 - #f6d0cc</div>
+				</div>
+				<div class="hds">
+					<h4>HDS (current)</h4>
+					<div class="hex" style="background-color:#F4D6D6"></div>
+					<div class="value">$hds-fault-2 - #F4D6D6</div>
+				</div>
+				<div class="dio">
+				<h4>CI MAPPED COLOURS</h4>
+					<ul>
+						<li>
+							<div class="hex" style="background-color:#f6d0cc"></div>
+							<div class="value">$colour-form-error-bg - #f6d0cc</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="row">
+
+			<div class="block">
+				<div class="proposed">
+					<h4>Proposed</h4>
+					<div class="hex" style="background-color:#30a0fd"></div>
+					<div class="value">$hds-neutral-2 - #30a0fd</div>
+				</div>
+				<div class="hds">
+					<h4>HDS (current)</h4>
+					<div class="hex" style="background-color:#027FE5"></div>
+					<div class="value">$hds-neutral-2 - #027FE5</div>
+				</div>
+				<div class="dio">
+				<h4>CI MAPPED COLOURS</h4>
+					<ul>
+						<li>
+							<div class="hex" style="background-color:#30a0fd"></div>
+							<div class="value">$colour-cta-border-bottom - #30a0fd</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#30a0fd"></div>
+							<div class="value">$colour-cta-bg - #30a0fd</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="block">
+				<div class="proposed">
+					<h4>Proposed</h4>
+					<div class="hex" style="background-color:#2989d7"></div>
+					<div class="value">$hds-neutral-3 - #2989d7</div>
+				</div>
+				<div class="hds">
+					<h4>HDS (current)</h4>
+					<div class="hex" style="background-color:#3384d6"></div>
+					<div class="value">$hds-neutral-3 - #3384d6</div>
+				</div>
+				<div class="dio">
+				<h4>CI MAPPED COLOURS</h4>
+					<ul>
+						<li>
+							<div class="hex" style="background-color:#2989d7"></div>
+							<div class="value">$colour-urgency-popup-text-multiuse - #2989d7</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#2989d7"></div>
+							<div class="value">$colour-notification-cta-bottom - #2989d7</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="block">
+				<div class="proposed">
+					<h4>Proposed</h4>
+					<div class="hex" style="background-color:#95cffe"></div>
+					<div class="value">$hds-neutral-3 - #95cffe</div>
+				</div>
+				<div class="hds">
+					<h4>HDS (current)</h4>
+					<div class="hex" style="background-color:#e2eff8"></div>
+					<div class="value">$hds-neutral-4 - #e2eff8</div>
+				</div>
+				<div class="dio">
+				<h4>CI MAPPED COLOURS</h4>
+					<ul>
+						<li>
+							<div class="hex" style="background-color:#95cffe"></div>
+							<div class="value">$colour-urgency-popup-text-multiuse - #95cffe</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#95cffe"></div>
+							<div class="value">$colour-notification-cta-bottom - #95cffe</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#95cffe"></div>
+							<div class="value">$colour-notification-cta-bottom - #95cffe</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#eaf5fa"></div>
+							<div class="value">$colour-value-adds-bg - #eaf5fa</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#bbe9ff"></div>
+							<div class="value">$colour-themed-destinations-apac-multiuse - #bbe9ff</div>
+						</li>
+						<li>
+							<div class="hex" style="background-color:#bbe9ff"></div>
+							<div class="value">$colour-cta-border-local-deals-button-multiuse - #bbe9ff</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+		<!-- Scripts -->
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<script type="text/javascript">
+
+			// run things on page load
+			$(function(){
+
+			});
+
+		</script>
+	</body>
+</html>
