@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+		<script src="https://use.typekit.net/plt6aug.js"></script>
+		<script>try{Typekit.load({ async: true });}catch(e){console.log(e)}</script>
+
+		<!-- style sheets -->
+
+		<style type="text/css">
+			@media screen and (min-width: 600px) {}
+			@media screen and (min-width: 750px) {}
+			@media screen and (min-width: 850px) {}
+			@media screen and (min-width: 960px) {}
+			@media screen and (min-width: 1160px) {}
+
+			body {margin:0; padding:0; font-family: "proxima-soft", arial; background-color: #efe8d8}
+			a {text-decoration:none; color:#000;}
+
+
+			#header-wrapper, #nav-wrapper, #search-wrapper, #content-wrapper {max-width:1260px; margin:0 auto;}
+
+			#header {min-height:56px; background-color:#e10000;}
+			#nav {min-height:32px; background-color:#333;}
+			#search {min-height:82px; background-color:#efe8d8;}
+			#search #map {display:inline-block; width:225px; vertical-align:top;}
+			#search #map img {border:solid 4px #fff; margin-top:18px;}
+			#search #query {display:inline-block; box-sizing: border-box; padding:20px 0 0 36px; vertical-align: top}
+			#search #query h1 {margin:0; padding:0; font-size:24px; line-height: 24px; text-transform: uppercase}
+			#search #query div {font-size:20px;}
+
+			#content-wrapper {position:relative;}
+			#filter-col {width:225px; position:absolute; top:0; left:0; margin-top:20px;}
+			#filter-col h3 {font-size: 18px; line-height: 20px; margin:0; padding:0; text-transform: uppercase;}
+			#filter-col .amount {font-size: 14px;}
+			#filter-col .filter-block {margin-top: 20px}
+			#filter-col .filter-block ul {list-style-type: none; margin:0 0 0 0; padding:0;}
+			#filter-col .filter-block label {font-weight: bold; text-transform: uppercase; display: block; margin-bottom: 4px}
+			#filter-col .filter-block input[type="text"] {font-size: 14px; padding:2px 4px; font-family: "proxima-soft", arial; line-height: 14px; box-sizing: border-box; width:190px;}
+			.range {position:relative; height:26px;}
+			.range .bar {height:4px; background-color: #e10000; position:absolute; top:12px; left:4px; right:4px;}
+			.range .handle {width:26px; height:26px; border-radius:50%; border:solid 2px #e10000; background-color:#fff;}
+			.range .left {position:absolute; top:0; left:0;}
+			.range .right {position:absolute; top:0; right:0;}
+
+			#results-col {width:calc(100% - 245px); margin-left:245px; }
+
+
+			input[type="checkbox"] {    -webkit-appearance: checkbox;
+    box-sizing: border-box;}
+
+
+		</style>
+
+	</head>
+
+	<body>
+		
+		<div id="header">
+			<div id="header-wrapper">
+				Header
+			</div>
+		</div>
+		<div id="nav">
+			<div id="nav-wrapper">
+				Nav
+			</div>
+		</div>
+		<div id="search">
+			<div id="search-wrapper">
+				<div id="map">
+					<img src="https://uk.hotels.com/da/assets/s/63.0.7941/images/themes/red/pages/sha/map.png" />
+				</div>
+				<div id="query">
+					<h1>New York, New York, United States of America</h1>
+					<div>Mon 28 - Tue 29 August 2017, 1 night, 1 room, 2 adults</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="content-wrapper">
+			<div id="filter-col">
+				<h3>Narrow your search</h3>
+				<div class="amount">1,196 hotels and holiday rentals</div>
+				<div class="filter-block">
+					<label>Name contains</label>
+					<input type="text" name="hotel" placeholder="Hotel name...">
+				</div>
+				<div class="filter-block">
+					<label>Price</label>
+					<div class="range">
+						<div class="bar"></div>
+						<div class="handle left"></div>
+						<div class="handle right"></div>
+					</div>
+				</div>
+				<div class="filter-block">
+					<label>Star rating</label>
+					<ul>
+						<li><input type="checkbox" /></li>
+						<li><input type="checkbox" /></li>
+						<li><input type="checkbox" /></li>
+						<li><input type="checkbox" /></li>
+						<li><input type="checkbox" /></li>
+					</ul>
+				</div>
+				<div class="filter-block">
+					<label>Guest rating</label>
+					<div class="range">
+						<div class="bar"></div>
+						<div class="handle left"></div>
+						<div class="handle right"></div>
+					</div>
+				</div>
+				<div class="filter-block">
+					<label>Neighbourhoods</label>
+				</div>
+				<div class="filter-block">
+					<label>Landmarks</label>
+				</div>
+				<div class="filter-block">
+					<label>Accomodation type</label>
+				</div>
+				<div class="filter-block">
+					<label>Facilities</label>
+				</div>
+				<div class="filter-block">
+					<label>Themes / types</label>
+				</div>
+				<div class="filter-block">
+					<label>Accessibility features</label>
+				</div>
+			</div>
+			<div id="results-col">
+				
+				<div id="hotel-list"></div>
+				
+
+
+				<script id="hotel-card-template" type="text/x-handlebars-template">
+ 					{{#each hotels}}
+ 					<div class="hotel-card">
+ 						<div class="info">
+ 							<div class="name"><a href="#">{{hotelName}}</a></div>
+ 							<div class="address">{{address1}}, {{locality}}, {{postalCode}}, {{country}}</div>
+ 							
+ 							<div class="thumbnail">
+ 								<img src="{{thumbnailUrl imageUrl}}" />
+ 							</div>
+ 							<div class="location">
+ 								<div class="neighbourhood">{{neighbourhood location}}</div>
+ 								<ul>
+ 									<li>0.8 miles from City Center</li>
+ 									<li>0.8 miles from Times Square</li>
+ 								</ul>
+ 								<div class="rewards">Collect nights</div>
+ 							</div>
+ 							<div class="review">
+ 								<div class="qual-score">{{qualitativeBadgeText}} {{guestReviewRating}}<span>/5</span></div>
+ 								<div class="num-reviews"><a href="#">{{numberOfGuestReviews}} Hotels.com guest reviews</a></div>
+ 								<div class="ta">
+ 									<img src="http://www.tripadvisor.com/img/cdsi/img2/ratings/traveler/4.5-MCID-5.png">
+ 									<div style="font-size: 12px; line-height: 12px">1234 reviews</div>
+ 								</div>
+ 							</div>
+ 							
+ 						</div>
+ 						<div class="price">
+ 							{{#if promoPriceDetails}}
+									{{#if promoPriceDescription.length}}
+       	 								{{showDeal promoPriceDetails @index avgPrice promoPriceDescription}}
+       	 							{{else}}
+       	 								<div class="standard">{{promoPriceDetails.prefix}}{{promoPriceDetails.formattedValue}}</div>
+       	 							{{/if}}
+       	 				
+       	 						{{else}}
+       	 							<div class="standard">{{avgPrice}}</div>
+       	 						{{/if}}
+       	 						
+       	 						<div class="terms">price for 1 night</div>
+								<div class="terms">including taxes & fees</div>
+								<div class="terms">+ $25 charges due at hotel</div>
+
+								<button>Choose room</button>
+ 						</div>
+ 					</div>
+ 					{{/each}}
+ 				</script>
+
+ 				<style type="text/css">
+ 					#hotel-list {padding-top:20px;}
+ 					.hotel-card {margin-bottom:12px; border:solid 1px #efe8d8; background-color:#fff; box-sizing: border-box; padding:2px 3px;}
+ 					.hotel-card .info {background-color:#ef/e8d8; padding:16px; width:calc(100% - 245px); display:inline-block; vertical-align: top; box-sizing: border-box;}
+ 					.name a {text-transform: uppercase; color:#000; font-weight: bold}
+ 					.address {font-size:12px; margin-bottom: 8px}
+ 					.thumbnail {display:inline-block; vertical-align: top;}
+ 					.thumbnail img {}
+ 					.location {display: inline-block; vertical-align:top; width:246px; padding-left:8px; }
+ 					.location .neighbourhood {font-size: 14px; line-height: 16px; margin-bottom: 4px}
+ 					.location ul {padding:0; margin:0 0 0 17px;}
+ 					.location ul li {font-size:12px;}
+ 					.rewards {font-weight: bold; margin-top: 8px; font-size: 14px; color:#192e59;}
+ 					
+ 					.review {display: inline-block; vertical-align:top; width:200px; text-align:center; height:120px;}
+ 					.qual-score {font-size: 20px; font-weight: bold; line-height: 20px; margin-bottom:4px;}
+ 					.num-reviews {font-size: 12px; line-height: 14px;}
+ 					.ta {margin-top:12px;}
+
+ 					.hotel-card .price {text-align: right; display:inline-block; width:237px; vertical-align: top; box-sizing: border-box; padding:16px;}
+ 					.total {font-size:28px; color:#E10000; font-weight: bold;}
+ 					.strikethrough {font-size: 14px; text-decoration: line-through;}
+ 					.terms {font-size:12px; line-height: 16px;}
+ 					.special-deal .label {color:#fff; background-color:#E10000; display: inline-block; padding:4px 8px; font-size: 14px; line-height: 14px; font-weight: bold; margin-left:8px;}
+					.secret-price .label {color:#192e59; background-color:#D1E8E3; display: inline-block; padding:4px 8px; font-size: 14px; line-height: 14px;}
+					.secret-price .total {color:#192e59; font-weight: bold}
+					.standard {font-size:28px; font-weight: bold}
+					button {background-color: #e10000; color:#fff; border:0; font-size: 16px; font-family: "proxima-soft", arial; margin-top:16px; font-weight: bold; border-radius:4px; padding:4px 12px;}
+
+ 				</style>
+
+			</div>	
+		</div>
+
+
+
+		<!-- Scripts -->
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="handlebars.js"></script>
+
+		<script type="text/javascript">
+
+			// run things on page load
+			$(function(){
+				$.getJSON( "ny-json.js", function(data){
+					console.log(data);
+					displayHotels(data);
+				});
+
+				var displayHotels = function(data){
+					// get hotel data
+					var hotels = data.result;
+					console.log(hotels);
+				
+					// attach to handle bar template
+        			var source   = $("#hotel-card-template").html();
+  					var template = Handlebars.compile(source);
+  					$("#hotel-list").html(template(hotels));
+				}
+			});
+
+			Handlebars.registerHelper("thumbnailUrl", function(imageUrl){
+				var url = imageUrl.replace("_b.jpg", "_l.jpg");
+				return url;
+			});
+
+			Handlebars.registerHelper("neighbourhood", function(location){
+				//var url = imageUrl.replace("_b.jpg", "_l.jpg");
+				var n = location.indexOf("/"); 
+				var nHood = location.substring(n, 0) 
+				return nHood;
+			});
+
+			Handlebars.registerHelper("showDeal", function(pricepromotion, index, avgPrice, promoPriceDescription){
+				//var res = location.split("/");
+				//var url = imageUrl.replace("_b.jpg", "_l.jpg");
+				//console.log(pricepromotion);
+				var dealType = ""
+
+				if (index == 2 || index == 6 || index == 10) {
+					dealType = '<div class="secret-price">'
+					+ '<div><div class="label">Secret Price</div></div>'
+					+ '<span class="strikethrough">' + avgPrice + '</span> '
+					+ '<span class="total">' + pricepromotion.prefix + '' + pricepromotion.formattedValue + '</span>'
+					+ '</div>'
+				} else {
+					dealType = '<div class="special-deal">'
+					+ '<div><div class="label">Special deal</div></div>'
+					+ '<span class="strikethrough">' + avgPrice + '</span> '
+					+ '<span class="total">' + pricepromotion.prefix + '' + pricepromotion.formattedValue + '</span>'
+					+ '</div>'
+
+				}
+
+				return new Handlebars.SafeString(
+    				dealType
+  				);
+			});
+
+		</script>
+	</body>
+</html>
