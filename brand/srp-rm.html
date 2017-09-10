@@ -21,18 +21,29 @@
 			a {text-decoration:none; color:#1a70b7;}
 
 
-			#header-wrapper, #nav-wrapper, #search-wrapper, #content-wrapper {max-width:1260px; margin:0 auto;}
+			#header-wrapper, #nav-wrapper, #search-wrapper, #content-wrapper, #sqm-wrapper {max-width:1260px; margin:0 auto;}
 
 			#header {min-height:56px; background-color:#dd2d31;}
 			#nav {min-height:32px; background-color:#af1d1f;}
 			#nav-wrapper ul {overflow:hidden; list-style-type: none;margin:0; padding:0;}
 			#nav-wrapper ul li {float:left; color:#fff; font-size:13px; margin-right:20px; padding:8px 0;}
-			#search {min-height:88px; background-color:#f5f5f5;}
+			
+
+			#search {min-height:88px; background-color:#fff;}
 			#search #map {display:inline-block; width:225px; vertical-align:top;}
 			#search #map img {border:solid 4px #fff; margin-top:18px; width:225px;}
 			#search #query {display:inline-block; box-sizing: border-box; padding:20px 0 0 28px; vertical-align: top}
 			#search #query h1 {margin:0; padding:0; font-size:24px; margin-bottom:4px;}
 			#search #query div {font-size:16px;}
+
+			#sqm {background-color:#f5f5f5; padding:8px 0; overflow: hidden;}
+			#sqm .field {background-color:#fff; border:solid 1px #dddddd; float:left;  padding:8px; border-radius:4px;}
+			#sqm .field label {display:block; font-size: 13px; margin-bottom:4px;}
+			#sqm .field input[type="text"] {border:0; font-size:16px; width:100%;}
+
+			#sqm #destination {width:350px; margin-right:8px;}
+			#sqm #checkin {margin-right:0px; border-top-right-radius: 0; border-bottom-right-radius: 0;}
+			#sqm #checkout {margin-right:8px; border-top-left-radius: 0; border-bottom-left-radius: 0; border-left:0;}
 
 			#content-wrapper {position:relative;}
 			#filter-col {width:225px; position:absolute; top:0; left:0; margin-top:20px;}
@@ -50,8 +61,11 @@ box-shadow: 1px 1px 1px 0px rgba(82,82,82,1);}
 			.range .left {position:absolute; top:0; left:0;}
 			.range .right {position:absolute; top:0; right:0;}
 
-			#results-col {width:calc(100% - 255px); margin-left:255px; }
-
+			#results-col {width:calc(100% - 255px); margin-left:255px; background-color: #f5f5f5; box-sizing:border-box; padding:0 16px;}
+			#results-col #sort {box-sizing:border-box; background-color: #fff; border:solid 1px #f5f5f5; margin:0 -16px;}
+			#results-col #sort ul {list-style-type: none; padding:0; margin:0; overflow:hidden;}
+			#results-col #sort ul li {float:left; color:#1a70b7; padding: 8px 16px;}
+			#results-col #sort ul li.select {background-color: #f5f5f5}
 
 			input[type="checkbox"] {    -webkit-appearance: checkbox;
     box-sizing: border-box;}
@@ -68,7 +82,7 @@ box-shadow: 1px 1px 1px 0px rgba(82,82,82,1);}
 				Header
 			</div>
 		</div>
-		<div id="nav">
+		<!--<div id="nav">
 			<div id="nav-wrapper">
 				<ul>
 					<li>Hotels deals</li>
@@ -78,6 +92,27 @@ box-shadow: 1px 1px 1px 0px rgba(82,82,82,1);}
 					<li>Help</li>
 					<li>Website feedback</li>
 				</ul>
+			</div>
+		</div>-->
+		<div id="sqm">
+			<div id="sqm-wrapper">
+				<div id="destination" class="field">
+					<label>Destination</label>
+					<input type="text" value="New York, New York, United States"/>
+				</div>
+				<div id="checkin" class="field">
+					<label>Check in</label>
+					<input type="text" value="New York, New York, United States"/>
+				</div>
+				<div id="checkout" class="field">
+					<label>Check out</label>
+					<input type="text" value="New York, New York, United States"/>
+				</div>
+				<div id="occupancy" class="field">
+					<label>Rooms</label>
+					<input type="text" value="1 room, 2 adults"/>
+				</div>
+				<div id="submit"></div>
 			</div>
 		</div>
 		<div id="search">
@@ -146,6 +181,16 @@ box-shadow: 1px 1px 1px 0px rgba(82,82,82,1);}
 				</div>
 			</div>
 			<div id="results-col">
+				<div id="sort">
+					<ul>
+						<li>Sort by</li>
+						<li class="select">Our favourites</li>
+						<li>Star rating</li>
+						<li>Distance</li>
+						<li>Guest rating</li>
+						<li>Price</li>
+					</ul>
+				</div>
 				
 				<div id="hotel-list"></div>
 				
@@ -252,7 +297,7 @@ box-shadow: 1px 1px 1px 0px rgba(82,82,82,1);}
  					.num-reviews {font-size: 12px; line-height: 14px;}
  					.ta {margin-top:12px;}
 
- 					.hotel-card .price-col {text-align: right; display:inline-block; width:237px; vertical-align: top; box-sizing: border-box; padding:12px 12px 12px 0; background-color: #f5f6f7; border-top:solid 6px #fff; border-bottom:solid 6px #fff;}
+ 					.hotel-card .price-col {text-align: right; display:inline-block; width:237px; vertical-align: top; box-sizing: border-box; padding:12px 12px 12px 0; background-color: #fff; border-top:solid 6px #fff; border-bottom:solid 6px #fff;}
  					.total {font-size:28px; color:#dd2d31; font-weight: bold;}
  					.strikethrough {font-size: 14px; text-decoration: line-through;}
  					.terms {font-size:12px; line-height: 16px;}
