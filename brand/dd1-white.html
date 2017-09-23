@@ -16,7 +16,7 @@
 				body {padding:0; margin:0; font-family: "-apple-system", BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, “Fira Sans”, “Droid Sans”, “Helvetica Neue”, Arial, sans-serif; background-color:#fff; color:#1B1D1C;}
 				
 				#header {background-color: #fff; }	
-		#header-content {padding:8px 8px; background-color:#d32f2f;}	
+		#header-content {padding:8px 8px; background-color:;}	
 		#header-content h1 {margin:0; padding:0; float:left;}
 		#header-content .phone {padding:8px 0; float:left;}
 		#header-content .link {font-size:13px;}
@@ -27,7 +27,7 @@ a {color:#1976D2; text-decoration: none;}
 
 .tools {padding:0px 8px 8px; display:flex; flex-direction: row; margin:0px 0 0px; background-color:#fff;}
 		.tools li {flex-grow:1; }
-		.tools li {display:block; font-size:13px; background-color:#fff; border:solid 1px #ccc; padding:4px 8px; border-radius:2px;}
+		.tools li {display:block; font-size:13px; background-color:#1976D2; border:solid 1px #1976D2; padding:4px 8px; border-radius:2px; color:#fff;}
 
 		#page-wrapper {background-color:#ffffff;}
 
@@ -59,9 +59,9 @@ a {color:#1976D2; text-decoration: none;}
 				
 			
 			
-				<div style="height:30px; overflow:hidden; color:#fff; font-size:20px; width:100%">
+				<div style="height:30px; overflow:hidden; color:#d32f2f; font-size:20px; width:100%">
 					<div style="position:relative; height:30px; overflow:hidden; width:200px; float:left;">
-						<img src="i/hcom_logo_white.svg" style="height:50px; position:absolute; top:-10px; left:-64px"/>
+						<img src="i/hcom_logo_red.svg" style="height:50px; position:absolute; top:-10px; left:-64px"/>
 					</div>
 					<div style="float:right">
 						<i class="fa fa-phone" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;<i class="fa fa-user" aria-hidden="true"></i>
@@ -79,7 +79,7 @@ a {color:#1976D2; text-decoration: none;}
 
 		
 
-		<div style="background-color:#D1E9E3; background-color:#fff; padding:8px 8px 0px;">
+		<div style="background-color:#D1E9E3; background-color:#f5f5f5; padding:8px 8px 0px;">
 			<div style="border-radius:2px; min-height:20px; background-color:#fff; border:solid 1px #ccc; font-size:13px; position:relative; margin:0px 0px 0px; color:#555; padding:8px;">
 					<div style=" font-size:14px; color:#1976D2;">London, United Kingdom</div>
 					<div style="padding:4px 0 0 0; font-size:12px;">Fri 24 - Sat 25 June 2016, 1 room 2 adults</div>
@@ -89,17 +89,17 @@ a {color:#1976D2; text-decoration: none;}
 					</div>
 				</div>
 		</div>
-		<div style="background-color:#D1E9E3; background-color:#fff; min-height:40px; padding:12px 16px; color:#7B1FA2; position:relative; box-sizing:border-box; margin:0px 0px 0px;">
+		<div style="background-color:#D1E9E3; background-color:#f5f5f5; min-height:40px; padding:12px 16px; color:#7B1FA2; position:relative; box-sizing:border-box; margin:0px 0px 0px;">
 			<p style="padding:0; margin:0 0 0 32px; font-size:13px;">Collect nights with this stay and look out for <strong>Your Secret Price</strong> on selected hotels</p>
 			<div style="position:absolute; top:12px; left:12px; bottom:12px; background-color:#7B1FA2; border-radius:2px; box-sizing:border-box; padding:6px 6px 0 7px;"><img src="i/MOON_[white].svg" style="height:16px;" /></div>
 		</div>
 			
-		<ul class="tools" style="padding-top:0px">
-			<li style=" margin-right:4px; background-color:#fff;"><label style="font-size:11px; font-weight:normal; display:block; padding-bottom:2px;">Open</label><a href="" >Filters</a></li>
-			<li style="margin-right:4px; background-color:#fff;"><label style="font-size:11px; font-weight:normal; display:block; padding-bottom:2px;">View on</label><a href="#" >Map</a></li>
+		<ul class="tools" style="padding-top:8px">
+			<li style=" margin-right:4px;"><label style="font-size:11px; font-weight:normal; display:block; padding-bottom:2px;">Open</label>Filters</li>
+			<li style="margin-right:4px;"><label style="font-size:11px; font-weight:normal; display:block; padding-bottom:2px;">View on</label>Map</li>
 			<li style="position:relative; background-color:#fff; border:solid 1px #ccc; font-weight:bold; padding:4px 4px; border-radius:2px;  flex-grow:1;">
 				
-				<label style="font-size:11px; font-weight:normal; display:block; padding:0 4px">Sort by:</label>
+				<label style="font-size:11px; font-weight:normal; display:block; padding:0 4px; color:#555">Sort by:</label>
 				<select style="font-size:13px; font-family:arial; padding:0; color:#000; background: transparent; border:none; width:100%; outline:none;">
 					<option>Our favourites</option>
 					<option>Stars (high to low)</option>
@@ -113,6 +113,8 @@ a {color:#1976D2; text-decoration: none;}
 			</li>
 			
 		</ul>
+
+		
 		
 		<div id="compression" style="background-color:#F9DC5C; margin:0 8px 8px; font-size:13px; padding:12px 12px 12px">43% booked for your travel dates. Don’t wait until it’s too late, book now.</div>
 		<div id="hotel-list"></div>
