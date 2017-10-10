@@ -5,13 +5,11 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<meta name="mobile-web-app-capable" content="yes">
-
 		<script src="https://use.typekit.net/plt6aug.js"></script>
 		<script>try{Typekit.load({ async: true });}catch(e){console.log(e)}</script>
 
 		<!-- style sheets -->
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
 		<style type="text/css">
 			@media screen and (min-width: 600px) {}
 			@media screen and (min-width: 750px) {}
@@ -25,10 +23,10 @@
 
 			#header-wrapper, #nav-wrapper, #search-wrapper, #content-wrapper, #sqm-wrapper {max-width:1260px; margin:0 auto;}
 
-			#header { background-color:#dd2/d31; padding:12px 0 0px; overflow: hidden;}
-			#nav { background-color:#af1d1f; background-color:#fff; border-top:solid 1px #f5f5f5;}
-			#nav-wrapper ul {overflow:hidden; list-style-type: none;margin:0; padding:0;}
-			#nav-wrapper ul li {float:left; color:#d32f2f; color:#555;  font-size:13px; margin-right:20px; padding:8px 0 8px;}
+			#header { background-color:#d32f2f; padding:12px 0 12px; overflow: hidden;}
+			#nav { background-color:#af1d1f; background-color:#af1d1f;}
+			#nav-wrapper ul {overflow:hidden;  list-style-type: none;margin:0; padding:0;}
+			#nav-wrapper ul li {float:left; color:#d32f2f; color:#fff;  font-size:13px; margin-right:20px; padding:8px 0 8px;}
 			
 
 			#search {min-height:88px; background-color:#fff;}
@@ -38,12 +36,12 @@
 			#search #query h1 {margin:0; padding:0; font-size:20px; margin-bottom:4px;}
 			#search #query div {font-size:14px;}
 
-			#sqm {background-color:#f5f5f5; padding:8px 0; overflow: hidden;}
+			#sqm {background-color:#f5f5f5; padding:16px 0; overflow: hidden;}
 			#sqm .field {background-color:#fff; border:solid 1px #dddddd; float:left;  padding:8px; border-radius:4px;}
 			#sqm .field label {display:none; font-size: 13px; margin-bottom:4px;}
 			#sqm .field input[type="text"] {border:0; font-size:14px; width:100%; color:#555;}
 
-			#sqm #destination {width:490px; margin-right:8px;}
+			#sqm #destination {width:500px; margin-right:8px;}
 			#sqm #checkin {margin-right:0px; border-top-right-radius: 0; border-bottom-right-radius: 0;}
 			#sqm #checkout {margin-right:8px; border-top-left-radius: 0; border-bottom-left-radius: 0; border-left:0;}
 			#sqm #occupancy {margin-right:8px;}
@@ -71,6 +69,9 @@ box-shadow: 1px 1px 1px 0px rgba(82,82,82,1);}
 			#results-col #sort ul li {float:left; color:#1976D2; padding: 8px 16px;}
 			#results-col #sort ul li.select {background-color: #f5f5f5}
 
+			input[type="checkbox"] {    -webkit-appearance: checkbox;
+    box-sizing: border-box;}
+
 
 		</style>
 
@@ -81,14 +82,14 @@ box-shadow: 1px 1px 1px 0px rgba(82,82,82,1);}
 		
 		<div id="header">
 			<div id="header-wrapper">
-				<img src="i/Hotels_Horizontal_Reg.svg" style="height:40px"/>
+				<img src="i/Hotels_Horizontal_Bold_White.svg" style="height:40px"/>
 				<style type="text/css">
-					.primary-nav {float:right; list-style-type: none;}
-					.primary-nav li {float:left;  margin-right:20px; color:#d32f2f; font-size:16px;}
+					.primary-nav {float:right; list-style-type: none; margin:0; padding:0;}
+					.primary-nav li {float:left;  margin-right:20px; color:#fff; font-size:16px; padding:12px 0;}
 				</style>
 				<ul class="primary-nav">
 					
-					<li style="color:#7B1FA2;">Hotels.com Rewards</li>
+					<li>Hotels.com Rewards</li>
 					<li>Your bookings</li>
 					<li>Sign in &amp account</li>
 					
@@ -151,7 +152,6 @@ box-shadow: 1px 1px 1px 0px rgba(82,82,82,1);}
 			<div id="filter-col">
 				<h3>Narrow your search</h3>
 				<div class="amount">1,196 hotels and holiday rentals</div>
-				
 				<style type="text/css">
 					#filter-col .filter-block input[type="text"] {font-size: 14px; padding:4px 8px; f line-height: 14px; box-sizing: border-box; width:190px; border:0;}
 					#nc button: {}

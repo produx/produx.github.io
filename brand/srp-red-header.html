@@ -9,7 +9,7 @@
 		<script>try{Typekit.load({ async: true });}catch(e){console.log(e)}</script>
 
 		<!-- style sheets -->
-
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<style type="text/css">
 			@media screen and (min-width: 600px) {}
 			@media screen and (min-width: 750px) {}
@@ -152,9 +152,20 @@ box-shadow: 1px 1px 1px 0px rgba(82,82,82,1);}
 			<div id="filter-col">
 				<h3>Narrow your search</h3>
 				<div class="amount">1,196 hotels and holiday rentals</div>
-				<div class="filter-block">
+				<style type="text/css">
+					#filter-col .filter-block input[type="text"] {font-size: 14px; padding:4px 8px; f line-height: 14px; box-sizing: border-box; width:190px; border:0;}
+					#nc button: {}
+				</style>
+
+				<div class="filter-block" id="nc">
 					<label>Name contains</label>
-					<input type="text" name="hotel" placeholder="Hotel name...">
+					<div style="position:relative; border:solid 1px #ddd; border-radius:2px">
+						<input type="text" name="hotel" placeholder="Hotel name...">
+					<button style="padding:0; margin:0; position:absolute; top:2px; right:2px; bottom:2px; border-radius:0px;-webkit-box-shadow: 0px 0px 0px 0px rgba(82,82,82,1);
+-moz-box-shadow: 0px 0px 0px 0px rgba(82,82,82,1);
+box-shadow: 0px 0px 0px 0px rgba(82,82,82,1);"><i class="material-icons">keyboard_arrow_right</i></button>
+					</div>
+					
 				</div>
 				<div class="filter-block">
 					<label>Price</label>
@@ -164,14 +175,21 @@ box-shadow: 1px 1px 1px 0px rgba(82,82,82,1);}
 						<div class="handle right"></div>
 					</div>
 				</div>
+				<style type="text/css">
+					ul#star-rate li { position:relative; padding:0px 0 0 16px; margin-bottom: 4px}
+					ul#star-rate li input {position:absolute; top:0; left:0;}
+					ul#star-rate i {font-size:16px; width:16px; color:#d32f2f;}
+
+				</style>
 				<div class="filter-block">
 					<label>Star rating</label>
-					<ul>
-						<li><input type="checkbox" /></li>
-						<li><input type="checkbox" /></li>
-						<li><input type="checkbox" /></li>
-						<li><input type="checkbox" /></li>
-						<li><input type="checkbox" /></li>
+					<ul id="star-rate">
+						
+						<li><input type="checkbox"/><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i></li>
+						<li><input type="checkbox" /><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i></li>
+						<li><input type="checkbox" /><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i></li>
+						<li><input type="checkbox" /><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i></li>
+						<li><input type="checkbox" /><i class="material-icons">star_rate</i></li>
 					</ul>
 				</div>
 				<div class="filter-block">
