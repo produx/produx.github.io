@@ -1,10 +1,12 @@
 var map;
-var loc = {lat: 40.75667953491211, lng: -73.9864730834961}
+var markers = []
+var hotels = []
+var loc = {lat: 48.864716, lng: 2.349014}
 
-function initializeMap() {
+var initializeMap = function() {
     map = new google.maps.Map(document.getElementById('map_canvas'), {
         center: loc,
-        zoom: 14,
+        zoom: 15,
         mapTypeId: 'roadmap',
         mapTypeId: google.maps.MapTypeId.ROADMAP, 
         panControl: false,
@@ -16,5 +18,48 @@ function initializeMap() {
             position: google.maps.ControlPosition.RIGHT_TOP
         },
     });
+
+    google.maps.event.addListenerOnce(map, 'idle', function(){
+    // do something only the first time the map is loaded
+        
+        addHotelPins()
+        
+    });
     
 }
+
+var addHotelPins = function(){
+    console.log("fetching hotel data")
+   
+    hotels = hotelData.properties;
+    //console.log("length " + hotelData.length)
+    $.each(hotels, function(i, hotel){
+        //console.log(hotel.loc);
+        var latlng = hotel.loc.split(" ");
+        var latlngObj = {lat:parseFloat(latlng[1]), lng:parseFloat(latlng[0])}
+        console.log(latlngObj)
+
+        marker = new google.maps.Marker({
+            position: latlngObj,
+            map: map, 
+            icon: "i/base_green.png"
+        });
+
+        markers.push(marker);
+        var num = markers.indexOf(marker);
+        var infowindow = new google.maps.InfoWindow({
+            content: hotel.name
+        });
+
+        google.maps.event.addListener(marker, 'mouseover', function() {
+            infowindow.open(map, markers[num]);
+        });
+
+        google.maps.event.addListener(marker, 'mouseout', function() {
+            infowindow.close();
+        });
+
+
+    });
+}
+

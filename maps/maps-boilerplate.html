@@ -6,23 +6,35 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<meta name="mobile-web-app-capable" content="yes">
 
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script type="text/javascript"
-          src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDGbEUwknHTaKmEpjwM-fRfJt7zbCZZtCI&libraries=places">
+          src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDGbEUwknHTaKmEpjwM-fRfJt7zbCZZtCI">
       	</script>
       	<script src="map.js"></script>
-      	<script src="ny-json.js"></script>
+      	
 
       	<script type="text/javascript">
-			$(function(){
+			var hotelData = [];
 
-				// Draw map
+
+      		var showdata = function(){
+      			console.log("data")
+      		}
+
+
+
+			$(function(){
+				console.log("ready")
+
+				$.getJSON( "json-paris.js", function(data){
+					
+					hotelData = data;
+					console.log(hotelData);
+				});
+
 				initializeMap(); 
 
-				// 
-				$.getJSON( "ny-json.js", function(data){
-					console.log(data);
-				});
+
 
 			});
 		</script>
@@ -30,7 +42,7 @@
   	</head>
   	<body>
 
-  		<div id="map" style="position:fixed; top:50px; left:450px; right:50px; bottom:50px;">
+  		<div id="map" style="position:fixed; top:50px; left:50px; right:50px; bottom:50px;">
 			<div id="map_canvas" style="width:100%; height:100%; "></div>
 		</div>
 
