@@ -42,7 +42,7 @@ var addHotelPins = function(){
         marker = new google.maps.Marker({
             position: latlngObj,
             map: map, 
-            icon: "i/base_green.png"
+            icon: "i/base_green_sm.png"
         });
 
         markers.push(marker);
