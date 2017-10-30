@@ -8,7 +8,7 @@
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script type="text/javascript"
-          src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCKuM7xluOCtezbOo1m34AfGyr64Y2zunA">
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKuM7xluOCtezbOo1m34AfGyr64Y2zunA">
       	</script>
 		<script src="map.js"></script>
       	
@@ -21,21 +21,12 @@
       			console.log("data")
       		}
 
-
-
 			$(function(){
-				console.log("ready")
-
 				$.getJSON( "json-paris.js", function(data){
-					
 					hotelData = data;
 					console.log(hotelData);
 				});
-
 				initializeMap(); 
-
-
-
 			});
 		</script>
 
@@ -134,7 +125,9 @@ box-shadow: 0px 0px 0px 0px rgba(82,82,82,1);"><i class="material-icons">keyboar
 				-webkit-webkit-box-shadow: 0px 1px 1px 0px rgba(82,82,82,0.8);
 				-moz-box-shadow: 0px 1px 1px 0px rgba(82,82,82,0.6);
 				box-shadow: 0px 1px 1px 0px rgba(82,82,82,0.6);}; box-sizing: border-box; padding:8px">
-				<img src="i/key_pins.png" style="width:14px; display:block; margin-bottom:12px"/>
+				<div id="open-key" style="background-color: #1976D2; color:#fff; border:0; margin:-4px -4px 12px -4px; font-size: 16px; height:23px; width:23px; padding:0; box-sizing: border-box; position:relative;"><i class="material-icons" style="position:absolute; top:0; left:0">keyboard_arrow_right</i></div>
+				<img src="i/key_pins.png" style="width:14px; display:block; margin-bottom:8px"/>
+				<div style="border-top:solid 1px #ddd; margin-bottom:8px"></div>
 				<img src="i/key_poi.png" style="width:14px; display:block"/>
 			</div>
 		</div>
