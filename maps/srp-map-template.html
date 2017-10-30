@@ -8,9 +8,9 @@
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script type="text/javascript"
-          src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDGbEUwknHTaKmEpjwM-fRfJt7zbCZZtCI">
+          src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCKuM7xluOCtezbOo1m34AfGyr64Y2zunA">
       	</script>
-      	<script src="map.js"></script>
+		<script src="map.js"></script>
       	
 
       	<script type="text/javascript">
@@ -39,15 +39,104 @@
 			});
 		</script>
 
+		<link rel="stylesheet" type="text/css" href="srp-template.css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   	</head>
   	<body>
 
-  		<div id="header"></div>
-  		<div id="nav"></div>
+  		<div id="header">
+  			<div class="wrapper">
+  				<img src="i/Horizontal_H_White.svg" style="height:36px"/>
+  			</div>
+  		</div>
+  		<div id="nav">
+  			<div class="wrapper">
+  				<ul>
+  					<li>Hotel Deals</li>
+  					<li>Packages & Flights</li>
+  					<li>Gift Cards</li>
+  					<li>Help</li>
+  					<li>Website feedback</li>
+  					<li class="right">Your bookings</li>
+  					<li class="right">Hotels.com Rewards</li>
+  					<li class="right">Sign in &amp; account</li>
+  				</ul>
+  			</div>
+  		</div>
+  		<div id="query">
+  			<div class="wrapper">
+  				<img src="i/listview.png" />
+  				<div class="search">
+  					<h1>Paris, France</h1>
+  					<div class="dates">Mon 27 - Tue 28 November 2017, 1 night, 1 room, 2 adults</div>
+  				</div>
+  			</div>
+  		</div>
+  		<div id="tools">
+  			<div class="wrapper">
+  				<label>Search map for</label>
+  				<input type="text" name="" placeholder="Location, landmark, station, etc..." />
+  				<button class="disabled">Go</button>
+  			</div>
+  		</div>
+  		<div id="filters">
+  			<div class="block">
+  				<h2>Narrow results</h2>
+  				<span class="total">2,483 hotels and holiday rentals</span>
+  			</div>
+  			<div class="block">
+  				<label>Name contains</label>
+					<div style="position:relative;">
+						<input type="text" name="hotel" placeholder="Hotel name..." style="width:calc(100% - 40px)">
+					<button style="padding:0 0 0 0; margin:0; position:absolute; top:1px; right:2px; bottom:2px; border-radius:0px;-webkit-box-shadow: 0px 0px 0px 0px rgba(82,82,82,1);
+-moz-box-shadow: 0px 0px 0px 0px rgba(82,82,82,1);
+box-shadow: 0px 0px 0px 0px rgba(82,82,82,1);"><i class="material-icons">keyboard_arrow_right</i></button>
+					</div>
+  			</div>
+  			<div class="block">
+  				<label>Price</label>
+					<div class="range">
+						<div class="bar"></div>
+						<div class="handle left"></div>
+						<div class="handle right"></div>
+					</div>
+  			</div>
+  			<div class="block">
+  				<label>Star rating</label>
+					<ul id="star-rate">
+						
+						<li><input type="checkbox"/><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i></li>
+						<li><input type="checkbox" /><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i></li>
+						<li><input type="checkbox" /><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i></li>
+						<li><input type="checkbox" /><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i></li>
+						<li><input type="checkbox" /><i class="material-icons">star_rate</i></li>
+					</ul>
+  			</div>
+  			<div class="block">
+  				<label>Guest rating</label>
+					<div class="range">
+						<div class="bar"></div>
+						<div class="handle left"></div>
+						<div class="handle right"></div>
+					</div>
+  			</div>
+  			<div class="block">
+  				<h3>Hotels.com Rewards	</h3>
+  			</div>
+  			
+
+  		</div>
 
 
-  		<div id="map" style="position:fixed; top:50px; left:50px; right:50px; bottom:50px;">
+  		<div id="map">
 			<div id="map_canvas" style="width:100%; height:100%; "></div>
+			<div id="key" style="position:absolute; top:164px; left:10px; min-height:100px; width:30px; background-color:#fff; border-radius:2px;
+				-webkit-webkit-box-shadow: 0px 1px 1px 0px rgba(82,82,82,0.8);
+				-moz-box-shadow: 0px 1px 1px 0px rgba(82,82,82,0.6);
+				box-shadow: 0px 1px 1px 0px rgba(82,82,82,0.6);}; box-sizing: border-box; padding:8px">
+				<img src="i/key_pins.png" style="width:14px; display:block; margin-bottom:12px"/>
+				<img src="i/key_poi.png" style="width:14px; display:block"/>
+			</div>
 		</div>
 
   	</body>

@@ -1,6 +1,7 @@
 var map;
 var markers = []
 var hotels = []
+var selectedPin = -1;
 var loc = {lat: 48.864716, lng: 2.349014}
 
 var initializeMap = function() {
@@ -10,13 +11,16 @@ var initializeMap = function() {
         mapTypeId: 'roadmap',
         mapTypeId: google.maps.MapTypeId.ROADMAP, 
         panControl: false,
-        mapTypeControl: false,
-        streetViewControl:false,
+        mapTypeControl: true,
+        streetViewControl:true,
+        fullscreenControl: false,
         zoomControl: true,
         zoomControlOptions: {
-            style: google.maps.ZoomControlStyle.MEDIUM,
-            position: google.maps.ControlPosition.RIGHT_TOP
+            position: google.maps.ControlPosition.LEFT_TOP
         },
+        streetViewControlOptions: {
+            position: google.maps.ControlPosition.LEFT_TOP
+        }
     });
 
     google.maps.event.addListenerOnce(map, 'idle', function(){
@@ -37,12 +41,21 @@ var addHotelPins = function(){
         //console.log(hotel.loc);
         var latlng = hotel.loc.split(" ");
         var latlngObj = {lat:parseFloat(latlng[1]), lng:parseFloat(latlng[0])}
-        console.log(latlngObj)
+        //console.log(latlngObj)
+        var icon; 
+
+        var r = Math.floor((Math.random() * 10) + 1);
+        if (r >=9) {
+            icon = "i/base_red_18.png";
+        } else {
+            icon = "i/base_green_18.png";
+        }
+
 
         marker = new google.maps.Marker({
             position: latlngObj,
             map: map, 
-            icon: "i/base_green_sm.png"
+            icon: icon
         });
 
         markers.push(marker);
@@ -52,11 +65,21 @@ var addHotelPins = function(){
         });
 
         google.maps.event.addListener(marker, 'mouseover', function() {
-            infowindow.open(map, markers[num]);
+            //infowindow.open(map, markers[num]);
         });
 
         google.maps.event.addListener(marker, 'mouseout', function() {
-            infowindow.close();
+            //infowindow.close();
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+            
+            if (selectedPin != -1){
+                markers[selectedPin].setIcon("i/base_blue_18.png");
+            }
+            selectedPin = num; 
+            markers[num].setIcon('i/base_blue.png');
+
         });
 
 
