@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script type="text/javascript"
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKuM7xluOCtezbOo1m34AfGyr64Y2zunA">
+      	</script>
+		<script src="abs-map.js"></script>
+      	
+
+      	<script type="text/javascript">
+			var hotelData = [];
+
+
+      		var showdata = function(){
+      			console.log("data")
+      		}
+
+			$(function(){
+				$.getJSON( "json-paris.js", function(data){
+					hotelData = data;
+					console.log(hotelData);
+				});
+				initializeMap(); 
+			});
+		</script>
+
+		<link rel="stylesheet" type="text/css" href="srp-template.css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style type="text/css">
+      @media only screen and (min-width: 960px) {
+        #map {position:fixed; top:0px; left:360px; right:0px; bottom:0px;}
+  
+
+        #filters {position:fixed; top:130px; left:0; bottom:0; width:245px; overflow-y: scroll; }
+  #filters .block {box-sizing: border-box; border-bottom:solid 1px #ddd; padding:16px 0; margin:0 20px;}
+  #filters .block h2 {font-size:20px; margin-bottom: 4px;}
+  #filters .block .total {font-size: 13px; font-weight: bold;}
+  #filters .block label {font-size:16px; margin-bottom: 8px; font-weight: bold; display:block;}
+        #filters {position:fixed; top:130px; left:0; bottom:0; width:360px; overflow-y: scroll; background-color:#fff;}
+        input[type="text"]{box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;border-radius: 3px;
+  border: 1px solid transparent;
+  border-top: none;
+  border-bottom: 1px solid #DDD;}
+      }
+    </style>
+  	</head>
+  	<body>
+
+  		
+  	<div id="left-col" style="position:fixed; top:0; left:0; bottom:0; width:360px;">
+
+      <div class="head" style="height:50px; background-color:#d41200;"></div>
+      <div class="query" style="min-height:50px; background-color:#f5f5f5; padding:12px">
+        
+      <div style="border-radius:2px; min-height:20px; background-color:#fff; border:solid 1px #ccc; font-size:13px; position:relative; margin:0px 0px 0px; color:#555; padding:8px; box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;">
+          <div style=" font-size:16px; color:#1976D2;">London, United Kingdom</div>
+          <div style="padding:2px 0 0 0; font-size:12px;">Fri 24 - Sat 25 June 2016, 1 room 2 adults</div>
+          <div style="position:absolute; right:2px; top:2px; bottom:2px; color:#1976D2; background-color:#fff;  padding:6px 8px 0; border-radius:0px; text-align:center; box-sha/dow: inset 0 -2px 0 #003789; border-left:solid 0px #026dc5">
+            <i class="fa fa-search" aria-hidden="true" style="font-size:16px;"></i> 
+            <span style="display:block; font-size:10px; text-align:center; margin-top:4px">EDIT</span>
+          </div>
+        </div>
+    
+      </div>
+      <div class="key"></div>
+
+
+      <div id="filters">
+        <div class="block">
+          <h2>Narrow results</h2>
+          <span class="total">2,483 hotels and holiday rentals</span>
+        </div>
+        <div class="block">
+          <label>Name contains</label>
+          <div style="position:relative;">
+            <input type="text" name="hotel" placeholder="Hotel name..." style="width:calc(100% - 40px)">
+          <button style="padding:0 0 0 0; margin:0; position:absolute; top:1px; right:2px; bottom:2px; border-radius:0px;-webkit-box-shadow: 0px 0px 0px 0px rgba(82,82,82,1);
+-moz-box-shadow: 0px 0px 0px 0px rgba(82,82,82,1);
+box-shadow: 0px 0px 0px 0px rgba(82,82,82,1);"><i class="material-icons">keyboard_arrow_right</i></button>
+          </div>
+        </div>
+        <div class="block">
+          <label>Price</label>
+          <div class="range">
+            <div class="bar"></div>
+            <div class="handle left"></div>
+            <div class="handle right"></div>
+          </div>
+        </div>
+        <div class="block">
+          <label>Star rating</label>
+          <ul id="star-rate">
+            
+            <li><input type="checkbox"/><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i></li>
+            <li><input type="checkbox" /><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i></li>
+            <li><input type="checkbox" /><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i></li>
+            <li><input type="checkbox" /><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i></li>
+            <li><input type="checkbox" /><i class="material-icons">star_rate</i></li>
+          </ul>
+        </div>
+        <div class="block">
+          <label>Guest rating</label>
+          <div class="range">
+            <div class="bar"></div>
+            <div class="handle left"></div>
+            <div class="handle right"></div>
+          </div>
+        </div>
+        <div class="block">
+          <h3>Hotels.com Rewards  </h3>
+        </div>
+        
+
+      </div>
+    </div>
+  		
+  		
+      <style type="text/css">
+        #poi-card {position:absolute; top:20px; left:20px; width:300px; background-color:#fff; border-radius:4px; padding:20px;}
+        #poi-card .name {font-weight: bold; font-size: 18px; margin-bottom: 2px;}
+        #poi-card .address {font-size: 12px; margin-bottom:12px;}
+        #poi-card .transport {padding-left: 24px; position:relative; margin-top:4px; font-size: 13px}
+        #poi-card .transport i {position:absolute; top:0; left:0; font-size:18px;} 
+      </style>
+  		
+
+
+  		<div id="map">
+			<div id="map_canvas" style="width:100%; height:100%; "></div>
+
+      <div id="poi-card" style="">
+        <div class="name">Espace Charenton</div>
+        <div class="address">323bis, rue de Charenton, 75012 Paris</div>
+
+        <div style="font-weight:bold;">Nearby transport</div>
+        <div class="transport">
+          <i class="material-icons">directions_subway</i>
+          Métro ligne 8<br />
+Station : Porte de Charenton
+        </div>
+        <div class="transport">
+          <i class="material-icons">directions_subway</i>
+          Métro ligne 6<br />
+Station : Gare de Bercy
+        </div>
+
+
+      </div>
+			
+
+      <!--<div id="key" style="position:absolute; top:164px; left:10px; min-height:100px; width:30px; background-color:#fff; border-radius:2px;
+				-webkit-webkit-box-shadow: 0px 1px 1px 0px rgba(82,82,82,0.8);
+				-moz-box-shadow: 0px 1px 1px 0px rgba(82,82,82,0.6);
+				box-shadow: 0px 1px 1px 0px rgba(82,82,82,0.6);}; box-sizing: border-box; padding:8px">
+				<div id="open-key" style="background-color: #1976D2; color:#fff; border:0; margin:-4px -4px 12px -4px; font-size: 16px; height:23px; width:23px; padding:0; box-sizing: border-box; position:relative;"><i class="material-icons" style="position:absolute; top:0; left:0">keyboard_arrow_right</i></div>
+				<img src="i/key_pins.png" style="width:14px; display:block; margin-bottom:8px"/>
+				<div style="border-top:solid 1px #ddd; margin-bottom:8px"></div>
+				<img src="i/key_poi.png" style="width:14px; display:block"/>
+			</div>-->
+		</div>
+
+  	</body>
+</html>

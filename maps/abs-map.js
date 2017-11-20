@@ -3,7 +3,8 @@ var markers = []
 var hotels = []
 var selectedPin = -1;
 var loc = {lat: 48.8328, lng: 2.3966}
-
+var directionsDisplay;
+var directionsService = new google.maps.DirectionsService();
 
 var initializeMap = function() {
     map = new google.maps.Map(document.getElementById('map_canvas'), {
@@ -12,25 +13,38 @@ var initializeMap = function() {
         mapTypeId: 'roadmap',
         mapTypeId: google.maps.MapTypeId.ROADMAP, 
         panControl: false,
-        mapTypeControl: true,
+        mapTypeControl: false,
         streetViewControl:true,
         fullscreenControl: false,
         zoomControl: true,
         zoomControlOptions: {
-            position: google.maps.ControlPosition.LEFT_TOP
+            position: google.maps.ControlPosition.RIGHT_BOTTOM
         },
         streetViewControlOptions: {
-            position: google.maps.ControlPosition.LEFT_TOP
+            position: google.maps.ControlPosition.RIGHT_BOTTOM
         }
     });
 
+    directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true, preserveViewport: true});
+    directionsDisplay.setMap(map);
+
     google.maps.event.addListenerOnce(map, 'idle', function(){
-    // do something only the first time the map is loaded
-        
-        addHotelPins()
-        
+         addHotelPins(); 
+         addPOIPin()   
     });
     
+}
+
+var addPOIPin = function(){
+
+    var icon = "i/landmark.normal.svg";
+
+    marker = new google.maps.Marker({
+        position: loc,
+        map: map, 
+        icon: icon
+    });
+
 }
 
 var addHotelPins = function(){
@@ -81,9 +95,43 @@ var addHotelPins = function(){
             selectedPin = num; 
             markers[num].setIcon('i/base_blue.png');
 
+            hidePOICard();
+            showHotelCard();
+            displayRoute(latlngObj);
+
         });
 
 
     });
 }
 
+var hidePOICard = function(){
+    $("#poi-card").hide();
+}
+
+var showHotelCard = function(){
+
+}
+
+function displayRoute(hotelLoc) {
+    
+    //console.log(obj[0].latlng)
+
+    //var locStr = obj.latlng.split(", ");
+    //var latlngObj = new google.maps.LatLng(locStr[0], locStr[1]);
+
+    //console.log(latlngObj);
+
+ var request = {
+    origin: hotelLoc,
+    destination: loc,
+    travelMode: google.maps.TravelMode["WALKING"]
+  };
+  directionsService.route(request, function(response, status) {
+    console.log(response)
+    if (status == google.maps.DirectionsStatus.OK) {
+      directionsDisplay.setDirections(response);
+
+    }
+  });
+}
