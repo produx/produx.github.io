@@ -3,8 +3,10 @@ var markers = []
 var hotels = []
 var selectedPin = -1;
 var loc = {lat: 48.8328, lng: 2.3966}
+var distanceService = new google.maps.DistanceMatrixService;
 var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
+var distanceCircle;
 
 var initializeMap = function() {
     map = new google.maps.Map(document.getElementById('map_canvas'), {
@@ -28,9 +30,13 @@ var initializeMap = function() {
     directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true, preserveViewport: true});
     directionsDisplay.setMap(map);
 
+    transitLayer = new google.maps.TransitLayer();
+    transitLayer.setMap(map);
+
     google.maps.event.addListenerOnce(map, 'idle', function(){
          addHotelPins(); 
-         addPOIPin()   
+         addPOIPin();
+
     });
     
 }
@@ -45,7 +51,31 @@ var addPOIPin = function(){
         icon: icon
     });
 
+    google.maps.event.addListener(marker, 'click', function() {
+        $("#hotel-card").show(); 
+        $("#poi-card").show();       
+    });
+
+    $("#poi-card").show();
+
+    distanceCircle = new google.maps.Circle({
+            strokeColor: '#FF0000',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#FF0000',
+            fillOpacity: 0.1,
+            map: map,
+            center: loc,
+            radius: 1600
+    });
 }
+
+
+
+
+
+
+
 
 var addHotelPins = function(){
     console.log("fetching hotel data")
@@ -96,7 +126,7 @@ var addHotelPins = function(){
             markers[num].setIcon('i/base_blue.png');
 
             hidePOICard();
-            showHotelCard();
+            showHotelCard(hotel.name, latlngObj);
             displayRoute(latlngObj);
 
         });
@@ -109,18 +139,15 @@ var hidePOICard = function(){
     $("#poi-card").hide();
 }
 
-var showHotelCard = function(){
+var showHotelCard = function(name, loc){
+    $("#hotel-card .name").text(name);
+    $("#hotel-card").show();
 
+    var distance = getDistance(loc)
+    //console.log(distance);
 }
 
 function displayRoute(hotelLoc) {
-    
-    //console.log(obj[0].latlng)
-
-    //var locStr = obj.latlng.split(", ");
-    //var latlngObj = new google.maps.LatLng(locStr[0], locStr[1]);
-
-    //console.log(latlngObj);
 
  var request = {
     origin: hotelLoc,
@@ -128,10 +155,31 @@ function displayRoute(hotelLoc) {
     travelMode: google.maps.TravelMode["WALKING"]
   };
   directionsService.route(request, function(response, status) {
-    console.log(response)
+    //console.log(response)
     if (status == google.maps.DirectionsStatus.OK) {
       directionsDisplay.setDirections(response);
 
     }
   });
+}
+
+var getDistance = function(hotelLoc) {
+    distanceService.getDistanceMatrix({
+        origins: [hotelLoc],
+        destinations: [loc],
+        travelMode: google.maps.TravelMode["WALKING"],
+        unitSystem: google.maps.UnitSystem.METRIC,
+        avoidHighways: false,
+        avoidTolls: false
+    }, function(response, status) {
+        if (status !== google.maps.DistanceMatrixStatus.OK) {
+            alert('Error was: ' + status);
+        } else {
+            console.log(response.rows[0].elements[0])
+            var distance = response.rows[0].elements[0].distance.text;
+            var duration = response.rows[0].elements[0].duration.text;
+            $("#hotel-card .distance").html("<i class='material-icons'>directions_walk</i>" + duration + " (" + distance + ")");
+        }
+
+    })
 }
