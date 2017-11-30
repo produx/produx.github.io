@@ -10,7 +10,7 @@
 		<script type="text/javascript"
           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKuM7xluOCtezbOo1m34AfGyr64Y2zunA">
       	</script>
-		<script src="abs-map.js"></script>
+		<script src="abs-map-zoom.js"></script>
       	
 
       	<script type="text/javascript">
@@ -28,32 +28,11 @@
 				});
 				initializeMap(); 
 
-        $('select.radius').on('change', function() {
-          distanceCircle.setRadius(parseInt(this.value))
-          console.log(this.value)
-        })
-
-        $("#hide-circle").on("click", function(e){
-           e.preventDefault();
-          distanceCircle.setMap(null);
-        }); 
-
-        $("#show-circle").on("click", function(e){
-           e.preventDefault();
-          distanceCircle.setMap(map);
-        })
-
-        $("#hide-transit").on("click", function(e){
-          e.preventDefault();
-          transitLayer.setMap(null);
-        }); 
+         
 
         
 
-        $("#show-transit").on("click", function(e){
-          e.preventDefault();
-          transitLayer.setMap(map);
-        })
+        
 			});
 		</script>
 
@@ -62,7 +41,7 @@
 
     <style type="text/css">
       @media only screen and (min-width: 960px) {
-        #map {position:fixed; top:40px; left:0px; right:0px; bottom:0px;}
+        #map {position:fixed; top:0px; left:0px; right:0px; bottom:0px;}
         a{text-decoration: none;}
   
 
@@ -82,18 +61,7 @@
   	<body>
 
   		
-      <div style="padding:12px 20px;">
-          Distance radius 
-          <select class="radius">
-            <option value="500">500m</option>
-            <option value="1000">1000m</option>
-            <option value="1500">1500m</option>
-            <option value="0" selected>Hide circle</option>
-          </select>
-          &nbsp;&nbsp;|&nbsp;&nbsp;
-          <a id="hide-transit" href="#">Hide Transit Layer</a> &nbsp;
-          <a id="show-transit" href="#">Show Transit Layer</a> &nbsp;
-      </div>
+     
   		
   		
 
@@ -122,17 +90,6 @@
         <div class="name">Espace Charenton</div>
         <div class="address">323bis, rue de Charenton, 75012 Paris</div>
 
-        <div style="font-weight:bold;">Nearby transport</div>
-        <div class="transport">
-          <i class="material-icons">directions_subway</i>
-          Métro ligne 8<br />
-Station : Porte de Charenton
-        </div>
-        <div class="transport">
-          <i class="material-icons">directions_subway</i>
-          Métro ligne 6<br />
-Station : Gare de Bercy
-        </div>
       </div>
 
       <div id="hotel-card" style="display:none;">

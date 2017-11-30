@@ -28,11 +28,11 @@ var initializeMap = function() {
         }
     });
 
-    directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true, preserveViewport: true});
-    directionsDisplay.setMap(map);
+    //directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true, preserveViewport: true});
+    //directionsDisplay.setMap(map);
 
-    transitLayer = new google.maps.TransitLayer();
-    transitLayer.setMap(map);
+    //transitLayer = new google.maps.TransitLayer();
+    //transitLayer.setMap(map);
 
     google.maps.event.addListenerOnce(map, 'idle', function(){
          addHotelPins(); 
@@ -47,8 +47,9 @@ var addPOIPin = function(){
     var icon = "i/poi-pin.png";
 
     marker = new google.maps.Marker({
-        position: loc,
         map: map, 
+        animation: google.maps.Animation.DROP,
+        position: loc,
         icon: icon
     });
 
@@ -57,18 +58,13 @@ var addPOIPin = function(){
         $("#poi-card").show();       
     });
 
-    $("#poi-card").show();
+    
+        $("#poi-card").delay(750).slideDown();       
+    
 
-    distanceCircle = new google.maps.Circle({
-            strokeColor: '#666666',
-            strokeOpacity: 0.8,
-            strokeWeight: 2,
-            fillColor: '#999999',
-            fillOpacity: 0.1,
-            map: map,
-            center: loc,
-            radius: 0
-    });
+    
+
+    
 }
 
 
@@ -126,9 +122,9 @@ var addHotelPins = function(){
             selectedPin = num; 
             markers[num].setIcon('i/base_blue.png');
 
-            hidePOICard();
-            showHotelCard(hotel.name, latlngObj);
-            displayRoute(latlngObj);
+            //hidePOICard();
+            //showHotelCard(hotel.name, latlngObj);
+            //displayRoute(latlngObj);
 
         });
 
