@@ -40,22 +40,10 @@
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <style type="text/css">
-      @media only screen and (min-width: 960px) {
-        #map {position:fixed; top:0px; left:0px; right:0px; bottom:0px;}
-        a{text-decoration: none;}
+      
+        
   
 
-        #filters {position:fixed; top:130px; left:0; bottom:0; width:245px; overflow-y: scroll; }
-  #filters .block {box-sizing: border-box; border-bottom:solid 1px #ddd; padding:16px 0; margin:0 20px;}
-  #filters .block h2 {font-size:20px; margin-bottom: 4px;}
-  #filters .block .total {font-size: 13px; font-weight: bold;}
-  #filters .block label {font-size:16px; margin-bottom: 8px; font-weight: bold; display:block;}
-        #filters {position:fixed; top:130px; left:0; bottom:0; width:360px; overflow-y: scroll; background-color:#fff;}
-        input[type="text"]{box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;border-radius: 3px;
-  border: 1px solid transparent;
-  border-top: none;
-  border-bottom: 1px solid #DDD;}
-      }
     </style>
   	</head>
   	<body>
@@ -67,6 +55,8 @@
 
 
       <style type="text/css">
+      #map {position:fixed; top:224px; left:242px; right:0px; bottom:0px;}
+        a{text-decoration: none;}
         #poi-card {position:absolute; top:20px; left:20px; width:300px; background-color:#fff; border-radius:4px; padding:20px;}
         #poi-card .name {font-weight: bold; font-size: 18px; margin-bottom: 2px;}
         #poi-card .address {font-size: 12px; margin-bottom:12px;}
@@ -80,6 +70,12 @@
         .distance i {position:absolute; left:8px;}
       </style>
   		
+
+      <div id="header" style=""></div>
+      <div id="nav"></div>
+      <div id="query"></div>
+      <div id="tools"></div>
+      <div id="filters"></div>
 
 
   		<div id="map">

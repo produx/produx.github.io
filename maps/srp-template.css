@@ -41,7 +41,7 @@ input[type="text"] {font-size: 14px; padding:4px;}
 	
 	#map {position:fixed; top:228px; left:245px; right:0px; bottom:0px;}
 	
-	#filters {position:fixed; top:228px; left:0; bottom:0; width:245px; overflow-y: scroll; }
+	#filters {position:fixed; top:224px; left:0; bottom:0; width:245px; overflow-y: scroll; }
 	#filters .block {box-sizing: border-box; border-bottom:solid 1px #ddd; padding:12px;}
 	#filters .block h2 {font-size:20px; margin-bottom: 4px;}
 	#filters .block .total {font-size: 13px; font-weight: bold;}
