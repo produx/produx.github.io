@@ -2,7 +2,12 @@ var map;
 var markers = []
 var hotels = []
 var selectedPin = -1;
-var loc = {lat: 48.8566, lng: 2.3522}
+var loc = {lat: 48.8328, lng: 2.3966}
+var distanceService = new google.maps.DistanceMatrixService;
+var directionsDisplay;
+var directionsService = new google.maps.DirectionsService();
+var distanceCircle;
+var transitLayer;
 var markerImage = new google.maps.MarkerImage('i/pin.png',
     // This marker is 129 pixels wide by 42 pixels tall.
     new google.maps.Size(0, 0),
@@ -17,11 +22,10 @@ var markersHotels = [];
 var markersHotelsUnavailable = [];
 var markersHotelsNotMatch = [];
 
-
 var initializeMap = function() {
     map = new google.maps.Map(document.getElementById('map_canvas'), {
         center: loc,
-        zoom: 13,
+        zoom: 15,
         mapTypeId: 'roadmap',
         mapTypeId: google.maps.MapTypeId.ROADMAP, 
         panControl: false,
@@ -37,8 +41,17 @@ var initializeMap = function() {
         }
     });
 
+    directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true, preserveViewport: true});
+    directionsDisplay.setMap(map);
+
+    transitLayer = new google.maps.TransitLayer();
+    transitLayer.setMap(map);
+
     google.maps.event.addListenerOnce(map, 'idle', function(){
-         addHotelPins(); 
+          
+         addPOIPin();
+         setTimeout(addHotelPins(), 10000);
+
     });
 
     google.maps.event.addListener(map, 'zoom_changed', function() {
@@ -65,6 +78,40 @@ var initializeMap = function() {
     
 }
 
+var addPOIPin = function(){
+
+    var icon = "i/poi-pin.png";
+
+    marker = new google.maps.Marker({
+        position: loc,
+        animation: google.maps.Animation.DROP,
+        map: map, 
+        icon: icon
+    });
+
+    google.maps.event.addListener(marker, 'click', function() {
+        $("#hotel-card").hide(); 
+        $("#poi-card").show();       
+    });
+
+    $("#poi-card").delay(750).slideDown();
+    
+
+    distanceCircle = new google.maps.Circle({
+            strokeColor: '#666666',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#999999',
+            fillOpacity: 0.1,
+            map: map,
+            center: loc,
+            radius: 0
+    });
+}
+
+
+
+
 
 
 
@@ -82,20 +129,20 @@ var addHotelPins = function(){
         var icon; 
 
         var r = Math.floor((Math.random() * 10) + 1);
-        if (r >=6) {
+        if (r >=8) {
             var markerLabel = new MarkerWithLabel({
                 position: latlngObj,
                 draggable: false,
                 map: map,
                 icon: markerImage,
-                labelContent: "<div></div>",
+                labelContent: "<div>X</div>",
                 //labelAnchor: new google.maps.Point(40, 32),
-                labelClass: "map-pin-dot-unavailable" // the CSS class for the label
+                labelClass: "map-pin-dot-unavailable-large" // the CSS class for the label
             });
             markersHotelsUnavailable.push(markerLabel);
         } else {
 
-            var price = Math.floor(Math.random()*(700-50+1)+50);
+            var price = Math.floor(Math.random()*(400-50+1)+50);
             var markerLabel = new MarkerWithLabel({
                 position: latlngObj,
                 draggable: false,
@@ -103,20 +150,10 @@ var addHotelPins = function(){
                 icon: markerImage,
                 labelContent: "<div><span class='price'>$" + price + "</span></div>",
                 //labelAnchor: new google.maps.Point(40, 32),
-                labelClass: "map-pin-dot-available" // the CSS class for the label
+                labelClass: "map-pin-dot-available-large" // the CSS class for the label
             });
             markersHotels.push(markerLabel);
         }
-
-
-        /*marker = new google.maps.Marker({
-            position: latlngObj,
-            map: map, 
-            icon: icon
-        });*/
-
-        //markers.push(marker);
-        //var num = markers.indexOf(marker);
         var infowindow = new google.maps.InfoWindow({
             content: hotel.name
         });
@@ -131,15 +168,15 @@ var addHotelPins = function(){
 
         google.maps.event.addListener(markerLabel, 'click', function() {
             
-            //if (selectedPin != -1){
-                //markers[selectedPin].setIcon("i/base_blue_18.png");
-            //}
-            //selectedPin = num; 
-            //markers[num].setIcon('i/base_blue.png');
+            /*if (selectedPin != -1){
+                markers[selectedPin].setIcon("i/base_blue_18.png");
+            }
+            selectedPin = num; 
+            markers[num].setIcon('i/base_blue.png');*/
 
-            //hidePOICard();
-            //showHotelCard(hotel.name, latlngObj);
-            //displayRoute(latlngObj);
+            hidePOICard();
+            showHotelCard(hotel.name, latlngObj);
+            displayRoute(latlngObj);
 
         });
 

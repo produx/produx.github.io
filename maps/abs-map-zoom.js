@@ -35,10 +35,13 @@ var initializeMap = function() {
     //transitLayer.setMap(map);
 
     google.maps.event.addListenerOnce(map, 'idle', function(){
-         addHotelPins(); 
          addPOIPin();
+          
+         
 
     });
+
+    
     
 }
 

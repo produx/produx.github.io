@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script type="text/javascript"
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKuM7xluOCtezbOo1m34AfGyr64Y2zunA">
+      	</script>
+		<script src="abs-map-demo.js"></script>
+    <script type="text/javascript" src="map-labels.js"></script>
+      	
+
+      	<script type="text/javascript">
+			var hotelData = [];
+
+
+      		var showdata = function(){
+      			console.log("data")
+      		}
+
+			$(function(){
+				$.getJSON( "json-paris.js", function(data){
+					hotelData = data;
+					console.log(hotelData);
+				});
+				initializeMap(); 
+
+        $('select.radius').on('change', function() {
+          distanceCircle.setRadius(parseInt(this.value))
+          console.log(this.value)
+        })
+
+        $("#hide-circle").on("click", function(e){
+           e.preventDefault();
+          distanceCircle.setMap(null);
+        }); 
+
+        $("#show-circle").on("click", function(e){
+           e.preventDefault();
+          distanceCircle.setMap(map);
+        })
+
+        $("#hide-transit").on("click", function(e){
+          e.preventDefault();
+          transitLayer.setMap(null);
+        }); 
+
+        
+
+        $("#show-transit").on("click", function(e){
+          e.preventDefault();
+          transitLayer.setMap(map);
+        })
+			});
+		</script>
+
+		<link rel="stylesheet" type="text/css" href="srp-template.css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style type="text/css">
+      @media only screen and (min-width: 960px) {
+        #map {position:fixed; top:121px; left:245px; right:0px; bottom:0px;}
+        a{text-decoration: none;}
+  
+
+        #filters {position:fixed; top:130px; left:0; bottom:0; width:245px; overflow-y: scroll; }
+  #filters .block {box-sizing: border-box; border-bottom:solid 1px #ddd; padding:16px 0; margin:0 20px;}
+  #filters .block h2 {font-size:20px; margin-bottom: 4px;}
+  #filters .block .total {font-size: 13px; font-weight: bold;}
+  #filters .block label {font-size:16px; margin-bottom: 8px; font-weight: bold; display:block;}
+        #filters {position:fixed; top:130px; left:0; bottom:0; width:360px; overflow-y: scroll; background-color:#fff;}
+        input[type="text"]{box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;border-radius: 3px;
+  border: 1px solid transparent;
+  border-top: none;
+  border-bottom: 1px solid #DDD;}
+      }
+
+      .map-pin-dot-unavailable {width:6px; height:6px; border-radius:50%; background-color: #d41200; border: solid 1px #9c0c1e; border: solid 1px #fff;}
+      .map-pin-dot-unavailable-large { border-radius:4px; background-color: #d41200; border: solid 1px #9c0c1e; border: solid 0px #fff; background-color: #ddd; color:#666; padding:4px; font-weight:bold; -webkit-box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.75);
+box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.75)}
+      .map-pin-dot-available {width:8px; height:8px; border-radius:50%; border: solid 1px #3e6e00; border: solid 1px #fff; background-color: #458f00; padding:0;}
+      .map-pin-dot-available .price {display:none; font-size:11px;}
+      .map-pin-dot-available-large {display:inline-block; height:auto; width:auto; padding:4px; border: solid 1px #fff;  color:#fff; border-radius:4px; background:url('i/arrow-bottom.png') no-repeat; background-position: 4px 20px; background-color: #458f00; background-color: #fff; color:#333; font-weight:bold; -webkit-box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.75);
+box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.75)}
+      .map-pin-dot-available-large .price {display:inline;}
+
+    </style>
+  	</head>
+  	<body>
+
+  		
+      <div style="height:60px; background-color:#d41200;">
+          
+      </div>
+      <div style="height:60px; background-color:#eee; -webkit-box-shadow: 0px 1px 1px 0px rgba(153,153,153,1);
+-moz-box-shadow: 0px 1px 1px 0px rgba(153,153,153,1);
+box-shadow: 0px 1px 1px 0px rgba(153,153,153,1);"></div>
+      <div class="filters"></div>
+  		
+  		
+
+
+      <style type="text/css">
+        #poi-card {position:absolute; top:20px; left:20px; width:300px; background-color:#fff; border-radius:4px; padding:20px; opacity:0.9;}
+        #poi-card .name {font-weight: bold; font-size: 18px; margin-bottom: 2px;}
+        #poi-card .address {font-size: 12px; margin-bottom:12px;}
+        #poi-card .transport {padding-left: 24px; position:relative; margin-top:4px; font-size: 13px}
+        #poi-card .transport i {position:absolute; top:0; left:0; font-size:18px;} 
+
+        #hotel-card {position:absolute; top:20px; left:20px; width:260px; background-color:#fff; border-radius:4px; padding:20px;}
+        #hotel-card .name{font-weight: bold; font-size: 16px; margin-bottom: 8px; }
+        #hotel-card i {font-size: 16px;}
+        .distance {border-left:dotted 1px #555; padding:2px 8px 2px 24px; margin:4px 2px 8px; position:relative; font-size:13px;}
+        .distance i {position:absolute; left:8px;}
+      </style>
+  		
+
+
+  		<div id="map">
+			<div id="map_canvas" style="width:100%; height:100%; "></div>
+
+      <div id="poi-card" style="display:none; padding-left:40px">
+        <img src="i/poi-pin.png" style="position:absolute; top:20px; left:12px;" />
+        <div class="name">Espace Charenton</div>
+        <div class="address">323bis, rue de Charenton, 75012 Paris</div>
+
+        <div style="font-weight:bold;">Nearby transport</div>
+        <div class="transport">
+          <i class="material-icons">directions_subway</i>
+          Métro ligne 8<br />
+Station : Porte de Charenton
+        </div>
+        <div class="transport">
+          <i class="material-icons">directions_subway</i>
+          Métro ligne 6<br />
+Station : Gare de Bercy
+        </div>
+      </div>
+
+      <div id="hotel-card" style="display:none;">
+        <div style="">
+          <div style="margin-bottom:2px; padding-top:8px; font-weight: bold">Espace Charenton</div>
+          <div class="distance"></div>
+       </div>
+        <div class="name"></div>
+        <div style="background-color: #eee;">
+          <img src="https://exp.cdn-hotels.com/hotels/1000000/90000/83200/83120/83120_58_z.jpg" style="width:100%;" />
+        </div>
+        
+      </div>
+			
+
+		</div>
+
+  	</body>
+</html>
