@@ -28,16 +28,16 @@ var initializeMap = function() {
         mapTypeControl: true,
         mapTypeControlOptions: {
               style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
-              position: google.maps.ControlPosition.TOP_RIGHT
+              position: google.maps.ControlPosition.TOP_LEFT
         },
         streetViewControl:true,
         fullscreenControl: false,
         zoomControl: true,
         zoomControlOptions: {
-            position: google.maps.ControlPosition.RIGHT_TOP
+            position: google.maps.ControlPosition.LEFT_TOP
         },
         streetViewControlOptions: {
-            position: google.maps.ControlPosition.RIGHT_TOP
+            position: google.maps.ControlPosition.LEFT_TOP
         },
         
     });

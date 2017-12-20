@@ -10,7 +10,7 @@
 		<script type="text/javascript"
           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKuM7xluOCtezbOo1m34AfGyr64Y2zunA&libraries=places">
       	</script>
-		<script src="change-pin-zoom-level.js"></script>
+		<script src="layout-2.js"></script>
     <script type="text/javascript" src="map-labels.js"></script>
       	
 
@@ -28,6 +28,7 @@
 					console.log(hotelData);
 				});
 				initializeMap(); 
+
 			});
 		</script>
 
@@ -45,7 +46,8 @@
     </style>
 
     <style type="text/css">
-      #map {top:167px; left:261px;}
+      #map {top:77px; left:262px;}
+      #query {top:0px; border-top:solid 5px #d41200;}
 
       ul {margin-top:8px;}
       ul li {margin:0 0 4px 0;}
@@ -53,37 +55,35 @@
   	</head>
   	<body>
 
-  		<div id="header">
-  			
-  				<img src="i/Horizontal_H_White.svg" style="height:36px"/>
-  			
-  		</div>
-  		<div id="nav">
-  			
-  				<ul>
-  					<li>Hotel Deals</li>
-  					<li>Packages & Flights</li>
-  					<li>Gift Cards</li>
-  					<li>Help</li>
-  					<li>Website feedback</li>
-  					<li class="right">Your bookings</li>
-  					<li class="right">Hotels.com Rewards</li>
-  					<li class="right">Sign in &amp; account</li>
-  				</ul>
-  			
-  		</div>
+  		
+  		
   		<div id="query">
-  			<div class="wrapper">
-  				<div class="search">
+  			   <img src="i/listview.png" style="width:220px; margin-left:20px; display:inline-block;"/>
+  				<div class="search" style="margin:4px 12px;">
   					<h1>Paris, France</h1>
   					<div class="dates">Mon 27 - Tue 28 November 2017, 1 night, 1 room, 2 adults</div>
   				</div>
-  			</div>
+  			
   		</div>
+
+      
+
+      <style type="text/css">
+        #query {left:0; padding:12px 0;}
+        #filters {top:77px;}
+      </style>
   		
   		<div id="filters">
         
-        <img src="i/listview.png" style="width:220px; margin-top:12px"/>
+        
+
+        <div id="tools" style="padding:12px 0;">
+        
+          <label style="display:block; margin-bottom:4px; font-weight: bold; font-size: 18px">Search map for</label>
+          <input type="text" name="" placeholder="Location, landmark, station, etc..." style="width:160px" />
+          <button class="disabled">Go</button>
+       
+        </div>
   			<div class="block">
   				<h2>Narrow results</h2>
   				<span class="total">2,483 hotels and holiday rentals</span>
@@ -134,21 +134,12 @@ box-shadow: 0px 0px 0px 0px rgba(82,82,82,1);"><i class="material-icons">keyboar
 
   	<div id="map">
 			 <div id="map_canvas" style="width:100%; height:100%; "></div>
-       <div id="tools" style="position:absolute; border-radius:2px; top:12px; left:12px; background-color:#fff; -webkit-box-shadow: 1px 1px 2px 0px rgba(153,153,153,1);
--moz-box-shadow: 1px 1px 2px 0px rgba(153,153,153,1);
-box-shadow: 1px 1px 2px 0px rgba(153,153,153,1); padding:12px;">
-        
-          <label style="display:block; margin-bottom:4px; font-weight: bold;">Search map for</label>
-          <input type="text" name="" placeholder="Location, landmark, station, etc..." />
-          <button class="disabled">Go</button>
-        
-      </div>
-
-      <div id="key" style="position:absolute; top:160px; right:10px; min-height:100px; width:30px; background-color:#fff; border-radius:2px;
+       
+      <div id="key" style="position:absolute; top:160px; left:10px; min-height:100px; width:30px; background-color:#fff; border-radius:2px;
         -webkit-webkit-box-shadow: 0px 1px 1px 0px rgba(82,82,82,0.8);
         -moz-box-shadow: 0px 1px 1px 0px rgba(82,82,82,0.6);
         box-shadow: 0px 1px 1px 0px rgba(82,82,82,0.6);}; box-sizing: border-box; padding:8px">
-        <div id="open-key" style="background-color: #1976D2; color:#fff; border:0; margin:-4px -4px 12px -4px; font-size: 16px; height:23px; width:23px; padding:0; box-sizing: border-box; position:relative;"><i class="material-icons" style="position:absolute; top:0; left:0">keyboard_arrow_left</i></div>
+        <div id="open-key" style="background-color: #1976D2; color:#fff; border:0; margin:-4px -4px 12px -4px; font-size: 16px; height:23px; width:23px; padding:0; box-sizing: border-box; position:relative;"><i class="material-icons" style="position:absolute; top:0; left:0">keyboard_arrow_right</i></div>
         <img src="i/key_pins.png" style="width:14px; display:block; margin-bottom:8px"/>
         <div style="border-top:solid 1px #ddd; margin-bottom:8px"></div>
         <img src="i/key_poi.png" style="width:14px; display:block"/>

@@ -45,20 +45,15 @@
     </style>
 
     <style type="text/css">
-      #map {top:167px; left:261px;}
+      #map {top:0px; left:362px;}
+      #header {width:360px;}
 
       ul {margin-top:8px;}
       ul li {margin:0 0 4px 0;}
     </style>
   	</head>
   	<body>
-
-  		<div id="header">
-  			
-  				<img src="i/Horizontal_H_White.svg" style="height:36px"/>
-  			
-  		</div>
-  		<div id="nav">
+  		<!--<div id="nav">
   			
   				<ul>
   					<li>Hotel Deals</li>
@@ -71,19 +66,63 @@
   					<li class="right">Sign in &amp; account</li>
   				</ul>
   			
-  		</div>
-  		<div id="query">
-  			<div class="wrapper">
-  				<div class="search">
-  					<h1>Paris, France</h1>
-  					<div class="dates">Mon 27 - Tue 28 November 2017, 1 night, 1 room, 2 adults</div>
+  		</div>-->
+
+      <style type="text/css">
+        #query {top: 60px; left:0; padding:12px 0;}
+        #filters {top:0px; width:360px;}
+        .field {background-color:#fff; padding:6px; display:inline-block; border-radius:4px; border:solid 1px #ddd;}
+        .field label {display:block; font-size:11px;}
+        .field input[type="text"]{border:0;}
+      </style>
+
+  		<!--<div id="query">
+  			   <img src="i/listview.png" style="width:220px; margin-left:20px; display:inline-block;"/>
+  				<div class="search" style="margin:0px 12px;">
+  					<div class="field">
+              <label>Destination</label>
+              <input type="text" name="" />
+            </div>
+            <div class="field">
+              <label>Check in</label>
+              <input type="text" name="" />
+            </div>
+            <div class="field" style="margin-left:-4px; border-left:0px;">
+              <label>Check out</label>
+              <input type="text" name="" />
+            </div>
+
+            <div class="field">
+              <label>Rooms</label>
+              <input type="text" name="" />
+            </div>
   				</div>
-  			</div>
-  		</div>
+  			
+  		</div>-->
+
+      
+
+      <style type="text/css">
+        .change-search {padding:20px 0; background-color: #eae8e0; margin:0 -20px; padding:20px; border-bottom:2px solid #fff;}
+        .change-search h1 {font-size:18px;} 
+        .change-search .dates {font-size: 13px; margin-top:4px;} 
+
+      </style>
   		
   		<div id="filters">
+        <div class="change-search">
+          <h1>Paris, France</h1>
+          <div class="dates">Mon 27 - Tue 28 November 2017, 1 night, 1 room, 2 adults</div>
+        </div>
         
-        <img src="i/listview.png" style="width:220px; margin-top:12px"/>
+
+        <div id="tools" style="padding:12px 0; border-bottom:2px solid #fff; margin:0 -20px; padding:20px;">
+        
+          <label style="display:block; margin-bottom:4px; font-weight: bold; font-size: 18px">Search map for</label>
+          <input type="text" name="" placeholder="Location, landmark, station, etc..." style="width:260px" />
+          <button class="disabled">Go</button>
+       
+        </div>
   			<div class="block">
   				<h2>Narrow results</h2>
   				<span class="total">2,483 hotels and holiday rentals</span>
@@ -134,17 +173,7 @@ box-shadow: 0px 0px 0px 0px rgba(82,82,82,1);"><i class="material-icons">keyboar
 
   	<div id="map">
 			 <div id="map_canvas" style="width:100%; height:100%; "></div>
-       <div id="tools" style="position:absolute; border-radius:2px; top:12px; left:12px; background-color:#fff; -webkit-box-shadow: 1px 1px 2px 0px rgba(153,153,153,1);
--moz-box-shadow: 1px 1px 2px 0px rgba(153,153,153,1);
-box-shadow: 1px 1px 2px 0px rgba(153,153,153,1); padding:12px;">
-        
-          <label style="display:block; margin-bottom:4px; font-weight: bold;">Search map for</label>
-          <input type="text" name="" placeholder="Location, landmark, station, etc..." />
-          <button class="disabled">Go</button>
-        
-      </div>
-
-      <div id="key" style="position:absolute; top:160px; right:10px; min-height:100px; width:30px; background-color:#fff; border-radius:2px;
+        <div id="key" style="position:absolute; top:160px; right:10px; min-height:100px; width:30px; background-color:#fff; border-radius:2px;
         -webkit-webkit-box-shadow: 0px 1px 1px 0px rgba(82,82,82,0.8);
         -moz-box-shadow: 0px 1px 1px 0px rgba(82,82,82,0.6);
         box-shadow: 0px 1px 1px 0px rgba(82,82,82,0.6);}; box-sizing: border-box; padding:8px">
