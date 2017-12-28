@@ -1,4 +1,4 @@
-var geocoder = new google.maps.Geocoder();
+    var geocoder = new google.maps.Geocoder();
 var map;
 //var neighbourhoodPolygon;
 var nmarkers = [];
