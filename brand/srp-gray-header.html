@@ -23,10 +23,10 @@
 
 			#header-wrapper, #nav-wrapper, #search-wrapper, #content-wrapper, #sqm-wrapper {max-width:1260px; margin:0 auto;}
 
-			#header { background-color:#d32f2f; padding:12px 0 12px; overflow: hidden;}
-			#nav { background-color:#d32f2f; background-color:#d32f2f;}
+			#header { background-color:#fff; padding:12px 0 8px; overflow: hidden;}
+			#nav { background-color:#fff; background-color:#fff;}
 			#nav-wrapper ul {overflow:hidden;  list-style-type: none;margin:0; padding:0;}
-			#nav-wrapper ul li {float:right; color:#d32f2f; color:#fff;  font-size:13px; margin-right:20px; padding:0px 0 16px;}
+			#nav-wrapper ul li {float:left; color:#d32f2f; color:#555; font-size:13px; margin-right:20px; padding:0px 0 16px;}
 			
 
 			#search {min-height:88px; background-color:#fff;}
@@ -36,12 +36,12 @@
 			#search #query h1 {margin:0; padding:0; font-size:20px; margin-bottom:4px;}
 			#search #query div {font-size:14px;}
 
-			#sqm {background-color:#f5f5f5; padding:16px 0; overflow: hidden;}
+			#sqm {background-color:#eee; padding:16px 0; overflow: hidden; border-bottom:solid 1px #eee;}
 			#sqm .field {background-color:#fff; border:solid 1px #dddddd; float:left;  padding:8px; border-radius:4px;}
-			#sqm .field label {font-size: 13px; margin-bottom:4px;}
-			#sqm .field input[type="text"] {border:0; font-size:14px; width:100%; color:#1976D2;;}
+			#sqm .field label { font-size: 13px; margin-bottom:4px;}
+			#sqm .field input[type="text"] {border:0; font-size:14px; width:100%; color:#555; color:#1976D2;}
 
-			#sqm #destination {width:532px; margin-right:8px;}
+			#sqm #destination {width:490px; margin-right:8px;}
 			#sqm #checkin {margin-right:0px; border-top-right-radius: 0; border-bottom-right-radius: 0; width:140px;}
 			#sqm #checkout {margin-right:8px; border-top-left-radius: 0; border-bottom-left-radius: 0; border-left:0; width:140px;}
 			#sqm #occupancy {margin-right:8px;}
@@ -63,7 +63,7 @@ box-shadow: 1px 1px 1px 0px rgba(82,82,82,1);}
 			.range .left {position:absolute; top:0; left:0;}
 			.range .right {position:absolute; top:0; right:0;}
 
-			#results-col {width:calc(100% - 255px); margin-left:255px; background-color: #f5f5f5; box-sizing:border-box; padding:0 16px;}
+			#results-col {width:calc(100% - 255px); margin-left:255px; background-color: #fff; box-sizing:border-box; padding:0 0px;}
 			#results-col #sort {box-sizing:border-box; background-color: #fff; border:solid 1px #f5f5f5; margin:0 -16px;}
 			#results-col #sort ul {list-style-type: none; padding:0; margin:0; overflow:hidden;}
 			#results-col #sort ul li {float:left; color:#1976D2; padding: 8px 16px;}
@@ -82,16 +82,16 @@ box-shadow: 1px 1px 1px 0px rgba(82,82,82,1);}
 		
 		<div id="header">
 			<div id="header-wrapper">
-				<img src="i/logo/hcom_logo_white.svg" style="height:46px; position:absolute; top:20px;	margin-left:2px	"/>
+				<img src="i/logo/hotels_logo.svg" style="height:36px"/>
 				<style type="text/css">
-					.primary-nav {float:right; list-style-type: none; margin:0 0 0; padding:0; }
-					.primary-nav li {float:left;   color:#fff; font-size:16px; padding:8px 16px 8px;}
+					.primary-nav {float:right; list-style-type: none; margin:0; padding:0;}
+					.primary-nav li {float:left;  margin-right:20px; color:#d32f2f; font-size:16px; padding:8px 12px;}
 				</style>
 				<ul class="primary-nav">
 					
 					<li>Hotels.com Rewards</li>
 					<li>Your bookings</li>
-					<li style="background-color: #fff; color:#d32f2f">Sign in &amp account</li>
+					<li style="background-color:#d32f2f; color:#fff; border-radius:2px;">Sign in &amp account</li>
 					
 				</ul>
 			</div>
@@ -100,16 +100,12 @@ box-shadow: 1px 1px 1px 0px rgba(82,82,82,1);}
 		<div id="nav">
 			<div id="nav-wrapper">
 				<ul>
-					
-					
-					
-					
+					<li>Hotels deals</li>
+					<li>Packages and Flights</li>
+					<li>Groups and Meetings</li>
+					<li>Gift cards</li>
 					<li>Help</li>
 					<li>Website feedback</li>
-					<li>Gift cards</li>
-					<li>Groups and Meetings</li>
-					<li>Packages and Flights</li>
-					<li>Hotels deals</li>
 					<!--<li style="float:right">Book online or call 020 3024 8216</li>
 					<li style="float:right">Hotels.com Rewards</li>
 					<li style="float:right">Sign in &amp; Account</li>-->
