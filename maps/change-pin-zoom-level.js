@@ -17,6 +17,8 @@ var markersHotels = [];
 var markersHotelsUnavailable = [];
 var markersHotelsNotMatch = [];
 
+var zoomLevel = 15; 
+
 
 var initializeMap = function() {
     map = new google.maps.Map(document.getElementById('map_canvas'), {
@@ -50,7 +52,7 @@ var initializeMap = function() {
         var zoom = map.getZoom();
         console.log(zoom);
 
-        if (zoom >= 15){
+        if (zoom >= getParameterByName('zoomLevel')){
            for (a = 0; a < markersHotels.length; a++) {
                 markersHotels[a].labelClass = "map-pin-dot-available-large";
             } 
@@ -199,4 +201,11 @@ var getDistance = function(hotelLoc) {
         }
 
     })
+}
+
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }

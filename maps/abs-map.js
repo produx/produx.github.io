@@ -91,7 +91,7 @@ var addHotelPins = function(){
         var icon; 
 
         var r = Math.floor((Math.random() * 10) + 1);
-        if (r >=8) {
+        if (r >=2) {
             icon = "i/base_red_18.png";
         } else {
             icon = "i/base_green_18.png";
