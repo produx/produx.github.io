@@ -19,6 +19,7 @@
 		<style type="text/css">
 			body {font-family: arial; margin:0; padding:0; color:#333333; font-size: 13px}
 			a {text-decoration: none; color:#026dc5;}
+			select {height:24px;}
 			.wrapper {max-width:360px; margin:0 auto; background-color: #f5f4f0}
 			.wrapper > div {margin:12px;}
 			#header {background-color:#d41200; height:40px; box-sizing: border-box; margin:0;}
@@ -32,7 +33,8 @@
 			.field label {display:block; margin-bottom: 4px; font-size: 13px}
 			.field input[type="text"]{width:100%; box-sizing: border-box; padding:4px;}
 
-			.dates select {width:calc(50% - 4px); box-sizing: border-box; font-size: 13px}
+			.dates select {width:calc(50% - 8px); box-sizing: border-box; font-size: 13px}
+
 
 			.occ {display:inline-block; margin-top: 4px}
 			.occ label.sm {font-size: 11px;}
@@ -114,7 +116,7 @@ box-shadow: 1px 1px 3px 0px rgba(153,153,153,1);}
 			</div>
 			<div class="field dates">
 				<label>Check in date</label>
-				<select>
+				<select style="margin-right:8px;">
 					<option>Mar 2018</option>
 					<option>Apr 2018</option>
 					<option>May 2018</option>
@@ -158,7 +160,7 @@ box-shadow: 1px 1px 3px 0px rgba(153,153,153,1);}
 			</div>
 			<div class="field dates">
 				<label>Check out date</label>
-				<select>
+				<select style="margin-right:8px;">
 					<option>Mar 2018</option>
 					<option>Apr 2018</option>
 					<option>May 2018</option>
