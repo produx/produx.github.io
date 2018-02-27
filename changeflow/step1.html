@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+
+		<style type="text/css">
+			body {font-family: arial; margin:0; padding:0; color:#333333; font-size: 12px}
+			a {text-decoration: none; color:#026dc5;}
+			.wrapper {max-width:360px; margin:0 auto; background-color: #f5f4f0}
+			.wrapper > div {margin:12px;}
+			#header {background-color:#d41200; height:40px; box-sizing: border-box; margin:0;}
+			h2 {padding:0; margin:0; font-size: 16px}
+
+			#change-depends {border-bottom: solid 1px #ddd; padding:0 0 12px 0;}
+			#change-depends p {margin-bottom: 12px; line-height: 16px}
+			#change-depends a {font-size: 13px}
+
+			.field {margin-bottom: 12px}
+			.field label {display:block; margin-bottom: 4px; font-size: 13px}
+			.field input[type="text"]{width:100%; box-sizing: border-box; padding:4px;}
+
+			.dates select {width:calc(50% - 4px); box-sizing: border-box; font-size: 13px}
+
+			.occ {display:inline-block; margin-top: 4px}
+			.occ label.sm {font-size: 11px;}
+			.occ select {width:60px; margin-right:12px;}
+
+			#order-summary { border:solid 1px #ddd; padding:4px; background-color: #fff; border-radius: 4px}
+			#order-summary .order-hotel{padding:8px; background-color:#eee;}
+			#order-summary .thumb {border:solid 2px #fff; border-radius: 2px; display:inline-block; vertical-align: top; height:46px; overflow:hidden; -webkit-box-shadow: 1px 1px 3px 0px rgba(153,153,153,1);
+-moz-box-shadow: 1px 1px 3px 0px rgba(153,153,153,1);
+box-shadow: 1px 1px 3px 0px rgba(153,153,153,1);}
+			#order-summary .thumb img {width:70px;}
+			#order-summary .details {display:inline-block; vertical-align: top; margin-left: 4px}
+			#order-summary .details .name {font-weight: bold; margin-bottom: 4px; font-size:13px;}
+			#order-summary .details .room {font-size:12px;}
+
+			.order-dates { padding:4px 0 8px; border-bottom:solid 1px #eee;}
+			.item {margin-top: 6px; position: relative; font-size: 11px; padding:0 4px;}
+			.item .right {position:absolute; top:0; right:4px;}
+
+			
+
+		</style>
+
+	</head>
+
+	<body>
+	<div class="wrapper">
+		<div id="header"></div>
+
+		<div>
+			<div style="">Step 1 of 3</div>
+			<h2>Request changes</h2>
+		</div>
+
+		<div id="order-summary">
+			<div class="order-hotel">
+				<div class="thumb"><img src="i/thumb.png"></div>
+				<div class="details">
+					<div class="name">Hotel Montpensier Paris</div>
+					<div class="room">Standard Twin Room</div>
+				</div>
+				
+			</div>
+			<div class="order-dates">
+				<div class="item">
+					Check in date <div class="right">03/05/2018</div>
+				</div>
+				<div class="item">
+					Check in date <div class="right">04/05/2018</div>
+				</div>
+			</div>
+			<div class="order=occ">
+				<div class="item">
+					Adults <div class="right">2</div>
+				</div>
+				<div class="item">
+					Children <div class="right">0</div>
+				</div>
+				<div class="item">
+					Confirmation number <div class="right">147203909275</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="change-depends">
+			<p>Your change depends on the hotel's availability. We'll let you know if it affects the room rate.</p>
+
+			<a href="#">Want to change the hotel instead?</a>
+		</div>
+
+		<div id="change-details">
+			<div class="field">
+				<label>First name</label>
+				<input type="text" />
+			</div>
+			<div class="field">
+				<label>Last name</label>
+				<input type="text" />
+			</div>
+			<div class="field dates">
+				<label>Check in date</label>
+				<select>
+					<option>Jan 2019</option>
+				</select>
+				<select>
+					<option>1</option>
+				</select>
+			</div>
+			<div class="field dates">
+				<label>Check out date</label>
+				<select>
+					<option>Jan 2019</option>
+				</select>
+				<select>
+					<option>1</option>
+				</select>
+			</div>
+			<div class="field">
+				<label>Occupancy</label>
+				<div class="occ">
+					<label class="sm">Adults</label>
+					<select>
+						<option>1</option>
+					</select>
+				</div>
+				<div class="occ">
+					<label class="sm">Children</label>
+					<select>
+						<option>1</option>
+					</select>
+				</div>
+				
+			</div>
+		</div>
+
+		<style type="text/css">
+		#rates h2, #special-request h2 {background-color: #eee; border-top: solid 1px #ddd; border-bottom: solid 1px #ddd; margin:0; padding:8px 12px;}
+		#rates, #special-request {background-color: #fff; margin:0 0 0 0;}
+		#rates .room {position:relative; padding:12px; border-bottom:solid 1px #eee;}		
+		#rates .room input[type="radio"] {position:absolute; top:12px; left:12px;}
+		#rates .room > div {margin-left:24px; padding-top:2px;}
+		#rates .room .price-change {margin-top:8px; font-size: 11px}
+		#rates .room .price {font-size:16px; font-weight: bold;}
+		#rates .room .name {font-size: 13px}
+		.room-selected {background-color: #fefdca}
+		#special-request > div {padding:0 12px 12px;}
+		#special-request textarea {box-sizing: border-box; width:100%; border-radius:4px;}
+		#special-request p {font-size: 11px; line-height: 15px;}
+		</style>
+
+		<div id="rates">
+			<h2>Room availability</h2>
+			<div class="room room-selected">
+				<input type="radio" name="room" checked="checked" />
+				<div>
+					<div class="name">Standard twin room</div>
+					<div class="price-change">Same room price</div>
+					<div class="price">£0.00</div>
+				</div>
+			</div>
+			<div class="room">
+				<input type="radio" name="room"/>
+				<div>
+					<div class="name">Classic Double Room, 1 Double Bed, Private Bathroom</div>
+					<div class="price-change">Increase in proce</div>
+					<div class="price">£12.00</div>
+				</div>
+			</div>
+			<div class="room">
+				<input type="radio" name="room"/>
+				<div>
+					<div class="name">Classic Triple Room, Private Bathroom</div>
+					<div class="price-change">Increase in price</div>
+					<div class="price">£24.00</div>
+				</div>
+			</div>
+			<div class="room">
+				<input type="radio" name="room"/>
+				<div>
+					<div class="name">Family Room, Private Bathroom</div>
+					<div class="price-change">Increase in price</div>
+					<div class="price">£40.00</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div id="special-request">
+			<h2>Special requests & accessibility</h2>
+			<div>
+				<h3>Special requests</h3>
+				<p>Please describe any special requests (e.g. late check-in, non ground-floor, etc.). Hotels.com will pass your special request along to the property, but such requests are <strong>not guaranteed</strong> and may not be available in the room type and room rate requested. You may wish to call the property directly prior to your stay to confirm your special request.</p>
+				<textarea></textarea>
+				<p>This hotel doesn not offer any accessibility features. Please select a different hotel if you are interested in booking a room with accessibility features.</p>
+			</div>
+		</div>
+
+		<style type="text/css">
+			#submit {padding-bottom:12px;}
+			#submit button {width:100%; background-color: #026dc5; color:#fff; font-size: 14px; padding:8px 0; border-radius:4px;}
+		</style>
+
+		<div id="submit">
+			<p>There's just one more step before we send your request to the hotel</p>
+			<button>Continue</button>
+		</div>
+
+	</div>
+	</body>
+</html>
