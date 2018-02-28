@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<script type="text/javascript">
+			function getParameterByName(name) {
+    			name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    			var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        			results = regex.exec(location.search);
+    			return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+			}
+			// run things on page load
+			$(function(){
+
+				var lname = getParameterByName('lname');
+				var fname = getParameterByName('fname');
+
+				$(".c-name").text(fname);
+
+				$(".manage").click(function(){
+					window.location.href = "step1reduce.html?fname=" + fname + "&lname=" + lname;
+				})
+
+			});
+
+		</script>
+
+
+		<style type="text/css">
+			body {font-family: arial; margin:0; padding:0; color:#333333; font-size: 13px}
+			a {text-decoration: none; color:#026dc5;}
+			select {height:28px;}
+			button {width:100%; background-color: #026dc5; color:#fff; font-size: 14px; padding:8px 0; border-radius:4px; border:0; border-bottom:solid 3px #000;}
+			.wrapper {max-width:360px; margin:0 auto; background-color: #fff; padding:0 0 20px 0;}
+			.wrapper > div {margin:12px;}
+			#header {background-color:#d41200; height:40px; box-sizing: border-box; margin:0; padding:6px 12px;}
+			h2 {padding:0; margin:0; font-size: 16px}
+
+			#change-depends {border-bottom: solid 1px #ddd; padding:0 0 12px 0;}
+			#change-depends p {margin-bottom: 12px; line-height: 16px}
+			#change-depends a {font-size: 13px}
+
+			.field {margin-bottom: 12px}
+			.field label {display:block; margin-bottom: 4px; font-size: 13px}
+			.field input[type="text"]{width:100%; box-sizing: border-box; padding:4px; font-size:14px;}
+
+			.dates select {width:calc(50% - 8px); box-sizing: border-box; font-size: 13px}
+
+
+			.occ {display:inline-block; margin-top: 4px}
+			.occ label.sm {font-size: 11px;}
+			.occ select {width:60px; margin-right:12px;}
+
+			#order-summary { border:solid 1px #ddd; padding:4px; background-color: #fff; border-radius: 4px}
+			#order-summary .order-hotel{padding:8px; background-color:#eee;}
+			#order-summary .thumb {border:solid 2px #fff; border-radius: 2px; display:inline-block; vertical-align: top; height:46px; overflow:hidden; -webkit-box-shadow: 1px 1px 3px 0px rgba(153,153,153,1);
+-moz-box-shadow: 1px 1px 3px 0px rgba(153,153,153,1);
+box-shadow: 1px 1px 3px 0px rgba(153,153,153,1);}
+			#order-summary .thumb img {width:70px;}
+			#order-summary .details {display:inline-block; vertical-align: top; margin-left: 4px}
+			#order-summary .details .name {font-weight: bold; margin-bottom: 4px; font-size:14px;}
+			#order-summary .details .room {font-size:13px;}
+
+			.order-dates { padding:4px 0 8px; border-bottom:solid 1px #eee;}
+			.item {position: relative; font-size: 12px; padding:6px 4px;border-bottom:solid 1px #ddd; font-weight:bold;}
+			.item .right {position:absolute; top:6px; right:4px; font-weight: normal}
+
+			#update {margin-top:20px;}
+
+		</style>
+
+	</head>
+
+	<body>
+	<div class="wrapper">
+		<div class="email-details" style="padding:12px 0; position: relative;">
+			<div style="font-size:18px; padding-bottom:12px; border-bottom:solid 1px #eee; line-height: 26px;">Hotels.com reservation confirmation 147203909275 - Hotel Montpensier Paris - Paris</div>	
+			<div style="position: relative;">
+			<div style="font-size:16px; margin-top:12px; margin-left:40px;">Hotels.com UK</div>
+			<div style="font-size:13px; margin-top:4px; color:#888; margin-left:40px;">to me</div>
+			<div style="font-size:13px; margin-top:4px; color:#888; margin-left:40px;">12:15</div>
+			<img src="i/email_h.png" style="position:absolute; top:0; left:0; width:30px"/>
+			</div>
+		</div>
+
+
+		<div id="header">
+			<img src="i/hcom_logo_white.svg" style="height:26px"/>
+		</div>
+
+		<style type="text/css">
+			.confirmed {padding:8px; background-color: #efffc5; border:solid 1px #b5d299; color:#3e6e00; font-size: 13px; border-radius:4px;}
+		</style>
+		<div class="confirmed">Dear <span class="c-name"></span>, your booking is guaranteed and all paid for.</div>
+		
+		<style type="text/css">
+			ul.tools {overflow:hidden; margin:0; padding:0;}
+			ul.tools li {float:left; margin-left:8px; margin-right:4px; list-style-type: none; padding:0 0 4px 0;}
+		</style>
+		<div>
+			<ul class="tools">
+				<li><a href="#" class="manage">Manage booking</a></li>
+				<li><a href="#">Print reciept</a></li>
+				<li><a href="#">Book again</a></li>
+			</ul>
+		</div>
+		<style type="text/css">
+			.hotel-details {background-color: #f5f4f0; overflow:hidden; padding:8px;}
+			.hotel-details > div {float:left; width:50%;}
+		</style>
+		<div class="hotel-details">
+			<div>
+				<div style="font-weight:bold;"><a href="#" class="manage">Hotel Montpensier Paris</a></div>
+				<div style="font-size:12px; margin-top:4px;">12, Rue de Richelieu, Paris, Paris, 75001, France,</div>
+				<div style="margin-top:4px; font-size:12px;">0203 564 5996</div>
+			</div>
+			<div style="text-align:right"><img src="i/thumb.png" style="height:90px;"/></div>
+		</div>
+		<div class="booking-details">
+			<div class="item">
+				Hotels.com confirmation number
+				<div class="right">
+					<span>147203909275</span>
+				</div>
+			</div>
+			<div class="item">
+				Check in
+				<div class="right">
+					<span>Thursday, 08/03/2018 (2PM)</span>
+				</div>
+			</div>
+			<div class="item">
+				Check out
+				<div class="right">
+					<span>Saturday, 10/03/2018 (noon)</span>
+				</div>
+			</div>
+			<div class="item">
+				Your stay
+				<div class="right">
+					<span>1 night, 1 room</span>
+				</div>
+			</div>
+			<div class="item">
+				Cancellation policy
+				<div class="right">
+					<span>Free cancellation until 07/03/2018</span>
+				</div>
+			</div>
+			<div class="item" style="background-color: #efffc5; color:#3e6e00;">
+				Amount paid
+				<div class="right" style="font-weight:bold;">
+					<span>£390.03</span>
+				</div>
+			</div>
+		</div>
+		
+
+	</div>
+	</body>
+</html>
