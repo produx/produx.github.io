@@ -27,11 +27,13 @@
 				// select
 				$( "select" ).change(function() {
   					$("#rates").hide();
+  					$("#submit").hide();
   					$("#update").show();
 				});
 
 				$("#update button").click(function(){
 					$("#update").hide();
+					$("#submit").show();
 					$("#rates-new").show();
 				});
 
