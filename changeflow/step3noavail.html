@@ -42,6 +42,8 @@
 				} else {
 					$(".l-name .value").text(lnameold);
 				}
+
+				$(".email").text(fnamenew +"."+ lnamenew);
 			});
 
 		</script>
@@ -113,7 +115,7 @@ box-shadow: 1px 1px 3px 0px rgba(153,153,153,1);}
 				<div>Price includes taxes and fees</div>	
 			</div>
 			<div class="summary" style="padding:12px;">
-				<div style="margin-bottom:4px;">No need to call us as we've sent a confirmation email to: <strong>your.name@email.com</strong></div>
+				<div style="margin-bottom:4px;">No need to call us as we've sent a confirmation email to: <strong><span class="email"></span>@email.com</strong></div>
 				<div>Your Hotels.com confirmation number is still 
 				<strong>147203909275</strong></div>
 			</div>
