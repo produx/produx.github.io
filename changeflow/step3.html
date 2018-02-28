@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<script type="text/javascript">
+			function getParameterByName(name) {
+    			name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    			var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        			results = regex.exec(location.search);
+    			return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+			}
+			// run things on page load
+			$(function(){
+				var lnameold = getParameterByName('lnameold');
+				var lnamenew = getParameterByName('lnamenew');
+				var fnameold = getParameterByName('fnameold');
+				var fnamenew = getParameterByName('fnamenew');
+				var cid = getParameterByName('cid');
+				var cim = getParameterByName('cim');
+				var cod = getParameterByName('cod');
+				var com = getParameterByName('com');
+				$(".ci .value").text(cid + "/" + cim + "/2018"); 
+				$(".co .value").text(cod + "/" + com + "/2018"); 
+				
+				if (fnameold != fnamenew) {
+					$(".f-name .value").text(fnamenew);
+					$(".f-name .value").css("background-color", "#fefdca")
+				} else {
+					$(".f-name .value").text(fnameold);
+				}
+				
+
+				if (lnameold != lnamenew) {
+					$(".l-name .value").text(lnamenew);
+					$(".l-name .value").css("background-color", "#fefdca")
+				} else {
+					$(".l-name .value").text(lnameold);
+				}
+			});
+
+		</script>
+
+
+		<style type="text/css">
+			body {font-family: arial; margin:0; padding:0; color:#333333; font-size: 13px}
+			a {text-decoration: none; color:#026dc5;}
+			select {height:28px;}
+			button {width:100%; background-color: #026dc5; color:#fff; font-size: 14px; padding:8px 0; border-radius:4px; border:0; border-bottom:solid 3px #000;}
+			.wrapper {max-width:360px; margin:0 auto; background-color: #f5f4f0}
+			.wrapper > div {margin:12px;}
+			#header {background-color:#d41200; height:40px; box-sizing: border-box; margin:0;}
+			h2 {padding:0; margin:0; font-size: 16px}
+
+			#change-depends {border-bottom: solid 1px #ddd; padding:0 0 12px 0;}
+			#change-depends p {margin-bottom: 12px; line-height: 16px}
+			#change-depends a {font-size: 13px}
+
+			.field {margin-bottom: 12px}
+			.field label {display:block; margin-bottom: 4px; font-size: 13px}
+			.field input[type="text"]{width:100%; box-sizing: border-box; padding:4px;}
+
+			.dates select {width:calc(50% - 8px); box-sizing: border-box; font-size: 13px}
+
+
+			.occ {display:inline-block; margin-top: 4px}
+			.occ label.sm {font-size: 11px;}
+			.occ select {width:60px; margin-right:12px;}
+
+			#order-summary, #payment-summary { border:solid 1px #ddd; padding:4px; background-color: #fff; border-radius: 4px}
+			#order-summary .order-hotel, #payment-summary .price {padding:8px; background-color:#eee;}
+			#order-summary .thumb {border:solid 2px #fff; border-radius: 2px; display:inline-block; vertical-align: top; height:46px; overflow:hidden; -webkit-box-shadow: 1px 1px 3px 0px rgba(153,153,153,1);
+-moz-box-shadow: 1px 1px 3px 0px rgba(153,153,153,1);
+box-shadow: 1px 1px 3px 0px rgba(153,153,153,1);}
+			#order-summary .thumb img {width:70px;}
+			#order-summary .details {display:inline-block; vertical-align: top; margin-left: 4px}
+			#order-summary .details .name {font-weight: bold; margin-bottom: 4px; font-size:14px;}
+			#order-summary .details .room {font-size:13px;}
+
+			.order-dates { padding:4px 0 8px; border-bottom:solid 1px #eee;}
+			.item {margin-top: 6px; position: relative; font-size: 12px; padding:0 4px;}
+			.item .right {position:absolute; top:0; right:4px;}
+
+			.order-occ, .order-nights, .order-new-total, .order-prev-total {border-bottom:solid 1px #eee; padding:0 0 4px 0;}
+
+			.item-change {background-color: #fefdca; padding:4px;}
+
+			#update {margin-top:20px;}
+
+		</style>
+
+	</head>
+
+	<body>
+	<div class="wrapper">
+		<div id="header"></div>
+
+		<div>
+			<div style="">Step 3 of 3</div>
+			<h2>That's it</h2>
+			<div style="">You've changed your booking</div>
+		</div>
+
+		<div id="payment-summary">
+			<div class="price">
+				<div class="total" style="font-weight: bold; font-size:18px">£38.08</div>
+				<div>You have been charged to your Visa Card</div>
+				<div>Price includes taxes and fees</div>	
+			</div>
+			<div class="summary" style="padding:12px;">
+				<div>No need to call us as we've sent a confirmation email to: </div>
+				<div>Your Hotels.com confirmation number is still 
+				147203909275</div>
+			</div>
+		</div>
+
+		<div id="order-summary">
+			<div class="order-hotel">
+				<div class="thumb"><img src="i/thumb.png"></div>
+				<div class="details">
+					<div class="name">Hotel Montpensier Paris</div>
+					<div class="room">Standard Twin Room</div>
+				</div>
+				
+			</div>
+			<style type="text/css">
+				#changed-details {margin-top: 8px}
+				#changed-details > div {margin-bottom: 4px}
+				#changed-details .key {width:120px; display: inline-block; font-weight: bold; padding:4px;}
+				#changed-details .value {display: inline-block; padding:4px;}
+				#changed-details .value .old {text-decoration: line-through;}
+				#changed-details .changed {background-color: #fefdca;}
+			</style>
+
+			<div id="changed-details">
+				<div class="f-name">
+					<div class="key">First name</div>
+					<div class="value"></div>
+				</div>
+				<div class="l-name">
+					<div class="key">Last name</div>
+					<div class="value"></div>
+				</div>
+				<div class="ci">
+					<div class="key">Check in date</div>
+					<div class="value" style="background-color:#fefdca"></div>
+				</div>
+				<div class="co">
+					<div class="key">Check out date</div>
+					<div class="value" style="background-color:#fefdca"></div>
+				</div>
+				<div class="occupancy">
+					<div class="key">Occupancy</div>
+					<div class="value">2 Adults, 0 Children</div>
+				</div>
+				<div class="room-type">
+					<div class="key">Room type</div>
+					<div class="value">Standard Twin Room</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div style="height:40px"></div>
+
+
+		
+
+
+	</div>
+	</body>
+</html>
