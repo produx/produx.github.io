@@ -25,8 +25,20 @@
 				var cim = getParameterByName('cim');
 				var cod = getParameterByName('cod');
 				var com = getParameterByName('com');
+
+				var day2 = parseInt(cid) + 1 ; 
+				if (day2 < 10) {
+					day2 = "0" + day2.toString();
+				} 
+
+
 				$(".ci").text(cid + "/" + cim + "/2018"); 
-				$(".co").text(cod + "/" + com + "/2018"); 
+				$(".co").text(cod + "/" + com + "/2018");
+
+
+				$(".ci-date").text(cid + "/" + cim + "/2018");
+
+				$(".co-date").text(day2 + "/" + com + "/2018");
 				
 				if (fnameold != fnamenew) {
 					$(".f-name .old").text(fnameold);
@@ -144,7 +156,7 @@ box-shadow: 1px 1px 3px 0px rgba(153,153,153,1);}
 					</div>
 				</div>
 				<div class="item item-change">
-					Check in date <br />
+					Check out date <br />
 					&nbsp;
 					<div class="right" style="padding:4px;">
 						<span style="text-decoration: line-through;">10/03/2018</span><br />
@@ -162,10 +174,10 @@ box-shadow: 1px 1px 3px 0px rgba(153,153,153,1);}
 			</div>
 			<div class="order-nights">
 				<div class="item">
-					Friday <div class="right">£189.38</div>
+					<span class="ci-date"></span> <div class="right">£189.38</div>
 				</div>
 				<div class="item">
-					Saturday <div class="right">£199.81</div>
+					 <span class="co-date"></span><div class="right">£199.81</div>
 				</div>
 				<div class="item">
 					Taxes and fees <div class="right">£38.92</div>
