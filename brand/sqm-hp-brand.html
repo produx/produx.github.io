@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+		<script src="https://use.typekit.net/plt6aug.js"></script>
+		
+
+		<!-- style sheets -->
+
+		<style type="text/css">
+			@media screen and (min-width: 600px) {}
+			@media screen and (min-width: 750px) {}
+			@media screen and (min-width: 850px) {}
+			@media screen and (min-width: 960px) {}
+			@media screen and (min-width: 1160px) {}
+
+			body {margin:0; padding:0; font-family: -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, “Fira Sans”, “Droid Sans”, “Helvetica Neue”, Arial, sans-serif; background-color: #fff; color:#525252;}
+			a {text-decoration:none; color:#1976D2;}
+
+
+			#header-wrapper, #nav-wrapper, #search-wrapper, #content-wrapper {max-width:1260px; margin:0 auto;}
+
+			#header { background-color:#d32f2f; padding:12px 0 12px; overflow: hidden;}
+			#nav { background-color:#fff;}
+			#nav-wrapper ul {overflow:hidden; list-style-type: none;margin:0; padding:0;}
+			#nav-wrapper ul li {float:left; color:#333;  font-size:13px; margin-right:20px; padding:8px 0 8px;}
+			
+
+			#search {min-height:88px; background-color:#fff;}
+			#search #map {display:inline-block; width:225px; vertical-align:top;}
+			#search #map img {border:solid 4px #fff; margin-top:18px; width:225px;}
+			#search #query {display:inline-block; box-sizing: border-box; padding:20px 0 0 28px; vertical-align: top}
+			#search #query h1 {margin:0; padding:0; font-size:20px; margin-bottom:4px;}
+			#search #query div {font-size:14px;}
+
+			
+			
+
+			#content-wrapper {position:relative;}
+			#filter-col {width:225px; position:absolute; top:0; left:0; margin-top:20px;}
+			#filter-col h3 {font-size: 18px; line-height: 20px; margin:0; padding:0;}
+			#filter-col .amount {font-size: 14px; margin-bottom:20px;}
+			#filter-col .filter-block {padding: 20px 0; border-top:solid 1px #ddd; }
+			#filter-col .filter-block ul {list-style-type: none; margin:0 0 0 0; padding:0;}
+			#filter-col .filter-block label {font-weight: bold; display: block; margin-bottom: 8px}
+			#filter-col .filter-block input[type="text"] {font-size: 14px; padding:2px 4px; font-family: "proxima-soft", arial; line-height: 14px; box-sizing: border-box; width:190px;}
+			.range {position:relative; height:26px;}
+			.range .bar {height:4px; background-color: #1976D2; position:absolute; top:12px; left:4px; right:4px;}
+			.range .handle {width:26px; height:26px; border-radius:50%; border:solid 2px #1976D2; background-color:#ffffff; -webkit-webkit-box-shadow: 1px 1px 1px 0px rgba(82,82,82,1);
+-moz-box-shadow: 1px 1px 1px 0px rgba(82,82,82,1);
+box-shadow: 1px 1px 1px 0px rgba(82,82,82,1);}
+			.range .left {position:absolute; top:0; left:0;}
+			.range .right {position:absolute; top:0; right:0;}
+
+			#results-col {width:calc(100% - 255px); margin-left:255px; background-color: #f5f5f5; box-sizing:border-box; padding:0 16px;}
+			#results-col #sort {box-sizing:border-box; background-color: #fff; border:solid 1px #f5f5f5; margin:0 -16px;}
+			#results-col #sort ul {list-style-type: none; padding:0; margin:0; overflow:hidden;}
+			#results-col #sort ul li {float:left; color:#1976D2; padding: 8px 16px;}
+			#results-col #sort ul li.select {background-color: #f5f5f5}
+
+			input[type="checkbox"] {    -webkit-appearance: checkbox;
+    box-sizing: border-box;}
+
+    		button {background-color: #1976D2; color:#fff; border:0; font-size: 16px; font-family:  -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, “Fira Sans”, “Droid Sans”, “Helvetica Neue”, Arial, sans-serif;; margin-top:0; font-weight: bold; border-radius:4px; padding:8px 12px; border-bottom:0px solid #00577C; -webkit-box-shadow: 1px 1px 1px 0px rgba(82,82,82,1);
+-moz-box-shadow: 1px 1px 1px 0px rgba(82,82,82,1);
+box-shadow: 1px 1px 1px 0px rgba(82,82,82,1); font-size: 24px}
+
+		</style>
+
+	</head>
+
+	<body>
+		
+		
+		<div id="header">
+			<div id="header-wrapper">
+				<img src="i/Horizontal_H_White.png" style="height:40px"/>
+				<style type="text/css">
+					.primary-nav {float:right; list-style-type: none; margin:0; padding:0;}
+					.primary-nav li {float:left;  margin-right:20px; color:#fff; font-size:16px; padding:8px 0;}
+				</style>
+				<ul class="primary-nav">
+					
+					<li>Hotels.com Rewards</li>
+					<li>Your bookings</li>
+					<li>Sign in &amp account</li>
+					
+				</ul>
+			</div>
+		</div>
+		
+		<div id="nav">
+			<div id="nav-wrapper">
+				<ul>
+					<li>Hotels deals</li>
+					<li>Packages and Flights</li>
+					<li>Groups and Meetings</li>
+					<li>Gift cards</li>
+					<li>Help</li>
+					<li>Website feedback</li>
+					<li style="float:right">Book online or call 020 3024 8216</li>
+					<!--<li style="float:right">Hotels.com Rewards</li>
+					<li style="float:right">Sign in &amp; Account</li>-->
+				</ul>
+			</div>
+		</div>
+		<div style="position:relative; height:460px; overflow:hidden; background-color:#fff; 	">
+			<img src="https://a.cdn-hotels.com/cos/heroimage/homepage/Paris-0_TR006950.jpg" style="width:1700px;
+    position:absolute; z-index:1"/>
+    	</div>
+
+    	<div style="position:absolute; top:320px; width:1260px; z-index:1000; left: 50%;
+  margin-left: -630px; height:112px; background-color: #fff; opacity:0.9;"></div>
+    	<div style="position:absolute; top:240px; width:1260px; z-index:1000; left: 50%;
+  margin-left: -630px;">
+
+  			<style type="text/css">
+  				.field {box-sizing: border-box; display:inline-block; vertical-align: top;}
+				.field label {display:block; font-size: 16px; margin-bottom:8px; padding-left: 2px}
+				.field input[type="text"] {font-size:14px; width:100%; color:#555; font-weight: bold; box-sizing: border-box; padding:16px 16px 16px 32px; font-size: 16px; border:solid 0px #ddd; border-radius:2px; }
+
+				.field-wrapper {-webkit-box-shadow: 1px 1px 1px 0px rgba(82,82,82,1);
+-moz-box-shadow: 1px 1px 1px 0px rgba(82,82,82,1);
+box-shadow: 1px 1px 1px 0px rgba(82,82,82,1); background-color:#fff; border:solid 1px #eee;}
+				#sqm #destination {width:480px;}
+				#sqm #dates {width:360px;}
+				 .day {font-size: 14px;}
+				 .date {font-weight:bold;}
+
+  			</style>
+
+
+    		
+  			<div id="sqm" style="padding:24px 12px;">
+  				<h1 style="margin:0 0 20px 0; padding:0; font-size:40px; color:#fff; text-shadow: 1px 1px #000;">Hotel Search</h1>
+  				<div id="destination" class="field" style="margin-right: 12px">
+					<label>Destination, hotel, landmark or address</label>
+					<div class="field-wrapper" style="border-radius:4px">
+						<input type="text" placeholder="e.g Las Vegas" style="height:58px" />
+					</div>
+				</div>
+				<div id="dates" class="field" style="overflow: hidden;">
+					<div  style="width:calc(50% - 4px); float:left; box-sizing: border-box; margin-right: 0px">
+						<label >Check in</label>
+						<div class="field-wrapper" style="height:60px; background-color: #fff; height:60px; padding:12px; box-sizing: border-box; border-top-left-radius: 4px; border-bottom-left-radius: 4px;">
+							<div class="day">Thursday</div>
+							<div class="date">12/03/18</div>
+						</div>
+					</div>
+					
+					<div style="float:left; box-sizing: border-box; width:calc(50% - 4px); padding-bottom: 2px; ">
+						<label >Check out</label>
+						<div class="field-wrapper" style="height:60px; background-color: #fff; padding:12px; box-sizing: border-box; border-top-right-radius: 4px; border-bottom-right-radius: 4px;">
+							<div class="day">Friday, 1 night</div>
+							<div class="date">12/03/18</div>
+						</div>
+					</div>
+					
+					
+				</div>
+
+				<div id="occupancy" class="field" style="width:240px;  margin-right: 12px;">
+					<label>Rooms</label>
+					<div class="field-wrapper" style="height:60px; background-color: #fff; padding:12px; box-sizing: border-box; border-radius:4px;">
+						<div class="day">1 room</div>
+						<div class="date">2 adults, 0 children</div>
+					</div>
+				</div>
+
+				<div id="submit" class="field" style="margin-top:27px; text-align:right;">
+					<button class="sqm" style="background-color: #1976D2; height:60px;">Search</button>
+				</div>
+				
+  			</div>
+
+    	</div>
+
+    	<style type="text/css">
+    		ul.punch {list-style-type: none; overflow: hidden; margin:0; padding:0;}
+    		ul.punch li {float:left; padding:4px 0; width:28px; text-align: center; border:dashed 1px #7B1FA2; color:#7B1FA2; margin:0 8px 8px 0; border-radius:4px; font-size: 14px}
+    	</style>
+
+    	<!--<div style="background-color:#f2eaf0; background-color:#7B1FA2; padding:16px 0; border-bottom:solid 1px #ddd;">
+    		<div style="width:1260px; margin:0 auto;">
+    			<div style=" width:280px; background-color:#fff; border-radius:8px; display:inline-block; vertical-align:top; box-sizing:border-box; padding:12px 12px 4px; position:relative;">
+    				<ul class="punch">
+    					<li>1</li>
+    					<li>2</li>
+    					<li>3</li>
+    					<li>4</li>
+    					<li>5</li>
+    				</ul>
+    				<ul class="punch">
+    					<li>6</li>
+    					<li>7</li>
+    					<li>8</li>
+    					<li>9</li>
+    					<li>10</li>
+    				</ul>
+    				<div style="position:absolute; right:12px; top:12px; bottom:12px; width:50px; border:dashed 1px #7B1FA2; border-radius:4px">
+
+    				</div>
+    			</div>
+    			<div style="display:inline-block; vertical-align:top; color:#fff; margin:12px 0 0 20px;">
+    				<div style="font-size:24px; font-weight:bold;">Collect 10 nights get 1 reward night*</div>
+    				<div style="font-size:18px; margin-top:8px">And look out for Secret Prices on selected hotels</div>
+    			</div>
+    		</div>
+    	</div>-->
+    		
+
+    	<!--
+
+		<div id="sqm">
+			<div id="sqm-wrapper">
+				<div id="destination" class="field">
+					<label>Destination</label>
+					<input type="text" value="New York, New York, United States"/>
+				</div>
+				<div id="checkin" class="field">
+					<label>Check in</label>
+					<input type="text" value="Sat 09/30/17"/>
+				</div>
+				<div id="checkout" class="field">
+					<label>Check out</label>
+					<input type="text" value="Mon 11/30/17"/>
+				</div>
+				<div id="occupancy" class="field" style="width:250px">
+					<label>Rooms</label>
+					<input type="text" value="1 room, 2 adults, 0 children"/>
+				</div>
+				<div id="submit">
+					<button class="sqm" style="background-color: #1976D2">Search</button>
+				</div>
+			</div>
+		</div>-->
+
+			
+		
+
+		
+		
+
+		
+
+
+
+		<!-- Scripts -->
+		<!-- JQuery Google CDN -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="handlebars.js"></script>
+
+		<script type="text/javascript">
+
+			// run things on page load
+			$(function(){
+				$.getJSON( "ny-json.js", function(data){
+					console.log(data);
+					displayHotels(data);
+				});
+
+				var displayHotels = function(data){
+					// get hotel data
+					var hotels = data.result;
+					console.log(hotels);
+				
+					// attach to handle bar template
+        			var source   = $("#hotel-card-template").html();
+  					var template = Handlebars.compile(source);
+  					$("#hotel-list").html(template(hotels));
+				}
+			});
+
+			Handlebars.registerHelper("thumbnailUrl", function(imageUrl){
+				var url = imageUrl.replace("_b.jpg", "_l.jpg");
+				return url;
+			});
+
+			Handlebars.registerHelper("neighbourhood", function(location){
+				//var url = imageUrl.replace("_b.jpg", "_l.jpg");
+				var n = location.indexOf("/"); 
+				var nHood = location.substring(n, 0) 
+				return nHood;
+			});
+
+			Handlebars.registerHelper("showDeal", function(pricepromotion, index, avgPrice, promoPriceDescription){
+				//var res = location.split("/");
+				//var url = imageUrl.replace("_b.jpg", "_l.jpg");
+				//console.log(pricepromotion);
+				var dealType = ""
+
+				if (index == 2 || index == 6 || index == 10) {
+					dealType = '<div class="secret-price">'
+					+ '<div><div class="label">Secret Price</div></div>'
+					+ '<span class="strikethrough">' + avgPrice + '</span> '
+					+ '<span class="total">' + pricepromotion.prefix + '' + pricepromotion.formattedValue + '</span>'
+					+ '</div>'
+				} else {
+					dealType = '<div class="special-deal">'
+					+ '<div><div class="label">Special deal</div></div>'
+					+ '<span class="strikethrough">' + avgPrice + '</span> '
+					+ '<span class="total">' + pricepromotion.prefix + '' + pricepromotion.formattedValue + '</span>'
+					+ '</div>'
+
+				}
+
+				return new Handlebars.SafeString(
+    				dealType
+  				);
+			});
+
+		</script>
+	</body>
+</html>
