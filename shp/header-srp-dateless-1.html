@@ -21,14 +21,15 @@
       .arrow-up {
   width: 0; 
   height: 0; 
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
   
-  border-bottom: 8px solid #028017;
+  border-bottom: 10px solid #028017;
 
 }
 #dates-pin {overflow:hidden; position: relative; height:98px; background-color:#eae8e0; padding:12px 12px;}
 .fixed {position:fixed; top:0; left:0; right:0px}
+.bar {background-color: #028017; padding:8px; font-weight: bold; font-size:13px; color:#fff;}
 
       #page {background-color:#eae8e0;}
 			@media screen and (min-width: 600px) {
@@ -59,10 +60,11 @@
                   "top": "0", 
                   "left": "0",
                   "right": "0", 
-                  "background-color": "#dae9cc" 
+                  "background-color": "#028017" 
                   //"border-bottom": "solid 1px #ddd"
                 });
-                //$("#dates-pin").animate({ color: "#F00" },700);
+                $(".bar").css({ "background-color": "#dae9cc", "color": "#028017" });
+                $(".arrow-up").css({"border-bottom": "8px solid #dae9cc"})
                 //$("div#room-1").css("padding-top", (room1DetailsHeight + 12) +"px")
               } else {
                 console.log("un pin");
@@ -102,18 +104,18 @@
   				<div class="section" style="font-weight:bold; padding:0 12px">
   					London, United Kingdom
   				</div>
-  				<div id="dates-pin" class="section" style="">
+  				<div id="dates-pin" class="section">
   					<div style="float:left; width:calc(50% - 4px); box-sizing: border-box; background-color: #fff; padding:8px; height:60px; margin-right:2px;" >
   						<h2>Check in</h2>
               <div style="margin:8px 0">---</div>
   					</div>
-  					<div style="float:left; width:calc(50% - 0px); box-sizing: border-box; background-color: #fff; padding:8px; height:60px; margin-left:2px;">
+  					<div style="float:left; width:calc(50% - 0px); box-sizing: border-box; background-color: #fff; padding:8px; height:60px; margin-left:2px;">  
   						<h2>Check out</h2>
               <div style="margin:8px 0">---</div>
   					</div>
-            <div class="message" style="display:none; position:absolute; bottom:12px; left:12px; right:12px;">
-              <div  style="background-color: #028017; padding:8px; font-weight: bold; font-size:13px; color:#fff; border:solid 1px #028017;">Add dates to get best prices for your trip</div>
-              <div class="arrow-up" style="position:absolute; top:-8px; left:12px"></div>
+            <div class="message" style="display:none; position:absolute; bottom:16px; left:12px; right:12px;">
+              <div class="bar"  style="">Add dates to get best prices for your trip</div>
+              <div class="arrow-up" style="position:absolute; top:-7px; left:12px"></div>
             </div>
             
   				</div>
