@@ -38,7 +38,8 @@
 				});
 
 				$("#submit button").click(function(){
-					window.location.href = "step2.html?fnameold=" + fname + "&fnamenew=" + $("#fname").val() + "&lnameold=" + lname + "&lnamenew=" + $("#lname").val()  + "&cid=" + $("#cid option:checked").val() + "&cim=" + $("#cim option:checked").val() + "&cod=" + $("#cod option:checked").val() + "&com=" + $("#com option:checked").val();
+					$("#step-1").hide(); 
+					$("#step-2").show();
 				})
 
 			});
@@ -87,6 +88,8 @@ box-shadow: 1px 1px 3px 0px rgba(153,153,153,1);}
 
 			#update {margin-top:20px;}
 
+			.title {margin-bottom:12px;}
+
 		</style>
 
 	</head>
@@ -96,47 +99,44 @@ box-shadow: 1px 1px 3px 0px rgba(153,153,153,1);}
 		<div id="header">
 			<img src="i/hcom_logo_white.svg" style="height:30px"/>
 		</div>
-
-		<div>
-			<div style="">Step 1 of 3</div>
-			<h2>Request changes</h2>
-		</div>
-
-		<div id="order-summary">
-			<div class="order-hotel">
-				<div class="thumb"><img src="i/thumb.png"></div>
-				<div class="details">
-					<div class="name">Hotel Montpensier Paris</div>
-					<div class="room" style="margin:0; padding:0;">Standard Double Room</div>
-				</div>
-				
+		<div id="step-1">
+			<div class="title">
+				<div style="">Step 1 of 3</div>
+				<h2>Request changes</h2>
 			</div>
-			<div class="order-dates">
-				<div class="item">
-					Check in date <div class="right">08/03/2018</div>
+
+			<div id="order-summary">
+				<div class="order-hotel">
+					<div class="thumb"><img src="i/thumb.png"></div>
+					<div class="details">
+						<div class="name">Hotel Montpensier Paris</div>
+						<div class="room" style="margin:0; padding:0;">Standard Double Room</div>
+					</div>
 				</div>
-				<div class="item">
-					Check out date <div class="right">10/03/2018</div>
+				<div class="order-dates">
+					<div class="item">
+						Check in date <div class="right">08/03/2018</div>
+					</div>
+					<div class="item">
+						Check out date <div class="right">10/03/2018</div>
+					</div>
+				</div>
+				<div class="order=occ">
+					<div class="item">
+						Adults <div class="right">2</div>
+					</div>
+					<div class="item">
+						Children <div class="right">0</div>
+					</div>
+					<div class="item">
+						Confirmation number <div class="right">147203909275</div>
+					</div>
 				</div>
 			</div>
-			<div class="order=occ">
-				<div class="item">
-					Adults <div class="right">2</div>
-				</div>
-				<div class="item">
-					Children <div class="right">0</div>
-				</div>
-				<div class="item">
-					Confirmation number <div class="right">147203909275</div>
-				</div>
+			<div id="change-depends">
+				<p>Your change depends on the hotel's availability. We'll let you know if it affects the room rate.</p>
+				<a href="#">Want to change the hotel instead?</a>
 			</div>
-		</div>
-		<div id="change-depends">
-			<p>Your change depends on the hotel's availability. We'll let you know if it affects the room rate.</p>
-
-			<a href="#">Want to change the hotel instead?</a>
-		</div>
-
 			<style type="text/css">
 				#special-request {border-bottom:;}
 
@@ -151,230 +151,324 @@ box-shadow: 1px 1px 3px 0px rgba(153,153,153,1);}
 				<!--<p>This hotel doesn't not offer any accessibility features. Please select a different hotel if you are interested in booking a room with accessibility features.</p>-->
 			</div>
 
-		
-
-		<div id="change-details">
-			<div class="field">
-				<label>First name</label>
-				<input id="fname" type="text" value="Christopher"/>
-			</div>
-			<div class="field">
-				<label>Last name</label>
-				<input id="lname" type="text" value="Matthews"/>
-			</div>
-			<div class="field dates">
-				<label>Check in date</label>
-				<select id="cim" style="margin-right:8px;">
-					<option value="03" selected="selected">Mar 2018</option>
-					<option value="04">Apr 2018</option>
-					<option value="05">May 2018</option>
-					<option value="06">Jun 2018</option>
-					<option value="07">Jul 2018</option>
-					<option value="08">Aug 2018</option>
-				</select>
-				<select id="cid">
-					<option value="01">1</option>
-					<option value="02">2</option>
-					<option value="03">3</option>
-					<option value="04">4</option>
-					<option value="05">5</option>
-					<option value="06">6</option>
-					<option value="07">7</option>
-					<option value="08" selected="selected">8</option>
-					<option value="09">9</option>
-					<option value="10">10</option>
-					<option value="11">11</option>
-					<option value="12">12</option>
-					<option value="13">13</option>
-					<option value="14">14</option>
-					<option value="15">15</option>
-					<option value="16">16</option>
-					<option value="17">17</option>
-					<option value="18">18</option>
-					<option value="19">19</option>
-					<option value="20">20</option>
-					<option value="21">21</option>
-					<option value="22">22</option>
-					<option value="23">23</option>
-					<option value="24">24</option>
-					<option value="25">25</option>
-					<option value="26">26</option>
-					<option value="27">27</option>
-					<option value="28">28</option>
-					<option value="29">29</option>
-					<option value="30">30</option>
-					<option value="31">31</option>
-				</select>
-			</div>
-			<div class="field dates">
-				<label>Check out date</label>
-				<select id="com" style="margin-right:8px;">
-					<option value="03" selected="selected">Mar 2018</option>
-					<option value="04">Apr 2018</option>
-					<option value="05">May 2018</option>
-					<option value="06">Jun 2018</option>
-					<option value="07">Jul 2018</option>
-					<option value="08">Aug 2018</option>
-				</select>
-				<select id="cod">
-					<option value="01">1</option>
-					<option value="02">2</option>
-					<option value="03">3</option>
-					<option value="04">4</option>
-					<option value="05">5</option>
-					<option value="06">6</option>
-					<option value="07">7</option>
-					<option value="08">8</option>
-					<option value="09">9</option>
-					<option value="10" selected="selected">10</option>
-					<option value="11">11</option>
-					<option value="12">12</option>
-					<option value="13">13</option>
-					<option value="14">14</option>
-					<option value="15">15</option>
-					<option value="16">16</option>
-					<option value="17">17</option>
-					<option value="18">18</option>
-					<option value="19">19</option>
-					<option value="20">20</option>
-					<option value="21">21</option>
-					<option value="22">22</option>
-					<option value="23">23</option>
-					<option value="24">24</option>
-					<option value="25">25</option>
-					<option value="26">26</option>
-					<option value="27">27</option>
-					<option value="28">28</option>
-					<option value="29">29</option>
-					<option value="30">30</option>
-					<option value="31">31</option>
-				</select>
-			</div>
-			<div class="field">
-				<label>Occupancy</label>
-				<div class="occ">
-					<label class="sm">Adults</label>
-					<select>
-						<option>1</option>
-						<option selected="selected">2</option>
-						<option>3</option>
-						<option>4</option>
+			<div id="change-details">
+				<div class="field">
+					<label>First name</label>
+					<input id="fname" type="text" value="Christopher"/>
+				</div>
+				<div class="field">
+					<label>Last name</label>
+					<input id="lname" type="text" value="Matthews"/>
+				</div>
+				<div class="field dates">
+					<label>Check in date</label>
+					<select id="cim" style="margin-right:8px;">
+						<option value="03" selected="selected">Mar 2018</option>
+						<option value="04">Apr 2018</option>
+						<option value="05">May 2018</option>
+						<option value="06">Jun 2018</option>
+						<option value="07">Jul 2018</option>
+						<option value="08">Aug 2018</option>
+					</select>
+					<select id="cid">
+						<option value="01">1</option>
+						<option value="02">2</option>
+						<option value="03">3</option>
+						<option value="04">4</option>
+						<option value="05">5</option>
+						<option value="06">6</option>
+						<option value="07">7</option>
+						<option value="08" selected="selected">8</option>
+						<option value="09">9</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+						<option value="13">13</option>
+						<option value="14">14</option>
+						<option value="15">15</option>
+						<option value="16">16</option>
+						<option value="17">17</option>
+						<option value="18">18</option>
+						<option value="19">19</option>
+						<option value="20">20</option>
+						<option value="21">21</option>
+						<option value="22">22</option>
+						<option value="23">23</option>
+						<option value="24">24</option>
+						<option value="25">25</option>
+						<option value="26">26</option>
+						<option value="27">27</option>
+						<option value="28">28</option>
+						<option value="29">29</option>
+						<option value="30">30</option>
+						<option value="31">31</option>
 					</select>
 				</div>
-				<div class="occ">
-					<label class="sm">Children</label>
-					<select>
-						<option>0</option>
-						<option>2</option>
-						<option>3</option>
-						<option>4</option>
-						<option>5</option>
+				<div class="field dates">
+					<label>Check out date</label>
+					<select id="com" style="margin-right:8px;">
+						<option value="03" selected="selected">Mar 2018</option>
+						<option value="04">Apr 2018</option>
+						<option value="05">May 2018</option>
+						<option value="06">Jun 2018</option>
+						<option value="07">Jul 2018</option>
+						<option value="08">Aug 2018</option>
 					</select>
+					<select id="cod">
+						<option value="01">1</option>
+						<option value="02">2</option>
+						<option value="03">3</option>
+						<option value="04">4</option>
+						<option value="05">5</option>
+						<option value="06">6</option>
+						<option value="07">7</option>
+						<option value="08">8</option>
+						<option value="09">9</option>
+						<option value="10" selected="selected">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+						<option value="13">13</option>
+						<option value="14">14</option>
+						<option value="15">15</option>
+						<option value="16">16</option>
+						<option value="17">17</option>
+						<option value="18">18</option>
+						<option value="19">19</option>
+						<option value="20">20</option>
+						<option value="21">21</option>
+						<option value="22">22</option>
+						<option value="23">23</option>
+						<option value="24">24</option>
+						<option value="25">25</option>
+						<option value="26">26</option>
+						<option value="27">27</option>
+						<option value="28">28</option>
+						<option value="29">29</option>
+						<option value="30">30</option>
+						<option value="31">31</option>
+					</select>
+				</div>
+				<div class="field">
+					<label>Occupancy</label>
+					<div class="occ">
+						<label class="sm">Adults</label>
+						<select>
+							<option>1</option>
+							<option selected="selected">2</option>
+							<option>3</option>
+							<option>4</option>
+						</select>
+					</div>
+					<div class="occ">
+						<label class="sm">Children</label>
+						<select>
+							<option>0</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+						</select>
+					</div>
+				
+				</div>
+			</div>
+			<div id="update" style="display:none;">
+				<button>Update</button>
+			</div>
+			<style type="text/css">
+				#rates h2, #rates-new h2 {background-color: #eee; border-top: solid 1px #ddd; border-bottom: solid 1px #ddd; margin:0; padding:8px 12px;}
+				#rates, #rates-new {background-color: #fff; margin:0 0 0 0;}
+				.room {position:relative; padding:12px; border-bottom:solid 1px #eee;}		
+				.room input[type="radio"] {position:absolute; top:12px; left:12px;}
+				.room > div {margin-left:32px; padding-top:2px;}
+				.room .price-change {margin-top:8px; font-size: 11px}
+				.room .price {font-size:16px; font-weight: bold;}
+				.room .name {font-size: 13px}
+				.room-selected {background-color: #fefdca}
+		
+			</style>
+
+			<div id="rates">
+				<h2>Room availability</h2>
+				<div class="room room-selected">
+					<input type="radio" name="room" checked="checked" />
+					<div class="">
+						<div class="name">Standard Double Room</div>
+						<div class="price-change">Same room price</div>
+						<div class="price">£0.00</div>
+					</div>
+				</div>
+				<div class="room">
+					<input type="radio" name="room" disabled="disabled" />
+					<div>
+						<div class="name">Classic Double Room, 1 Double Bed, Private Bathroom</div>
+						<div class="price-change">Increase in price (includes taxes and fees)</div>
+						<div class="price">£12.00</div>
+					</div>
+				</div>
+				<div class="room">
+					<input type="radio" name="room" disabled="disabled" />
+					<div>
+						<div class="name">Classic Triple Room, Private Bathroom</div>
+						<div class="price-change">Increase in price (includes taxes and fees)</div>
+						<div class="price">£24.00</div>
+					</div>
+				</div>
+				<div class="room">
+					<input type="radio" name="room" disabled="disabled" />
+					<div>
+						<div class="name">Family Room, Private Bathroom</div>
+						<div class="price-change">Increase in price (includes taxes and fees)</div>
+						<div class="price">£40.00</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="rates-new" style="display:none;">
+				<h2>Room availability</h2>
+				<div class="room room-selected">
+					<input type="radio" name="room-1" checked="checked" />
+					<div class="">
+						<div class="name">Standard Double Room</div>
+						<div class="price-change">Increase in price (includes taxes and fees)</div>
+						<div class="price">£38.00</div>
+					</div>
+				</div>
+				<div class="room">
+					<input type="radio" name="room-1" disabled="disabled" />
+					<div>
+						<div class="name">Classic Double Room, 1 Double Bed, Private Bathroom</div>
+						<div class="price-change">Increase in price (includes taxes and fees)</div>
+						<div class="price">£50.00</div>
+					</div>
+				</div>
+				<div class="room">
+					<input type="radio" name="room-1" disabled="disabled" />
+					<div>
+						<div class="name">Classic Triple Room, Private Bathroom</div>
+						<div class="price-change">Increase in price (includes taxes and fees)</div>
+						<div class="price">£62.00</div>
+					</div>
+				</div>
+				<div class="room">
+					<input type="radio" name="room-1" disabled="disabled" />
+					<div>
+						<div class="name">Family Room, Private Bathroom</div>
+						<div class="price-change">Increase in price (includes taxes and fees)</div>
+						<div class="price">£78.00</div>
+					</div>
+				</div>
+			</div>
+
+			<style type="text/css">
+				#submit {padding-bottom:12px;}
+			</style>
+
+			<div id="submit">
+				<p>There's just one more step before we send your request to the hotel</p>
+				<button>Continue</button>
+			</div>
+
+		</div>
+		
+
+		<div id="step-2" style="display: none;">
+			
+			<div>Step 1 - done</div>
+
+			<div class="title" style="margin-top:12px;">
+				<div style="">Step 2</div>
+				<h2>Confirm changes</h2>
+			</div>
+
+
+			<div id="order-summary">
+			<div class="order-hotel">
+				<div class="thumb"><img src="i/thumb.png"></div>
+				<div class="details">
+					<div class="name">Hotel Montpensier Paris</div>
+					<div class="room">Standard Double Room</div>
 				</div>
 				
 			</div>
-		</div>
-
-		<div id="update" style="display:none;">
-			<button>Update</button>
-		</div>
-
-		<style type="text/css">
-		#rates h2, #rates-new h2 {background-color: #eee; border-top: solid 1px #ddd; border-bottom: solid 1px #ddd; margin:0; padding:8px 12px;}
-		#rates, #rates-new {background-color: #fff; margin:0 0 0 0;}
-		.room {position:relative; padding:12px; border-bottom:solid 1px #eee;}		
-		.room input[type="radio"] {position:absolute; top:12px; left:12px;}
-		.room > div {margin-left:32px; padding-top:2px;}
-		.room .price-change {margin-top:8px; font-size: 11px}
-		.room .price {font-size:16px; font-weight: bold;}
-		.room .name {font-size: 13px}
-		.room-selected {background-color: #fefdca}
-		
-		</style>
-
-		<div id="rates">
-			<h2>Room availability</h2>
-			<div class="room room-selected">
-				<input type="radio" name="room" checked="checked" />
-				<div class="">
-					<div class="name">Standard Double Room</div>
-					<div class="price-change">Same room price</div>
-					<div class="price">£0.00</div>
+			<div class="order-dates">
+				<div class="item item-change">
+					Check in date <br />
+					&nbsp;
+					<div class="right" style="padding:4px;">
+						<span style="text-decoration: line-through;">08/03/2018</span><br />
+						<span class="ci"></span>
+					</div>
+				</div>
+				<div class="item item-change">
+					Check out date <br />
+					&nbsp;
+					<div class="right" style="padding:4px;">
+						<span style="text-decoration: line-through;">10/03/2018</span><br />
+						<span class="co"></span>
+					</div>
 				</div>
 			</div>
-			<div class="room">
-				<input type="radio" name="room" disabled="disabled" />
-				<div>
-					<div class="name">Classic Double Room, 1 Double Bed, Private Bathroom</div>
-					<div class="price-change">Increase in price (includes taxes and fees)</div>
-					<div class="price">£12.00</div>
+			<div class="order-occ">
+				<div class="item">
+					Adults <div class="right">2</div>
+				</div>
+				<div class="item">
+					Children <div class="right">0</div>
 				</div>
 			</div>
-			<div class="room">
-				<input type="radio" name="room" disabled="disabled" />
-				<div>
-					<div class="name">Classic Triple Room, Private Bathroom</div>
-					<div class="price-change">Increase in price (includes taxes and fees)</div>
-					<div class="price">£24.00</div>
+			<div class="order-nights">
+				<div class="item">
+					<span class="ci-date"></span> <div class="right">£189.38</div>
+				</div>
+				<div class="item">
+					 <span class="co-date"></span><div class="right">£199.81</div>
+				</div>
+				<div class="item">
+					Taxes and fees <div class="right">£38.92</div>
 				</div>
 			</div>
-			<div class="room">
-				<input type="radio" name="room" disabled="disabled" />
-				<div>
-					<div class="name">Family Room, Private Bathroom</div>
-					<div class="price-change">Increase in price (includes taxes and fees)</div>
-					<div class="price">£40.00</div>
+			<div class="order-new-total">
+				<div class="item">
+					<div style="font-weight: bold">New total</div> 
+					<p style="margin:4px 0 0 0; padding:0;">(including taxes and fees)</p>
+					<div class="right" style="font-weight: bold">£428.11</div>
 				</div>
 			</div>
-
-		</div>
-
-		<div id="rates-new" style="display:none;">
-			<h2>Room availability</h2>
-			<div class="room room-selected">
-				<input type="radio" name="room-1" checked="checked" />
-				<div class="">
-					<div class="name">Standard Double Room</div>
-					<div class="price-change">Increase in price (includes taxes and fees)</div>
-					<div class="price">£38.00</div>
+			<div class="order-prev-total">
+				<div class="item">
+					<div style="font-weight: bold">Previous total</div> <div class="right" style="font-weight: bold">£390.03</div>
 				</div>
 			</div>
-			<div class="room">
-				<input type="radio" name="room-1" disabled="disabled" />
-				<div>
-					<div class="name">Classic Double Room, 1 Double Bed, Private Bathroom</div>
-					<div class="price-change">Increase in price (includes taxes and fees)</div>
-					<div class="price">£50.00</div>
+			<div class="order-to-pay" style="padding-bottom:4px">
+				<div class="item">
+					<div style="font-weight: bold; font-size: 16px">Extra to pay</div> 
+					<p style="margin:4px 0 0 0; padding:0;">(including taxes and fees)</p> 
+					<div class="right" style="font-weight: bold; font-size:16px">£38.08</div>
 				</div>
 			</div>
-			<div class="room">
-				<input type="radio" name="room-1" disabled="disabled" />
-				<div>
-					<div class="name">Classic Triple Room, Private Bathroom</div>
-					<div class="price-change">Increase in price (includes taxes and fees)</div>
-					<div class="price">£62.00</div>
-				</div>
-			</div>
-			<div class="room">
-				<input type="radio" name="room-1" disabled="disabled" />
-				<div>
-					<div class="name">Family Room, Private Bathroom</div>
-					<div class="price-change">Increase in price (includes taxes and fees)</div>
-					<div class="price">£78.00</div>
-				</div>
-			</div>
-
-		</div>
-
-		<style type="text/css">
-			#submit {padding-bottom:12px;}
 			
-		</style>
-
-		<div id="submit">
-			<p>There's just one more step before we send your request to the hotel</p>
-			<button>Continue</button>
 		</div>
+
+
+		</div>
+		
+
+			
+
+		
+
+		
+
+		
+
+		
+
+		
+
+		
+
+		
 
 	</div>
 	</body>
