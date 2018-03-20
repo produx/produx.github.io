@@ -16,8 +16,6 @@
 			h2 {margin:0; padding:0; font-size:16px;}
       a {text-decoration:none; color:#1976D2;}
 			#header {background-color:#d32f2f; background-color: #d32f2f; height:46px; box-sizing: border-box; padding:8px 12px}
-			#sqm {background-color:#eae8e0; padding:12px 0px;}
-			#sqm .section {}
 
       .arrow-up {
   width: 0; 
@@ -49,32 +47,31 @@
 
           $(function(){
 
-            var datesPosTop = $("#dates-pin").offset().top
-            var datesHeight = $("#dates-pin").height()
+            var destPosTop = $(".destination").offset().top
+            var destHeight = $(".destination").height()
 
             $(window).scroll(function(){
               //console.log($(window).scrollTop() + " - " + datesPosTop)
-              if ($(window).scrollTop() >= datesPosTop){
+              if ($(window).scrollTop() >= destPosTop){
                 console.log("pin");
-                $("#dates-pin").css({
+                $(".destination").css({
                   "position": "fixed",
                   "top": "0", 
                   "left": "0",
-                  "right": "0", 
-                  "background-color": "#028017" 
-                  //"border-bottom": "solid 1px #ddd"
+                  "right": "0",
+                  "border-bottom": "solid 2px #ddd"
                 });
                 $(".bar").css({ "background-color": "#dae9cc", "color": "#028017" });
                 $(".arrow-up").css({"border-bottom": "8px solid #dae9cc"})
                 //$("div#room-1").css("padding-top", (room1DetailsHeight + 12) +"px")
               } else {
                 console.log("un pin");
-                $("#dates-pin").css({
+                $(".destination").css({
                   "position": "relative",
                   "top": "auto", 
                   "left": "auto",
                   "right": "auto", 
-                  "background-color": "#eae8e0"
+                  "border-bottom": "solid 0px #ddd"
                 });
                 $(".bar").css({ "background-color": "#028017", "color": "#fff" });
                 $(".arrow-up").css({"border-bottom": "8px solid #028017"});
@@ -103,28 +100,91 @@
           </div>
 
   			</div>
-  			<div id="sqm">
-  				<div class="section" style="font-weight:bold; padding:0 12px">
+
+        <style type="text/css">
+          #promo-image {position:relative;} 
+          #promo-ima/ge h1 {color:#fff; margin:0; padding:0; font-size: 20px; text-shadow: 1px 1px 3px #555;}
+          #promo-ima/ge p {color:#fff; margin:0; padding:0; font-size: 16px; text-shadow: 1px 1px 3px #555;}
+          #promo-image h1 {color:#000; margin:0; padding:0; font-size: 18px;}
+          #promo-image p {color:#000; margin:0; padding:0; font-size: 14px;}
+      
+          #sqm {}
+          #sqm .field {padding:12px; border-top: 1px #fff solid; border-bottom: 1px #ddd solid;}
+          #sqm .field label {display:block; box-sizing: border-box; margin-bottom: 4px; font-size:13px;}
+
+          #sqm #dest input[type='text']{width:calc(100% - 12px); padding:4px; box-sizing: border-box; font-size: 16px;}
+    
+          #sqm #dates {overflow:hidden;}
+          #sqm #dates .date {float:left; width:calc(50% - 12px); height:60px; background-color:#fff; box-sizing: border-box; padding:4px; border-radius:2px;}
+          #sqm #rooms {}
+          #sqm #rooms select {width:calc(100% - 12px); font-size:16px;}
+          #sqm #submit button {background-color: #026dc5; color:#fff; padding:8px 0; text-align: center; width:100%; font-size: 18px; border-radius:2px; border:0; box-shadow:inset 0 -2px 0 #003789;}
+      </style>
+
+      <div id="promo-image">
+      <img src="https://a.cdn-hotels.com/cos/production171/d1691/81f76800-291f-11e8-932b-0242ac11014b.jpg" style="width:100%" />
+      <div style="position:absolute; top:12px; left:0px; padding:8px 12px; background-color:#fff; opacity:0.8;">
+        <h1>City breaks</h1>
+        <p>Get away this weekend</p>
+      </div>
+    </div>
+
+    <div id="sqm">
+      <div id="dest" class="field">
+        <label>Destination, property, landmark or address</label>
+        <input type="text" name="" />
+      </div>
+      <div id="dates" class="field">
+        <div class="date" style="margin-right:12px;"><label>Check in</label></div>
+        <div class="date">
+          <label>Check in</label>
+        </div>
+      </div>
+      <div id="rooms" class="field">
+        <label>Rooms</label>
+        <select>
+          <option>1 room, 2 adults</option>
+        </select>
+      </div>
+      <div id="submit" class="field">
+        <button>Show deals</button>
+      </div>
+    </div>
+
+    <style type="text/css">
+      #dest-selection {padding:12px;}
+      #dest-selection h2 {margin:0; padding:0; font-size: 18px;}
+      #dest-drop-down select {width:100%; background-color:#fff; padding:4px; margin-top: 4px}
+    </style>
+    <div id="dest-selection">
+      <h2>Search deals by destination</h2>
+      <div id="dest-drop-down">
+        <select>
+          <option>UK & Ireland</option>
+        </select>
+      </div>
+    </div>
+
+
+    <style type="text/css">
+      .destination {background-color:#eae8e0;}
+      .title {margin-bottom: 12px;}
+      .top-ten {margin-top: 4px; padding:0 12px 12px;}
+      .top-ten-badge {display: inline-block; vertical-align: top}
+      .top-ten-label {font-size: 13px; display: inline-block; vertical-align: top; padding-top:2px;}
+    </style>
+
+  			<div class="destination">
+  				<div class="section" style="font-weight:bold; padding:12px 12px 0">
   					London, United Kingdom
   				</div>
-  				<div id="dates-pin" class="section">
-  					<div style="float:left; width:calc(50% - 4px); box-sizing: border-box; background-color: #fff; padding:8px; height:60px; margin-right:2px;" >
-  						<h2>Check in</h2>
-              <div style="margin:8px 0">---</div>
-  					</div>
-  					<div style="float:left; width:calc(50% - 0px); box-sizing: border-box; background-color: #fff; padding:8px; height:60px; margin-left:2px;">  
-  						<h2>Check out</h2>
-              <div style="margin:8px 0">---</div>
-  					</div>
-            <div class="message" style="display:none; position:absolute; bottom:16px; left:12px; right:12px;">
-              <div class="bar"  style="">Add dates to get best prices for your trip</div>
-              <div class="arrow-up" style="position:absolute; top:-7px; left:12px"></div>
-            </div>
-            
-  				</div>
-          <div class="section" style="">
-            
+          <div class="top-ten">
+            <img src="https://a.cdn-hotels.com/da/assets/s/63.0.8408/images/common/pages/lpa/citylanding/lpa.citylanding.badge.png" class="top-ten-badge" /> <span class="top-ten-label">Top 10 destination with travelers from UK</span>
           </div>
+          <div style="padding:0 12px 12px ;">
+            <a href="#" style="display: inline-block; vertical-align: top; font-size: 14px">View all deals</a> <i class="material-icons" style="display:inline-block; vertical-align: top; font-size: 16px; color:#1976D2;">arrow_forward</i>
+          </div>
+  				
   			</div>
 
         <style type="text/css">
