@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+		
+		<style type="text/css">
+			body{margin:0; padding:0; font-family: arial; color:#4e4e4e; }
+			h1 {margin:0; padding:0; font-size: 24px;}
+			h2 {margin:0; padding:0; font-size:16px;}
+			#header {background-color:#d32f2f; background-color: #d32f2f; height:46px; box-sizing: border-box; padding:8px 12px}
+			#sqm {background-color:#eae8e0; padding:12px 0px;}
+			#sqm .section {}
+
+      .arrow-up {
+  width: 0; 
+  height: 0; 
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  
+  border-bottom: 10px solid #028017;
+
+}
+#dates-pin {overflow:hidden; position: relative; height:98px; background-color:#eae8e0; padding:12px 12px;}
+.fixed {position:fixed; top:0; left:0; right:0px}
+.bar {background-color: #028017; padding:8px; font-weight: bold; font-size:13px; color:#fff;}
+
+      #page {background-color:#eae8e0;}
+			@media screen and (min-width: 600px) {
+				#page {max-width:360px; margin:0 auto; }
+			}
+			@media screen and (min-width: 750px) {}
+			@media screen and (min-width: 850px) {}
+			@media screen and (min-width: 960px) {}
+			@media screen and (min-width: 1160px) {}
+		</style>
+
+      	<script type="text/javascript">
+         
+
+          
+
+          $(function(){
+
+            var datesPosTop = $("#dates-pin").offset().top
+            var datesHeight = $("#dates-pin").height()
+
+            $(window).scroll(function(){
+              //console.log($(window).scrollTop() + " - " + datesPosTop)
+              if ($(window).scrollTop() >= datesPosTop){
+                console.log("pin");
+                $("#dates-pin").css({
+                  "position": "fixed",
+                  "top": "0", 
+                  "left": "0",
+                  "right": "0", 
+                  "background-color": "#028017" 
+                  //"border-bottom": "solid 1px #ddd"
+                });
+                $(".bar").css({ "background-color": "#dae9cc", "color": "#028017" });
+                $(".arrow-up").css({"border-bottom": "8px solid #dae9cc"})
+                //$("div#room-1").css("padding-top", (room1DetailsHeight + 12) +"px")
+              } else {
+                console.log("un pin");
+                $("#dates-pin").css({
+                  "position": "relative",
+                  "top": "auto", 
+                  "left": "auto",
+                  "right": "auto", 
+                  "background-color": "#eae8e0"
+                });
+                $(".bar").css({ "background-color": "#028017", "color": "#fff" });
+                $(".arrow-up").css({"border-bottom": "8px solid #028017"});
+                //$("div#room-1").css("padding-top", "0")
+              }
+            });
+
+            $(".message").delay(1000).slideDown("slow")
+
+          })
+
+          
+
+        </script>
+
+  	</head>
+  	<body>
+
+  		<div id="page">
+  			
+  			<div id="header" style="color:#fff; position:relative">
+  				<img src="../i/Horizontal_H_White.svg" style="height:30px;" />
+          <div style="position:absolute; right:8px; top:10px;">
+            <i class="material-icons" style="color:#fff; font-size:28px;">phone</i> &nbsp;
+            <i class="material-icons" style="color:#fff; font-size:28px;">person</i>
+          </div>
+
+  			</div>
+  			<div id="sqm">
+  				<div class="section" style="font-weight:bold; padding:0 12px">
+  					London, United Kingdom
+  				</div>
+  				<div id="dates-pin" class="section">
+  					<div style="float:left; width:calc(50% - 4px); box-sizing: border-box; background-color: #fff; padding:8px; height:60px; margin-right:2px;" >
+  						<h2>Check in</h2>
+              <div style="margin:8px 0">---</div>
+  					</div>
+  					<div style="float:left; width:calc(50% - 0px); box-sizing: border-box; background-color: #fff; padding:8px; height:60px; margin-left:2px;">  
+  						<h2>Check out</h2>
+              <div style="margin:8px 0">---</div>
+  					</div>
+            <div class="message" style="display:none; position:absolute; bottom:16px; left:12px; right:12px;">
+              <div class="bar"  style="">Add dates to get best prices for your trip</div>
+              <div class="arrow-up" style="position:absolute; top:-7px; left:12px"></div>
+            </div>
+            
+  				</div>
+          <div class="section" style="">
+            
+          </div>
+  			</div>
+
+        <style type="text/css">
+          .card {height:140px; margin: 0 12px 12px; background-color:#fff; border-radius:4px;
+            -webkit-box-shadow: 0px 0px 1px 0px rgba(153,153,153,1);
+            -moz-box-shadow: 0px 0px 1px 0px rgba(153,153,153,1);
+            box-shadow: 0px 0px 1px 0px rgba(153,153,153,1);}
+        </style>
+        <div class="card" style="margin-top:12px"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div><div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+
+  		</div>
+  		
+
+  	</body>
+</html>
