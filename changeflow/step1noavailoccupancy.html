@@ -6,8 +6,8 @@
 	<meta name="mobile-web-app-capable" content="yes">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<link rel = "stylesheet" type = "text/css" href = "style.css" />
-	<script src="js/step-1_formfieldjs.js"></script>
-	<title>Step 1: Changeflow</title>
+	<script src="js/step-1-noavailoccupancy_formfieldjs.js"></script>
+	<title>Step 1: No. guests exceeds room capacity</title>
 </head>
 
 <body>
@@ -35,7 +35,7 @@
 
 				<div class="margin-bottom-12"><div class="resp-xs4"><p>Check in</p></div><div class="resp-xs8"><p class="bold text-right">Thursday, August 9, 2018</p></div></div>
 				<div class="margin-bottom-12"><div class="resp-xs4"><p>Check out</p></div><div class="resp-xs8"><p class="bold text-right">Saturday, August 11, 2018</p></div></div>
-				<div class="resp-xs12"><div class="green-rounded-border margin-top-8"><p>2 nights, 1 room, 2 adults</p></div></div>
+				<div class="resp-xs12"><div class="green-rounded-border"><p>2 nights, 1 room, 2 adults</p></div></div>
 				<div class="greykeyline margin-bottom-12 margin-top-16"></div>
 			</div>
 			<div id="special-request">
@@ -186,7 +186,7 @@
 					<label class="sm">Children</label>
 					<select>
 						<option>0</option>
-						<option>1</option>
+						<option selected="selected">1</option>
 						<option>2</option>
 						<option>3</option>
 						<option>4</option>
@@ -201,73 +201,19 @@
 			<button>Update room availability</button>
 		</div>
 
-
 		<div id="rates">
-			<h3 class="margin-bottom-12">Room availability</h3>
+			<h3 class="margin-bottom-16">Room availability</h3>
 			<h4 class="margin-bottom-8" style="color:#026DC5;">Your current room</h4>
-			<div class="room room-selected">
-				<div class="summary">
-					<div class="resp-xs1"><input type="radio" name="room" checked="checked" class="radio-btn"/></div><div class="resp-xs8"><h4>Superior Room, 1 King Bed</h4><p style="font-size:12px;"><strong>Sleeps 2 people</strong></p></div><div class="resp-xs3 text-right"><img class="thumb60" src="img/thumb.jpg"></div>
-				</div>
-				<div class="price">
-					<div class="resp-xs6"><strong style="color:#458F00;font-size:12px;">Free cancellation</strong></div><div class="resp-xs6 text-right"><h2>£0.00</h2></div>
-					<div class="resp-xs12 text-right"><p style="font-size:12px;">+ £140.00.00 charges due at the hotel</p></div>
-				</div>
+			<div class="errormessage">
+				<h3 class="margin-bottom-4">No. of guests exceeds room capacity</h3>
+				<p>Sorry, your hotel has no availability on these dates on Hotels.com. If your selected number of guests exceeds the limit within this room, it might be easier to make another booking at this hotel online.</p>
 			</div>
-
-			<h4 class="margin-bottom-8 margin-top-24">Change your room</h4>
-
-			<div class="room">
-				<div class="summary">
-					<div class="resp-xs1"><input type="radio" name="room" class="radio-btn"/></div><div class="resp-xs8"><h4>Deluxe Room, 1 King Bed</h4><p style="font-size:12px;"><strong>Sleeps 3 people</strong> (including up to 1 child)</p></div><div class="resp-xs3 text-right"><img class="thumb60" src="img/thumb-2.jpg"></div>
-				</div>
-				<div class="price">
-					<div class="resp-xs6"><strong style="color:#458F00;font-size:12px;">Free cancellation</strong></div><div class="resp-xs6 text-right"><h2>+ £84.95</h2></div>
-					<div class="resp-xs12 text-right"><p style="font-size:12px;">+ £140.00.00 charges due at the hotel</p></div>
-					<div class="resp-xs12 text-right"><p><strike>£345.00</strike> <strong>£429.95</strong> New total price </p></div>
-					
-				</div>
-			</div>
-
-			<div class="room">
-				<div class="summary">
-					<div class="resp-xs1"><input type="radio" name="room" class="radio-btn"/></div><div class="resp-xs8"><h4>Executive Room, 1 King Bed</h4><p style="font-size:12px;"><strong>Sleeps 3 people</strong> (including up to 1 child)</p></div><div class="resp-xs3 text-right"><img class="thumb60" src="img/thumb-3.jpg"></div>
-				</div>
-				<div class="price">
-					<div class="resp-xs6"><strong style="color:#458F00;font-size:12px;">Free cancellation</strong></div><div class="resp-xs6 text-right"><h2>+ £120.00</h2></div>
-					<div class="resp-xs12 text-right"><p style="font-size:12px;">+ £140.00.00 charges due at the hotel</p></div>
-					<div class="resp-xs12 text-right"><p><strike>£345.00</strike> <strong>£465.00</strong> New total price </p></div>
-					
-				</div>
-			</div>
-
 			<div class="room unavailable">
 				<div class="summary">
-					<div class="resp-xs1"><input type="radio" name="room" disabled="disabled" class="radio-btn"/></div><div class="resp-xs8"><h4>Family Room</h4><p style="font-size:12px;"><strong>Sleeps 4 people</strong> (including up to 3 children)</p></div><div class="resp-xs3 text-right"><img class="thumb60" src="img/thumb-4.jpg"></div>
+					<div class="resp-xs1"><input type="radio" name="room" checked="checked" disabled="disabled" class="radio-btn"/></div><div class="resp-xs8"><h4>Superior Room, 1 King Bed</h4><p style="font-size:12px;"><strong>Sleeps 2 people</strong></p></div><div class="resp-xs3 text-right"><img class="thumb60" src="img/thumb.jpg"></div>
 				</div>
 				<div class="price">
-					<div class="resp-xs6"><strong style="color:#D32F2F;font-size:12px;">Sold out</strong></div>
-					
-				</div>
-			</div>
-
-			<div id="submit">
-				<button disabled="disabled">Continue to step 2</button>
-			</div>
-		</div>
-
-
-
-		<div id="rates-new" style="display:none;">
-			<h3 class="margin-bottom-12">Room availability</h3>
-			<h4 class="margin-bottom-8" style="color:#026DC5;">Your current room</h4>
-			<div class="room room-selected">
-				<div class="summary">
-					<div class="resp-xs1"><input type="radio" name="room-1" checked="checked" class="radio-btn"/></div><div class="resp-xs8"><h4>Superior Room, 1 King Bed</h4><p style="font-size:12px;"><strong>Sleeps 2 people</strong></p></div><div class="resp-xs3 text-right"><img class="thumb60" src="img/thumb.jpg"></div>
-				</div>
-				<div class="price">
-					<div class="resp-xs6"><strong style="color:#458F00;font-size:12px;">Free cancellation</strong></div><div class="resp-xs6 text-right"><h2>£0.00</h2></div><div class="resp-xs12 text-right"><p style="font-size:12px;">+ £140.00.00 charges due at the hotel</p></div>
-					
+					<div class="resp-xs12"><strong style="color:#D32F2F;font-size:12px;">Room only sleeps 2 people</strong></div>
 				</div>
 			</div>
 
@@ -279,18 +225,70 @@
 				</div>
 				<div class="price">
 					<div class="resp-xs6"><strong style="color:#458F00;font-size:12px;">Free cancellation</strong></div><div class="resp-xs6 text-right"><h2>+ £34.00</h2></div>
-					<div class="resp-xs12 text-right"><p style="font-size:12px;">+ £140.00 charges due at the hotel</p></div>
 					<div class="resp-xs12 text-right"><p><strike>£345</strike> <strong>£379</strong> New total price </p></div>
-				
+				</div>
+			</div>
+
+			<div class="room">
+				<div class="summary">
+					<div class="resp-xs1"><input type="radio" name="room-1" class="radio-btn"/></div><div class="resp-xs8"><h4>Executive Room, 1 King Bed</h4><p style="font-size:12px;"><strong>Sleeps 3 people</strong> (including up to 1 child)</p></div><div class="resp-xs3 text-right"><img class="thumb60" src="img/thumb-3.jpg"></div>
+				</div>
+				<div class="price">
+					<div class="resp-xs6"><strong style="color:#458F00;font-size:12px;">Free cancellation</strong></div><div class="resp-xs6 text-right"><h2>+ £80.00</h2></div>
+					<div class="resp-xs12 text-right"><p><strike>£345</strike> <strong>£425</strong> New total price </p></div>
 				</div>
 			</div>
 
 			<div class="room unavailable">
 				<div class="summary">
-					<div class="resp-xs1"><input type="radio" name="room" disabled="disabled" class="radio-btn"/></div><div class="resp-xs8"><h4>Superior Room, 1 King Bed</h4><p style="font-size:12px;"><strong>Sleeps 2 people</strong></p></div><div class="resp-xs3 text-right"><img class="thumb60" src="img/thumb.jpg"></div>
+					<div class="resp-xs1"><input type="radio" name="room-1" disabled="disabled" class="radio-btn"/></div><div class="resp-xs8"><h4>Family Room</h4><p style="font-size:12px;"><strong>Sleeps 4 people</strong> (including up to 3 children)</p></div><div class="resp-xs3 text-right"><img class="thumb60" src="img/thumb-4.jpg"></div>
 				</div>
 				<div class="price">
-					<div class="resp-xs6"><strong style="color:#D32F2F;font-size:12px;">Sold out</strong></div>
+					<div class="resp-xs6"><strong style="color:#D32F2F;font-size:12px;">Sold out</strong></div><div class="resp-xs6 text-right"><h2>+ £120.00</h2></div>
+				</div>
+			</div>
+
+			<div id="submit">
+				<button disabled="disabled">Continue to step 2</button>
+			</div>
+
+		</div>
+
+		<div id="rates-new" style="display:none;">
+			<h3 class="margin-bottom-16">Room availability</h3>
+			<h4 class="margin-bottom-8" style="color:#026DC5;">Your current room</h4>
+			<div class="errormessage">
+				<h3 class="margin-bottom-4">No. of guests exceeds room capacity</h3>
+				<p>Sorry, your hotel has no availability on these dates on Hotels.com. If your selected number of guests exceeds the limit within this room, it might be easier to make another booking at this hotel online.</p>
+			</div>
+			<div class="room unavailable">
+				<div class="summary">
+					<div class="resp-xs1"><input type="radio" name="room" checked="checked" disabled="disabled" class="radio-btn"/></div><div class="resp-xs8"><h4>Superior Room, 1 King Bed</h4><p style="font-size:12px;"><strong>Sleeps 2 people</strong></p></div><div class="resp-xs3 text-right"><img class="thumb60" src="img/thumb.jpg"></div>
+				</div>
+				<div class="price">
+					<div class="resp-xs12"><strong style="color:#D32F2F;font-size:12px;">Room only sleeps 2 people</strong></div>
+				</div>
+			</div>
+
+			<h4 class="margin-bottom-8 margin-top-24">Change your room</h4>
+
+			<div class="room">
+				<div class="summary">
+					<div class="resp-xs1"><input type="radio" name="room-1" class="radio-btn"/></div><div class="resp-xs8"><h4>Deluxe Room, 1 King Bed</h4><p style="font-size:12px;"><strong>Sleeps 3 people</strong> (including up to 1 child)</p></div><div class="resp-xs3 text-right"><img class="thumb60" src="img/thumb-2.jpg"></div>
+				</div>
+				<div class="price">
+					<div class="resp-xs6"><strong style="color:#458F00;font-size:12px;">Free cancellation</strong></div><div class="resp-xs6 text-right"><h2>+ £34.00</h2></div>
+					<div class="resp-xs12 text-right"><p><strike>£345</strike> <strong>£379</strong> New total price </p></div>
+				</div>
+			</div>
+
+			<div class="room">
+				<div class="summary">
+					<div class="resp-xs1"><input type="radio" name="room-1" class="radio-btn"/></div><div class="resp-xs8"><h4>Executive Room, 1 King Bed</h4><p style="font-size:12px;"><strong>Sleeps 3 people</strong> (including up to 1 child)</p></div><div class="resp-xs3 text-right"><img class="thumb60" src="img/thumb-3.jpg"></div>
+				</div>
+				<div class="price">
+					<div class="resp-xs6"><strong style="color:#458F00;font-size:12px;">Free cancellation</strong></div><div class="resp-xs6 text-right"><h2>+ £80.00</h2></div>
+					<div class="resp-xs12 text-right"><p><strike>£345</strike> <strong>£425</strong> New total price </p></div>
 				</div>
 			</div>
 
@@ -300,18 +298,15 @@
 				</div>
 				<div class="price">
 					<div class="resp-xs6"><strong style="color:#458F00;font-size:12px;">Free cancellation</strong></div><div class="resp-xs6 text-right"><h2>+ £120.00</h2></div>
-					<div class="resp-xs12 text-right"><p style="font-size:12px;">+ £140.00 charges due at the hotel</p></div>
 					<div class="resp-xs12 text-right"><p><strike>£345</strike> <strong>£465</strong> New total price </p></div>
-					
 				</div>
 			</div>
 
 			<div id="submit">
-				<button>Continue to step 2</button>
+				<button>Continue</button>
 			</div>
 
 		</div>
-
 		
 	</div>
 
@@ -320,6 +315,6 @@
 		<h2>Confirm changes</h2>
 	</div>
 </div>
-	<div class="footer"><img style="max-width:100%;" src="img/Hcom-footer.png"></div>
+<div class="footer"><img style="max-width:100%;" src="img/Hcom-footer.png"></div>
 </body>
 </html>

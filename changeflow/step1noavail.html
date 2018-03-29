@@ -1,242 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<!-- Meta tags -->
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0"/>
-		<meta name="mobile-web-app-capable" content="yes">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0"/>
+	<meta name="mobile-web-app-capable" content="yes">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<link rel = "stylesheet" type = "text/css" href = "style.css" />
+	<script src="js/step-1-noavailability_formfieldjs.js"></script>
+	<title>Step 1: No Availability</title>
+</head>
 
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
-		<script type="text/javascript">
-			function getParameterByName(name) {
-    			name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-    			var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-        			results = regex.exec(location.search);
-    			return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-			}
-			// run things on page load
-			$(function(){
-
-				var lname = getParameterByName('lname');
-				var fname = getParameterByName('fname');
-
-				$("#fname").attr("value", fname)
-				$("#lname").attr("value", lname)
-
-				// select
-				$( "select" ).change(function() {
-  					$("#rates").hide();
-  					$("#submit").hide();
-  					$("#update").show();
-				});
-
-				$("#update button").click(function(){
-					$("#update").hide();
-					$("#submit").show();
-					$("#rates-new").show();
-				});
-
-				$("#submit button").click(function(){
-					window.location.href = "step2noavail.html?fnameold=" + fname + "&fnamenew=" + $("#fname").val() + "&lnameold=" + lname + "&lnamenew=" + $("#lname").val()  + "&cid=" + $("#cid option:checked").val() + "&cim=" + $("#cim option:checked").val() + "&cod=" + $("#cod option:checked").val() + "&com=" + $("#com option:checked").val();
-				})
-
-			});
-
-		</script>
-
-
-		<style type="text/css">
-			body {font-family: arial; margin:0; padding:0; color:#333333; font-size: 13px}
-			a {text-decoration: none; color:#026dc5;}
-			select {height:28px;}
-			button {width:100%; background-color: #026dc5; color:#fff; font-size: 14px; padding:8px 0; border-radius:4px; border:0; border-bottom:solid 3px #000;}
-			.wrapper {max-width:360px; margin:0 auto; background-color: #f5f4f0}
-			.wrapper > div {margin:12px;}
-			#header {background-color:#d41200; height:40px; box-sizing: border-box; margin:0; padding:4px 12px;}
-			h2 {padding:0; margin:0; font-size: 16px}
-
-			#change-depends {border-bottom: solid 1px #ddd; padding:0 0 12px 0;}
-			#change-depends p {margin-bottom: 12px; line-height: 16px}
-			#change-depends a {font-size: 13px}
-
-			.field {margin-bottom: 12px}
-			.field label {display:block; margin-bottom: 4px; font-size: 13px}
-			.field input[type="text"]{width:100%; box-sizing: border-box; padding:4px; font-size:14px;}
-
-			.dates select {width:calc(50% - 8px); box-sizing: border-box; font-size: 13px}
-
-
-			.occ {display:inline-block; margin-top: 4px}
-			.occ label.sm {font-size: 11px;}
-			.occ select {width:60px; margin-right:12px;}
-
-			#order-summary { border:solid 1px #ddd; padding:4px; background-color: #fff; border-radius: 4px}
-			#order-summary .order-hotel{padding:8px; background-color:#eee;}
-			#order-summary .thumb {border:solid 2px #fff; border-radius: 2px; display:inline-block; vertical-align: top; height:46px; overflow:hidden; -webkit-box-shadow: 1px 1px 3px 0px rgba(153,153,153,1);
--moz-box-shadow: 1px 1px 3px 0px rgba(153,153,153,1);
-box-shadow: 1px 1px 3px 0px rgba(153,153,153,1);}
-			#order-summary .thumb img {width:70px;}
-			#order-summary .details {display:inline-block; vertical-align: top; margin-left: 4px}
-			#order-summary .details .name {font-weight: bold; margin-bottom: 4px; font-size:14px;}
-			#order-summary .details .room {font-size:13px;}
-
-			.order-dates { padding:4px 0 8px; border-bottom:solid 1px #eee;}
-			.item {margin-top: 6px; position: relative; font-size: 12px; padding:0 4px;}
-			.item .right {position:absolute; top:0; right:4px;}
-
-			#update {margin-top:20px;}
-
-		</style>
-
-	</head>
-
-	<body>
+<body>
 	<div class="wrapper">
 		<div id="header">
-			<img src="i/hcom_logo_white.svg" style="height:30px"/>
+			<img src="img/hcom_logo_white.svg" style="height:30px"/>
 		</div>
 
-		<div>
-			<div style="">Step 1 of 3</div>
-			<h2>Request changes</h2>
+		<div class="changebookingheader">
+			<h1 class="margin-top-24 margin-bottom-24">Change booking</h1>
 		</div>
 
-		<div id="order-summary">
-			<div class="order-hotel">
-				<div class="thumb"><img src="i/thumb.png"></div>
-				<div class="details">
-					<div class="name">Hotel Montpensier Paris</div>
-					<div class="room" style="margin:0; padding:0;">Standard Double Room</div>
-				</div>
-				
-			</div>
-			<div class="order-dates">
-				<div class="item">
-					Check in date <div class="right">08/03/2018</div>
-				</div>
-				<div class="item">
-					Check out date <div class="right">10/03/2018</div>
-				</div>
-			</div>
-			<div class="order=occ">
-				<div class="item">
-					Adults <div class="right">2</div>
-				</div>
-				<div class="item">
-					Children <div class="right">0</div>
-				</div>
-				<div class="item">
-					Confirmation number <div class="right">147203909275</div>
-				</div>
-			</div>
-		</div>
+		<div id="step1" class="margin-top-24 margin-bottom-24">
+			<div class="hotel-details">
+				<h3>Step 1 of 2:</h3>
+				<h2>Request changes</h2>
+				<div class="redkeyline margin-bottom-12 margin-top-24"></div>
 
-		<div id="change-depends">
+				<div class="order-hotel">
+					<h4 class="margin-bottom-8">Corinthia Hotel London</h4>
+					<p class="inline margin-bottom-12">Confirmation number:</p> <p class="inline bold margin-bottom-12">147203909275</p>
+					<div class="margin-bottom-12"><div class="resp-xs3"><img class="thumb80" src="img/thumb.jpg"></div><div class="resp-xs9" style="padding-left:8px;"><h3>Superior Room, 1 King Bed</h3></div></div>
+
+				</div>
+
+				<div class="margin-bottom-12"><div class="resp-xs4"><p>Check in</p></div><div class="resp-xs8"><p class="bold text-right">Thursday, August 9, 2018</p></div></div>
+				<div class="margin-bottom-12"><div class="resp-xs4"><p>Check out</p></div><div class="resp-xs8"><p class="bold text-right">Sunday, August 12, 2018</p></div></div>
+				<div class="resp-xs12"><div class="green-rounded-border"><p>3 nights, 1 room, 2 adults</p></div></div>
+				<div class="greykeyline margin-bottom-12 margin-top-16"></div>
+			</div>
+			<div id="special-request">
+				<h3 class="margin-bottom-8">Special requests &amp; accessibility</h3>
+				<p class="margin-bottom-12">Please describe any special requests (e.g. late check-in, non ground-floor, etc.). Hotels.com will pass your special requests along to the property. But such requests are <strong>not guaranteed</strong> and may not be available in the room type and room rate requested. You may wish to call the property directly prior to your stay to confirm your special requests.  </p>
+				<textarea></textarea>
+			</div>
+
+		<!-- <div id="change-depends">
 			<p>Your change depends on the hotel's availability. We'll let you know if it affects the room rate.</p>
 
 			<a href="#">Want to change the hotel instead?</a>
-		</div>
+		</div>-->
 
 		<div id="change-details">
 			<div class="field">
 				<label>First name</label>
-				<input id="fname" type="text" value="Christopher"/>
+				<input id="fname" type="text" name="fname" value="Alison"/>
 			</div>
 			<div class="field">
 				<label>Last name</label>
-				<input id="lname" type="text" value="Matthews"/>
+				<input id="lname" type="text" name="lname" value="Howard"/>
 			</div>
+			<!--<div class="resp-xs5" style="margin-right:8px;">
+				<div class="field widget-query-dates">
+					<label>Date of check in</label>
+					<input type="text" name="q-localised-check-in" id="qf-0q-localised-check-in" value="09/08/2018" placeholder="dd/mm/yyyy" aria-haspopup="true" aria-labelledby="widget-query-label-1 widget-query-label-2" autocomplete="off">
+					<p class="hcomicon" style="color:#A5A5A5;position: absolute;right: 4px;bottom: 8px;font-size: 16px;width: 18px;height: 18px;"></p>
+				</div>
+			</div>
+			<div class="resp-xs5" style="margin-left:8px;">
+				<div class="field widget-query-dates">
+					<label>Date of check out</label>
+					<input type="text" class="query-localised-check-in  widget-daterange-active-input" name="q-localised-check-in" id="qf-0q-localised-check-in" value="11/08/2018" placeholder="dd/mm/yyyy" aria-haspopup="true" aria-labelledby="widget-query-label-1 widget-query-label-2" autocomplete="off">
+					<p class="hcomicon" style="color:#A5A5A5;position: absolute;right: 4px;bottom: 8px;font-size: 16px;width: 18px;height: 18px;"></p>
+				</div>
+			</div>-->
+
 			<div class="field dates">
 				<label>Check in date</label>
 				<select id="cim" style="margin-right:8px;">
-					<option value="03" selected="selected">Mar 2018</option>
-					<option value="04">Apr 2018</option>
-					<option value="05">May 2018</option>
-					<option value="06">Jun 2018</option>
-					<option value="07">Jul 2018</option>
-					<option value="08">Aug 2018</option>
-				</select>
+					<option value=" March">Mar 2018</option>
+					<option value=" April">Apr 2018</option>
+					<option value=" May">May 2018</option>
+					<option value=" June">Jun 2018</option>
+					<option value=" July">Jul 2018</option>
+					<option value=" August" selected="selected">Aug 2018</option>
+					<option value=" September">Sept 2018</option>
+					<option value=" October">Oct 2018</option>
+					<option value=" November">Nov 2018</option>
+					<option value=" December">Dec 2018</option>
+				</select><p class="hcomicon" style="color:#026DC5;position: absolute;left: 110px;bottom: 12px;font-size: 12px;width: 12px;height: 12px;"></p>
 				<select id="cid">
-					<option value="01">1</option>
-					<option value="02">2</option>
-					<option value="03">3</option>
-					<option value="04">4</option>
-					<option value="05">5</option>
-					<option value="06">6</option>
-					<option value="07">7</option>
-					<option value="08" selected="selected">8</option>
-					<option value="09">9</option>
-					<option value="10">10</option>
-					<option value="11">11</option>
-					<option value="12">12</option>
-					<option value="13">13</option>
-					<option value="14">14</option>
-					<option value="15">15</option>
-					<option value="16">16</option>
-					<option value="17">17</option>
-					<option value="18">18</option>
-					<option value="19">19</option>
-					<option value="20">20</option>
-					<option value="21">21</option>
-					<option value="22">22</option>
-					<option value="23">23</option>
-					<option value="24">24</option>
-					<option value="25">25</option>
-					<option value="26">26</option>
-					<option value="27">27</option>
-					<option value="28">28</option>
-					<option value="29">29</option>
-					<option value="30">30</option>
-					<option value="31">31</option>
-				</select>
+					<option value="Wednesday 1st">1</option>
+					<option value="Thursday 2nd">2</option>
+					<option value="Friday 3rd">3</option>
+					<option value="Saturday 4th">4</option>
+					<option value="Sunday 5th">5</option>
+					<option value="Monday 6th">6</option>
+					<option value="Tuesday 7th">7</option>
+					<option value="Wednesday 8th">8</option>
+					<option value="Thursday 9th" selected="selected">9</option>
+					<option value="Friday 10th">10</option>
+					<option value="Saturday 13th">11</option>
+					<option value="Sunday 12th">12</option>
+					<option value="Monday 13th">13</option>
+					<option value="Tuesday 14th">14</option>
+					<option value="Wednesday 15th">15</option>
+					<option value="Thursday 16th">16</option>
+					<option value="Friday 17th">17</option>
+					<option value="Saturday 18th">18</option>
+					<option value="Sunday 19th">19</option>
+					<option value="Monday 20th">20</option>
+					<option value="Tuesday 21st">21</option>
+					<option value="Wednesday 22nd">22</option>
+					<option value="Thursday 23rd">23</option>
+					<option value="Friday 24th">24</option>
+					<option value="Saturday 25th">25</option>
+					<option value="Sunday 26th">26</option>
+					<option value="Monday 27th">27</option>
+					<option value="Wednesday 28th">28</option>
+					<option value="Thursday 29th">29</option>
+					<option value="Friday 30th">30</option>
+					<option value="Saturday 31st">31</option>
+				</select><p class="hcomicon" style="color:#026DC5;position: absolute;right: 60px;bottom: 12px;font-size: 12px;width: 12px;height: 12px;"></p>
 			</div>
 			<div class="field dates">
 				<label>Check out date</label>
 				<select id="com" style="margin-right:8px;">
-					<option value="03" selected="selected">Mar 2018</option>
-					<option value="04">Apr 2018</option>
-					<option value="05">May 2018</option>
-					<option value="06">Jun 2018</option>
-					<option value="07">Jul 2018</option>
-					<option value="08">Aug 2018</option>
-				</select>
+					<option value="March">Mar 2018</option>
+					<option value="April">Apr 2018</option>
+					<option value="May">May 2018</option>
+					<option value="June">Jun 2018</option>
+					<option value="July">Jul 2018</option>
+					<option value="August" selected="selected">Aug 2018</option>
+					<option value="September">Sept 2018</option>
+					<option value="October">Oct 2018</option>
+					<option value="November">Nov 2018</option>
+					<option value="December">Dec 2018</option>
+				</select><p class="hcomicon" style="color:#026DC5;position: absolute;left: 110px;bottom: 12px;font-size: 12px;width: 12px;height: 12px;"></p>
 				<select id="cod">
-					<option value="01">1</option>
-					<option value="02">2</option>
-					<option value="03">3</option>
-					<option value="04">4</option>
-					<option value="05">5</option>
-					<option value="06">6</option>
-					<option value="07">7</option>
-					<option value="08">8</option>
-					<option value="09">9</option>
-					<option value="10" selected="selected">10</option>
-					<option value="11">11</option>
-					<option value="12">12</option>
-					<option value="13">13</option>
-					<option value="14">14</option>
-					<option value="15">15</option>
-					<option value="16">16</option>
-					<option value="17">17</option>
-					<option value="18">18</option>
-					<option value="19">19</option>
-					<option value="20">20</option>
-					<option value="21">21</option>
-					<option value="22">22</option>
-					<option value="23">23</option>
-					<option value="24">24</option>
-					<option value="25">25</option>
-					<option value="26">26</option>
-					<option value="27">27</option>
-					<option value="28">28</option>
-					<option value="29">29</option>
-					<option value="30">30</option>
-					<option value="31">31</option>
-				</select>
+					<option value="Wednesday 1st">1</option>
+					<option value="Thursday 2nd">2</option>
+					<option value="Friday 3rd">3</option>
+					<option value="Saturday 4th">4</option>
+					<option value="Sunday 5th">5</option>
+					<option value="Monday 6th">6</option>
+					<option value="Tuesday 7th">7</option>
+					<option value="Wednesday 8th">8</option>
+					<option value="Thursday 9th">9</option>
+					<option value="Friday 10th">10</option>
+					<option value="Saturday 13th">11</option>
+					<option value="Sunday 12th" selected="selected">12</option>
+					<option value="Monday 13th">13</option>
+					<option value="Tuesday 14th">14</option>
+					<option value="Wednesday 15th">15</option>
+					<option value="Thursday 16th">16</option>
+					<option value="Friday 17th">17</option>
+					<option value="Saturday 18th">18</option>
+					<option value="Sunday 19th">19</option>
+					<option value="Monday 20th">20</option>
+					<option value="Tuesday 21st">21</option>
+					<option value="Wednesday 22nd">22</option>
+					<option value="Thursday 23rd">23</option>
+					<option value="Friday 24th">24</option>
+					<option value="Saturday 25th">25</option>
+					<option value="Sunday 26th">26</option>
+					<option value="Monday 27th">27</option>
+					<option value="Wednesday 28th">28</option>
+					<option value="Thursday 29th">29</option>
+					<option value="Friday 30th">30</option>
+					<option value="Saturday 31st">31</option>
+				</select><p class="hcomicon" style="color:#026DC5;position: absolute;right: 60px;bottom: 12px;font-size: 12px;width: 12px;height: 12px;"></p>
 			</div>
+
+
 			<div class="field">
-				<label>Occupancy</label>
 				<div class="occ">
 					<label class="sm">Adults</label>
 					<select>
@@ -244,127 +180,143 @@ box-shadow: 1px 1px 3px 0px rgba(153,153,153,1);}
 						<option selected="selected">2</option>
 						<option>3</option>
 						<option>4</option>
-					</select>
+					</select><p class="hcomicon" style="color:#026DC5;position: absolute;right: 24px;bottom: 12px;font-size: 12px;width: 12px;height: 12px;"></p>
 				</div>
 				<div class="occ">
 					<label class="sm">Children</label>
 					<select>
 						<option>0</option>
+						<option>1</option>
 						<option>2</option>
 						<option>3</option>
 						<option>4</option>
 						<option>5</option>
-					</select>
+					</select><p class="hcomicon" style="color:#026DC5;position: absolute;right: 24px;bottom: 12px;font-size: 12px;width: 12px;height: 12px;"></p>
 				</div>
-				
+
 			</div>
 		</div>
 
 		<div id="update" style="display:none;">
-			<button>Update</button>
+			<button>Update room availability</button>
 		</div>
-
-		<style type="text/css">
-		#rates h2, #rates-new h2, #special-request h2 {background-color: #eee; border-top: solid 1px #ddd; border-bottom: solid 1px #ddd; margin:0; padding:8px 12px;}
-		#rates, #rates-new, #special-request {background-color: #fff; margin:0 0 0 0;}
-		.room {position:relative; padding:12px; border-bottom:solid 1px #eee;}		
-		.room input[type="radio"] {position:absolute; top:12px; left:12px;}
-		.room > div {margin-left:32px; padding-top:2px;}
-		.room .price-change {margin-top:8px; font-size: 11px}
-		.room .price {font-size:16px; font-weight: bold;}
-		.room .name {font-size: 13px}
-		.room-selected {background-color: #fefdca}
-		#special-request > div {padding:0 12px 12px;}
-		#special-request textarea {box-sizing: border-box; width:100%; border-radius:4px; height:60px; padding:4px; font-size: 14px;}
-		#special-request p {font-size: 12px; line-height: 15px;}
-		</style>
 
 		<div id="rates">
-			<h2>Room availability</h2>
-			<div class="room room-selected">
-				<input type="radio" name="room" checked="checked" />
-				<div class="">
-					<div class="name">Standard Double Room</div>
-					<div class="price-change">Same room price</div>
-					<div class="price">£0.00</div>
-				</div>
+			<h3 class="margin-bottom-16">Room availability</h3>
+			<h4 class="margin-bottom-8" style="color:#026DC5;">Your current room</h4>
+			<div class="errormessage">
+				<h3 class="margin-bottom-4">Your room is unavailable</h3>
+				<p>Sorry, your hotel has no availability on these dates on Hotels.com. You could try other dates, choose a different room or if you’d like to switch hotels, our Cutomer Service Team will be happy to help you. Please call 0808 234 5358 or 0207 365 1817 (standard rates apply). </p>
 			</div>
-			<div class="room">
-				<input type="radio" name="room" disabled="disabled" />
-				<div>
-					<div class="name">Classic Double Room, 1 Double Bed, Private Bathroom</div>
-					<div class="price-change">Increase in price (includes taxes and fees)</div>
-					<div class="price">£12.00</div>
+			<div class="room unavailable">
+				<div class="summary">
+					<div class="resp-xs1"><input type="radio" name="room" checked="checked" disabled="disabled" class="radio-btn"/></div><div class="resp-xs8"><h4>Superior Room, 1 King Bed</h4><p style="font-size:12px;"><strong>Sleeps 2 people</strong></p></div><div class="resp-xs3 text-right"><img class="thumb60" src="img/thumb.jpg"></div>
 				</div>
-			</div>
-			<div class="room">
-				<input type="radio" name="room" disabled="disabled" />
-				<div>
-					<div class="name">Classic Triple Room, Private Bathroom</div>
-					<div class="price-change">Increase in price (includes taxes and fees)</div>
-					<div class="price">£24.00</div>
-				</div>
-			</div>
-			<div class="room">
-				<input type="radio" name="room" disabled="disabled" />
-				<div>
-					<div class="name">Family Room, Private Bathroom</div>
-					<div class="price-change">Increase in price (includes taxes and fees)</div>
-					<div class="price">£40.00</div>
+				<div class="price">
+					<div class="resp-xs12"><strong style="color:#D32F2F;font-size:12px;">Room unavailable on these dates</strong></div>
 				</div>
 			</div>
 
+			<h4 class="margin-bottom-8 margin-top-24">Change your room</h4>
+
+			<div class="room">
+				<div class="summary">
+					<div class="resp-xs1"><input type="radio" name="room-1" class="radio-btn"/></div><div class="resp-xs8"><h4>Deluxe Room, 1 King Bed</h4><p style="font-size:12px;"><strong>Sleeps 3 people</strong> (including up to 1 child)</p></div><div class="resp-xs3 text-right"><img class="thumb60" src="img/thumb-2.jpg"></div>
+				</div>
+				<div class="price">
+					<div class="resp-xs6"><strong style="color:#458F00;font-size:12px;">Free cancellation</strong></div><div class="resp-xs6 text-right"><h2>+ £34.00</h2></div>
+					<div class="resp-xs12 text-right"><p><strike>£345</strike> <strong>£379</strong> New total price </p></div>
+				</div>
+			</div>
+
+			<div class="room">
+				<div class="summary">
+					<div class="resp-xs1"><input type="radio" name="room-1" class="radio-btn"/></div><div class="resp-xs8"><h4>Executive Room, 1 King Bed</h4><p style="font-size:12px;"><strong>Sleeps 3 people</strong> (including up to 1 child)</p></div><div class="resp-xs3 text-right"><img class="thumb60" src="img/thumb-3.jpg"></div>
+				</div>
+				<div class="price">
+					<div class="resp-xs6"><strong style="color:#458F00;font-size:12px;">Free cancellation</strong></div><div class="resp-xs6 text-right"><h2>+ £80.00</h2></div>
+					<div class="resp-xs12 text-right"><p><strike>£345</strike> <strong>£425</strong> New total price </p></div>
+				</div>
+			</div>
+
+			<div class="room unavailable">
+				<div class="summary">
+					<div class="resp-xs1"><input type="radio" name="room-1" disabled="disabled" class="radio-btn"/></div><div class="resp-xs8"><h4>Family Room</h4><p style="font-size:12px;"><strong>Sleeps 4 people</strong> (including up to 3 children)</p></div><div class="resp-xs3 text-right"><img class="thumb60" src="img/thumb-4.jpg"></div>
+				</div>
+				<div class="price">
+					<div class="resp-xs6"><strong style="color:#D32F2F;font-size:12px;">Sold out</strong></div>
+				</div>
+			</div>
+
+			<div id="submit">
+				<button disabled="disabled">Continue to step 2</button>
+			</div>
+
 		</div>
+
+
 
 		<div id="rates-new" style="display:none;">
-			<h2>Room availability</h2>
+			<h3 class="margin-bottom-16">Room availability</h3>
+			<h4 class="margin-bottom-8" style="color:#026DC5;">Your current room</h4>
 			<div class="room room-selected">
-				<input type="radio" name="room-1" checked="checked" />
-				<div>
-					<div class="name">Classic Double Room, 1 Double Bed, Private Bathroom</div>
-					<div class="price-change">Increase in price (includes taxes and fees)</div>
-					<div class="price">£38.00</div>
+				<div class="summary">
+					<div class="resp-xs1"><input type="radio" name="room-1" checked="checked" class="radio-btn"/></div><div class="resp-xs8"><h4>Superior Room, 1 King Bed</h4><p style="font-size:12px;"><strong>Sleeps 2 people</strong></p></div><div class="resp-xs3 text-right"><img class="thumb60" src="img/thumb.jpg"></div>
+				</div>
+				<div class="price">
+					<div class="resp-xs6"><strong style="color:#458F00;font-size:12px;">Free cancellation</strong></div><div class="resp-xs6 text-right"><h2>£0.00</h2></div><div class="resp-xs12 text-right"><p style="font-size:12px;">+ £140.00.00 charges due at the hotel</p></div>
+					
 				</div>
 			</div>
+
+			<h4 class="margin-bottom-8 margin-top-24">Change your room</h4>
+
 			<div class="room">
-				<input type="radio" name="room-1" disabled="disabled" />
-				<div>
-					<div class="name">Classic Triple Room, Private Bathroom</div>
-					<div class="price-change">Increase in price (includes taxes and fees)</div>
-					<div class="price">£62.00</div>
+				<div class="summary">
+					<div class="resp-xs1"><input type="radio" name="room-1" class="radio-btn"/></div><div class="resp-xs8"><h4>Deluxe Room, 1 King Bed</h4><p style="font-size:12px;"><strong>Sleeps 3 people</strong> (including up to 1 child)</p></div><div class="resp-xs3 text-right"><img class="thumb60" src="img/thumb-2.jpg"></div>
+				</div>
+				<div class="price">
+					<div class="resp-xs6"><strong style="color:#458F00;font-size:12px;">Free cancellation</strong></div><div class="resp-xs6 text-right"><h2>+ £34.00</h2></div>
+					<div class="resp-xs12 text-right"><p><strike>£345</strike> <strong>£379</strong> New total price </p></div>
 				</div>
 			</div>
+
 			<div class="room">
-				<input type="radio" name="room-1" disabled="disabled" />
-				<div>
-					<div class="name">Family Room, Private Bathroom</div>
-					<div class="price-change">Increase in price (includes taxes and fees)</div>
-					<div class="price">£78.00</div>
+				<div class="summary">
+					<div class="resp-xs1"><input type="radio" name="room-1" class="radio-btn"/></div><div class="resp-xs8"><h4>Executive Room, 1 King Bed</h4><p style="font-size:12px;"><strong>Sleeps 3 people</strong> (including up to 1 child)</p></div><div class="resp-xs3 text-right"><img class="thumb60" src="img/thumb-3.jpg"></div>
+				</div>
+				<div class="price">
+					<div class="resp-xs6"><strong style="color:#458F00;font-size:12px;">Free cancellation</strong></div><div class="resp-xs6 text-right"><h2>+ £80.00</h2></div>
+					<div class="resp-xs12 text-right"><p><strike>£345</strike> <strong>£425</strong> New total price </p></div>
 				</div>
 			</div>
 
-		</div>
-
-		<div id="special-request">
-			<h2>Special requests & accessibility</h2>
-			<div>
-				<h3>Special requests</h3>
-				<p>Please describe any special requests (e.g. late check-in, non ground-floor, etc.). Hotels.com will pass your special request along to the property, but such requests are <strong>not guaranteed</strong> and may not be available in the room type and room rate requested. You may wish to call the property directly prior to your stay to confirm your special request.</p>
-				<textarea></textarea>
-				<p>This hotel doesn't not offer any accessibility features. Please select a different hotel if you are interested in booking a room with accessibility features.</p>
+			<div class="room">
+				<div class="summary">
+					<div class="resp-xs1"><input type="radio" name="room-1" class="radio-btn"/></div><div class="resp-xs8"><h4>Family Room</h4><p style="font-size:12px;"><strong>Sleeps 4 people</strong> (including up to 3 children)</p></div><div class="resp-xs3 text-right"><img class="thumb60" src="img/thumb-4.jpg"></div>
+				</div>
+				<div class="price">
+					<div class="resp-xs6"><strong style="color:#458F00;font-size:12px;">Free cancellation</strong></div><div class="resp-xs6 text-right"><h2>+ £120.00</h2></div>
+					<div class="resp-xs12 text-right"><p><strike>£345</strike> <strong>£465</strong> New total price </p></div>
+				</div>
 			</div>
+
+			<div id="submit">
+				<button>Continue</button>
+			</div>
+
 		</div>
 
-		<style type="text/css">
-			#submit {padding-bottom:12px;}
-			
-		</style>
+		
 
-		<div id="submit">
-			<p>There's just one more step before we send your request to the hotel</p>
-			<button>Continue</button>
-		</div>
-
+		
 	</div>
-	</body>
+
+	<div id="step2" class="margin-top-24 margin-bottom-24" style="padding:12px;margin-bottom: 40px;">
+		<h3 style="font-weight:500;">Step 2 of 2:</h3>
+		<h2>Confirm changes</h2>
+	</div>
+</div>
+<div class="footer"><img style="max-width:100%;" src="img/Hcom-footer.png"></div>
+</body>
 </html>
