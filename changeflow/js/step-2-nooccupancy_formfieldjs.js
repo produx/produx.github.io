@@ -58,7 +58,7 @@ function getParameterByName(name) {
 				});
 
 				$("#submit button").click(function(){
-					window.location.href = "step3noavail.html?fnameold=" + fnameold + "&fnamenew=" + fnamenew + "&lnameold=" + lnameold + "&lnamenew=" + lnameold  + "&cid=" + cid + "&cim=" + cim + "&cod=" + cod + "&com=" + com;
+					window.location.href = "step3noavailoccupancy.html?fnameold=" + fnameold + "&fnamenew=" + fnamenew + "&lnameold=" + lnameold + "&lnamenew=" + lnameold  + "&cid=" + cid + "&cim=" + cim + "&cod=" + cod + "&com=" + com;
 				})
 
 			});

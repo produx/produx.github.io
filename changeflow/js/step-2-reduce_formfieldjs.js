@@ -23,13 +23,13 @@ function getParameterByName(name) {
 				} 
 
 
-				$(".ci").text(cid + "/" + cim + "/2018"); 
-				$(".co").text(cod + "/" + com + "/2018");
+				$(".ci").text(cid + " " + cim + ", 2018"); 
+				$(".co").text(cod + " " + com + ", 2018");
 
 
-				$(".ci-date").text(cid + "/" + cim + "/2018");
+				$(".ci-date").text(cid + " " + cim + ", 2018");
 
-				$(".co-date").text(day2 + "/" + com + "/2018");
+				$(".co-date").text(day2 + " " + com + ", 2018");
 				
 				if (fnameold != fnamenew) {
 					$(".f-name .old").text(fnameold);

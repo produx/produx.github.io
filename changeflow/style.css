@@ -33,6 +33,24 @@ button:hover {
 	background-color: #003789;
 }
 
+button.secondarybutton {
+	width:100%; 
+	background-color: #fff; 
+	color:#026dc5; 
+	font-size: 14px; 
+	padding:8px 0; 
+	border-radius:4px; 
+	border:1px solid #026dc5;
+	font-weight:700;
+	letter-spacing:1px;
+	text-align:center;
+}
+
+button.secondarybutton:hover {
+	background-color: #026dc5;
+	color:#fff;
+}
+
 @font-face{ 
 	font-family:"hcom-icons"; 
 	src:url("/fonts/hcom-icons.eot"); 
@@ -186,14 +204,14 @@ p {
 }
 
 .positivemessagegreen{
-	color:#00852D;
-	border: 1px solid #00852D;
+	color:#3E6E00;
+	border: 1px solid #B5D299;
 	border-radius:4px;
-	background-color: #EBFFF1;
+	background-color: #EFFFC5;
     padding:12px;
 }
 .positivemessagegreen h3{
-	color:#00852D;
+	color:#3E6E00;
 }
 .errormessage{
 	background-color:#FCEDEE;
@@ -240,7 +258,7 @@ p {
 	content: "";
 	padding-right: 8px;
 	margin-left:4px;
-	color:#00852D;
+	color:#3E6E00;
 }
 .wrapper {
 	max-width:360px;
