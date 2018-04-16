@@ -1,177 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<!-- Meta tags -->
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0"/>
-		<meta name="mobile-web-app-capable" content="yes">
+<head>
+	<!-- Meta tags -->
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0"/>
+	<meta name="mobile-web-app-capable" content="yes">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<link rel = "stylesheet" type = "text/css" href = "style.css" />
+	<script src="js/step-3-noreduce_formfieldjs.js"></script>
+	<script src="js/accordion.js"></script>
+	<title>Step 3: Changeflow confirmation</title>
+</head>
 
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
-		<script type="text/javascript">
-			function getParameterByName(name) {
-    			name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-    			var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-        			results = regex.exec(location.search);
-    			return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-			}
-			// run things on page load
-			$(function(){
-				var lnameold = getParameterByName('lnameold');
-				var lnamenew = getParameterByName('lnamenew');
-				var fnameold = getParameterByName('fnameold');
-				var fnamenew = getParameterByName('fnamenew');
-				var cid = getParameterByName('cid');
-				var cim = getParameterByName('cim');
-				var cod = getParameterByName('cod');
-				var com = getParameterByName('com');
-				$(".ci .value").text(cid + "/" + cim + "/2018"); 
-				$(".co .value").text(cod + "/" + com + "/2018"); 
-				
-				if (fnameold != fnamenew) {
-					$(".f-name .value").text(fnamenew);
-					$(".f-name .value").css("background-color", "#fefdca")
-				} else {
-					$(".f-name .value").text(fnameold);
-				}
-				
-
-				if (lnameold != lnamenew) {
-					$(".l-name .value").text(lnamenew);
-					$(".l-name .value").css("background-color", "#fefdca")
-				} else {
-					$(".l-name .value").text(lnameold);
-				}
-			});
-
-		</script>
-
-
-		<style type="text/css">
-			body {font-family: arial; margin:0; padding:0; color:#333333; font-size: 13px}
-			a {text-decoration: none; color:#026dc5;}
-			select {height:28px;}
-			button {width:100%; background-color: #026dc5; color:#fff; font-size: 14px; padding:8px 0; border-radius:4px; border:0; border-bottom:solid 3px #000;}
-			.wrapper {max-width:360px; margin:0 auto; background-color: #f5f4f0}
-			.wrapper > div {margin:12px;}
-			#header {background-color:#d41200; height:40px; box-sizing: border-box; margin:0; padding:4px 12px;}
-			h2 {padding:0; margin:0; font-size: 16px}
-
-			#change-depends {border-bottom: solid 1px #ddd; padding:0 0 12px 0;}
-			#change-depends p {margin-bottom: 12px; line-height: 16px}
-			#change-depends a {font-size: 13px}
-
-			.field {margin-bottom: 12px}
-			.field label {display:block; margin-bottom: 4px; font-size: 13px}
-			.field input[type="text"]{width:100%; box-sizing: border-box; padding:4px;}
-
-			.dates select {width:calc(50% - 8px); box-sizing: border-box; font-size: 13px}
-
-
-			.occ {display:inline-block; margin-top: 4px}
-			.occ label.sm {font-size: 11px;}
-			.occ select {width:60px; margin-right:12px;}
-
-			#order-summary, #payment-summary { border:solid 1px #ddd; padding:4px; background-color: #fff; border-radius: 4px}
-			#order-summary .order-hotel, #payment-summary .price {padding:8px; background-color:#eee;}
-			#order-summary .thumb {border:solid 2px #fff; border-radius: 2px; display:inline-block; vertical-align: top; height:46px; overflow:hidden; -webkit-box-shadow: 1px 1px 3px 0px rgba(153,153,153,1);
--moz-box-shadow: 1px 1px 3px 0px rgba(153,153,153,1);
-box-shadow: 1px 1px 3px 0px rgba(153,153,153,1);}
-			#order-summary .thumb img {width:70px;}
-			#order-summary .details {display:inline-block; vertical-align: top; margin-left: 4px; width:calc(100% - 120px);}
-			#order-summary .details .name {font-weight: bold; margin-bottom: 4px; font-size:14px;}
-			#order-summary .details .room {font-size:13px;}
-
-			.order-dates { padding:4px 0 8px; border-bottom:solid 1px #eee;}
-			.item {margin-top: 6px; position: relative; font-size: 12px; padding:0 4px;}
-			.item .right {position:absolute; top:0; right:4px;}
-
-			.order-occ, .order-nights, .order-new-total, .order-prev-total {border-bottom:solid 1px #eee; padding:0 0 4px 0;}
-
-			.item-change {background-color: #fefdca; padding:4px;}
-
-			#update {margin-top:20px;}
-
-		</style>
-
-	</head>
-
-	<body>
+<body>
 	<div class="wrapper">
-		<div id="header"><img src="i/hcom_logo_white.svg" style="height:30px"/></div>
-
-		<div>
-			<div style="">Step 3 of 3</div>
-			<h2>That's it</h2>
-			<div style="">You've changed your booking</div>
+		<div id="header">
+			<img src="img/hcom_logo_white.svg" style="height:30px"/>
 		</div>
 
-		<div id="payment-summary">
-			<div class="price">
-				<div class="total" style="font-weight: bold; font-size:18px">£38.08</div>
-				<div>You have been charged to your Visa Card</div>
-				<div>Price includes taxes and fees</div>	
-			</div>
-			<div class="summary" style="padding:12px;">
-				<div style="margin-bottom:4px;">No need to call us as we've sent a confirmation email to: <strong>your.name@email.com</strong></div>
-				<div>Your Hotels.com confirmation number is still 
-				<strong>147203909275</strong></div>
-			</div>
+		<div class="confirmedbookingheader">
+			<h1 class="margin-top-24 margin-bottom-16">Booking updated</h1>
 		</div>
 
-		<div id="order-summary">
-			<div class="order-hotel">
-				<div class="thumb"><img src="i/thumb.png"></div>
-				<div class="details">
-					<div class="name">Hotel Montpensier Paris</div>
-					<div class="room">Classic Double Room, 1 Double Bed, Private Bathroom</div>
-				</div>
-				
-			</div>
-			<style type="text/css">
-				#changed-details {margin-top: 8px}
-				#changed-details > div {margin-bottom: 4px}
-				#changed-details .key {width:120px; display: inline-block; font-weight: bold; padding:4px; vertical-align:top;}
-				#changed-details .value {display: inline-block; padding:4px; width:calc(100% - 150px); vertical-align:top;}
-				#changed-details .value .old {text-decoration: line-through;}
-				#changed-details .changed {background-color: #fefdca;}
-			</style>
+		<div class="positivemessagegreen"><h3><span style="font-weight:500;">Your booking updates have been confirmed. We have sent a confirmation email to: </span>example@example.com</h3></div>
 
-			<div id="changed-details">
-				<div class="f-name">
-					<div class="key">First name</div>
-					<div class="value"></div>
-				</div>
-				<div class="l-name">
-					<div class="key">Last name</div>
-					<div class="value"></div>
-				</div>
-				<div class="ci">
-					<div class="key">Check in date</div>
-					<div class="value" style="background-color:#fefdca"></div>
-				</div>
-				<div class="co">
-					<div class="key">Check out date</div>
-					<div class="value" style="background-color:#fefdca"></div>
-				</div>
-				<div class="occupancy">
-					<div class="key">Occupancy</div>
-					<div class="value">2 Adults, 0 Children</div>
-				</div>
-				<div class="room-type">
-					<div class="key">Room type</div>
-					<div class="value" style="background-color:#fefdca">Classic Double Room, 1 Double Bed, Private Bathroom</div>
+		<div id="step2" class="margin-top-24 margin-bottom-24">
+			<div style="padding:12px;">
+				<p class="margin-bottom-12">Your visa card ending in XX79 has been charged. Price includes taxes and fees.</p>
+				<div class="accordion">
+					<div class="accordion-section">
+						<a class="accordion-section-title" href="#accordion-1">3 nights <p class="text-right" style="display:inline-block;float:right;">£379.00</p></a>
+						<div id="accordion-1" class="accordion-section-content">
+							<div class="margin-bottom-8"><div class="resp-xs7"><p>Thursday, August 9, 2018</p></div><div class="resp-xs5"><p class="text-right">£130.02</p></div></div>
+							<div class="margin-bottom-8"><div class="resp-xs7"><p>Friday, August 10, 2018</p></div><div class="resp-xs5"><p class="text-right">£115.00</p></div></div>
+							<div class="margin-bottom-8"><div class="resp-xs7"><p>Saturday, August 11, 2018</p></div><div class="resp-xs5"><p class="text-right">£145.00</p></div></div>
+						</div><!--end .accordion-section-content-->
+					</div><!--end .accordion-section-->
+				</div><!--end .accordion-->
+
+
+				<div class="margin-bottom-8"><div class="resp-xs4"><p>Taxes and fees</p></div><div class="resp-xs8"><p class="text-right">£38.92</p></div></div>
+				<div class="margin-bottom-8"><div class="resp-xs4"><p>Previous total</p></div><div class="resp-xs8"><p class="text-right">£390.03</p></div></div>
+				<div class="greykeyline margin-bottom-12 margin-top-16"></div>
+				<div class="margin-bottom-8"><div class="resp-xs4"><p>Amount charged to your card</p></div><div class="resp-xs8"><h2 class="text-right">£38.79</h2></div></div>
+				<div class="margin-bottom-8"><div class="resp-xs4"><p>New total</p></div><div class="resp-xs8"><h4 class="text-right">£428.82</h3></div></div>
 				</div>
 			</div>
 
+
+			<div id="step2" class="margin-top-24 margin-bottom-24">
+				<div style="padding:12px;">
+					<div class="order-hotel">
+						<h4 class="margin-bottom-8">Corinthia Hotel London</h4>
+						<p class="inline margin-bottom-12">Confirmation number:</p> <p class="inline bold margin-bottom-12">147203909275</p>
+						<div class="margin-bottom-12"><div class="resp-xs3"><img class="thumb80" src="img/thumb.jpg"></div><div class="resp-xs9" style="padding-left:8px;"><h3>Superior Room, 1 King Bed</h3></div></div>
+
+					</div>
+
+					<div class="margin-bottom-8"><div class="resp-xs4"><p>Check in</p></div><div class="resp-xs8"><p class="bold text-right">Thursday, August 9, 2018</p></div></div>
+					<div class="margin-bottom-12 row yellowchangesbg">
+						<div class="resp-xs4"><p>Check out</p></div><div class="resp-xs8"><p class="bold text-right">Saturday, August 11, 2018</p></div>
+						
+					</div>
+					<div class="margin-top-8 row yellowchangesbg">
+						<div class="green-rounded-border"><p>3 nights, 1 room, 2 adults</p></div>
+					</div>
+					<div style="margin: 0px 12px;"><div class="greykeyline margin-bottom-12 margin-top-16"></div></div>
+					<div class="margin-bottom-12">
+						<div class="resp-xs4"><p>First name</p></div>
+						<div class="value resp-xs8"><span class="old bold text-right"></span> <span class="new bold text-right"></span></div>
+					</div>
+					<div class="margin-bottom-12">
+						<div class="resp-xs4"><p>Last name</p></div>
+						<div class="value resp-xs8"><span class="old bold text-right"></span> <span class="new bold text-right"></span></div>
+					</div>
+					<div style="margin: 0px 12px;"><div class="greykeyline margin-bottom-12 margin-top-16"></div></div>
+					<div class="resp-xs12 margin-bottom-8"><p>Special request &amp; accessibility</p></div>
+					<i>“I would like to request a room with a view and  good WiFi connection please.“</i>
+					
+				</div>
+			</div>
 		</div>
-
-		<div style="height:40px"></div>
-
-
-		
-
-
-	</div>
+		<div class="footer"><img style="max-width:100%;" src="img/Hcom-footer.png"></div>
 	</body>
-</html>
+	</html>
