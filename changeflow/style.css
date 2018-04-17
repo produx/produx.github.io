@@ -53,10 +53,10 @@ button.secondarybutton:hover {
 
 @font-face{ 
 	font-family:"hcom-icons"; 
-	src:url("../changeflow/fonts/hcom-icons.eot"); 
-	src:url("../changeflow/fonts/hcom-icons.eot?#iefix") format("embedded-opentype"),
-	url("../changeflow/fonts/hcom-icons.woff") format("woff"),
-	url("../changeflow/fonts/hcom-icons.ttf") format("truetype");
+	src:url("./fonts/hcom-icons.eot"); 
+	src:url("./fonts/hcom-icons.eot?#iefix") format("embedded-opentype"),
+	url("./fonts/hcom-icons.woff") format("woff"),
+	url("./fonts/hcom-icons.ttf") format("truetype");
 	font-weight:normal; 
 	font-style:normal;
 }
