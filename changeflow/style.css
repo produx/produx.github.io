@@ -152,6 +152,37 @@ p {
 	width: 8.33%;
 }
 
+.padding-top-4{
+	padding-top:4px;
+}
+.padding-top-8{
+	padding-top:8px;
+}
+.padding-top-12{
+	padding-top:12px;
+}
+.padding-top-16{
+	padding-top:16px;
+}
+.padding-top-24{
+	padding-top:24px;
+}
+.padding-bottom-4{
+	padding-bottom:4px;
+}
+.padding-bottom-8{
+	padding-bottom:8px;
+}
+.padding-bottom-12{
+	padding-bottom:12px;
+}
+.padding-bottom-16{
+	padding-bottom:16px;
+}
+.padding-bottom-24{
+	padding-bottom:24px;
+}
+
 .margin-top-4{
 	margin-top:4px;
 }
@@ -210,7 +241,7 @@ p {
 	background-color: #EFFFC5;
     padding:12px;
 }
-.positivemessagegreen h3{
+.positivemessagegreen h4, .positivemessagegreen p, .positivemessagegreen h3{
 	color:#3E6E00;
 }
 .errormessage{
@@ -222,6 +253,9 @@ p {
 }
 .yellowchangesbg{
 	background-color:#FEFEC8;
+}
+.greenconfirmbg{
+	background-color:#EFFFC5;
 }
 
 .errormessage h3, .errormessage p{
@@ -269,7 +303,7 @@ p {
 }
 
 .wrapper > div{
-	margin:8px;
+	margin:12px 8px;
 }
 
 
@@ -293,7 +327,7 @@ p {
 	font-size: 13px;
 }
 .field {
-	margin-bottom: 12px;
+	margin-bottom: 16px;
 	position:relative;
 }
 .field label {
@@ -391,6 +425,9 @@ select + i.chevron-down {
 .hotel-details{
 	padding:16px 12px 8px 12px;
 }
+.payment-details{
+	padding:16px 12px 0px 12px;
+}
 
 .row{
 	margin: 0px -12px;
@@ -423,18 +460,22 @@ select + i.chevron-down {
 }
 #submit{
 	padding-bottom:24px;
-	margin: 24px 0px 12px 0px;
 }
 #submit button[disabled="disabled"]{
 	background-color: #E8E8E8; 
 	color:#333;  
 	border:solid 1px #CCCCCC;
 }	
-#special-request{
+#cancellation-policy{
+	padding:12px;
+	float: left;
 	background-color:#F5F4F0;
 	border-radius:4px;
+}
+#special-request{
 	margin:0px 4px;
-	padding:12px 8px;
+	padding:8px;
+	float: left;
 }
 #special-request textarea{
 	width: 100%;
@@ -455,7 +496,8 @@ select + i.chevron-down {
 }
 
 #change-details{
-	margin:16px 12px 24px 12px;
+	padding:8px 12px 0px 12px;
+	float:left;
 }
 .widget-query-dates .aria-label{
 	box-sizing: border-box;
