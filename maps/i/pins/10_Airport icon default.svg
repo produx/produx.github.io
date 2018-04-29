@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="35px" viewBox="0 0 24 35" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49 (51002) - http://www.bohemiancoding.com/sketch -->
+    <title>10_Airport icon default</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Exported-Map-Pins" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="HMVT-7060--New-pin-styles" transform="translate(-326.000000, -700.000000)">
+            <g id="10_Airport-icon-default" transform="translate(326.000000, 700.000000)">
+                <ellipse id="Oval-17" fill-opacity="0.2" fill="#3C3C3C" cx="12" cy="33" rx="3" ry="2"></ellipse>
+                <path d="M12,32 C15.9067639,27.4825037 18.5041647,24.271618 19.7922027,22.3673428 C22.5974009,18.2200508 24,14.8200166 24,12.1672401 C24,5.44745896 18.627417,0 12,0 C5.372583,0 0,5.44745896 0,12.1672401 C0,16.6470943 4,23.2580142 12,32 Z" id="Oval-15" fill="#525252"></path>
+                <text id="" font-family="hcom-icons" font-size="12" font-weight="normal" fill="#FFFFFF">
+                    <tspan x="6" y="18"></tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

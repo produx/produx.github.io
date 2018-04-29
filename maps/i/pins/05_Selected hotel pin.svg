@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="44px" height="29px" viewBox="0 0 44 29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49 (51002) - http://www.bohemiancoding.com/sketch -->
+    <title>05_Selected hotel pin</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M25.2426407,24 L21.7071068,27.5355339 C21.3165825,27.9260582 20.6834175,27.9260582 20.2928932,27.5355339 L16.7573593,24 L1,24 C0.44771525,24 2.02974496e-15,23.5522847 0,23 L0,1 C-6.76353751e-17,0.44771525 0.44771525,1.01453063e-16 1,0 L42.826087,0 C43.3783717,-1.01453063e-16 43.826087,0.44771525 43.826087,1 L43.826087,23 C43.826087,23.5522847 43.3783717,24 42.826087,24 L25.2426407,24 Z" id="path-1"></path>
+    </defs>
+    <g id="Exported-Map-Pins" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="HMVT-7060--New-pin-styles" transform="translate(-386.000000, -384.000000)">
+            <g id="05_Selected-hotel-pin" transform="translate(386.000000, 384.000000)">
+                <ellipse id="Oval" fill-opacity="0.4" fill="#3C3C3C" cx="21" cy="28" rx="6" ry="1"></ellipse>
+                <g id="Combined-Shape">
+                    <use fill="#0D3D6E" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    <path stroke="#0D3D6E" stroke-width="1" d="M21.3535534,27.1819805 L25.0355339,23.5 L25.2426407,23.5 L42.826087,23.5 C43.1022293,23.5 43.326087,23.2761424 43.326087,23 L43.326087,1 C43.326087,0.723857625 43.1022293,0.5 42.826087,0.5 L1,0.5 C0.723857625,0.5 0.5,0.723857625 0.5,1 L0.5,23 C0.5,23.2761424 0.723857625,23.5 1,23.5 L16.9644661,23.5 L20.6464466,27.1819805 C20.8417088,27.3772427 21.1582912,27.3772427 21.3535534,27.1819805 Z"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
