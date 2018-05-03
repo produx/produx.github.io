@@ -96,9 +96,9 @@
 
 
 				
-				.room .rate {overflow:hidden; border-top:solid 1px #eee;}
-				.room .rate .details {float:left; width:50%; box-sizing: border-box; padding:12px 6px 12px 12px;}
-				.room .rate .price {float:left; width:50%; box-sizing: border-box; text-align:right; padding:12px 12px 12px 6px;}
+				.room .rate {overflow:hidden; border-top:solid 1px #eee; padding:12px 0;}
+				.room .rate .details {box-sizing: border-box; padding:0 12px;}
+				.room .rate .price {box-sizing: border-box;  padding:0 12px;}
 				.room .rate .price .deal {color:#d41200; font-size:13px;}
 				.room .rate .price .strikethrough {text-decoration: line-through; font-size:16px; color:#7e7e7e;}
 				.room .rate .price .total-price {color:#d41200; font-weight:bold; font-size:28px;}
@@ -117,8 +117,8 @@
 				.room .details .cancellation .free {font-size:14px; color:#00852D;}
 				.room .details .cancellation .conditions {font-size:11px; margin-top:4px; color:#7e7e7e;}
 
-				ul.amenities {list-style-type: none; margin:0; padding:0;}
-				ul.amenities li {font-size: 12px; margin-bottom: 4px}
+				ul.amenities {list-style-type: none; margin:0; padding:0; overflow: hidden;}
+				ul.amenities li {font-size: 12px; margin-bottom: 4px; float:left; margin: 0 8px 8px 0; background-color:#eee; padding:2px 4px;}
 			</style>
 			
 			<div class="room" id="room-1">
@@ -148,26 +148,31 @@
 					<div class="details">
 						
 						<div class="cancellation">
-							<div class=free>Free cancellation</div>
-							<div class="conditions">Until 07/03/2017</div>
+							<div class=free>Free cancellation <span class="conditions">Until 07/03/2017</span></div>
+							
 						</div>
 						<ul class="amenities">
 							<li>Free Wifi</li>
 							<li>Breakfast for 2 people</li>
 							<li>Free bottle of sparkling wine</li>
 						</ul>
-						<div class="rewards">
+						<!--<div class="rewards">
 							<span>Collect and redeem</span>
-						</div>
+						</div>-->
 					</div>
-					<div class="price">
-						<div class="deal">Private sale: save 20%</div>
-						<div class="strikethrough">$80</div>
-						<div class="total-price">$58</div>
-						<div class="for-nights">for 1 night</div>
-						<div class="taxes">+ $5 charges due at hotel</div>
-						<button>Book</button>
-						<div class="time">It only take 2 minutes</div>
+					<div class="price" style="overflow:hidden">
+						<div class="price-details" style="float:left; width:50%">
+							<div class="deal">Private sale: save 20%</div>
+							<div class="strikethrough">$80</div>
+							<div class="total-price">$58</div>
+							<div class="for-nights">for 1 night</div>
+						</div>
+						<div class="book" style="float:left; width:50%; text-align: right;">
+							<button>Book</button>
+							<div class="time">It only take 2 minutes</div>
+						</div>
+						
+						
 					</div>
 				</div>
 				<div class="rate">
