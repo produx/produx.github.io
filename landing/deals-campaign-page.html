@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+		<script src="https://use.typekit.net/plt6aug.js"></script>
+		
+
+		<!-- style sheets -->
+
+		<style type="text/css">
+			@media screen and (min-width: 600px) {}
+			@media screen and (min-width: 750px) {}
+			@media screen and (min-width: 850px) {}
+			@media screen and (min-width: 960px) {}
+			@media screen and (min-width: 1160px) {}
+
+			body {margin:0; padding:0; font-family: -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, “Fira Sans”, “Droid Sans”, “Helvetica Neue”, Arial, sans-serif; background-color: #fff; color:#525252;}
+			a {text-decoration:none; color:#1976D2;}
+
+
+			#header-wrapper, #nav-wrapper, #search-wrapper, #content-wrapper {max-width:1200px; margin:0 auto;}
+
+			#header { background-color:#d32f2f; padding:12px 0 12px; overflow: hidden;}
+			#nav { background-color:#fff;}
+			#nav-wrapper ul {overflow:hidden; list-style-type: none;margin:0; padding:0;}
+			#nav-wrapper ul li {float:left; color:#333;  font-size:13px; margin-right:20px; padding:8px 0 8px;}
+			
+
+			#search {min-height:88px; background-color:#fff;}
+			#search #map {display:inline-block; width:225px; vertical-align:top;}
+			#search #map img {border:solid 4px #fff; margin-top:18px; width:225px;}
+			#search #query {display:inline-block; box-sizing: border-box; padding:20px 0 0 28px; vertical-align: top}
+			#search #query h1 {margin:0; padding:0; font-size:20px; margin-bottom:4px;}
+			#search #query div {font-size:14px;}
+
+			
+			
+
+			#content-wrapper {position:relative;}
+			#filter-col {width:225px; position:absolute; top:0; left:0; margin-top:20px;}
+			#filter-col h3 {font-size: 18px; line-height: 20px; margin:0; padding:0;}
+			#filter-col .amount {font-size: 14px; margin-bottom:20px;}
+			#filter-col .filter-block {padding: 20px 0; border-top:solid 1px #ddd; }
+			#filter-col .filter-block ul {list-style-type: none; margin:0 0 0 0; padding:0;}
+			#filter-col .filter-block label {font-weight: bold; display: block; margin-bottom: 8px}
+			#filter-col .filter-block input[type="text"] {font-size: 14px; padding:2px 4px; font-family: "proxima-soft", arial; line-height: 14px; box-sizing: border-box; width:190px;}
+			.range {position:relative; height:26px;}
+			.range .bar {height:4px; background-color: #1976D2; position:absolute; top:12px; left:4px; right:4px;}
+			.range .handle {width:26px; height:26px; border-radius:50%; border:solid 2px #1976D2; background-color:#ffffff; -webkit-webkit-box-shadow: 1px 1px 1px 0px rgba(82,82,82,1);
+-moz-box-shadow: 1px 1px 1px 0px rgba(82,82,82,1);
+box-shadow: 1px 1px 1px 0px rgba(82,82,82,1);}
+			.range .left {position:absolute; top:0; left:0;}
+			.range .right {position:absolute; top:0; right:0;}
+
+			#results-col {width:calc(100% - 255px); margin-left:255px; background-color: #f5f5f5; box-sizing:border-box; padding:0 16px;}
+			#results-col #sort {box-sizing:border-box; background-color: #fff; border:solid 1px #f5f5f5; margin:0 -16px;}
+			#results-col #sort ul {list-style-type: none; padding:0; margin:0; overflow:hidden;}
+			#results-col #sort ul li {float:left; color:#1976D2; padding: 8px 16px;}
+			#results-col #sort ul li.select {background-color: #f5f5f5}
+
+			input[type="checkbox"] {    -webkit-appearance: checkbox;
+    box-sizing: border-box;}
+
+    		button {background-color: #1976D2; color:#fff; border:0; font-size: 16px; font-family:  -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, “Fira Sans”, “Droid Sans”, “Helvetica Neue”, Arial, sans-serif;; margin-top:0; font-weight: bold; border-radius:4px; padding:8px 12px; border-bottom:0px solid #00577C; -webkit-box-shadow: 1px 1px 1px 0px rgba(82,82,82,1);
+-moz-box-shadow: 1px 1px 1px 0px rgba(82,82,82,1);
+box-shadow: 1px 1px 1px 0px rgba(82,82,82,1); font-size: 24px}
+
+		</style>
+
+	</head>
+
+	<body>
+		
+		
+		<div id="header">
+			<div id="header-wrapper">
+				<img src="../logo/hcom_logo_white.svg" style="height:36px"/>
+				<style type="text/css">
+					.primary-nav {float:right; list-style-type: none; margin:0; padding:0;}
+					.primary-nav li {float:left;  margin-right:20px; color:#fff; font-size:16px; padding:8px 0;}
+				</style>
+				<ul class="primary-nav">
+					
+					<li>Hotels.com Rewards</li>
+					<li>Your bookings</li>
+					<li>Sign in &amp account</li>
+					
+				</ul>
+			</div>
+		</div>
+		
+		<div id="nav">
+			<div id="nav-wrapper">
+				<ul>
+					<li>Hotels deals</li>
+					<li>Packages and Flights</li>
+					<li>Groups and Meetings</li>
+					<li>Gift cards</li>
+					<li>Help</li>
+					<li>Website feedback</li>
+					<li style="float:right">Book online or call 020 3024 8216</li>
+					<!--<li style="float:right">Hotels.com Rewards</li>
+					<li style="float:right">Sign in &amp; Account</li>-->
+				</ul>
+			</div>
+		</div>
+		<!--<div style="position:relative; height:460px; overflow:hidden; background-color:#fff; 	">
+			<img src="https://a.cdn-hotels.com/cos/heroimage/homepage/Paris-0_TR006950.jpg" style="width:1700px;
+    position:absolute; z-index:1"/>
+    	</div>-->
+
+    	
+    	<div style="background-color: #eee;">
+
+  			<style type="text/css">
+  				.field {box-sizing: border-box; display:inline-block; vertical-align: top;}
+				.field label {display:block; font-size: 14px; margin-bottom:8px; padding-left: 2px; font-weight:bold;}
+				.field input[type="text"] {font-size:14px; width:100%; color:#555; font-weight: bold; box-sizing: border-box; padding:12px 12px 12px 12px; font-size: 14px; border:solid 0px #ddd; border-radius:4px; }
+
+				.field-wrapper {box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08); background-color:#fff; }
+				#sqm #destination {width:440px;}
+				#sqm #dates {width:360px;}
+				 .day {font-size: 12px;}
+				 .date {font-weight:bold; font-size: 14px}
+
+  			</style>
+
+
+    		
+  			<div id="sqm" style="padding:12px 12px;  width:1200px; margin:0 auto;">
+  				<div id="destination" class="field" style="margin-right: 12px">
+					<label>Destination, hotel, landmark or address</label>
+					<div class="field-wrapper" style="border-radius:4px">
+						<input type="text" placeholder="e.g Las Vegas" style="height:50px" />
+					</div>
+				</div>
+				<div id="dates" class="field" style="overflow: hidden;">
+					<div  style="width:calc(50% - 4px); float:left; box-sizing: border-box; margin-right: 0px">
+						<label >Check in</label>
+						<div class="field-wrapper" style="height:60px; background-color: #fff; height:50px; padding:8px 12px; box-sizing: border-box; border-top-left-radius: 4px; border-bottom-left-radius: 4px;">
+							<div class="day">Thursday</div>
+							<div class="date">12/03/18</div>
+						</div>
+					</div>
+					
+					<div style="float:left; box-sizing: border-box; width:calc(50% - 4px); padding-bottom: 2px; ">
+						<label >Check out</label>
+						<div class="field-wrapper" style="height:50px; background-color: #fff; padding: 8px 12px; box-sizing: border-box; border-top-right-radius: 4px; border-bottom-right-radius: 4px;">
+							<div class="day">Friday, 1 night</div>
+							<div class="date">12/03/18</div>
+						</div>
+					</div>
+					
+					
+				</div>
+
+				<div id="occupancy" class="field" style="width:240px;  margin-right: 12px;">
+					<label>Rooms and guests</label>
+					<div class="field-wrapper" style="height:50px; background-color: #fff; padding: 8px 12px; box-sizing: border-box; border-radius:4px;">
+						<div class="day">1 room</div>
+						<div class="date">2 adults, 0 children</div>
+					</div>
+				</div>
+
+				<div id="submit" class="field" style="margin-top:27px; text-align:right;">
+					<button class="sqm" style="background-color: #1976D2; height:48px; font-size:18px">Search</button>
+				</div>
+				
+  			</div>
+
+    	</div>
+
+  		<style type="text/css">
+  			#page-wrapper {max-width:1200px; margin:20px auto; overflow:hidden;}
+  			#page-content {width:calc(100% - 340px); float:left;}
+  			#page-sidebar {width:300px; float:left; margin-left:40px;}
+  			h1, h2, p {margin:0; padding:0;}
+  			p {margin-top:8px;}
+  			.destination {border-top:solid 1px #eee; padding: 12px 0; position:relative;}
+  			.destination p.description{font-size: 14px; max-width:600px;}
+  			.hotels {overflow: hidden; margin-top:12px; }
+  			.hotels .hotel {float:left; width:190px; height:240px; box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08); margin-right:20px; box-sizing: border-box; border:solid 1px #eee; border-radius:4px; padding:12px; font-size: 12px; color:#ccc;}
+  			.destination button {position:absolute; right:0; top:12px; font-size: 14px}
+  		</style>
+  		<div id="page-wrapper">
+  			<div id="page-content">
+  				
+  				<div>
+  					<h1>Great beach destinations</h1>
+  					<p>Great deals on our top beach destinations</p>
+
+  					<div class="destination" style="margin-top:30px">
+  						<h2>Los Angeles, California</h2>
+  						<p class="description">Relax on the beach, be thrilled at the theme parks and experience culture in the museums and art galleries of this sprawling Southern California city</p>
+  						<button class="see-all">See all Los Angeles deals</button>
+  						<div class="hotels">
+  							<div class="hotel">Hotel deal</div>
+  							<div class="hotel">Hotel deal</div>
+  							<div class="hotel">Hotel deal</div>
+  							<div class="hotel">Hotel deal</div>
+  						</div>
+
+  					</div>
+
+  					<div class="destination" style="margin-top:30px">
+  						<h2>San Diego, California</h2>
+  						<p class="description">San Diego is renowned for its zoo and white-sand beaches, as well as for La Jolla Cove, home to a seal colony, and verdant spaces like the Japanese Friendship </p>
+  						<button class="see-all">See all San Diego deals</button>
+  						<div class="hotels">
+  							<div class="hotel">Hotel deal</div>
+  							<div class="hotel">Hotel deal</div>
+  							<div class="hotel">Hotel deal</div>
+  							<div class="hotel">Hotel deal</div>
+  						</div>
+
+  					</div>
+
+  					<div class="destination" style="margin-top:30px">
+  						<h2>Miami Beach, Florida</h2>
+  						<p class="description">Miami Beach is a tropical paradise in the Atlantic with world-class restaurants and shopping stretching from North Beach to Fisher Island. </p>
+  						<button class="see-all">See all Miami Beach deals</button>
+  						<div class="hotels">
+  							<div class="hotel">Hotel deal</div>
+  							<div class="hotel">Hotel deal</div>
+  							<div class="hotel">Hotel deal</div>
+  							<div class="hotel">Hotel deal</div>
+  						</div>
+
+  					</div>
+
+  					<div class="destination" style="margin-top:30px">
+  						<h2>Fort Lauderdale, Florida</h2>
+  						<p class="description">Fort Lauderdale is a true vacationer’s paradise, with its glitzy hotels, 5-star dining, and vibrant nightlife scene complemented by miles of blissful sun-kissed beaches </p>
+  						<button class="see-all">See all Fort Lauderdale deals</button>
+  						<div class="hotels">
+  							<div class="hotel">Hotel deal</div>
+  							<div class="hotel">Hotel deal</div>
+  							<div class="hotel">Hotel deal</div>
+  							<div class="hotel">Hotel deal</div>
+  						</div>
+
+  					</div>
+
+  					<div class="destination" style="margin-top:30px">
+  						<h2>Myrtle Beach, South Carolina</h2>
+  						<p class="description">Myrtle Beach is South Carolina’s family vacation hotspot, with its miles of sandy shoreline and lively attractions like the Family Kingdom Amusement Park. </p>
+  						<button class="see-all">See all Myrtle Beach deals</button>
+  						<div class="hotels">
+  							<div class="hotel">Hotel deal</div>
+  							<div class="hotel">Hotel deal</div>
+  							<div class="hotel">Hotel deal</div>
+  							<div class="hotel">Hotel deal</div>
+  						</div>
+
+  					</div>
+  					<div class="destination" style="margin-top:30px">
+  						<h2>Maui, Hawaii</h2>
+  						<p class="description">Maui Island is awash with dramatic natural spectacle, from the cavernous crater of Haleakala to the palm-fringed golden sands of Kapalua Beach. </p>
+  						<button class="see-all">See all Maui deals</button>
+  						<div class="hotels">
+  							<div class="hotel">Hotel deal</div>
+  							<div class="hotel">Hotel deal</div>
+  							<div class="hotel">Hotel deal</div>
+  							<div class="hotel">Hotel deal</div>
+  						</div>
+
+  					</div>
+
+  					<div class="destination" style="margin-top:30px">
+  						<h2>Orange County, California</h2>
+  						<p class="description">Orange County is all about blissed-out beach walks, the adrenaline hit of riding the waves, and the Disneyland Resort magic.  </p>
+  						<button class="see-all">See all Orange County deals</button>
+  						<div class="hotels">
+  							<div class="hotel">Hotel deal</div>
+  							<div class="hotel">Hotel deal</div>
+  							<div class="hotel">Hotel deal</div>
+  							<div class="hotel">Hotel deal</div>
+  						</div>
+
+  					</div>
+  				</div>
+
+  				
+  			<style type="text/css">
+  				.promo {box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08); width:300px; box-sizing: border-box; margin-bottom:20px;}
+  				.promo .thumb {height:120px; background-color:#f1f1f1;}
+  				.promo .description {height:; padding:12px;}
+  				.meso {margin-bottom: 20px}
+  				.meso .label {text-align: center; background-color: #f1f1f1; font-size: 11px; padding:2px 0;}
+  				.meso .ad {height:250px; background-color: #f1f1f1}
+  			</style>
+  			</div>
+  			<div id="page-sidebar">
+  				<h2 style="margin-bottom:20px">More great hotel deals</h2>
+
+  				<div class="promo">
+  					<div class="thumb"></div>
+  					<div class="description">
+  						<p>Book today, stay today</p>
+  						<p>Save upto 40%</p>
+  						<p><a href="#">View deals</a></p>
+  					</div>
+  				</div>
+  				<div class="promo">
+  					<div class="thumb"></div>
+  					<div class="description">
+  						<p>Plan your summer vacation now</p>
+  						<p>Save upto 40%</p>
+  						<p><a href="#">View deals</a></p>
+  					</div>
+  				</div>
+
+
+  				<div class="meso">
+  					<div class="label">ADVERTISEMENT</div>
+  					<div class="ad"></div>
+  				</div>
+
+  				<div class="promo">
+  					<div class="thumb"></div>
+  					<div class="description">
+  						<p>Great American road trips</p>
+  						<p>Take the long way home</p>
+  						<p><a href="#">View deals</a></p>
+  					</div>
+  				</div>
+  				<div class="promo">
+  					<div class="thumb"></div>
+  					<div class="description">
+  						<p>Las Vegas hotels deals</p>
+  						<p>You'll save big on these hotel deals in Las Vegas</p>
+  						<p><a href="#">View deals</a></p>
+  					</div>
+  				</div>
+  				<div class="meso">
+  					<div class="label">ADVERTISEMENT</div>
+  					<div class="ad"></div>
+  				</div>
+  			</div>
+  		</div>
+
+
+
+			
+		
+
+		
+		
+
+		
+
+
+
+		<!-- Scripts -->
+		<!-- JQuery Google CDN -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="handlebars.js"></script>
+
+		<script type="text/javascript">
+
+			// run things on page load
+			$(function(){
+				
+			});
+
+		</script>
+	</body>
+</html>

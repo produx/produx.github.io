@@ -41,9 +41,9 @@ var initializeMap = function() {
             position: place.geometry.location,
             animation: google.maps.Animation.DROP,
             map: map,
-            icon: "i/poi-pin.png"
+            icon: "i/pins/landmark.svg"
         });
-
+        console.log(place);
         poiMarkers.push(marker);
         map.setCenter(place.geometry.location);
         map.setZoom(14);
@@ -77,10 +77,10 @@ var addHotelPins = function(){
         var icon; 
 
         var r = Math.floor((Math.random() * 10) + 1);
-        if (r >=5) {
-            icon = "i/base_red_12.png";
+        if (r >=9) {
+            icon = "i/pins/red_small.svg";
         } else {
-            icon = "i/base_green_18.png";
+            icon = "i/pins/green_small.svg";
         }
 
 

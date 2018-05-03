@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="10px" height="12px" viewBox="0 0 10 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49 (51002) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="5" cy="5" r="5"></circle>
+    </defs>
+    <g id="Map-pins" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="HMVT-7060--New-pin-styles" transform="translate(-403.000000, -285.000000)">
+            <g id="Group-2" transform="translate(403.000000, 285.000000)">
+                <ellipse id="Oval" fill-opacity="0.4" fill="#3C3C3C" cx="5" cy="10.5" rx="4" ry="1.5"></ellipse>
+                <g id="Oval-12">
+                    <use fill="#D32F2F" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    <circle stroke="#FFFFFF" stroke-width="1" cx="5" cy="5" r="4.5"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
