@@ -213,8 +213,85 @@
 					
 					<h3>Club room</h3>
 					<div style="text-align: center; margin-bottom:4px;"><strong>Sleeps 2 people (including up to 1 child)</strong></div>
-					<div style="text-align: center; margin-bottom:4px;">Bathroom &#8226; Air conditioning &#8226; Fireplace</div>
+					<div style="text-align: center; margin-bottom:4px;">Shower and bath &#8226; Air conditioning &#8226; Fireplace</div>
 					<div style="text-align: center; margin-bottom:4px;"><a href="#">See all room information</a></div>
+
+					
+					
+					<!--<div class="more">
+						<i class="material-icons" style="display:inline-block; vertical-align:top; font-size:18px; color:">&#xE146;</i>
+						<a>Show room information</a>
+					</div>-->
+					<div class="image">
+						
+					</div>
+				</div>
+				<div class="rate">
+					<div class="details">
+						
+						<div class="cancellation">
+							<div class=free>Free cancellation</div>
+							<div class="conditions">Until 07/03/2017</div>
+						</div>
+						<ul class="amenities">
+							<li>Free Wifi</li>
+							<li>Breakfast for 2 people</li>
+							<li>Free bottle of sparkling wine</li>
+						</ul>
+						<div class="rewards">
+							
+							<span>Collect and redeem</span>
+						</div>
+					</div>
+					<div class="price">
+						
+						<div class="strikethrough">$525</div>
+						<div class="total-price">$473</div>
+						<div class="for-nights">for 1 night</div>
+						
+						<button>Book</button>
+						<div class="time">It only take 2 minutes</div>
+					</div>
+				</div>
+			</div>
+
+			<style type="text/css">
+				#room-3 {}
+				#room-3 .photo {position:relative; height:140px; overflow:hidden;}
+				#room-3 .photo img {position:absolute; bottom:-30px; width:100%}
+				#room-3 .h-scroll{ overflow: auto; white-space: nowrap; width:100%; padding:0px 4px; box-sizing: border-box; }
+				#room-3 .h-scroll .label {display:inline-block; padding:4px 0; font-size:12px;}
+				
+			</style>
+
+			<div class="room" id="room-3">
+				<div class="room-details">
+					<div class="photo">
+						<img style="" src="https://exp.cdn-hotels.com/hotels/1000000/520000/518700/518646/176a4f49_b.jpg" />
+						<div style="position:absolute; left:0; bottom:0;">
+						<div><span style="display:inline-block; background-color:#fff; padding:4px 8px; font-weight: bold;">Club Room</span></div>
+						<div><span style="display:inline-block; background-color:#fff; padding:4px 8px; font-size: 13px;">Sleeps 2 people (including up to 1 child)</span></div>
+					</div>
+					</div>
+
+					
+					
+
+					<div class="h-scroll">
+
+						<div style="position:relative;">
+							<a href="#" style="display:inline-block; position:absolute; top:0; right:0; background-color:#fff;  padding:4px 12px; font-size: 12px; border-left:solid 1px #ddd">See all ></a>
+							<div class="h-scroll">
+								<span class="label">1 queen bed</span> &#8226; <span class="label">Air conditioning</span> &#8226; <span class="label">Fireplace</span> &#8226; <span class="label">In-room massage available</span> <span class="label">Free newspaper and desk</span> &#8226; <span class="label">Premium TV channels and DVD player</span>
+							</div>
+
+						</div>
+					</div>
+					<!--
+					<h3>Club room</h3>
+					<div style="text-align: center; margin-bottom:4px;"><strong></strong></div>
+					<div style="text-align: center; margin-bottom:4px;">Shower and bath &#8226; Air conditioning &#8226; Fireplace</div>
+					<div style="text-align: center; margin-bottom:4px;"><a href="#">See all room information</a></div>-->
 
 					
 					
@@ -295,17 +372,7 @@
 
       			console.log($('div#room-1').height());
       			$("#pos").text($(window).scrollTop())
-      			$(window).scroll(function(){
-      				$("#pos").text($(window).scrollTop() + " - " + room1Start + " - " + room1End + " - " + room1DetailsHeight)
-      				if ($(window).scrollTop() >= room1Start && $(window).scrollTop() <= room1End){
-      					console.log("match");
-      					$("div#room-1 .room-details").addClass("fixed");
-      					$("div#room-1").css("padding-top", (room1DetailsHeight + 12) +"px")
-      				} else {
-      					$("div#room-1 .room-details").removeClass("fixed");
-      					$("div#room-1").css("padding-top", "0")
-      				}
-      			});
+      			
       			
 				// num photos
 				
