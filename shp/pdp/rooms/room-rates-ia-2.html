@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+		<link rel="stylesheet" type="text/css">
+		<style type="text/css">
+			/*
+				greige: #E5E1E6;
+				grey: #EFEBE9;
+				red: #D32F2F;
+				rewards: ##7B1FA2;
+				green: #00852D;
+			*/
+			body {padding:0; margin:0; font-family:arial; background-color:#fff; color:#555;}
+			a {text-decoration: none; color:#1976D2;}
+			p {margin:0; padding: 0; margin-bottom:8px;}
+			#page-wrapper {width:1160px; margin:20px auto; padding:0;}
+
+			#rooms {background-color:#E5E1E6; box-sizing:border-box; padding:12px;  margin-top:20px;}
+			.room {background-color:#fff; border-radius:4px; box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);}
+			.room .room-details { border-bottom:solid 1px #ddd; box-sizing: border-box; padding:12px; position:relative;}
+			.room .room-details .thumb {height:150px; display:inline-block; vertical-align:top;}
+			.room .room-details .thumb img {max-height: 100%}
+
+			.room .room-details .details {display:inline-block; vertical-align:top; margin-left:16px;}
+			.room .room-details .details .name {font-size:18px; font-weight:bold; margin-bottom:8px;}
+			.room .room-details .details ul {padding:0; margin:0 0 0 0;}
+			.room .room-details .details ul li {list-style-type: none; margin-bottom: 8px;}
+
+			.room .room-details .secondary {width:330px; position:absolute; top:12px; right:20px;}
+			.room .room-details .secondary div {font-weight: bold; margin-bottom: 8px}
+			.room .room-details .secondary ul {margin:0; padding:0;}
+			.room .room-details .secondary ul li {list-style-type: none; font-size: 14px; margin-top: 4px}
+			.room .room-details .secondary p {margin:0; padding:0; font-size: 14px; line-height: 18px;}
+
+			.rates {width:100%; border-collapse: collapse;}
+			.rates td {padding:12px; border-right:solid 1px #ddd; vertical-align: top;}
+			.rates .head {background-color: #eee; font-size: 13px;}
+			
+			.rates .rate td {border-top:solid 1px #ccc;}
+			.rates .rate .included {border-right:0;}
+			.rates .rate .price {text-align: right; border-right:0;}
+			.rates .rate .book {text-align: center;}
+
+			.rates .rate ul {padding:0; margin:0; list-style-type: none;}
+
+			.rates .rate .cancellation .badge {color:#00852D; margin-bottom: 4px}
+			.rates .rate .cancellation .terms {font-size: 12px}
+			.rates .rate .included ul li {color:#00852D; font-size:14px; 	margin-bottom:8px;}
+			.rates .rate .rewards ul li {color:#7B1FA2; font-size:14px; 	margin-bottom:4px;}
+			.rates .rate .sp {display:inline-block; background-color:#7B1FA2; padding:4px 8px; border-radius:2px; color:#fff; font-size: 12px; margin-bottom: 4px}
+			.rate .price {border-right:0;}
+			.rate .price .strikethrough {text-decoration: line-through; color:#666;}
+			.rate .price .total {color:#D32F2F; font-weight:bold; font-size:24px;}
+			.rate .price .total-sp {color:#7B1FA2; font-weight:bold; font-size:24px;}
+			.rate .price .nights {font-size: 13px; color:#999;}
+			.rate .book button {background-color: #1976D2; color:#fff; font-weight:bold; padding: 6px 12px; font-size: 14px; border:0; border-radius:4px;}
+
+
+			@media screen and (min-width: 420px) {}
+
+		</style>
+
+	</head>
+	
+	<body>
+		<div id="page-wrapper">
+			<p>Exploring a horizontal layout for the room details section of the rooms/rates component.</p>
+				<p>Objective is to create space for additional content without affecting the height of the existing component.</p>
+				<p>Rooms from <a href="https://uk.hotels.com/ho180771/?q-check-out=2018-10-27&FPQ=6&q-check-in=2018-10-26&WOE=6&WOD=5&q-room-0-children=0&pa=1&tab=description&JHR=5&q-room-0-adults=2&YGF=14&MGT=1&ZSX=0&SYE=3">Cliveden hotel</a> which we are using to represent the 'relaxing luxury break' customer scenario</p>
+			<div id="rooms">
+
+				<style type="text/css">
+					.room-2 {background-color:#fff; border-radius:4px; box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);}
+					.room-2 .room-details {padding:12px;}
+					.room-2 .room-details .thumb-1 {height:160px; display:inline-block; vertical-align: top;}
+					.room-2 .room-details .thumb-1 img {height:100%;}
+					.room-2 .room-details .thumb-2 {height:160px; display:inline-block; vertical-align: top;}
+					.room-2 .room-details .thumb-2 img {height:78px; display:block;}
+					.room-2 .room-details .copy {display:inline-block; margin-left:12px;}
+					.room-2 .room-details .copy h3 {margin:0 0 12px 0; padding:0;}
+					
+				</style>
+
+				<div style="padding:12px 0; font-weight: bold;">Option 1: Horizontal room info + in the room amenities</div>
+				<div class="room-2">
+					<div class="room-details">
+						<div class="thumb-1">
+							<img src="https://exp.cdn-hotels.com/hotels/1000000/520000/518700/518646/176a4f49_b.jpg" />
+						</div>
+						<div class="thumb-2">
+							<img src="https://exp.cdn-hotels.com/hotels/1000000/520000/518700/518646/c48d3d5f_b.jpg" style="margin-bottom:4px;"/>
+							<img src="https://exp.cdn-hotels.com/hotels/1000000/520000/518700/518646/4b0fe83c_b.jpg" />
+						</div>
+						<div class="copy" style="width:600px;">
+							<h3>Club Room</h3>
+							<div class="sleeps">
+								<div style="margin-bottom: 4px;">Sleeps 2 people (including up to 1 child)</div>
+								<div>1 Queen bed </div>
+							</div>
+							<div class="amenities" style="margin-top:12px; line-height: 20px; font-size: 14px">
+								Partially open bathroom &#8226; Shower &#8226; Air conditioning &#8226; Fireplace &#8226; In-room massage available &#8226; Premium TV channels and DVD player &#8226; Free newspaper and desk
+							</div>
+							<div style="margin-top:12px;"><a href="#">Show room information</a></div>
+						</div>
+					</div>
+					<table class="rates">
+						<tr class="head">
+							<td class="cancellation">Cancellation policy</td>
+							<td class="included" colspan="2">What's included</td>
+							<td class="price" colspan="2">Total price</td>
+						</tr>
+						<tr class="rate">
+							<td class="cancellation">
+								<div class="badge">Free cancellation</div>
+								<div class="terms">Until 04/10/2018</div>
+							</td>
+							<td class="included">
+								<ul>
+									<li>Free WiFi</li>
+									<li>Breakfast for 2 people</li>
+									<li>Free bottle of sparkling wine</li>
+								</ul>
+							</td>
+							<td class="rewards">
+								<ul>
+									<li>Hotels.com Rewards</li>
+									<li>Collect</li>
+									<li>Redeem</li>
+								</ul>
+							</td>
+							<td class="price">
+								<div class="sp">Secret Price</div>
+								<div class="strikethrough">£475</div>
+								<div class="total-sp">£427</div>
+								<div class="nights">for 1 night</div>
+							</td>
+							<td class="book"><button>Book now</button></td>
+						</tr>
+						<tr class="rate">
+							<td class="cancellation">
+								<div class="badge">Free cancellation</div>
+								<div class="terms">Until 04/10/2018</div>
+							</td>
+							<td class="included">
+								<ul>
+									<li>Free WiFi</li>
+									<li>Breakfast for 2 people</li>
+									<li>Free bottle of sparkling wine</li>
+								</ul>
+							</td>
+							<td class="rewards">
+								<ul>
+									<li>Hotels.com Rewards</li>
+									<li>Collect</li>
+									<li>Redeem</li>
+								</ul>
+							</td>
+							<td class="price">
+								
+								<div class="strikethrough">£525</div>
+								<div class="total">£473</div>
+								<div class="nights">for 1 night</div>
+								
+
+
+							</td>
+							<td class="book"><button>Book now</button></td>
+						</tr>
+					</table>
+					
+				</div>
+
+			</div>
+				
+		</div>
+	</body>
+
+</html>
