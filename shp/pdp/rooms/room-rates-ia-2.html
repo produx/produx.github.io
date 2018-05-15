@@ -40,22 +40,22 @@
 			.room .room-details .secondary ul li {list-style-type: none; font-size: 14px; margin-top: 4px}
 			.room .room-details .secondary p {margin:0; padding:0; font-size: 14px; line-height: 18px;}
 
-			.room .rates {width:100%; border-collapse: collapse;}
-			.room .rates td {padding:12px; border-right:solid 1px #ddd; vertical-align: top;}
-			.room .rates .head {background-color: #eee; font-size: 13px;}
+			.rates {width:100%; border-collapse: collapse;}
+			.rates td {padding:12px; border-right:solid 1px #ddd; vertical-align: top;}
+			.rates .head {background-color: #eee; font-size: 13px;}
 			
-			.room .rates .rate td {border-top:solid 1px #ccc;}
-			.room .rates .rate .included {border-right:0;}
-			.room .rates .rate .price {text-align: right; border-right:0;}
-			.room .rates .rate .book {text-align: center;}
+			.rates .rate td {border-top:solid 1px #ccc;}
+			.rates .rate .included {border-right:0;}
+			.rates .rate .price {text-align: right; border-right:0;}
+			.rates .rate .book {text-align: center;}
 
-			.room .rates .rate ul {padding:0; margin:0; list-style-type: none;}
+			.rates .rate ul {padding:0; margin:0; list-style-type: none;}
 
-			.room .rates .rate .cancellation .badge {color:#00852D; margin-bottom: 4px}
-			.room .rates .rate .cancellation .terms {font-size: 12px}
-			.room .rates .rate .included ul li {color:#00852D; font-size:14px; 	margin-bottom:8px;}
-			.room .rates .rate .rewards ul li {color:#7B1FA2; font-size:14px; 	margin-bottom:4px;}
-			.room .rates .rate .sp {display:inline-block; background-color:#7B1FA2; padding:4px 8px; border-radius:2px; color:#fff; font-size: 12px; margin-bottom: 4px}
+			.rates .rate .cancellation .badge {color:#00852D; margin-bottom: 4px}
+			.rates .rate .cancellation .terms {font-size: 12px}
+			.rates .rate .included ul li {color:#00852D; font-size:14px; 	margin-bottom:8px;}
+			.rates .rate .rewards ul li {color:#7B1FA2; font-size:14px; 	margin-bottom:4px;}
+			.rates .rate .sp {display:inline-block; background-color:#7B1FA2; padding:4px 8px; border-radius:2px; color:#fff; font-size: 12px; margin-bottom: 4px}
 			.rate .price {border-right:0;}
 			.rate .price .strikethrough {text-decoration: line-through; color:#666;}
 			.rate .price .total {color:#D32F2F; font-weight:bold; font-size:24px;}
@@ -77,116 +77,38 @@
 				<p>Rooms from <a href="https://uk.hotels.com/ho180771/?q-check-out=2018-10-27&FPQ=6&q-check-in=2018-10-26&WOE=6&WOD=5&q-room-0-children=0&pa=1&tab=description&JHR=5&q-room-0-adults=2&YGF=14&MGT=1&ZSX=0&SYE=3">Cliveden hotel</a> which we are using to represent the 'relaxing luxury break' customer scenario</p>
 			<div id="rooms">
 
-
+				<style type="text/css">
+					.room-2 {background-color:#fff; border-radius:4px; box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);}
+					.room-2 .room-details {padding:12px;}
+					.room-2 .room-details .thumb-1 {height:160px; display:inline-block; vertical-align: top;}
+					.room-2 .room-details .thumb-1 img {height:100%;}
+					.room-2 .room-details .thumb-2 {height:160px; display:inline-block; vertical-align: top;}
+					.room-2 .room-details .thumb-2 img {height:78px; display:block;}
+					.room-2 .room-details .copy {display:inline-block; margin-left:12px;}
+					.room-2 .room-details .copy h3 {margin:0 0 12px 0; padding:0;}
+					
+				</style>
 
 				<div style="padding:12px 0; font-weight: bold;">Option 1: Horizontal room info + in the room amenities</div>
-				<div class="room">
+				<div class="room-2">
 					<div class="room-details">
-						<div class="thumb"><img src="https://exp.cdn-hotels.com/hotels/1000000/520000/518700/518646/176a4f49_b.jpg" /></div>
-						<div class="details">
-							<div class="name">Club Room</div>
-							<ul>
-								<li>Sleeps 2 people (including up to 1 child)</li>
-								<li>Bed choices: 1 Queen Bed</li>
-								<li>Extra beds available: Crib, Rollaway bed</li>
-								<li><a href="#">Show room information</a></li>
-							</ul>
+						<div class="thumb-1">
+							<img src="https://exp.cdn-hotels.com/hotels/1000000/520000/518700/518646/176a4f49_b.jpg" />
 						</div>
-						<div class="secondary">
-							<div>In the room</div>
-							<ul>
-								<li>Air conditioning</li>
-								<li>Fireplace</li>
-								<li>In-room massage available</li>
-								<li>Premium TV channels and DVD player</li>
-								<li>Free newspaper and desk</li>
-							</ul>
+						<div class="thumb-2">
+							<img src="https://exp.cdn-hotels.com/hotels/1000000/520000/518700/518646/c48d3d5f_b.jpg" style="margin-bottom:4px;"/>
+							<img src="https://exp.cdn-hotels.com/hotels/1000000/520000/518700/518646/4b0fe83c_b.jpg" />
 						</div>
-					</div>
-					<table class="rates">
-						<tr class="head">
-							<td class="cancellation">Cancellation policy</td>
-							<td class="included" colspan="2">What's included</td>
-							<td class="price" colspan="2">Total price</td>
-						</tr>
-						<tr class="rate">
-							<td class="cancellation">
-								<div class="badge">Free cancellation</div>
-								<div class="terms">Until 04/10/2018</div>
-							</td>
-							<td class="included">
-								<ul>
-									<li>Free WiFi</li>
-									<li>Breakfast for 2 people</li>
-									<li>Free bottle of sparkling wine</li>
-								</ul>
-							</td>
-							<td class="rewards">
-								<ul>
-									<li>Hotels.com Rewards</li>
-									<li>Collect</li>
-									<li>Redeem</li>
-								</ul>
-							</td>
-							<td class="price">
-								<div class="sp">Secret Price</div>
-								<div class="strikethrough">£475</div>
-								<div class="total-sp">£427</div>
-								<div class="nights">for 1 night</div>
-							</td>
-							<td class="book"><button>Book now</button></td>
-						</tr>
-						<tr class="rate">
-							<td class="cancellation">
-								<div class="badge">Free cancellation</div>
-								<div class="terms">Until 04/10/2018</div>
-							</td>
-							<td class="included">
-								<ul>
-									<li>Free WiFi</li>
-									<li>Breakfast for 2 people</li>
-									<li>Free bottle of sparkling wine</li>
-								</ul>
-							</td>
-							<td class="rewards">
-								<ul>
-									<li>Hotels.com Rewards</li>
-									<li>Collect</li>
-									<li>Redeem</li>
-								</ul>
-							</td>
-							<td class="price">
-								
-								<div class="strikethrough">£525</div>
-								<div class="total">£473</div>
-								<div class="nights">for 1 night</div>
-								
-
-
-							</td>
-							<td class="book"><button>Book now</button></td>
-						</tr>
-					</table>
-					
-				</div>
-
-
-				<div style="padding:12px 0; font-weight: bold; margin-top:30px;">Option 2: Horizontal room info + social proof / UGC</div>
-				<div class="room">
-					<div class="room-details">
-						<div class="thumb"><img src="https://exp.cdn-hotels.com/hotels/1000000/520000/518700/518646/176a4f49_b.jpg" /></div>
-						<div class="details">
-							<div class="name">Club Room</div>
-							<ul>
-								<li>Sleeps 2 people (including up to 1 child)</li>
-								<li>Bed choices: 1 Queen Bed</li>
-								<li>Extra beds available: Crib, Rollaway bed</li>
-								<li><a href="#">Show room information</a></li>
-							</ul>
-						</div>
-						<div class="secondary">
-							<div>What the guests are saying</div>
-							<p>"The room was superb, very comfortable and large, with all amenities expect of a 5 star hotel, and the interesting thing, is that the rooms don’t have numbers on the doors, they have your name inside a brass holder. Never stayed anywhere before that had my name of the room door!"</p>
+						<div class="copy" style="width:600px;">
+							<h3>Club Room</h3>
+							<div class="sleeps">
+								<div style="margin-bottom: 4px;">Sleeps 2 people (including up to 1 child)</div>
+								<div>1 Queen bed </div>
+							</div>
+							<div class="amenities" style="margin-top:12px; line-height: 20px; font-size: 14px">
+								Partially open bathroom &#8226; Shower &#8226; Air conditioning &#8226; Fireplace &#8226; In-room massage available &#8226; Premium TV channels and DVD player &#8226; Free newspaper and desk
+							</div>
+							<div style="margin-top:12px;"><a href="#">Show room information</a></div>
 						</div>
 					</div>
 					<table class="rates">

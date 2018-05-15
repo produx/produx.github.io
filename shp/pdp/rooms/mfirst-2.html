@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+
+		
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+		
+		<style type="text/css">	
+			body {background-color:#f5f4f0; font-family:arial; margin:0; padding:0;}
+			.star {color:#D41200; font-size:16px;}
+
+			
+
+			#carousel-wrapper {position: relative; width:100%; background-color:#fff; box-sizing: border-box; margin-top:12px;}
+			#carousel-wrapper button {background-color:transparent; padding:2px 12px; border-radius:4px; font-weight:bold; border:0; color:#fff; outline:0;}
+			#carousel-wrapper button i {font-size:32px;}
+			#carousel-wrapper .prev {position: absolute; top:100px; left:-4px; }
+			#carousel-wrapper .next {position: absolute; top:100px; right:-4px;}
+
+			#carousel-wrapper #count {position:absolute; left:0; right:0; bottom:22px; margin:0 auto; width:50px; background-color: #fff; text-align:center; padding:4px; color:#000; font-weight:bold; border-top-left-radius:4px; border-top-right-radius:4px; font-size:14px; }
+			#carousel-content {background-color:transparent; padding:8px 12px; font-weight:bold; font-size:13px; color:#000; border-bottom:solid 1px #ddd;}
+			#photos {height:240px;}
+			#photos div {margin-right:2px; position:relative;}
+			#photos div img {height:240px; opacity:0.2; }
+			#photos .prev {position:absolute;}
+
+			#main-amenities {padding:12px;}
+			#main-amenities h3 {font-size:16px; margin:0 0 8px 0;}
+			#main-amenities ul {margin-bottom:8px; overflow:hidden;}
+			#main-amenities ul li {font-size:13px; background: url('i/ic_done_black_24px.svg') no-repeat; background-size: 13px 13px; padding-left:20px; box-sizing:border-box; margin-bottom:4px;}
+
+			#map-reviews {display:none;}
+			#map {padding:0 0; border-bottom:solid 1px #eee;}
+			#map .image {height:160px; background: url('https://maps-api-ssl.google.com/maps/api/staticmap?center=48.874545,2.806132&zoom=13&size=423x160&format=jpg&sensor=false&client=gme-expedia&signature=V883sNAFgr7LuMhLcYjKpdFpKQs=') no-repeat}
+
+			@media only screen and (min-width:0px) {
+				body {font-size:14px;}
+				#header-wrapper {background-color: #D41200; height:60px;}
+				#photos {margin-top:8px; margin-left:2px;}
+				#name {margin:12px 0 8px;}
+			
+			}
+
+			@media only screen and (min-width:600px) {
+				#wrapper, #header-wrapper {width:360px; margin:0 auto;}
+				
+			}
+
+			
+		</style>
+
+	</head>
+
+	<body>
+
+		<div id="wrapper">
+	
+		<div style="min-height:300px; padding:12px; position:relative; background-color:#E8EAF6; border-top:solid 2px #026dc5; border-bottom:solid 2px #026dc5;">
+			
+			<style type="text/css">
+
+				
+				.roo/m {min-height:160px; background-color:#fff; margin:8px -12px 8px; -webkit-box-shadow: -1px 1px 2px 0px rgba(153,153,153,1); -moz-box-shadow: -1px 1px 2px 0px rgba(153,153,153,1); box-shadow: -1px 1px 2px 0px rgba(153,153,153,1);}
+
+				.room {min-height:160px; background-color:#fff; margin:0 -4px 12px -4px; border-bottom:solid 1px #ccc;box-shadow: 0 1px 2px rgba(0,0,0,0.2)*/}
+				.room .room-details {box-sizing: border-box; padding:12px; min-height:60px; position:relative;}
+				.room .room-details h3 {padding:0; margin:0;}
+				.room .room-details .bed {margin-top:8px;}
+				.room .room-details .bed i {display:inline-block; vertical-align:top; font-size:18px;}
+				.room .room-details .bed span {display:inline-block; vertical-align:top; font-weight: bold; padding-top:2px; font-size:13px;}
+				.room .room-details .more {margin-top:8px;}
+				.room .room-details .more i {display:inline-block; vertical-align:top; font-size:18px;  color:#026dc5;}
+				.room .room-details .more a {display:inline-block; vertical-align:top; font-weight: bold; padding-top:2px; font-size:13px;}
+				.room .room-details .image  {position:absolute; top:12px; right:12px;}
+				.room .room-details .image img {height:60px;}
+
+				.room .details .occupancy i {display:inline-block; vertical-align:top; font-size:18px;}
+				.room .details .occupancy span {display:inline-block; vertical-align:top; font-weight: bold; padding-top:2px; font-size:12px;}
+
+				
+				.room .details .amenity {margin-top:4px; position:relative;}
+				.room .details .amenity i {position:absolute; top:0; left:0; font-size:18px;}
+				.room .details .amenity span {font-weight: bold; padding-top:2px; font-size:12px; margin-left:20px; display:block;}
+				.room .details .rewards {margin-top:8px;}
+				.room .details .rewards .icon {display:inline-block; padding:0px 3px 1px; border-radius:4px; background-color:#906; vertical-align:top;}
+				.room .details .rewards .icon img {width:9px;}
+				.room .details .rewards span {display:inline-block; vertical-align:top; font-size:12px; color:#906; padding-top:2px}
+
+
+
+				
+				.room .rate {overflow:hidden; border-top:solid 1px #eee;}
+				.room .rate .details {float:left; width:50%; box-sizing: border-box; padding:12px 6px 12px 12px;}
+				.room .rate .price {float:left; width:50%; box-sizing: border-box; text-align:right; padding:12px 12px 12px 6px;}
+				.room .rate .price .deal {color:#d41200; font-size:13px;}
+				.room .rate .price .strikethrough {text-decoration: line-through; font-size:16px; color:#7e7e7e;}
+				.room .rate .price .total-price {color:#d41200; font-weight:bold; font-size:28px;}
+				.room .rate .price .for-nights {color:#7e7e7e; font-size:12px; margin-top:0px;}
+				.room .rate .price .taxes {color:#7e7e7e; font-size:12px; margin-top:2px;}
+				.room .rate .price button {border:0; background-color:#026dc5; border-radius:4px; padding:8px 16px; color:#fff; font-size:14px; border-bottom:2px solid #003789; margin-top:8px;}
+				.room .rate .price .time {color:#7e7e7e; font-size:12px; margin-top:4px;}
+
+				.room .fixed {position:fixed; top:0px; left:8px; right:12px; background-color:#fff; z-index:1000; box-shadow: 0 1px 2px rgba(0,0,0,0.2); border-top:solid 8px #E8EAF6; }
+
+				.room-details ul {list-style-type: none; margin:0; padding:0;}
+				.room-details ul li {margin-bottom:4px; font-size: 13px}
+
+				.room .details .cancellation {margin-bottom:8px;}
+				.room .details .cancellation .non {font-weight:bold; font-size:14px;}
+				.room .details .cancellation .free {font-size:14px; color:#00852D;}
+				.room .details .cancellation .conditions {font-size:11px; margin-top:4px; color:#7e7e7e;}
+
+				ul.amenities {list-style-type: none; margin:0; padding:0;}
+				ul.amenities li {font-size: 12px; margin-bottom: 4px}
+			</style>
+			
+			<div class="room" id="room-1">
+				<div class="room-details">
+					<h3>Club room</h3>
+
+					<div style="overflow:hidden; margin-top:8px;">
+						<div style="float:left; width:50%;">
+							<ul>
+								<li><strong>Sleeps 2 people</strong><br /><span style="font-size: 12px;">(including up to 1 child)</span></li>
+								<li>1 Queen bed</li>
+								
+							</ul>
+						</div>
+						<div style="float:left; width:50%;"><img style="max-width: 100%" src="https://exp.cdn-hotels.com/hotels/1000000/520000/518700/518646/176a4f49_b.jpg" /></div>
+					</div>
+					
+					<!--<div class="more">
+						<i class="material-icons" style="display:inline-block; vertical-align:top; font-size:18px; color:">&#xE146;</i>
+						<a>Show room information</a>
+					</div>-->
+					<div class="image">
+						
+					</div>
+				</div>
+				<div class="rate">
+					<div class="details">
+						
+						<div class="cancellation">
+							<div class=free>Free cancellation</div>
+							<div class="conditions">Until 07/03/2017</div>
+						</div>
+						<ul class="amenities">
+							<li>Free Wifi</li>
+							<li>Breakfast for 2 people</li>
+							<li>Free bottle of sparkling wine</li>
+						</ul>
+						<div class="rewards">
+							<span>Collect and redeem</span>
+						</div>
+					</div>
+					<div class="price">
+						<div class="deal">Private sale: save 20%</div>
+						<div class="strikethrough">$80</div>
+						<div class="total-price">$58</div>
+						<div class="for-nights">for 1 night</div>
+						<div class="taxes">+ $5 charges due at hotel</div>
+						<button>Book</button>
+						<div class="time">It only take 2 minutes</div>
+					</div>
+				</div>
+				<div class="rate">
+					<div class="details">
+						
+						<div class="cancellation">
+							<div class=free>Free cancellation</div>
+							<div class="conditions">Until 07/03/2017</div>
+						</div>
+						<ul class="amenities">
+							<li>Free Wifi</li>
+							<li>Breakfast for 2 people</li>
+							<li>Free bottle of sparkling wine</li>
+						</ul>
+						<div class="rewards">
+							
+							<span>Collect and redeem</span>
+						</div>
+					</div>
+					<div class="price">
+						
+						<div class="strikethrough">$525</div>
+						<div class="total-price">$473</div>
+						<div class="for-nights">for 1 night</div>
+						
+						<button>Book</button>
+						<div class="time">It only take 2 minutes</div>
+					</div>
+				</div>
+
+				
+
+				
+				
+			</div>
+			
+		</div>
+
+		<style type="text/css">
+			#facilities {padding: 0 12px;}
+			#facilities h2 {padding:0; margin:12px 0 12px 0; font-size:20px;}
+			#facilities h3 {padding:0; margin:0 0 8px 0; font-size:16px;}
+			#facilities h4 {padding:0; margin:0 0 8px 0; font-size:14px;}
+			#facilities ul {list-style-type: disc; padding-left:20px;}
+			#facilities ul li {margin-bottom:4px;}
+			#facilities .more {}
+			#facilities .more {margin-top:8px; padding-bottom:8px; border-bottom: solid 1px #eee;}
+			#facilities .more i {display:inline-block; vertical-align:top; font-size:18px; color:#026dc5;}
+			#facilities .more a {display:inline-block; vertical-align:top; font-weight: bold; padding-top:2px; font-size:13px;}
+		</style>
+		
+</div>
+
+		<!-- Scripts -->
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="https://use.fontawesome.com/37c289f6f2.js"></script>
+		<script src="slick/slick.js"></script>
+
+		<script type="text/javascript">
+			var caption = ["Family room", "Interior entrance", "Lobby", "Standard double room", "Room, 2 Queen beds", "Suite", "Suite", "Room, 2 Queen beds", "Family room", "Family room", "Room, 2 Queen beds", "Standard double room", "Family Room", "Guest room", "Guest room", "Guest room", "Suite", "Family room - bathroom", "Indoor pool"];
+
+
+			$("#carousel-content").text("1/18 " + caption[0]);
+
+
+			// run things on page load
+			$(function(){
+				var room1Start = $('div#room-1').offset().top
+				var room1Height = $('div#room-1').height()
+				var room1End = room1Start + room1Height;
+				var room1DetailsHeight = $('div#room-1 .room-details').height();
+				
+
+      			console.log($('div#room-1').height());
+      			$("#pos").text($(window).scrollTop())
+      			$(window).scroll(function(){
+      				$("#pos").text($(window).scrollTop() + " - " + room1Start + " - " + room1End + " - " + room1DetailsHeight)
+      				if ($(window).scrollTop() >= room1Start && $(window).scrollTop() <= room1End){
+      					console.log("match");
+      					$("div#room-1 .room-details").addClass("fixed");
+      					$("div#room-1").css("padding-top", (room1DetailsHeight + 12) +"px")
+      				} else {
+      					$("div#room-1 .room-details").removeClass("fixed");
+      					$("div#room-1").css("padding-top", "0")
+      				}
+      			});
+      			
+				// num photos
+				
+				//$("#num").text($('#photos').slick('slickCurrentSlide'))
+
+				var numPhotos = $('.photo').length;
+				$("#total").text(numPhotos);
+
+				//$( "#header-wrapper" ).load( "../components/c-header-new.html" );
+
+				$('#photos').slick({
+					arrows: false,
+    				dots: false,
+  					infinite: false,
+  					speed: 300,
+  					slidesToShow: 1,
+  					centerMode: true,
+  					variableWidth: true
+  				});
+
+  				//console.log($('#photos').slick('slickCurrentSlide'));
+
+  				 
+				$("#num").text($('#photos').slick('slickCurrentSlide') + 1)
+
+  				$("div.photo:eq(0) img").css("opacity", "1.0")
+  				//$( "td:eq( 2 )" ).css( "color", "red" );
+
+  				
+
+				$(".prev").on("click", function(e){
+					$('#photos').slick('slickPrev');
+					var currentSlide = $('#photos').slick('slickCurrentSlide');
+					console.log(currentSlide)
+					$("div.photo img").css("opacity", "0.2")
+					$("div.photo:eq(" + (currentSlide) + ") img").css("opacity", "1.0")
+					//$("#num").text($('#photos').slick('slickCurrentSlide') + 1)
+					$("#carousel-content").text(($('#photos').slick('slickCurrentSlide') + 1) + "/18 " + caption[$('#photos').slick('slickCurrentSlide')]);
+
+				});
+
+				$(".next").on("click", function(e){
+					$('#photos').slick('slickNext');
+					var currentSlide = $('#photos').slick('slickCurrentSlide');
+					console.log(currentSlide)
+
+					$("div.photo img").css("opacity", "0.2")
+					$("div.photo:eq(" + (currentSlide) + ") img").css("opacity", "1.0")
+					$("#num").text($('#photos').slick('slickCurrentSlide') + 1)
+					$("#carousel-content").text(($('#photos').slick('slickCurrentSlide') + 1) + "/18 " + caption[$('#photos').slick('slickCurrentSlide')]);
+				});
+				
+
+				
+				$('#photos').on('swipe', function(event, slick, direction){
+  					
+  					var currentSlide = $('#photos').slick('slickCurrentSlide');
+					console.log(direction + " - " + currentSlide)
+					$("div.photo img").css("opacity", "0.2")
+					$("div.photo:eq(" + (currentSlide) + ") img").css("opacity", "1.0")
+					$("#num").text($('#photos').slick('slickCurrentSlide') + 1)
+					$("#carousel-content").text(($('#photos').slick('slickCurrentSlide') + 1) + "/18 " + caption[$('#photos').slick('slickCurrentSlide')]);
+				});
+
+			});
+
+		</script>
+	</body>
+</html>
