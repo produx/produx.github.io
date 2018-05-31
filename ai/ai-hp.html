@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+		
+		<style type="text/css">
+			body{margin:0; padding:0; font-family: arial; color:#4e4e4e; }
+			h1 {margin:0; padding:0; font-size: 24px;}
+			h2 {margin:0; padding:0; font-size:16px;}
+      a {text-decoration:none; color:#1976D2;}
+			#header {background-color:#d32f2f; background-color: #d32f2f; height:46px; box-sizing: border-box; padding:8px 12px}
+
+      .arrow-up {
+  width: 0; 
+  height: 0; 
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  
+  border-bottom: 10px solid #028017;
+
+}
+#dates-pin {overflow:hidden; position: relative; height:98px; background-color:#eae8e0; padding:12px 12px;}
+.fixed {position:fixed; top:0; left:0; right:0px}
+.bar {background-color: #028017; padding:8px; font-weight: bold; font-size:13px; color:#fff;}
+
+      #page {background-color:#fff;}
+			@media screen and (min-width: 600px) {
+				#page {max-width:360px; margin:0 auto; }
+			}
+			@media screen and (min-width: 750px) {}
+			@media screen and (min-width: 850px) {}
+			@media screen and (min-width: 960px) {}
+			@media screen and (min-width: 1160px) {}
+		</style>
+
+    <script type="text/javascript">
+      $(function(){
+      })
+    </script>
+
+  	</head>
+  	<body>
+
+  		<div id="page">
+  			
+  			<div id="header" style="color:#fff; position:relative">
+  				<img src="../i/Horizontal_H_White.svg" style="height:30px;" />
+          <div style="position:absolute; right:8px; top:10px;">
+            <i class="material-icons" style="color:#fff; font-size:28px;">phone</i> &nbsp;
+            <i class="material-icons" style="color:#fff; font-size:28px;">person</i>
+          </div>
+
+  			</div>
+
+        
+
+      <style type="text/css">
+      #search-wrapper {background-color: #f1f1f1; padding:12px;}
+      #search {box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08); background-color:#fff; margin:0px 0; border-radius:2px;}
+      #sqm {position: relative; box-sizing: border-box; padding:8px; border-bottom:solid 1px #ddd; height:50px;}
+      #sqm .dest {font-weight:bold; font-size:14px}
+      #sqm .dates {font-size:12px; margin-top:4px;}
+      #sqm .btn-search {position:absolute; right:0px; top:0px; bottom:0px; background-color:#026dc5; color:#fff;  padding:10px 4px 0; border-top-right-radius:2px; text-align:center;}
+      #recent {box-sizing: border-box; padding:8px; color:#026dc5; font-size: 12px}
+    </style>
+    <div id="search-wrapper">
+      <h1 style="margin:0 0 4px 0; padding:0; font-size: 20px">Find a place to stay</h1>
+    <div id="search">
+      <div id="sqm">
+        <div class="dest"></div>
+        <div class="dates"></div>
+        <div class="btn-search">
+            <i class="material-icons" style="font-size: 32px">search</i>
+        </div>
+      </div>
+      <!--<div id="recent"><i class="material-icons" style="font-size: 16px; display: inline-block; vertical-align: top;">keyboard_arrow_right</i> <span style="display: inline-block; vertical-align: top;">Recent searches</span></div>-->
+    </div>
+    </div>
+
+
+    <style type="text/css">
+      .section {padding:12px;}
+      .section .hscroll {overflow: auto; white-space: nowrap; padding:0 0 12px 0;}
+      .h-card {width:120px; height:180px; border:solid 1px #e1e1e1; display: inline-block; margin-right: 12px; border-radius:4px; box-sizing: border-box; padding:12px; font-size: 12px; color:#999;}
+    </style>
+    <h1 style="margin:12px 12px 4px; padding:0; font-size: 20px">Looking for inspiration</h1>
+    <div class="section">
+      <h2>Relaxing getaways 2 hours from London</h2>
+      <p></p>
+      <div class="hscroll">
+        <div class="h-card">Example hotel</div>
+        <div class="h-card">Example hotel</div>
+        <div class="h-card">Example hotel</div>
+        <div class="h-card">Example hotel</div>
+        <div class="h-card">Example hotel</div>
+        <div class="h-card">Example hotel</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Family friendly summer holidays</h2>
+      <p></p>
+      <div class="hscroll">
+        <div class="h-card">Greek Islands</div>
+        <div class="h-card">Amalfi coast</div>
+        <div class="h-card">Cape Verde</div>
+        <div class="h-card">Puglia</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Budget-friendly city breaks</h2>
+      <p></p>
+      <div class="hscroll">
+        <div class="h-card">Riga</div>
+        <div class="h-card">Athens</div>
+        <div class="h-card">Dubrovnik</div>
+        <div class="h-card">Lisbon</div>
+        <div class="h-card">Valencia</div>
+        <div class="h-card">Tallinn</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Euro 2020 destinations</h2>
+      <p></p>
+      <div class="hscroll">
+        <div class="h-card">Stockholm</div>
+        <div class="h-card">Minsk</div>
+        <div class="h-card">Budapest</div>
+        <div class="h-card">Bilboa</div>
+        <div class="h-card">Rome</div>
+        <div class="h-card">Baku</div>
+      </div>
+    </div>
+
+    
+
+  			
+        <style type="text/css">
+          .card {height:140px; margin: 0 12px 12px; box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);}
+        </style>
+       
+        
+       
+        
+
+        <!--<div class="destination">
+          <div class="section" style="font-weight:bold; padding:12px 12px 0">
+            Bristol
+          </div>
+           <p style="font-size:12px; padding:4px 12px 0; margin:0; line-height: 16px">A city alive with street art, culinary hot spots, exciting attractions and unique events</p>
+         <div style="overflow:hidden; padding:8px 12px 12px">
+          <div class="top-ten" style="float:left">
+            <img src="https://a.cdn-hotels.com/da/assets/s/63.0.8408/images/common/pages/lpa/citylanding/lpa.citylanding.badge.png" class="top-ten-badge" /> <span class="top-ten-label">Top 10 destination</span>
+          </div>
+         
+          <div style="float:right; padding:4px 8px 2px; margin-left:12px; display:inline-block; background-color:#1976D2; color:#fff;">
+            <a href="#" style="display: inline-block; vertical-align: top; font-size: 13px; color:#fff;">View all deals</a> <i class="material-icons" style="display:inline-block; vertical-align: top; font-size: 14px;">arrow_forward</i>
+          </div>
+          
+         </div>
+        </div>-->
+         <div style="height:100px"></div>
+
+  		</div>
+
+  		
+
+      <style type="text/css">
+        #hotel-list {background-color:#f5f5f5; padding:0px 8px;}
+        .hotel-card {background-color: #fff; min-height:120px; border: solid 1px #e5e3db; position:relative; margin:4px 8px;}
+        .hotel-card .thumbnail {position:absolute; top:8px; left:8px; bottom:8px; width:30%; text-align: center; overflow: hidden;}
+      .hotel-card .thumbnail img { position: relative; left: 100%; margin-left: -200%; height:100%;}
+      .hotel-card .details, .hotel-card .price, .hotel-card .rating {margin-left:30%; box-sizing:border-box; padding-left:16px;}
+      .hotel-card .details {margin-top:8px;}
+      .hotel-card .name {font-size:14px; line-height: 18px; margin-bottom: 4px; color:#1976D2;}
+      .hotel-card .neighbourhood {font-size:12px; line-height: 16px}
+      .hotel-card .proximity-base {font-size:12px; line-height: 16px}
+
+      .hotel-card .benefit {font-size:12px; line-height: 16px}
+      .hotel-card .benefit i {color:#028017; font-size: 16px; font-weight:bold; display:inline-block; vertical-align: top;}
+      .hotel-card .benefit span {display:inline-block; vertical-align: top; margin-left:4px;}
+
+      .hotel-card .rating {margin-top:8px;}
+      .hotel-card .rating .guestRating {font-size: 14px; line-height: 16px; font-weight:bold;}
+      .hotel-card .rating .guestRating .numReviews {font-size: 11px; line-height: 13px; color:#999; font-weight: normal; display:inline-block; vertical-align: bottom; margin-left:4px;}
+      .hotel-card .rating .taGuestReview {}
+      .hotel-card .rating .taGuestReview .owl {height:13px; display:inline-block;}
+      .hotel-card .rating .taGuestReview .numReviews {font-size:11px; line-height: 15px; color:#999; display:inline-block;}
+
+      .hotel-card .price {text-align:right; margin-top:8px; padding:0 12px 4px 12px;}
+      .promo-price-description {display:inline-block; font-size:12px; line-height:16px; font-weight:bold; color:#EC3824;}
+      .strikethrough {font-size: 14px;}
+      .from {font-size: 14px;}
+      .total {font-size:20px; color:#d32f2f; font-weight: bold;}
+      .summary {font-size:11px; color:#999;}
+      .free {font-size:13px; color:#028017; display:block; font-weight: bold; margin-bottom: 4px}
+      .standard {font-size:20px; font-weight:bold;}
+
+      .special-deal .label {color:#fff; background-color:#d32f2f; display: inline-block; padding:4px 8px; font-size: 12px; margin-left:4px;}
+      .secret-price .label {color:#fff; background-color:#7B1FA2; display: inline-block; padding:4px 12px; font-size: 12px;}
+      .secret-price .total {color:#7B1FA2;}
+      </style>
+
+  	</body>
+</html>
