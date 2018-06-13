@@ -13,7 +13,7 @@
       rel="stylesheet">
 		
 		<style type="text/css">	
-			body {background-color:#f5f4f0; font-family:arial; margin:0; padding:0;}
+			body {background-color:#fff; font-family:arial; margin:0; padding:0;}
 			.star {color:#D41200; font-size:16px;}
 
 			
@@ -62,7 +62,7 @@
 
 		<div id="wrapper">
 	
-		<div style="min-height:300px; padding:12px; position:relative; background-color:#E8EAF6; border-top:solid 2px #026dc5; border-bottom:solid 2px #026dc5;">
+		<div style="padding:12px; position:relative; background-color:#f5f4f0">
 			
 			<style type="text/css">
 
@@ -70,7 +70,7 @@
 				.roo/m {min-height:160px; background-color:#fff; margin:8px -12px 8px; -webkit-box-shadow: -1px 1px 2px 0px rgba(153,153,153,1); -moz-box-shadow: -1px 1px 2px 0px rgba(153,153,153,1); box-shadow: -1px 1px 2px 0px rgba(153,153,153,1);}
 
 				.room {min-height:160px; background-color:#fff; margin:0 -4px 12px -4px; border-bottom:solid 1px #ccc;box-shadow: 0 1px 2px rgba(0,0,0,0.2)*/}
-				.room .room-details {box-sizing: border-box; padding:12px; min-height:60px; position:relative;}
+				.room .room-details {box-sizing: border-box; padding:0px; min-height:60px; position:relative;}
 				.room .room-details h3 {padding:0; margin:0;}
 				.room .room-details .bed {margin-top:8px;}
 				.room .room-details .bed i {display:inline-block; vertical-align:top; font-size:18px;}
@@ -100,8 +100,8 @@
 				.room .rate .details {box-sizing: border-box; padding:0 12px;}
 				.room .rate .price {box-sizing: border-box;  padding:0 12px;}
 				.room .rate .price .deal {color:#d41200; font-size:13px;}
-				.room .rate .price .strikethrough {text-decoration: line-through; font-size:16px; color:#7e7e7e;}
-				.room .rate .price .total-price {color:#d41200; font-weight:bold; font-size:28px;}
+				.room .rate .price .strikethrough {text-decoration: line-through; font-size:16px; color:#7e7e7e; display: inline-block;}
+				.room .rate .price .total-price {color:#d41200; font-weight:bold; font-size:28px; display: inline-block;}
 				.room .rate .price .for-nights {color:#7e7e7e; font-size:12px; margin-top:0px;}
 				.room .rate .price .taxes {color:#7e7e7e; font-size:12px; margin-top:2px;}
 				.room .rate .price button {border:0; background-color:#026dc5; border-radius:4px; padding:8px 16px; color:#fff; font-size:14px; border-bottom:2px solid #003789; margin-top:8px;}
@@ -114,25 +114,36 @@
 
 				.room .details .cancellation {margin-bottom:8px;}
 				.room .details .cancellation .non {font-weight:bold; font-size:14px;}
-				.room .details .cancellation .free {font-size:14px; color:#00852D;}
+				.room .details .cancellation .free {font-weight:bold; font-size:14px; color:#00852D;}
 				.room .details .cancellation .conditions {font-size:11px; margin-top:4px; color:#7e7e7e;}
 
 				ul.amenities {list-style-type: none; margin:0; padding:0; overflow: hidden;}
-				ul.amenities li {font-size: 12px; margin-bottom: 4px; float:left; margin: 0 8px 4px 0; padding:0; color:#00852D;;}
+				ul.amenities li {font-size: 13px; margin-bottom: 4px; float:left; margin: 0 8px 4px 0; padding:0; color:#00852D;;}
 			</style>
 			
+
+			<style type="text/css">
+				#room-1 .photo {position:relative; height:140px; overflow:hidden;}
+				#room-1 .photo img {position:absolute; bottom:-30px; width:100%}
+				#room-1 h3 {font-size: 20px; margin:12px 12px 4px; }
+				#room-1 .sleeps {margin:0 12px 4px; font-weight: bold; }
+				.small {font-weight: normal; font-size: 12px}
+				#room-1 .beds {margin:0 12px 12px; font-size: 13px;}
+
+
+			</style>
+
 			<div class="room" id="room-1">
 				<div class="room-details">
-					<h3 style="text-align:left; margin-bottom: 4px">Club room</h3>
-					<div style="text-align:left;"><strong>Sleeps 2 people</strong> <span style="font-size: 12px;">(including up to 1 child)</span><br /><div style="font-size:13px; margin-top:2px">1 Queen bed &#8226; Rollaway bed &#8226; Crib</div></div>
+					<div class="photo">
+						<img style="" src="https://exp.cdn-hotels.com/hotels/1000000/520000/518700/518646/176a4f49_b.jpg" />
+					</div>
+					<h3>Club room</h3>
+					<div class="sleeps">Sleeps 2 people <span class="small">(including up to 1 child)</span> </div>
+					<div class="beds">&#8226; 1 Queen bed &#8226; Rollaway bed &#8226; Crib</div>
 					
 
-					<div style="overflow:hidden; margin-top:8px;">
-						<div style="float:left; width:50%;">
-							
-						</div>
-						<div style="float:left; width:33%;"><img style="max-width: 100%" src="https://exp.cdn-hotels.com/hotels/1000000/520000/518700/518646/176a4f49_b.jpg" /></div>
-					</div>
+					
 					
 					<!--<div class="more">
 						<i class="material-icons" style="display:inline-block; vertical-align:top; font-size:18px; color:">&#xE146;</i>
@@ -150,22 +161,22 @@
 							
 						</div>
 						<ul class="amenities">
-							<li>Free Wifi</li>
-							<li>Breakfast for 2 people</li>
-							<li>Free bottle of sparkling wine</li>
+							<li>&#8226; Free Wifi</li>
+							<li>&#8226; Breakfast for 2 people</li>
+							<li>&#8226; Free bottle of sparkling wine</li>
 						</ul>
 						<!--<div class="rewards">
 							<span>Collect and redeem</span>
 						</div>-->
 					</div>
-					<div class="price" style="overflow:hidden">
-						<div class="price-details" style="float:left; width:50%">
-							<div class="deal">Private sale: save 20%</div>
+					<div class="price" style="margin-top: 8px; position:relative;">
+						<div class="price-details" style="width:50%">
+							<div class="deal" style="font-weight: bold; margin-bottom: 4px; ">Private sale: save 20%</div>
 							<div class="strikethrough">$80</div>
 							<div class="total-price">$58</div>
 							<div class="for-nights">for 1 night</div>
 						</div>
-						<div class="book" style="float:left; width:50%; text-align: right;">
+						<div class="book" style="position:absolute; right:12px; bottom:0; text-align: right;">
 							<button>Book</button>
 							<div class="time">It only take 2 minutes</div>
 						</div>
@@ -173,7 +184,7 @@
 						
 					</div>
 				</div>
-				<div class="rate">
+				<!--<div class="rate">
 					<div class="details">
 						
 						<div class="cancellation">
@@ -199,7 +210,7 @@
 						<button>Book</button>
 						<div class="time">It only take 2 minutes</div>
 					</div>
-				</div>
+				</div>-->
 
 				
 

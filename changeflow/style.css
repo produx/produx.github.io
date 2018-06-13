@@ -669,3 +669,11 @@ input[type="radio"] {
 	padding: 8px 8px 7px 8px;
 	vertical-align:top;
 }
+
+.presentationlinks p{
+	color:#fff;
+	font-size:16px;
+	line-height:200%;
+	font-weight:300;
+	letter-spacing:.5px;
+}
