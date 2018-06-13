@@ -169,7 +169,7 @@
 					</div>
 					<div class="price" style="margin-top: 8px; position:relative;">
 						<div class="price-details" style="width:50%">
-							<div class="deal" style="font-weight: bold; margin-bottom: 4px; ">Save 10%</div>
+							<div class="deal" style="font-weight: bold; margin-bottom: 2px; ">Save 10%</div>
 							<div class="strikethrough">$226</div>
 							<div class="total-price">$206</div>
 							<div class="for-nights">for 1 night</div>
@@ -199,7 +199,7 @@
 					</div>
 					<div class="price" style="margin-top: 8px; position:relative;">
 						<div class="price-details" style="width:50%">
-							<div class="deal" style="font-weight: bold; margin-bottom: 4px; ">Save 20%</div>
+							<div class="deal" style="font-weight: bold; margin-bottom: 2px; ">Save 10%</div>
 							<div class="strikethrough">$254</div>
 							<div class="total-price">$232</div>
 							<div class="for-nights">for 1 night</div>
@@ -212,37 +212,88 @@
 						
 					</div>
 				</div>
-				<!--<div class="rate">
+				
+			</div>
+
+			<div class="room" id="room-1">
+				<div class="room-details">
+					<div class="photo">
+						<img style="" src="https://exp.cdn-hotels.com/hotels/4000000/3120000/3113100/3113039/3113039_41_b.jpg" />
+					</div>
+					<h3>Family Room, 1 King Bed (Studio)</h3>
+					<div class="sleeps">Sleeps 4 people <span class="small">(including up to 2 children)</span> </div>
+					<div class="beds">&#8226; 1 King bed &#8226; Sofa bed &#8226; Crib</div>
+					
+
+					
+					
+					<!--<div class="more">
+						<i class="material-icons" style="display:inline-block; vertical-align:top; font-size:18px; color:">&#xE146;</i>
+						<a>Show room information</a>
+					</div>-->
+					<div class="image">
+						
+					</div>
+				</div>
+				<div class="rate">
 					<div class="details">
 						
 						<div class="cancellation">
-							<div class=free>Free cancellation</div>
-							<div class="conditions">Until 07/03/2017</div>
+							<div class="non">Non-refundable</div>
+							
 						</div>
 						<ul class="amenities">
-							<li>Free Wifi</li>
-							<li>Breakfast for 2 people</li>
-							<li>Free bottle of sparkling wine</li>
+							<li><i class="material-icons" style="font-size: 16px; display: inline-block; vertical-align: top;">wifi</i> <span style="display: inline-block; vertical-align: top;">Free Wifi</span></li>
 						</ul>
-						<div class="rewards">
-							
+						<!--<div class="rewards">
 							<span>Collect and redeem</span>
+						</div>-->
+					</div>
+					<div class="price" style="margin-top: 8px; position:relative;">
+						<div class="price-details" style="width:50%">
+							<div class="deal" style="font-weight: bold; margin-bottom: 2px; ">Save 10%</div>
+							<div class="strikethrough">$275</div>
+							<div class="total-price">$251</div>
+							<div class="for-nights">for 1 night</div>
 						</div>
-					</div>
-					<div class="price">
+						<div class="book" style="position:absolute; right:12px; bottom:0; text-align: right;">
+							<button>Book</button>
+							<div class="time">It only take 2 minutes</div>
+						</div>
 						
-						<div class="strikethrough">$525</div>
-						<div class="total-price">$473</div>
-						<div class="for-nights">for 1 night</div>
 						
-						<button>Book</button>
-						<div class="time">It only take 2 minutes</div>
 					</div>
-				</div>-->
-
-				
-
-				
+				</div>
+				<div class="rate">
+					<div class="details">
+						
+						<div class="cancellation">
+							<div class=free>Free cancellation <span class="conditions" style="font-weight:normal;">(Until 07/03/2017)</span></div>
+							
+						</div>
+						<ul class="amenities">
+							<li><i class="material-icons" style="font-size: 16px; display: inline-block; vertical-align: top;">wifi</i> <span style="display: inline-block; vertical-align: top;">Free Wifi</span></li>
+							<li><i class="material-icons" style="font-size: 16px; display: inline-block; vertical-align: top;">free_breakfast</i> <span style="display: inline-block; vertical-align: top;">Breakfast for 2 people</span></li>
+						</ul>
+						<!--<div class="rewards">
+							<span>Collect and redeem</span>
+						</div>-->
+					</div>
+					<div class="price" style="margin-top: 8px; position:relative;">
+						<div class="price-details" style="width:50%">
+							<div class="deal" style="font-weight: bold; margin-bottom: 2px; ">Save 10%</div>
+							<div class="strikethrough">$304</div>
+							<div class="total-price">$277</div>
+							<div class="for-nights">for 1 night</div>
+						</div>
+						<div class="book" style="position:absolute; right:12px; bottom:0; text-align: right;">
+							<button>Book</button>
+							<div class="time">It only take 2 minutes</div>
+						</div>
+						
+						
+					</div>
+				</div>
 				
 			</div>
 			
@@ -286,17 +337,7 @@
 
       			console.log($('div#room-1').height());
       			$("#pos").text($(window).scrollTop())
-      			$(window).scroll(function(){
-      				$("#pos").text($(window).scrollTop() + " - " + room1Start + " - " + room1End + " - " + room1DetailsHeight)
-      				if ($(window).scrollTop() >= room1Start && $(window).scrollTop() <= room1End){
-      					console.log("match");
-      					$("div#room-1 .room-details").addClass("fixed");
-      					$("div#room-1").css("padding-top", (room1DetailsHeight + 12) +"px")
-      				} else {
-      					$("div#room-1 .room-details").removeClass("fixed");
-      					$("div#room-1").css("padding-top", "0")
-      				}
-      			});
+      			
       			
 				// num photos
 				
