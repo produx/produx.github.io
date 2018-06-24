@@ -45,7 +45,15 @@
 			#main-amenities ul li {position: relative; padding-left:18px; margin-bottom: 8px; margin-right:4px; display: inline-block;}
 			#main-amenities ul li i {font-size:16px; position: absolute; top:0px; left:0;}
 			
-			#location {border-top:solid 1px #CFCFCF; padding:16px 12px; height:60px;}
+			#location {border-top:solid 1px #CFCFCF; padding:16px 12px;}
+			a.address {display:block; margin:8px 0 12px; padding-left: 20px; position:relative;}
+			a.address i {font-size:16px; position: absolute; top:0px; left:0;}
+			#location ul {margin-bottom: 12px;}
+			#location ul li {position: relative; margin-bottom: 8px; padding-left:20px;}
+			#location ul li .distance {font-size: 12px; color:#A8A8A8;}
+			#location ul li i {font-size:16px; position: absolute; top:0px; left:0;}
+
+			#rooms {border-top:solid 1px #CFCFCF; padding:16px 12px; min-height:60px;}
 
 			@media only screen and (min-width:0px) {
 				#page-wrapper {}
@@ -89,16 +97,36 @@
 			<div id="main-amenities">
 				<h2>Main amenities</h2>
 				<ul>
+					<li><i class="material-icons">done</i> 420 guestrooms</li>
 					<li><i class="material-icons">done</i> Casino</li>
 					<li><i class="material-icons">done</i> 20 restaurants and 3 pool side bars</li>
 					<li><i class="material-icons">done</i> Full service spa</li>
 					<li><i class="material-icons">done</i> 11 outdoor pools</li>
+					<li><i class="material-icons">done</i> Breakfast available</li>
+					<li><i class="material-icons">done</i> Wifi in the lobby</li>
+					<li><i class="material-icons">done</i> Fitness center</li>
 				</ul>
 				<a href="#" class="more">MORE ABOUT THIS PROPERTY</a>
 			</div>
 
 			<div id="location">
 				<h2>Location</h2>
+				<img class="address" src="i/map-thumb.png" style="width:100%"/>
+				<a href="#" class="address"><i class="material-icons">place</i>3355 Las Vegas Blvd S, Las Vegas, NV, 89109, United States of America</a>
+				<ul>
+					<li><i class="material-icons">account_balance</i> Sands Expo Convention Center <span class="distance">(6-minute walk)</span></li>
+					<li><i class="material-icons">account_balance</i>Fashion Show Mall <span class="distance">(6-minute walk)</span></li>
+					<li><i class="material-icons">account_balance</i>Las Vegas Strip <span class="distance">(14-minute walk)</span></li>
+					<li><i class="material-icons">account_balance</i>Las Vegas Convention Center <span class="distance">(18-minute walk)</span></li>
+					<li><i class="material-icons">account_balance</i>T-Mobile Arena <span class="distance">(23-minute walk)</span></li>
+				</ul>
+
+				<a href="#" class="more">SEE WHAT'S AROUND</a>
+				
+			</div>
+
+			<div id="rooms">
+				<h2>Room choices</h2>
 			</div>
 
 		</div>
