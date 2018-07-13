@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script type="text/javascript"
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKuM7xluOCtezbOo1m34AfGyr64Y2zunA&libraries=places">
+      	</script>
+		<script src="add-poi.js"></script>
+      	
+
+      	<script type="text/javascript">
+			
+
+			$(function(){
+				
+				initialize(); 
+			});
+
+      var initialize = function(){
+        var input = document.getElementById('poi-input');
+        var options = {
+          language: 'en-GB',
+          componentRestrictions: { country: "fr" }
+        }
+
+        var searchBox = new google.maps.places.Autocomplete(input, options);
+
+        searchBox.addListener('place_changed', function() {
+          var place = searchBox.getPlace();
+          console.log(place);
+          $("#poi-added").append("<li>" + place.name + " (" + Math.floor(Math.random() * 10) + " minutes walk)</li>");
+
+        });
+      }
+
+
+		</script>
+
+		<link rel="stylesheet" type="text/css" href="srp-template.css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style type="text/css">
+      #map {top:0; left:0;}
+    </style>
+  	</head>
+  	<body>
+
+  		<!--<div id="header">
+  			<div class="wrapper">
+  				<img src="i/Horizontal_H_White.svg" style="height:36px"/>
+  			</div>
+  		</div>
+  		<div id="nav">
+  			<div class="wrapper">
+  				<ul>
+  					<li>Hotel Deals</li>
+  					<li>Packages & Flights</li>
+  					<li>Gift Cards</li>
+  					<li>Help</li>
+  					<li>Website feedback</li>
+  					<li class="right">Your bookings</li>
+  					<li class="right">Hotels.com Rewards</li>
+  					<li class="right">Sign in &amp; account</li>
+  				</ul>
+  			</div>
+  		</div>
+  		<div id="query">
+  			<div class="wrapper">
+  				<img src="i/listview.png" />
+  				<div class="search">
+  					<h1>Paris, France</h1>
+  					<div class="dates">Mon 27 - Tue 28 November 2017, 1 night, 1 room, 2 adults</div>
+  				</div>
+  			</div>
+  		</div>
+  		<div id="tools">
+  			<div class="wrapper">
+  				<label>Search map for</label>
+  				<input type="text" name="" placeholder="Location, landmark, station, etc..." />
+  				<button class="disabled">Go</button>
+  			</div>
+  		</div>
+  		<div id="filters">
+  			<div class="block">
+  				<h2>Narrow results</h2>
+  				<span class="total">2,483 hotels and holiday rentals</span>
+  			</div>
+  			<div class="block">
+  				<label>Name contains</label>
+					<div style="position:relative;">
+						<input type="text" name="hotel" placeholder="Hotel name..." style="width:calc(100% - 40px)">
+					<button style="padding:0 0 0 0; margin:0; position:absolute; top:1px; right:2px; bottom:2px; border-radius:0px;-webkit-box-shadow: 0px 0px 0px 0px rgba(82,82,82,1);
+-moz-box-shadow: 0px 0px 0px 0px rgba(82,82,82,1);
+box-shadow: 0px 0px 0px 0px rgba(82,82,82,1);"><i class="material-icons">keyboard_arrow_right</i></button>
+					</div>
+  			</div>
+  			<div class="block">
+  				<label>Price</label>
+					<div class="range">
+						<div class="bar"></div>
+						<div class="handle left"></div>
+						<div class="handle right"></div>
+					</div>
+  			</div>
+  			<div class="block">
+  				<label>Star rating</label>
+					<ul id="star-rate">
+						
+						<li><input type="checkbox"/><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i></li>
+						<li><input type="checkbox" /><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i></li>
+						<li><input type="checkbox" /><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i></li>
+						<li><input type="checkbox" /><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i></li>
+						<li><input type="checkbox" /><i class="material-icons">star_rate</i></li>
+					</ul>
+  			</div>
+  			<div class="block">
+  				<label>Guest rating</label>
+					<div class="range">
+						<div class="bar"></div>
+						<div class="handle left"></div>
+						<div class="handle right"></div>
+					</div>
+  			</div>
+  			<div class="block">
+  				<h3>Hotels.com Rewards	</h3>
+  			</div>
+  			
+
+  		</div>-->
+
+      <style type="text/css">
+        h2 {margin-bottom: 20px;}
+        h3 {margin-bottom:12px;}
+        ul li {margin-bottom:8px;}
+      
+      </style>
+
+      <div style="padding:20px; border-top: solid 1px #ddd; border-bottom: solid 1px #ddd; margin:50px">
+  	
+      <h2>What’s around Paris Best Western Premier Louvre Saint Honore</h2>
+
+      <h3>Popular landmarks</h3>
+       <ul id="poi">
+            <li>Galeries Lafayette (20-minute walk)</li>
+            <li>Palais Royal (4-minute walk)</li>
+            <li>Louvre Museum (6-minute walk)</li>
+            <li>Forum des Halles (8-minute walk)</li>
+
+         </ul>
+
+			 <div class="poi-search" style=" width:320px; margin-top:20px">
+          <label style="display:block; margin-bottom:8px; font-size: 14px;"><strong>Add a landmark / venue</strong> (in Paris)</label>
+          <input type="text" id="poi-input" name="poi-input" placeholder="Enter a location" style="width:300px; border-radius:4px; border:solid 1px #ddd;     padding:8px">   
+       </div>
+
+       <div style="margin-top:20px;">
+         <ul id="poi-added">
+           
+         </ul>
+       </div>
+       </div>
+
+		
+
+  	</body>
+</html>

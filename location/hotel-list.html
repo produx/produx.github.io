@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+		<link rel="stylesheet" type="text/css" href="../common.css">
+		<link rel="stylesheet" type="text/css" href="srp.css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+	</head>
+
+	<body>
+
+	<!-- common elements -->
+		
+		<div id="wrapper-query">
+			<div id="query">
+				
+				<div style="display:inline-block; margin-left:20px; vertical-align:top;">
+					<h1 id="destination"></h1>
+					
+						
+				</div>
+
+			</div>
+		</div>
+
+		<style type="text/css">
+			.list-card {background-color: #fff; border-radius: 4px; min-height:100px; margin-bottom:16px; width:600px;}
+			.list-card {padding:8px 8px 8px; overflow:hidden; }
+    		.list-card .thumb { width:200px; float:left;}
+    		.list-card .thumb img {width: 200px}
+    		.list-card .thumb .strip {display:flex; flex-direction:row;}
+    		.list-card .thumb .strip > div {flex-grow:1; height:60px;}
+    		.list-card .thumb .strip > div > div:first-child {height:60px; background-color:#eee; box-sizing:border-box;}
+    		.list-card .content {float:left; box-sizing:border-box; padding-left:16px;}
+    		.list-card .content .name {font-size:14px; margin-bottom:4px;}
+    		.list-card .content .address {font-size:12px; color:#999;}
+    		.list-card .content .neighbourhood {font-size:13px;vertical-align: top;}
+    		.list-card .content .poi {font-size:12px; color:#555; margin-top:6px; }
+    		.list-card .content .poi .name {font-size:12px;}
+    		.list-card .content .poi .walking, .card .content .poi .driving, .card .content .poi .transit {font-size:11px; color:#999; margin-right:8px;}
+    		.list-card .content .poi i {font-size: 13px}
+		</style>
+
+		<div id="wrapper-results">
+			
+
+			<script id="some-template" type="text/x-handlebars-template">
+ 				
+ 				{{#each_upto hotels 15}}
+ 					<div class="list-card" rel="{{addCount}}">
+ 						<div class="thumb">
+ 							<img src="{{thumbnailUrl imageUrl}}" />
+ 						</div>
+ 						<div class="content">
+       	 					<div class="name">
+       	 						<a href="pdp-map-trex.html?hotelid={{hotelId}}">{{hotelName}}</a>
+       	 					</div>
+       	 					<!--<span class="address">{{address1}}, {{address2}}, {{locality}}, {{region}}</span>-->
+       	 					<div class="neighbourhood">{{getNeighbourhood location}}</div>
+       	 					<div class="landmarks poi">
+       	 						<span class="name"></span>
+       	 						<div>
+       	 							<span class="walking">{{getDistance lat lon (displayCount) "WALKING" "landmarks"}}</span> 
+       	 							<span class="driving">{{getDistance lat lon (displayCount) "DRIVING" "landmarks"}}</span> 
+       	 						</div>
+       	 					</div>
+       	 					<div class="transport poi">
+       	 						<span class="name"></span>
+       	 						<div>
+       	 							<span class="walking">{{getDistance lat lon (displayCount) "WALKING" "transport"}}</span> 
+       	 							<span class="driving">{{getDistance lat lon (displayCount) "DRIVING" "transport"}}</span> 
+       	 						</div>
+       	 					</div>
+
+
+       	 					
+       	 				</div>
+
+       	 				
+       	 				
+
+       	 			</div>
+		      	{{/each_upto}}
+    		</script>
+
+
+
+
+			<div id="list-1"></div>
+			
+			<style type="text/css">
+				#sort ul {list-style-type: none; display: flex; flex-direction: row;}
+				#sort ul li {flex-grow: 1; padding:4px 0;}
+				#sort ul li:not(:first-child) {color:#026dc5; text-align: center;}
+				#sort ul li.selected {background-color:#026dc5; color:#fff; border-radius:4px;}
+			</style>
+
+			
+				
+			
+				<div id="loading-hotels" style="font-size:20px; margin-top:40px; text-align:center; display:none;">
+					<div style="margin-bottom:4px">fetching hotels</div>
+					<img src="red_spinner.gif" />
+				</div>
+
+				<div id="selected-filters" style="margin-top:8px"></div>
+
+				<div id="hotels" style="margin-top:16px">
+					
+					
+
+					
+
+				</div>	
+			
+		</div>
+	
+
+<script id="filters-neighborhoods" type="text/x-handlebars-template">
+ 	<h3>Neighbourhoods</h3>
+ 	<ul>
+ 		{{#each this}}
+ 		<li>
+ 			<input type="checkbox" name="{{id}}">
+ 			<label>{{title}}</label>
+ 		</li>
+ 		{{/each}}
+ 	</ul>			
+</script>
+
+<script id="filters-landmarks" type="text/x-handlebars-template">
+ 	<h3>Landmarks</h3>
+ 	<ul>
+ 		{{#each this}}
+ 		<li>
+ 			<input type="checkbox" name="{{id}}">
+ 			<label>{{title}}</label>
+ 		</li>
+ 		{{/each}}
+ 	</ul>			
+</script>
+
+
+
+
+
+
+
+		<!-- Scripts -->
+		<script type="text/javascript"
+          src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDGbEUwknHTaKmEpjwM-fRfJt7zbCZZtCI">
+      	</script>
+      	<script src="https://use.fontawesome.com/37c289f6f2.js"></script>
+
+      	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="../hcom-services.js"></script>
+		<script src="../handlebars.js"></script>
+		<script src="map.js"></script>
+		<!-- JQuery Google CDN -->
+		
+		<script type="text/javascript">
+			var count = 0;
+
+			
+
+
+			// run things on page load
+			$(function(){
+
+				if (getParameterByName("localhost")) {
+					$.getJSON( "../ny-json.js", function( data ) {
+  					displayHotels(data);
+  					displayFilters(data)
+				});
+				} else {
+					if (getParameterByName("destination")) {
+						//fetch hotels from mobile API
+						fetchHotelList(getParameterByName("destination"), displayContent);
+						//fetchHotelList(getParameterByName("destination"), displayFilters);
+						//fetchHotelListDestinationID(getParameterByName("destinationID"), displayContent)
+						$("#loading-hotels").show();
+						
+
+						var d = getParameterByName("destination"); 
+						var dd = d.split(",")
+						$("span.dest").append(dd[0]);
+						$("#destination").text(d);
+						//$("#neighbourhood-header h2").text(d);
+
+						var ddd = dd[0].replace(" ", "-")
+						//$("#guide-open").css("background-image", "url(i/" + ddd + ".png)");
+					
+					} else {
+
+					}
+				}
+				
+
+
+				// neighbourhood guides
+
+	
+
+
+	
+
+
+			});
+
+
+
+			var displayContent = function(data){
+				displayHotels(data);
+				//displayFiltersNeighbourhoods(data.result.neighborhoods);
+				//displayFiltersLandmarks(data.result.landmarks);
+				$("#total-hotels").text(data.result.matchingHotels + " hotels")
+			}
+
+			
+
+			
+
+			
+
+			
+
+			var displayHotels = function (data) {
+
+				$("#loading-hotels").hide();
+				$("#loading-nhood-hotels").hide();
+				$("#selected-filters").show();
+				
+				// get hotel data
+				var hotels = data.result;
+				console.log(hotels);
+				
+				// attach to handle bar template
+        		var source   = $("#some-template").html();
+  				var template = Handlebars.compile(source);
+  				$("#hotels").html(template(hotels));
+			}; 
+
+			
+
+			Handlebars.registerHelper("displayLandmarkType", function(type){
+				
+				var typeObj = getObjects(typeDescription, 'type', type); 
+				var typeDesc = typeObj[0];
+				//console.log(typeDesc.description);
+
+				return typeDesc.description;
+			})
+
+			Handlebars.registerHelper("addCount", function(){
+				count++
+				return count - 1;
+			});
+
+			Handlebars.registerHelper("inc", function(value, options){
+    			return parseInt(value) + 1;
+			});
+
+			Handlebars.registerHelper("hideNeighbourhood", function(hasContent){
+				if (hasContent == false){
+					return "hide";
+				} else {
+					return "";
+				}
+				
+			});
+
+
+
+			Handlebars.registerHelper("displayTags", function(tags){
+				
+				//console.log(tags)
+				var tStr = tags.split(", ");
+				var tagsStr = "";
+
+				$.each(tStr, function(i, tag) {
+					tagsStr += "<li><i class='fa fa-check-circle' aria-hidden='true'></i> " + tag + "</li>"
+				});
+
+				return new Handlebars.SafeString(tagsStr);
+			});
+
+			Handlebars.registerHelper('displayCount', function(block) {
+    			return count-1; //just return global variable value
+  			});
+
+			Handlebars.registerHelper("displayLandmarks", function(landmarks){
+				var lm = ""
+
+				$.each(landmarks, function(i, lmark) {
+					if (lmark.primary != "false"){
+						lm += "<li><i class='fa fa-university' aria-hidden='true'></i>" + lmark.name + "</li>";
+					}	
+				});
+
+				return new Handlebars.SafeString(lm);
+			});
+
+			Handlebars.registerHelper("displayName", function(name){
+			
+				return new Handlebars.SafeString("<span class='title'>" + name + "</span>");
+			})
+
+
+			Handlebars.registerHelper("staticMapLink", function(staticMapUrl){
+				var smURL = "http://maps.googleapis.com/maps/api/staticmap?";
+				smURL += "&center=" + destinationObj[0].map;
+				smURL += "&zoom=" + destinationObj[0].staticMapZoom;
+				smURL += "&size=300x220"
+				smURL += "&sensor=false"
+				smURL += "&path=color:red|weight:1|fillcolor:red|" + staticMapUrl
+
+				return smURL;
+			})
+
+			Handlebars.registerHelper("thumbnailUrl", function(imageUrl){
+				var thumb = imageUrl.replace("_b.jpg", "_l.jpg");
+				return thumb;
+			});
+
+			Handlebars.registerHelper("getNeighbourhood", function(strLocation){
+				var loc = strLocation.split("/");
+				return loc[0];
+			}); 
+
+			Handlebars.registerHelper('each_upto', function(ary, max, options) {
+    			if(!ary || ary.length == 0)
+        			return options.inverse(this);
+
+    			var result = [ ];
+    			for(var i = 0; i < max && i < ary.length; ++i)
+        			result.push(options.fn(ary[i]));
+    				return result.join('');
+				});
+
+			Handlebars.registerHelper("getDistance", function(hlat, hlng, elem, mode, elemClass){
+				//console.log(content.lacoruna[.center])
+
+				if (elemClass == "center"){
+					var start = content.lacoruna[elemClass];
+					var name = "City center"
+				} else {
+					
+					var start  = content.lacoruna[elemClass][0].latlng;
+					var name = content.lacoruna[elemClass][0].name;
+					//console.log(start)
+					//console.log($("div." + elemClass + " .name").attr("class"));
+				}
+
+				
+				var end = {lat: hlat, lng: hlng};
+				getDistance(start, end, elem, mode, elemClass, name);
+				$("div[rel=" + elem + "]").find("." + elemClass + " .name").text(name)
+				console.log(name + " " + elemClass)
+				return "";
+			});
+
+			var service = new google.maps.DistanceMatrixService();
+
+
+
+			var getDistance = function(start, end, elem, mode, elemClass, name) {
+
+				service.getDistanceMatrix({
+        		origins: [start],
+        		destinations: [end],
+        		travelMode: google.maps.TravelMode[mode],
+        		unitSystem: google.maps.UnitSystem.METRIC,
+        		avoidHighways: false,
+        		avoidTolls: false
+    		}, function(response, status) {
+        		if (status !== google.maps.DistanceMatrixStatus.OK) {
+        			alert('Error was: ' + status);
+       			} else {
+
+       				//console.log("get dstance")
+       				var iconFont = {
+       					WALKING: "&#xE536;",
+       					DRIVING: "&#xE531;"
+       				}
+
+            		//console.log(response.rows[0].elements[0].distance.text)
+            		var distance = response.rows[0].elements[0].distance.text;
+            		var duration = response.rows[0].elements[0].duration.text;
+            		console.log(name)
+            		$("div[rel=" + elem + "]").find("." + elemClass + " .name").text(name)
+            		$("div[rel=" + elem + "]").find("." + elemClass + " ." + mode.toLowerCase()).html("<i class='material-icons' style='display:inline-block; vertical-align:top;'>" + iconFont[mode] + "</i><span style='display:inline-block; vertical-align:top; margin-left:2px; padding-top:2px'>" + duration + "</span>")
+            		
+        		}
+    		})
+
+		}
+
+			
+
+		</script>
+	</body>
+</html>

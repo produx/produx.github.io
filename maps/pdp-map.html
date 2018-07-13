@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script type="text/javascript"
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKuM7xluOCtezbOo1m34AfGyr64Y2zunA&libraries=places">
+      	</script>
+		<script src="pdp-map.js"></script>
+      	
+
+      	<script type="text/javascript">
+			var hotelData = [];
+
+
+      		var showdata = function(){
+      			console.log("data")
+      		}
+
+			$(function(){
+				$.getJSON( "json-paris.js", function(data){
+					hotelData = data;
+					console.log(hotelData);
+				});
+				initializeMap(); 
+			});
+		</script>
+
+		<link rel="stylesheet" type="text/css" href="srp-template.css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style type="text/css">
+      #map {top:0; left:0;}
+    </style>
+  	</head>
+  	<body>
+
+
+  	<div id="map">
+			 <div id="map_canvas" style="width:100%; height:100%; "></div>
+		</div>
+
+  	</body>
+</html>

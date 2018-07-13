@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+		<style type="text/css">
+			body {margin:0; padding:0; font-family: arial}
+			#header {background-color: #d41200;}	
+			#nav {background-color: #333;}	
+			.map-pin-dot {
+				background-color:#458F00; color:#fff; border:solid 2px #3E6E00; padding:3px; border-radius:50%;
+			}
+			.map-pin-dot .price {display:none;}
+			.map-pin-label { padding:4px;background: url("markers/green_pin_pole.png") no-repeat -2px 2px;  height:100px;}
+			.map-pin-label .price {display:block; font-size:11px; background-color:#458F00; color:#fff; padding:4px 4px 4px 2px; border-top:solid 1px #3E6E00; border-right:solid 1px #3E6E00; border-bottom:solid 1px #3E6E00; border-bottom-right-radius: 2px; border-top-right-radius: 2px}
+
+			.map-pin-dot-no-match {
+				background-color:#FFD542; color:#fff; border:solid 2px #777; padding:3px; border-radius:50%;
+			} 
+
+			.map-pin-label-no-match { padding:4px;background: url("markers/yellow_pin_pole.png") no-repeat 0 4px;  height:100px;}
+			.map-pin-label-no-match .price {display:block; font-size:10px; background-color:#FFD542; color:#333; padding:2px 2px 2px 0; border-top:solid 1px #777; border-right:solid 1px #777; border-bottom:solid 1px #777; border-bottom-right-radius: 2px; border-top-right-radius: 2px}
+
+			.map-pin-dot-no-match .price {display:none;}
+
+			.map-pin-dot-unavailable {
+				background-color:#d41200; border:solid 0px #fff; padding:3px; border-radius:50%;
+			}
+			.map-pin-dot-unavailable .price {display:none;}
+
+			.map-pin-dot-unavailable-big {
+				 /*border:solid 2px #d41200; border-radius:50%;*/
+				 background:url("markers/hotel_unavailable_red.png") no-repeat; height:23px; width:13px;
+			}
+
+			.map-pin-dot-unavailable-big .price {display:none;}
+
+
+			/*.map-pin-dot-unavailable-big .price {color:#fff; font-size: 11px; background-color:#d41200;  opacity:0.5; padding:2px 2px 0px; border:solid 1px #fff; display:block; border-radius:50%;}
+			.map-pin-dot-unavailable-big .price i {font-size:11px; font-weight: bold}*/
+			
+			
+
+
+			
+		</style>
+
+	</head>
+
+	<body>
+
+	<style type="text/css">
+
+	@media screen and (min-width: 0px) {
+ 		.container {width:auto; margin:0 auto 0; min-height:40px;}
+		.inner {overflow:hidden; padding:12px 0}
+		.logo {display:none;}
+	}
+
+
+	@media screen and (min-width: 900px) {
+ 		.container {width:1116px; margin:0 auto 0}
+		.inner {overflow:hidden; padding:12px 0}
+		.logo {display:block; height:44px; width:250px; overflow:hidden; float:left; background:url('https://a2.cdn-hotels.com/da/assets/s/41.0/images/brands/hcom/logos/logo_en_GB.png') no-repeat; background-size:250px}
+	}
+
+	
+	</style>
+
+	<div id="header">
+		<div class="container">
+			<div class="inner">
+				<div class="logo"></div>
+			</div>
+		</div>
+	</div>
+
+	<!--<div id="nav"></div>-->
+
+	<style type="text/css">
+
+	@media screen and (min-width: 0px) {
+ 		#map-wrapper {position:absolute; top:40px; left:0; right:0; bottom:0;}
+ 		#map {position:absolute; top:0px; left:0px; bottom:0; right:0; background-color:#eee;}
+ 		#map-canvas {width:100%; height:100%;}
+	}
+
+
+	@media screen and (min-width: 900px) {
+ 		#map-wrapper {position:relative; max-width:1160px; margin:0 auto; box-sizing:border-box; height:700px}
+ 		#map {}
+ 		#map-canvas {}
+	}
+
+	
+	</style>
+
+
+	<div id="map-wrapper" style="">
+		<div id="map" style="">
+			<div id="map-canvas" style=""></div>
+		</div>
+	</div>
+		
+
+
+		<!-- Scripts -->
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script type="text/javascript"
+          src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDGbEUwknHTaKmEpjwM-fRfJt7zbCZZtCI&signed_in=true">
+      	</script>
+      	<script src="map-methods.js"></script>
+      	<script src="map-destinations.js"></script>
+      	<script src="../hcom-services.js"></script>
+      	<script src="../map-labels.js"></script>
+
+		<script type="text/javascript">
+
+			// run things on page load
+			$(function(){
+      			
+				//$( "#header" ).load( "../components/c-header.html" );
+				//$( "#nav" ).load( "../components/c-nav.html" );
+
+				buildMap()
+
+			});
+
+		</script>
+	</body>
+</html>
