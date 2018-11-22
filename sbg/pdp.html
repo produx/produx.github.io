@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<style type="text/css">
+			@media screen and (min-width: 600px) {
+				#page-wrapper {max-width:360px; margin:auto; background-color:#eee;}
+
+			}
+			@media screen and (min-width: 750px) {}
+			@media screen and (min-width: 850px) {}
+			@media screen and (min-width: 960px) {}
+			@media screen and (min-width: 1160px) {}
+
+			body {margin:0; padding:0; font-family: arial; }
+			a {text-decoration: none;}
+			button {background-color:#156bc1; color:#fff; padding:8px 16px; border:0; font-size:14px; font-weight:bold;}
+			ul {padding:0; margin:0 0 0 17px;}
+			#page-wrapper {background-color:#f5f4f0; min-height: 500px;}
+			#header {background-color:#d32f2f; height:40px;}
+			#sqm {background-color: #eae8e0; padding:12px 0; height:50px;}
+			#summary { padding:12px;}
+			#summary .name {font-weight:bold; margin-bottom:4px;}
+			#summary .address {font-size:12px; margin-bottom:8px;}
+			#summary .cgs {font-size: 14px;}
+			#photo {background-color:#555; height:200px;}
+			#price {min-height:100px; padding:12px;}
+			#price button {background-color:#156bc1; color:#fff; width:100%; font-size: 20px; padding:8px; margin-top:8px;}
+			#amenities-main {overflow:hidden; padding:12px; border-bottom:solid 1px #ddd;}
+			#amenities-main > div {float:left; width:33%;}
+			#amenities-main > div > span {font-weight:bold; font-size:14px;}
+			#amenities-main ul li {font-size: 13px; margin-top:4px;}
+			#location {padding:12px;}
+			#location .map {height:120px; background-color: #fff;}
+			#reviews {padding:12px;}
+			#reviews .score {height:120px; background-color: #fff;}
+			#rooms {border:solid 3px #555; padding-bottom:12px;}
+			#rooms .name {background-color:#555; color:#fff; font-size: 18px; padding: 6px 12px; font-weight: bold;}
+			#rooms .room {border:solid 1px #ddd; margin:0 12px;}
+			#rooms .room .description {background-color:#eae8e0; height:60px; padding:8px; position:relative;}
+			#rooms .room .description .room-name {font-size:14px; font-weight: bold; margin-bottom:4px;}
+			#rooms .room .description .sleeps {font-size: 13px; margin-bottom: 8px;}
+			#rooms .room .description a {font-weight:bold; font-size: 13px;}
+			#rooms .room .description .thumb{position:absolute; top:8px; bottom:8px; right:8px; width:60px; background-color:#555;}
+
+			#rooms .room .rate {background-color:#fff; height:60px; padding:8px;}
+
+			#rooms h2 {font-size:16px; margin:0 12px 4px;}
+			
+		</style>
+
+	</head>
+
+	<body>
+
+			<div id="page-wrapper">
+				<div id="header"></div>
+				<div id="sqm"></div>
+				<div id="summary">
+					<div class="name">The Knickerbocker Hotel</div>
+					<div class="address">6 Times Square, New York, NY, 10036, United States of America</div>
+					<div class="cgs">Luxury hotel with 2 bars/lounges, near Times Square</div>
+				</div>
+				<div id="photo"></div>
+				<div id="price">
+					
+						<div style="margin-bottom:4px;"><span>$600</span> £400</div>
+						<div style="font-size: 13px; margin-bottom:4px;">for 1 room for 2 nights including taxes & fees</div>
+						<div style="font-size: 13px; margin-bottom:4px;">+ $69 charges due at property</div>
+					
+					<button>Book Now</button>
+				</div>
+				<div id="amenities-main">
+					<div>
+						<span>Main amenities</span>
+						<ul>
+							<li>330 Guestrooms</li>
+							<li>Restaurants and 2 bar lounges</li>
+							<li>Rooftop terrace</li>
+							<li>Breakfast available</li>
+							<li>24-hour fitness centre</li>
+						</ul>
+					</div>
+					<div>
+						<span>For families</span>
+						<ul>
+							<li>Babysitting or childcare (surcharge)</li>
+							<li>Connecting / adjoining rooms</li>
+							<li>Provate bathroom</li>
+							<li>Free toiletries</li>
+							<li>Daily housekeeping</li>
+						</ul>
+					</div>
+					<div>
+						<span>What's around</span>
+						<ul>
+							<li>In Midtown</li>
+							<li>Times Square (1-minute walk)</li>
+							<li>Broadway (3-minute walk)</li>
+							<li>Macy's (7-minute walk)</li>
+							<li>New York Public Library (8-minute walk)</li>
+						</ul>
+					</div>
+				</div>
+				<div id="location">
+					<div class="map" style="box-sizing: border-box; font-size:20px; color:#ccc; text-align:center; padding-top:36px;">Map image</div>
+				</div>
+				<div id="reviews">
+					<div class="score" style="box-sizing: border-box; font-size:20px; color:#ccc; text-align:center; padding-top:36px;">Guest review score</div>
+				</div>
+				<div id="tools"></div>
+				<div id="rewards" style="padding:12px;">
+					<div style="font-weight:bold;">Hotels.com Rewards</div>
+					<div style="font-size: 14px;">You'll collect 2 nights with this stay</div>
+					<div style="font-size: 14px;">Remember collect 10 nights, get 1 reward night free</div>
+				</div>
+				<div id="rooms-recommended"></div>
+				<div id="rooms">
+					<div class="name">The Knickerbocker Hotel</div>
+					<div class="sqm-2" style="border-bottom:solid 3px #555; height:100px; box-sizing: border-box; padding:36px 12px 0; color:#ccc; text-align:center; margin-bottom:12px">Edit dates and occupancy</div>
+					<h2>Best value for your group</h2>
+					<div class="recommended" style="padding:0 12px; margin-bottom:12px">
+
+						<div style="background-color:#eae8e0; font-weight:bold; padding:4px 8px;">Two room option</div>
+						<div style="background-color:#fff; padding:12px;">
+							<div class="room-option" style="margin-bottom:8px;">
+								<div class="" style="display:inline-block; vertical-align: top; width:30px;">1x</div>
+								<div style="display:inline-block; vertical-align: top; width:calc(100% - 142px)">
+									<a href="#">Superior Room</a>
+									<div style="margin-top:4px; font-size:13px;">Sleeps 2 people</div>
+									<div style="margin-top:4px; font-size:13px;">Non-refundable</div>
+									<div style="margin-top:4px; font-size:13px;">Free wifi</div>
+								</div>
+								<div style="display:inline-block; vertical-align: top; width:100px; text-align:right;">$464</div>
+							</div>
+							<div class="room-option" style="margin-bottom:8px;">
+								<div class="" style="display:inline-block; vertical-align: top; width:30px;">1x</div>
+								<div style="display:inline-block; vertical-align: top; width:calc(100% - 142px)">
+									<a href="#">Deluxe Room</a>
+									<div style="margin-top:4px; font-size:13px;">Sleeps 4 people</div>
+									<div style="margin-top:4px; font-size:13px;">Non-refundable</div>
+									<div style="margin-top:4px; font-size:13px;">Free wifi</div>
+								</div>
+								<div style="display:inline-block; vertical-align: top; width:100px; text-align:right;">$544</div>
+							</div>
+							<div style="border-top:solid 1px #ddd; padding:12px 0 0">
+								<div style="display: inline-block; font-weight:bold; width:50%; ">Price for 6 people</div>
+								<div style="display: inline-block; font-weight:bold; width:calc(50% - 8px); text-align:right;">$1008</div>
+								<div>
+									<button style="margin-top:8px; width:100%">Book now</button>
+								</div>
+							
+							</div>
+						</div>
+					</div>
+						
+
+
+					<h2>Select the rooms you'd like</h2>
+					<div class="room">
+						<div class="description">
+							<div class="room-name">Deluxe room</div>
+							<div class="sleeps">Sleeps 4 people (including upto 2 child)</div>
+							<a href="#">Show details</a>
+							<div class="thumb"></div>
+						</div>
+						<div class="rate">
+							<div></div>
+							<div style="float:right; text-align:right;">
+								<div style="margin-bottom:8px;">from <span>$400</span></div>
+								<button class="add">Add</button>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+				<div id="whats-around"></div>
+				<div id="amenities-all"></div>
+			</div>
+
+<div id="overlay" style="position:fixed; top:0; bottom:0; left:0; right:0; background-color:#000; opacity:0.8; display:none;">
+	Room selector
+</div>
+
+<style type="text/css">
+	.occupancy-options {overflow:hidden; padding:8px 12px; border-bottom:solid 1px #ddd;}
+	.occupancy-options .amount {float:left; width:20%; text-align:right;}
+	.occupancy-options .amount select {font-size:14px; border:solid 1px; }
+	.occupancy-options .occupancy {float:left; width:40%;}
+	.occupancy-options .price {float:left; width:40%; text-align:right;}
+	.add-to-basket {}
+	.add-to-basket button {background-color:#156bc1; color:#fff; width:100%; font-size: 20px; padding:8px}
+	.add-to-basket button.disabled {background-color:#ccc; color:#aaa; width:100%; font-size: 20px; padding:8px}
+</style>
+
+<div id="room-1" class="room-selector-modal" style="position:fixed; bottom:0; left:0; right:0; background-color:#fff; display:none;">
+	<div style="background-color:#555; color:#fff; padding:6px 12px;">Options</div>
+<div id="room-1">
+
+	<div class="occupancy-options">
+		
+		<div class="occupancy">2 adults</div>
+		<div class="price">$400</div>
+		<div class="amount">
+			<select>
+				<option value="0">0</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+			</select>
+		</div>
+	</div>
+	<div class="occupancy-options">
+		
+		<div class="occupancy">3 adults</div>
+		<div class="price">$420</div>
+		<div class="amount"><select><option>0</option><option>1</option><option>2</option><option>3</option></select></div>
+	</div>
+	<div class="occupancy-options">
+		
+		<div class="occupancy">4 adults</div>
+		<div class="price">$420</div>
+		<div class="amount"><select><option>0</option><option>1</option><option>2</option><option>3</option></select></div>
+	</div>
+	<div class="occupancy-options">
+		
+		<div class="occupancy">2 adults, 1 Child</div>
+		<div class="price">$420</div>
+		<div class="amount"><select><option>0</option><option>1</option><option>2</option><option>3</option></select></div>
+	</div>
+	<div class="occupancy-options">
+		
+		<div class="occupancy">2 adults, 2 Children</div>
+		<div class="price">$440</div>
+		<div class="amount"><select><option>0</option><option>1</option><option>2</option><option>3</option></select></div>
+	</div>
+</div>
+	<div class="add-to-basket" style="padding:6px 12px; text-align:right;">
+		<button>Add to basket</button>
+	</div>
+</div>
+		<!-- Scripts -->
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<script type="text/javascript">
+			var numrooms = 0;
+			// run things on page load
+			$(function(){
+				$(".rate .add").on("click", function(){
+					console.log("added")
+					$("#overlay").show();
+					$(".room-selector-modal").show();
+				}); 
+
+				$(".add-to-basket button").on("click", function(e){
+					e.preventDefault();
+					$("#overlay").hide();
+					$(".room-selector-modal").hide();
+				})
+			});
+
+		</script>
+	</body>
+</html>

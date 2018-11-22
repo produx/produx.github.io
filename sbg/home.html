@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<style type="text/css">
+			@media screen and (min-width: 600px) {
+				#page-wrapper {max-width:360px; margin:auto; background-color:#eee; font-size: 14px;}
+
+			}
+			@media screen and (min-width: 750px) {}
+			@media screen and (min-width: 850px) {}
+			@media screen and (min-width: 960px) {}
+			@media screen and (min-width: 1160px) {}
+
+			body {margin:0; padding:0; font-family: arial; color:#555;}
+			h1 {margin:0; padding:0; font-size:24px;}
+			p {margin:4px 0 0 0; padding:0 0 0 0;}
+			#header {background-color:#d32f2f; height:40px;}
+			#sqm {background-color: #eae8e0; padding:12px	0;}
+			#sqm #destination {margin-top:4px; padding:0 12px 12px; border-bottom: 1px solid #ddd;}
+			#sqm #destination input {font-size: 14px; padding:4px; margin-top:4px; width:100%; box-sizing: border-box;}
+			#sqm #dates {border-top:solid 1px #fff; overflow:hidden; padding:12px; border-bottom: 1px solid #ddd;}
+			#sqm #dates .checkin {float:left; background-color:#fff; width: calc(50% - 6px); height:80px; border-radius:2px; padding:4px; box-sizing: border-box;}
+			#sqm #dates .checkout {float:left; background-color:#fff; width: calc(50% - 6px); height:80px; border-radius:2px; margin-left:12px; padding:4px; box-sizing: border-box;}
+			#sqm #occupancy {border-top:solid 1px #fff; border-bottom: 1px solid #ddd; padding:12px; overflow: hidden;}
+			#sqm #occupancy > div {float:left; margin-right:20px;}
+			#sqm #occupancy > div label {display:block; margin-bottom:4px; font-weight:bold;}
+			#sqm #occupancy select {font-size: 14px; color:#555; padding:4px;}
+			#sqm #search {border-top:solid 1px #fff; padding:12px;}
+			#sqm #search button {background-color:#156bc1; color:#fff; width:100%; font-size: 20px; padding:8px;}
+
+		</style>
+
+	</head>
+
+	<body>
+
+			<div id="page-wrapper">
+				<div id="header">
+					
+				</div>
+				<div id="sqm">
+					
+					<div id="destination">
+						<h1>Where to</h1>
+						<p>Destinations and properties around the world</p>
+						<input type="text" name="" />
+					</div>
+					<div id="dates">
+						<div class="checkin">Check in</div>
+						<div class="checkout">Check out</div>
+					</div>
+					<div id="occupancy">
+						<div class="adults">
+							<label>Adults</label>
+							<select>
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+								<option>6</option>
+								<option>7</option>
+								<option>8</option>
+							</select>
+						</div>
+						<div class="children">
+							<label>Children</label>
+							<select>
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+								<option>6</option>
+								<option>7</option>
+								<option>8</option>
+							</select>
+						</div>
+						<div class="rooms">
+							<label>Rooms</label>
+							<select>
+								<option>Any</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+								<option>6</option>
+								<option>7</option>
+								<option>8</option>
+							</select>
+						</div>
+					</div>
+					<div id="search">
+						<button>Search</button>
+					</div>
+				</div>
+			</div>
+
+
+
+		<!-- Scripts -->
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<script type="text/javascript">
+
+			// run things on page load
+			$(function(){
+
+			});
+
+		</script>
+	</body>
+</html>
