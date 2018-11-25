@@ -17,7 +17,8 @@
 			@media screen and (min-width: 1160px) {}
 
 			body {margin:0; padding:0; font-family: arial; }
-			a {text-decoration: none;}
+			a {text-decoration: none; color:#156bc1;;}
+			a:visited {text-decoration: none; color:#156bc1;;}
 			button {background-color:#156bc1; color:#fff; padding:8px 16px; border:0; font-size:14px; font-weight:bold;}
 			ul {padding:0; margin:0 0 0 17px;}
 			#page-wrapper {background-color:#f5f4f0; min-height: 500px;}
@@ -47,7 +48,7 @@
 			#rooms .room .description a {font-weight:bold; font-size: 13px;}
 			#rooms .room .description .thumb{position:absolute; top:8px; bottom:8px; right:8px; width:60px; background-color:#555;}
 
-			#rooms .room .rate {background-color:#fff; height:60px; padding:8px;}
+			#rooms .room .rate {background-color:#fff; padding:8px;}
 
 			#rooms h2 {font-size:16px; margin:0 12px 4px;}
 			
@@ -160,8 +161,37 @@
 						
 
 
-					<h2>Select the rooms you'd like</h2>
+					<h2>Or select the rooms you'd like</h2>
 					<div class="room">
+						<div class="description">
+							<div class="room-name">Superior room</div>
+							<div class="sleeps">Sleeps 4 people (including upto 1 child)</div>
+							<a href="#">Show details</a>
+							<div class="thumb"></div>
+						</div>
+						<div class="rate">
+							<div style="overflow:hidden; border:solid 1px #ddd;">
+								<div class="occupancy" style="float:left; width:100px; padding:4px; box-sizing: border-box;">2 adults</div>
+								<div class="price" style="float:left; width:calc(100% - 150px); text-align:right; padding:4px; box-sizing: border-box;">$448</div>
+								<div class="amount" style="float:left; width:50px; background-color:#eee; text-align:center; padding:4px; box-sizing: border-box;">
+									<select style="background-color:#fff; font-size: 14px;">
+										<option value="0">0</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+									</select>
+								</div>
+							</div>
+							<div style="overflow:hidden; margin-top:4px">
+
+								<button class="add" style="float:right; width:50px; padding:4px 0; text-align:center;">Add</button>
+								<div style="padding:4px 0; font-size: 13px;"><a href="#" class="show-options" rel="room-1-rate-1">+ More options</a></div>
+							</div>
+							
+						</div>
+					</div>
+
+					<div class="room" style="margin-top:20px;">
 						<div class="description">
 							<div class="room-name">Deluxe room</div>
 							<div class="sleeps">Sleeps 4 people (including upto 2 child)</div>
@@ -169,14 +199,27 @@
 							<div class="thumb"></div>
 						</div>
 						<div class="rate">
-							<div></div>
-							<div style="float:right; text-align:right;">
-								<div style="margin-bottom:8px;">from <span>$400</span></div>
-								<button class="add">Add</button>
+							<div style="overflow:hidden; border:solid 1px #ddd;">
+								<div class="occupancy" style="float:left; width:100px; padding:4px; box-sizing: border-box;">4 adults</div>
+								<div class="price" style="float:left; width:calc(100% - 150px); text-align:right; padding:4px; box-sizing: border-box;">$554</div>
+								<div class="amount" style="float:left; width:50px; background-color:#eee; text-align:center; padding:4px; box-sizing: border-box;">
+									<select style="background-color:#fff; font-size: 14px;">
+										<option value="0">0</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+									</select>
+								</div>
+							</div>
+							<div style="overflow:hidden; margin-top:4px">
+
+								<button class="add" style="float:right; width:50px; padding:4px 0; text-align:center;">Add</button>
+								<div style="padding:4px 0; font-size: 13px;"><a href="#" class="show-options" rel="room-2-rate-1">+ More options</a></div>
 							</div>
 							
 						</div>
 					</div>
+
 				</div>
 				<div id="whats-around"></div>
 				<div id="amenities-all"></div>
@@ -197,48 +240,94 @@
 	.add-to-basket button.disabled {background-color:#ccc; color:#aaa; width:100%; font-size: 20px; padding:8px}
 </style>
 
-<div id="room-1" class="room-selector-modal" style="position:fixed; bottom:0; left:0; right:0; background-color:#fff; display:none;">
+<div class="room-selector-modal" style="position:fixed; bottom:0; left:0; right:0; background-color:#fff; display:none;">
 	<div style="background-color:#555; color:#fff; padding:6px 12px;">Options</div>
-<div id="room-1">
-
-	<div class="occupancy-options">
+	<div id="room-1-rate-1" style="display:none;" class="room-options">
+		<div class="occupancy-options">
 		
-		<div class="occupancy">2 adults</div>
-		<div class="price">$400</div>
-		<div class="amount">
-			<select>
-				<option value="0">0</option>
-				<option value="1">1</option>
-				<option value="2">2</option>
-				<option value="3">3</option>
-			</select>
+			<div class="occupancy">1 adult</div>
+			<div class="price">$448</div>
+			<div class="amount">
+				<select>
+					<option value="0">0</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+				</select>
+			</div>
+		</div>
+		<div class="occupancy-options">
+			<div class="occupancy">2 adults</div>
+			<div class="price">$448</div>
+			<div class="amount">
+				<select>
+					<option value="0">0</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+				</select>
+			</div>
 		</div>
 	</div>
-	<div class="occupancy-options">
+
+	<!-- ROOM 2 -->
+	<div id="room-2-rate-1" style="display:none;" class="room-options">
+		<div class="occupancy-options">
 		
-		<div class="occupancy">3 adults</div>
-		<div class="price">$420</div>
-		<div class="amount"><select><option>0</option><option>1</option><option>2</option><option>3</option></select></div>
+			<div class="occupancy">1 adult</div>
+			<div class="price">$448</div>
+			<div class="amount">
+				<select>
+					<option value="0">0</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+				</select>
+			</div>
+		</div>
+		<div class="occupancy-options">
+			<div class="occupancy">2 adults</div>
+			<div class="price">$448</div>
+			<div class="amount">
+				<select>
+					<option value="0">0</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+				</select>
+			</div>
+		</div>
+		<div class="occupancy-options">
+			<div class="occupancy">3 adults</div>
+			<div class="price">$448</div>
+			<div class="amount">
+				<select>
+					<option value="0">0</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+				</select>
+			</div>
+		</div>
+		<div class="occupancy-options">
+			<div class="occupancy">4 adults</div>
+			<div class="price">$544</div>
+			<div class="amount">
+				<select>
+					<option value="0">0</option>
+					<option value="1">1</option>
+				</select>
+			</div>
+		</div>
 	</div>
-	<div class="occupancy-options">
-		
-		<div class="occupancy">4 adults</div>
-		<div class="price">$420</div>
-		<div class="amount"><select><option>0</option><option>1</option><option>2</option><option>3</option></select></div>
-	</div>
-	<div class="occupancy-options">
-		
-		<div class="occupancy">2 adults, 1 Child</div>
-		<div class="price">$420</div>
-		<div class="amount"><select><option>0</option><option>1</option><option>2</option><option>3</option></select></div>
-	</div>
-	<div class="occupancy-options">
-		
-		<div class="occupancy">2 adults, 2 Children</div>
-		<div class="price">$440</div>
-		<div class="amount"><select><option>0</option><option>1</option><option>2</option><option>3</option></select></div>
-	</div>
-</div>
+
+
+
 	<div class="add-to-basket" style="padding:6px 12px; text-align:right;">
 		<button>Add to basket</button>
 	</div>
@@ -251,11 +340,20 @@
 			var numrooms = 0;
 			// run things on page load
 			$(function(){
-				$(".rate .add").on("click", function(){
-					console.log("added")
+				$(".rate .show-options").on("click", function(e){
+					e.preventDefault();
+					var selRoom = $(this).attr("rel");
+					console.log(selRoom)
 					$("#overlay").show();
+					$(".room-options").hide();
 					$(".room-selector-modal").show();
+					$(".room-selector-modal #" + selRoom).show();
 				}); 
+
+				$("#overlay").on("click", function(){
+					$("#overlay").hide();
+					$(".room-selector-modal").hide();
+				})
 
 				$(".add-to-basket button").on("click", function(e){
 					e.preventDefault();
