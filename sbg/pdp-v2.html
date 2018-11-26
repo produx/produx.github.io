@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+		<style type="text/css">
+			@media screen and (min-width: 600px) {
+				#page-wrapper {max-width:360px; margin:auto; background-color:#eee;}
+
+			}
+			@media screen and (min-width: 750px) {}
+			@media screen and (min-width: 850px) {}
+			@media screen and (min-width: 960px) {}
+			@media screen and (min-width: 1160px) {}
+
+			body {margin:0; padding:0; font-family: arial; }
+			a {text-decoration: none; color:#156bc1;}
+			a:visited {text-decoration: none; color:#156bc1;}
+			button {background-color:#156bc1; color:#fff; padding:8px 16px; border:0; font-size:14px; font-weight:bold;}
+			ul {padding:0; margin:0 0 0 17px;}
+			#page-wrapper {background-color:#f5f4f0; min-height: 500px;}
+			#header {background-color:#d32f2f; height:40px;}
+			#sqm {background-color: #eae8e0; padding:12px 0; height:50px;}
+			#summary { padding:12px;}
+			#summary .name {font-weight:bold; margin-bottom:4px;}
+			#summary .address {font-size:12px; margin-bottom:8px;}
+			#summary .cgs {font-size: 14px;}
+			#photo {background-color:#555; height:200px;}
+			#price {min-height:100px; padding:12px;}
+			#price button {background-color:#156bc1; color:#fff; width:100%; font-size: 20px; padding:8px; margin-top:8px;}
+			#amenities-main {overflow:hidden; padding:12px; border-bottom:solid 1px #ddd;}
+			#amenities-main > div {float:left; width:33%;}
+			#amenities-main > div > span {font-weight:bold; font-size:14px;}
+			#amenities-main ul li {font-size: 13px; margin-top:4px;}
+			#location {padding:12px;}
+			#location .map {height:120px; background-color: #fff;}
+			#reviews {padding:12px;}
+			#reviews .score {height:120px; background-color: #fff;}
+			#rooms {border:solid 3px #555; padding-bottom:12px;}
+			#rooms .name {background-color:#555; color:#fff; font-size: 18px; padding: 6px 12px; font-weight: bold;}
+			#rooms .room {border:solid 1px #ddd; margin:0 12px;}
+			#rooms .room .description {background-color:#eae8e0; height:60px; padding:8px; position:relative;}
+			#rooms .room .description .room-name {font-size:14px; font-weight: bold; margin-bottom:4px;}
+			#rooms .room .description .sleeps {font-size: 13px; margin-bottom: 8px;}
+			#rooms .room .description a {font-weight:bold; font-size: 13px;}
+			#rooms .room .description .thumb{position:absolute; top:8px; bottom:8px; right:8px; width:60px; background-color:#555;}
+
+			#rooms .room .rate {background-color:#fff; padding:8px;}
+
+			#rooms h2 {font-size:16px; margin:0 12px 4px;}
+			
+		</style>
+
+	</head>
+
+	<body>
+
+			<div id="page-wrapper">
+				<div id="header"></div>
+				<div id="sqm"></div>
+				<div id="summary">
+					<div class="name">The Knickerbocker Hotel</div>
+					<div class="address">6 Times Square, New York, NY, 10036, United States of America</div>
+					<div class="cgs">Luxury hotel with 2 bars/lounges, near Times Square</div>
+				</div>
+				<div id="photo"></div>
+				<div id="price">
+					
+						<div style="margin-bottom:4px;"><span>$600</span> £400</div>
+						<div style="font-size: 13px; margin-bottom:4px;">for 1 room for 2 nights including taxes & fees</div>
+						<div style="font-size: 13px; margin-bottom:4px;">+ $69 charges due at property</div>
+					
+					<button>Book Now</button>
+				</div>
+				<div id="amenities-main">
+					<div>
+						<span>Main amenities</span>
+						<ul>
+							<li>330 Guestrooms</li>
+							<li>Restaurants and 2 bar lounges</li>
+							<li>Rooftop terrace</li>
+							<li>Breakfast available</li>
+							<li>24-hour fitness centre</li>
+						</ul>
+					</div>
+					<div>
+						<span>For families</span>
+						<ul>
+							<li>Babysitting or childcare (surcharge)</li>
+							<li>Connecting / adjoining rooms</li>
+							<li>Provate bathroom</li>
+							<li>Free toiletries</li>
+							<li>Daily housekeeping</li>
+						</ul>
+					</div>
+					<div>
+						<span>What's around</span>
+						<ul>
+							<li>In Midtown</li>
+							<li>Times Square (1-minute walk)</li>
+							<li>Broadway (3-minute walk)</li>
+							<li>Macy's (7-minute walk)</li>
+							<li>New York Public Library (8-minute walk)</li>
+						</ul>
+					</div>
+				</div>
+				<div id="location">
+					<div class="map" style="box-sizing: border-box; font-size:20px; color:#ccc; text-align:center; padding-top:36px;">Map image</div>
+				</div>
+				<div id="reviews">
+					<div class="score" style="box-sizing: border-box; font-size:20px; color:#ccc; text-align:center; padding-top:36px;">Guest review score</div>
+				</div>
+				<div id="tools"></div>
+				<div id="rewards" style="padding:12px;">
+					<div style="font-weight:bold;">Hotels.com Rewards</div>
+					<div style="font-size: 14px;">You'll collect 2 nights with this stay</div>
+					<div style="font-size: 14px;">Remember collect 10 nights, get 1 reward night free</div>
+				</div>
+				<div id="rooms-recommended"></div>
+				<div id="rooms">
+					<div class="name">The Knickerbocker Hotel</div>
+					<div class="sqm-2" style="border-bottom:solid 3px #555; height:100px; box-sizing: border-box; padding:36px 12px 0; color:#ccc; text-align:center; margin-bottom:12px">Edit dates and occupancy</div>
+					<h2>Best value for your group</h2>
+					<div class="recommended" style="padding:0 12px; margin-bottom:12px">
+
+						<div style="background-color:#eae8e0; font-weight:bold; padding:4px 8px;">Two room option</div>
+						<div style="background-color:#fff; padding:12px;">
+							<div class="room-option" style="margin-bottom:8px;">
+								<div class="" style="display:inline-block; vertical-align: top; width:30px;">1x</div>
+								<div style="display:inline-block; vertical-align: top; width:calc(100% - 142px)">
+									<a href="#">Superior Room</a>
+									<div style="margin-top:4px; font-size:13px;">Sleeps 2 people</div>
+									<div style="margin-top:4px; font-size:13px;">Non-refundable</div>
+									<div style="margin-top:4px; font-size:13px;">Free wifi</div>
+								</div>
+								<div style="display:inline-block; vertical-align: top; width:100px; text-align:right;">$464</div>
+							</div>
+							<div class="room-option" style="margin-bottom:8px;">
+								<div class="" style="display:inline-block; vertical-align: top; width:30px;">1x</div>
+								<div style="display:inline-block; vertical-align: top; width:calc(100% - 142px)">
+									<a href="#">Deluxe Room</a>
+									<div style="margin-top:4px; font-size:13px;">Sleeps 4 people</div>
+									<div style="margin-top:4px; font-size:13px;">Non-refundable</div>
+									<div style="margin-top:4px; font-size:13px;">Free wifi</div>
+								</div>
+								<div style="display:inline-block; vertical-align: top; width:100px; text-align:right;">$544</div>
+							</div>
+							<div style="border-top:solid 1px #ddd; padding:12px 0 0">
+								<div style="display: inline-block; font-weight:bold; width:50%; ">Price for 6 people</div>
+								<div style="display: inline-block; font-weight:bold; width:calc(50% - 8px); text-align:right;">$1008</div>
+								<div>
+									<button style="margin-top:8px; width:100%">Book now</button>
+								</div>
+							
+							</div>
+						</div>
+					</div>
+						
+					<style type="text/css">
+						.rate {border-top:solid 1px #ddd;}
+						.rate .rate-details {margin-bottom:8px;}
+						.rate .rate-details .non-refundable {font-size:14px; margin-bottom: 4px;}
+						.rate .rate-details .free-cancellation {font-size:14px; margin-bottom: 8px; font-weight:bold;}
+						.rate .rate-details .free-cancellation .expiry {font-size:12px; margin-top:4px; font-weight:normal;}
+						.rate .rate-details .wifi {font-size:14px; margin-bottom: 4px;}
+						.rate .rate-options-wrapper {position:relative}
+						.rate .rate-options {overflow:hidden; width:calc(100% - 66px); border:solid 1px #ddd; display:inline-block; vertical-align:top; position: relative;}
+						.rate .price {float:right; width:calc(100% - 100px); text-align:right; padding:8px 30px 8px 0; box-sizing: border-box;}
+						.rate .occupancy {float:left; width:100px; padding:8px; box-sizing: border-box;}
+						.rate .arrow {position:absolute; right:0; top:0;}
+
+						.rate-occupancy-list {position:absolute; top:38px; background-color:#fff; width:calc(100% - 66px); border:solid 1px #ddd; display:none;}
+
+						.rate-occupancy-list > div {padding:8px; border-bottom:solid 1px #ddd; background-color:#eee; }
+					</style>
+
+					<h2>Or select the rooms you'd like</h2>
+					<div class="room" class="z-index:1000">
+						<div class="description">
+							<div class="room-name">Superior room</div>
+							<div class="sleeps">Sleeps 2 people (including upto 1 child)</div>
+							<a href="#">Show details</a>
+							<div class="thumb"></div>
+						</div>
+						<div class="rate">
+							<div class="rate-details">
+								<div class="non-refundable">Non-refundable</div>
+								<div class="wifi">Free Wifi</div>
+							</div>
+							<div class="rate-options-wrapper">
+								<div class="rate-options r1r1" rel="r1r1">
+									<div class="occupancy">2 adults</div>
+									<div class="price">$462</div>
+									<div class="arrow">
+									 <i class="material-icons">arrow_drop_down</i>
+									</div>
+								</div>
+								<div style="overflow:hidden; display: inline-block; width:54px; vertical-align:top;">
+
+									<button class="add" rel="r1r1" style="float:right; width:50px; padding:4px 0; text-align:center;">Add</button>
+								
+								</div>
+								<div id="r1r1" class="rate-occupancy-list" style="">
+									<div><span class="r-occupancy">1 adult</span> <span class="r-price">$462</span></div>
+									<div><span class="r-occupancy">2 adults</span> <span class="r-price">$462</span></div>
+								</div>
+							</div>
+							
+						</div>
+
+						<div class="rate" class="z-index:999">
+							<div class="rate-details">
+								<div class="free-cancellation">
+									Free cancellation
+									<div class="expiry">Until 24/07/2019</div>
+								</div>
+								<div class="wifi">Free Wifi</div>
+							</div>
+							<div class="rate-options-wrapper">
+								<div class="rate-options r1r2" rel="r1r2">
+									<div class="occupancy" style="">2 adults</div>
+									<div class="price" style="">$614</div>
+									<div class="arrow" style="">
+									 	<i class="material-icons">arrow_drop_down</i>
+									</div>
+								</div>
+								<div style="overflow:hidden; display: inline-block; width:54px; vertical-align:top;">
+
+									<button class="add"  rel="r1r2" style="float:right; width:50px; padding:4px 0; text-align:center;">Add</button>
+								
+								</div>
+
+								<div id="r1r2" class="rate-occupancy-list" style="z-index:10000">
+									<div><span class="r-occupancy">1 adult</span> <span class="r-price">$614</span></div>
+									<div><span class="r-occupancy">2 adults</span> <span class="r-price">$614</span></div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="room" style="margin-top:20px;">
+						<div class="description">
+							<div class="room-name">Deluxe room</div>
+							<div class="sleeps">Sleeps 4 people (including upto 2 child)</div>
+							<a href="#">Show details</a>
+							<div class="thumb"></div>
+						</div>
+						<div class="rate">
+							<div class="rate-details">
+								<div class="non-refundable">Non-refundable</div>
+								<div class="wifi">Free Wifi</div>
+							</div>
+							<div class="rate-options-wrapper">
+								<div class="rate-options r2r1" rel="r2r1">
+									<div class="occupancy">4 adults</div>
+									<div class="price">$749</div>
+									<div class="arrow">
+									 <i class="material-icons">arrow_drop_down</i>
+									</div>
+								</div>
+								<div style="overflow:hidden; display: inline-block; width:54px; vertical-align:top;">
+
+									<button class="add"  rel="r2r1" style="float:right; width:50px; padding:4px 0; text-align:center;">Add</button>
+								
+								</div>
+								<div id="r2r1" class="rate-occupancy-list" style="">
+									<div><span class="r-occupancy">2 adult</span> <span class="r-price">$570</span></div>
+									<div><span class="r-occupancy">3 adults</span> <span class="r-price">$659</span></div>
+									<div><span class="r-occupancy">4 adults</span> <span class="r-price">$749</span></div>
+								</div>
+							</div>
+							
+						</div>
+						<div class="rate" class="z-index:999">
+							<div class="rate-details">
+								<div class="free-cancellation">
+									Free cancellation
+									<div class="expiry">Until 24/07/2019</div>
+								</div>
+								<div class="wifi">Free Wifi</div>
+							</div>
+							<div class="rate-options-wrapper">
+								<div class="rate-options r2r2" rel="r2r2">
+									<div class="occupancy" style="">4 adults</div>
+									<div class="price" style="">$937</div>
+									<div class="arrow" style="">
+									 	<i class="material-icons">arrow_drop_down</i>
+									</div>
+								</div>
+								<div style="overflow:hidden; display: inline-block; width:54px; vertical-align:top;">
+
+									<button class="add" rel="r2r2" style="float:right; width:50px; padding:4px 0; text-align:center;">Add</button>
+								
+								</div>
+
+								<div id="r2r2" class="rate-occupancy-list" style="z-index:10000">
+									<div><span class="r-occupancy">2 adult</span> <span class="r-price">$758</span></div>
+									<div><span class="r-occupancy">3 adults</span> <span class="r-price">$847</span></div>
+									<div><span class="r-occupancy">4 adults</span> <span class="r-price">$937</span></div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<div id="whats-around" style="height:200px"></div>
+				<div id="amenities-all"></div>
+			</div>
+
+
+<style type="text/css">
+	#basket {position:fixed; bottom:0; left:0; right:0; padding:12px; background-color:#156bc1; display:none; color:#fff;}
+</style>
+
+<div id="basket">
+	<div class="rooms-selected" style="border-bottom:solid 1px #fff; padding-bottom:8px;">
+		Number of rooms: <span class="num-rooms"></span>
+	</div>
+	<div style="padding-top:8px; overflow:hidden;">
+		<div class="total-price" style="float:left; width:50%; font-size:20px; font-weight:bold;"></div>
+		<div class="book-rooms" style="float:right; width:50%; text-align:right;">
+			<button style="background-color:#fff; padding:8px; color:#156bc1; border-radius:4px;">Book now</button>
+		</div>
+	</div>
+</div>
+
+		<!-- Scripts -->
+		<!-- JQuery Google CDN -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<script type="text/javascript">
+			var numrooms = 0;
+			var selectedRate = "";
+			var totalPrice = 0;
+			// run things on page load
+			$(function(){
+				$(document).click(function(){
+    				$(".rate-occupancy-list").hide();
+				});
+
+			 	$(".rate-occupancy-list").click(function(e){
+    				e.stopPropagation();
+				});
+
+				$(".rate-options").on("click", function(e){
+					e.preventDefault();
+					e.stopPropagation();
+					selectedRate = $(this).attr("rel");
+					$("#"+selectedRate).show();
+				}); 
+
+				$(".rate-occupancy-list > div").on("click", function(e){
+					console.log($(this).find(".r-price").text() + " - " + $(this).find(".r-occupancy").text());
+					$(".rate-options-wrapper ." + selectedRate + " .price").text($(this).find(".r-price").text());
+					$(".rate-options-wrapper ." + selectedRate + " .occupancy").text($(this).find(".r-occupancy").text());
+					$("#" + selectedRate).hide();
+				});
+
+				$("button.add").on("click", function(e){
+					$("#basket").slideDown();
+					numrooms = numrooms + 1;
+					$("#basket .num-rooms").text(numrooms.toString());
+					var rateId = $(this).attr("rel");
+					console.log(rateId)
+					var price = $(".rate-options-wrapper ." + rateId + " .price").text(); 
+					console.log(price)
+					var p = price.substring(1); 
+					console.log(p)
+					totalPrice = totalPrice + parseInt(p); 
+					console.log(totalPrice)
+					$("#basket .total-price").text("$"+totalPrice.toString());
+
+				})
+
+			 	
+			});
+
+		</script>
+	</body>
+</html>
