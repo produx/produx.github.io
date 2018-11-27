@@ -181,7 +181,7 @@
 					</style>
 
 					<h2>Or select the rooms you'd like</h2>
-					<div class="room" class="z-index:1000">
+					<div class="room" rel="room1" class="z-index:1000">
 						<div class="description">
 							<div class="room-name">Superior room</div>
 							<div class="sleeps">Sleeps 2 people (including upto 1 child)</div>
@@ -244,7 +244,7 @@
 						</div>
 					</div>
 
-					<div class="room" style="margin-top:20px;">
+					<div class="room" rel="room2" style="margin-top:20px;">
 						<div class="description">
 							<div class="room-name">Deluxe room</div>
 							<div class="sleeps">Sleeps 4 people (including upto 2 child)</div>
@@ -296,7 +296,6 @@
 								<div style="overflow:hidden; display: inline-block; width:54px; vertical-align:top;">
 
 									<button class="add" rel="r2r2" style="float:right; width:50px; padding:4px 0; text-align:center;">Add</button>
-								
 								</div>
 
 								<div id="r2r2" class="rate-occupancy-list" style="z-index:10000">
@@ -316,10 +315,15 @@
 
 <style type="text/css">
 	#basket {position:fixed; bottom:0; left:0; right:0; padding:12px; background-color:#156bc1; display:none; color:#fff; z-index:10002;}
+	.rooms-selected .room-type {display:none; margin-bottom:4px;}
 </style>
 
 <div id="basket">
-	<div class="rooms-selected" style="border-bottom:solid 1px #fff; padding-bottom:8px;">
+	<div class="rooms-selected" style="margin-bottom:8px;">
+		<div id="room1" class="room-type"><span class="number">0</span> x <span class="room-name">Superior Room</span></div>
+		<div id="room2" class="room-type"><span class="number">0</span> x <span class="room-name">Deluxe Room</span></div>
+	</div>
+	<div class="num-rooms-selected" style="border-bottom:solid 1px #fff; padding-bottom:8px;">
 		Number of rooms: <span class="num-rooms"></span>
 	</div>
 	<div style="padding-top:8px; overflow:hidden;">
@@ -375,6 +379,13 @@
 					totalPrice = totalPrice + parseInt(p); 
 					console.log(totalPrice)
 					$("#basket .total-price").text("$"+totalPrice.toString());
+					var roomAdded = $(this).closest(".room").attr("rel")
+					var getNumRoomsAdded = $(".rooms-selected #" + roomAdded + " .number").text();
+					console.log("get rooms" + getNumRoomsAdded);
+					var totalRoomsAdded = parseInt(getNumRoomsAdded) + 1; 
+					$(".rooms-selected #" + roomAdded + " .number").text(totalRoomsAdded.toString());
+					$(".rooms-selected #" + roomAdded).show();
+
 
 				})
 
