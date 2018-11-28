@@ -315,23 +315,31 @@
 
 <style type="text/css">
 	#basket {position:fixed; bottom:0; left:0; right:0; padding:12px; background-color:#156bc1; display:none; color:#fff; z-index:10002;}
-	.rooms-selected .room-type {display:none; margin-bottom:4px;}
+	.rooms-selected .room-type {display:none; margin-bottom:8px;}
+	#basket a.edit {color:#fff; position:absolute; top:12px; right:12px;}
 </style>
 
 <div id="basket">
-	<div class="rooms-selected" style="margin-bottom:8px;">
+	<div class="rooms-selected" style="border-bottom:solid 1px #fff;">
 		<div id="room1" class="room-type"><span class="number">0</span> x <span class="room-name">Superior Room</span></div>
 		<div id="room2" class="room-type"><span class="number">0</span> x <span class="room-name">Deluxe Room</span></div>
 	</div>
-	<div class="num-rooms-selected" style="border-bottom:solid 1px #fff; padding-bottom:8px;">
+	<a class="edit" href="#">Edit</a>
+	<!--<div class="num-rooms-selected" style="border-bottom:solid 1px #fff; padding-bottom:8px;">
 		Number of rooms: <span class="num-rooms"></span>
-	</div>
+	</div>-->
 	<div style="padding-top:8px; overflow:hidden;">
 		<div class="total-price" style="float:left; width:50%; font-size:20px; font-weight:bold;"></div>
 		<div class="book-rooms" style="float:right; width:50%; text-align:right;">
 			<button style="background-color:#fff; padding:8px; color:#156bc1; border-radius:4px;">Book now</button>
 		</div>
 	</div>
+</div>
+
+<div id="basket-modal" style="position:fixed; top:0; left:0; right:0; bottom:0; background-color:#fff; padding:20px; display:none;">
+	<h2>Full list of rooms selected will appear in here</h2>
+	<br /><br /><br /><br />
+	<a href="#" class="close">Close window</a>
 </div>
 
 		<!-- Scripts -->
@@ -369,27 +377,34 @@
 				$("button.add").on("click", function(e){
 					$("#basket").slideDown();
 					numrooms = numrooms + 1;
-					$("#basket .num-rooms").text(numrooms.toString());
+					//$("#basket .num-rooms").text(numrooms.toString());
 					var rateId = $(this).attr("rel");
-					console.log(rateId)
+					
 					var price = $(".rate-options-wrapper ." + rateId + " .price").text(); 
-					console.log(price)
+					
 					var p = price.substring(1); 
-					console.log(p)
+					
 					totalPrice = totalPrice + parseInt(p); 
-					console.log(totalPrice)
+					
 					$("#basket .total-price").text("$"+totalPrice.toString());
 					var roomAdded = $(this).closest(".room").attr("rel")
 					var getNumRoomsAdded = $(".rooms-selected #" + roomAdded + " .number").text();
-					console.log("get rooms" + getNumRoomsAdded);
+					
 					var totalRoomsAdded = parseInt(getNumRoomsAdded) + 1; 
 					$(".rooms-selected #" + roomAdded + " .number").text(totalRoomsAdded.toString());
 					$(".rooms-selected #" + roomAdded).show();
 
-
 				})
 
-			 	
+			 	$("#basket a.edit").on("click", function(e){
+			 		e.preventDefault(); 
+			 		$("#basket-modal").show();
+			 	}); 
+
+			 	$("#basket-modal a.close").on("click", function(e){
+			 		e.preventDefault();
+			 		$("#basket-modal").hide();
+			 	})
 			});
 
 		</script>
