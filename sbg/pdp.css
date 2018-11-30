@@ -1,0 +1,108 @@
+@media screen and (min-width: 600px) {
+	#page-wrapper {max-width:360px; margin:auto; background-color:#eee;}
+}
+@media screen and (min-width: 750px) {}
+@media screen and (min-width: 850px) {}
+@media screen and (min-width: 960px) {}
+@media screen and (min-width: 1160px) {}
+
+body {margin:0; padding:0; font-family: arial; }
+a {text-decoration: none; color:#156bc1;}
+a:visited {text-decoration: none; color:#156bc1;}
+button {background-color:#156bc1; color:#fff; padding:8px 16px; border:0; font-size:14px; font-weight:bold;}
+ul {padding:0; margin:0 0 0 17px;}
+
+#page-wrapper {background-color:#f5f4f0; min-height: 500px;}
+#header {background-color:#d32f2f; height:40px;}
+#sqm {background-color: #eae8e0; padding:12px 0; height:50px;}
+#summary { padding:12px;}
+#summary .name {font-weight:bold; margin-bottom:4px;}
+#summary .address {font-size:12px; margin-bottom:8px;}
+#summary .cgs {font-size: 14px;}
+#photo {background-color:#555; height:200px;}
+
+#price {min-height:100px; padding:12px;}
+#price button {background-color:#156bc1; color:#fff; width:100%; font-size: 20px; padding:8px; margin-top:8px;}
+#price .total-price {margin-bottom: 4px}
+#price .total-price .strikethrough {}
+#price .info {font-size: 13px; margin-bottom:4px;}
+
+
+#amenities-main {overflow:hidden; padding:12px; border-bottom:solid 1px #ddd;}
+#amenities-main > div {float:left; width:33%;}
+#amenities-main > div > span {font-weight:bold; font-size:14px;}
+#amenities-main ul li {font-size: 13px; margin-top:4px;}
+
+#location {padding:12px;}
+#location .map {height:120px; background-color: #fff; box-sizing: border-box; font-size:20px; color:#ccc; text-align:center; padding-top:36px;}
+
+#reviews {padding:12px;}
+#reviews .score {height:120px; background-color: #fff; box-sizing: border-box; font-size:20px; color:#ccc; text-align:center; padding-top:36px;}
+
+#rewards {padding:12px;}
+#rewards .title {font-weight:bold;}
+#rewards .info {font-size: 14px;}
+
+
+#rooms {border:solid 3px #555; padding-bottom:12px;}
+#rooms .sqm-2 {border-bottom:solid 3px #555; height:100px; box-sizing: border-box; padding:36px 12px 0; color:#ccc; text-align:center; margin-bottom:12px}
+#rooms .name {background-color:#555; color:#fff; font-size: 18px; padding: 6px 12px; font-weight: bold;}
+#rooms .room {border:solid 1px #ddd; margin:0 12px;}
+#rooms .room .description {background-color:#eae8e0; height:60px; padding:8px; position:relative;}
+#rooms .room .description .room-name {font-size:14px; font-weight: bold; margin-bottom:4px;}
+#rooms .room .description .sleeps {font-size: 13px; margin-bottom: 8px;}
+#rooms .room .description a {font-weight:bold; font-size: 13px;}
+#rooms .room .description .thumb{position:absolute; top:8px; bottom:8px; right:8px; width:60px; background-color:#555;}
+#rooms .room .rate {background-color:#fff; padding:8px;}
+#rooms h2 {font-size:16px; margin:0 12px 4px;}
+
+#rooms .recommended {padding:0 12px; margin-bottom:12px}
+#rooms .recommended .title {background-color:#eae8e0; font-weight:bold; padding:4px 8px;}
+#rooms .recommended .wrapper {background-color:#fff; padding:12px;}
+#rooms .recommended .room-option {margin-bottom:8px;} 
+#rooms .recommended .room-option .amount {display:inline-block; vertical-align: top; width:30px;}
+#rooms .recommended .room-option .rate-description {display:inline-block; vertical-align: top; width:calc(100% - 142px)}
+#rooms .recommended .room-option .rate-description .room-name {}
+#rooms .recommended .room-option .rate-description .info {margin-top:4px; font-size:13px;}
+#rooms .recommended .room-option .price {display:inline-block; vertical-align: top; width:100px; text-align:right;}
+#rooms .recommended .book {border-top:solid 1px #ddd; padding:12px 0 0}
+#rooms .recommended .book .occupancy {display: inline-block; font-weight:bold; width:50%; }
+#rooms .recommended .book .total-price {display: inline-block; font-weight:bold; width:calc(50% - 8px); text-align:right;}
+#rooms .recommended .book button {margin-top:8px; width:100%}
+
+.rate {border-top:solid 1px #ddd;}
+.rate .rate-details {margin-bottom:8px;}
+.rate .rate-details .non-refundable {font-size:14px; margin-bottom: 4px;}
+.rate .rate-details .free-cancellation {font-size:14px; margin-bottom: 8px; font-weight:bold;}
+.rate .rate-details .free-cancellation .expiry {font-size:12px; margin-top:4px; font-weight:normal;}
+.rate .rate-details .wifi {font-size:14px; margin-bottom: 4px;}
+.rate .rate-options-wrapper {position:relative}
+.rate .rate-options {overflow:hidden; border:solid 1px #ddd; vertical-align:top; position: relative;}
+.rate .label {padding:8px 0 4px 8px; font-size:12px; color:#999}
+.rate .price {float:right; width:calc(100% - 100px); text-align:right; padding:0px 30px 8px 0; box-sizing: border-box;}
+.rate .occupancy {float:left; width:100px; padding:0 8px 8px 8px; box-sizing: border-box;}
+.rate .arrow {position:absolute; right:0; bottom:0;}
+.rate-occupancy-list {position:absolute; top:38px; background-color:#fff; width:calc(100% - 66px); border:solid 1px #ddd; display:none;}
+.rate-occupancy-list > div {padding:8px; border-bottom:solid 1px #ddd; background-color:#eee; }
+
+
+.rate .rate-options-wrapper .add-button {text-align:right; margin-top:8px;}
+.rate .rate-options-wrapper .add-button .add {width:50px; padding:4px 0; text-align:center;}
+
+#basket {position:fixed; bottom:0; left:0; right:0; padding:12px; background-color:#156bc1; display:none; color:#fff; z-index:10002;}
+.rooms-selected .rate-selected {margin-bottom:8px; position:relative;}
+.rooms-selected .rate-selected a.remove {position:absolute; right:0px; top:0; color:#fff;}
+.rooms-selected .rate-selected .price {display:none;}
+#basket-modal {position:fixed; top:0; left:0; right:0; bottom:0; background-color:#fff; padding:20px; display:none; z-index:10003;}
+
+#basket .rooms-selected {border-bottom:solid 1px #fff;}
+#basket .in-basket {padding-top:8px; overflow:hidden;}
+#basket .in-basket .total-price {float:left; width:50%; font-size:20px; font-weight:bold;}
+#basket .in-basket .book-rooms {float:right; width:50%; text-align:right;}
+#basket .in-basket .book-rooms button {background-color:#fff; padding:8px; color:#156bc1; border-radius:4px;}
+
+#whats-around {height:200px}
+#amenities-all {}
+
+
+
