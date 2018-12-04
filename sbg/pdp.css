@@ -6,7 +6,8 @@
 @media screen and (min-width: 960px) {}
 @media screen and (min-width: 1160px) {}
 
-body {margin:0; padding:0; font-family: arial; }
+body {margin:0; padding:0; font-family: arial; color:#555;}
+body.disable {margin: 0; height: 100%; overflow: hidden}
 a {text-decoration: none; color:#156bc1;}
 a:visited {text-decoration: none; color:#156bc1;}
 button {background-color:#156bc1; color:#fff; padding:8px 16px; border:0; font-size:14px; font-weight:bold;}
@@ -14,16 +15,21 @@ ul {padding:0; margin:0 0 0 17px;}
 
 #page-wrapper {background-color:#f5f4f0; min-height: 500px;}
 #header {background-color:#d32f2f; height:40px;}
-#sqm {background-color: #eae8e0; padding:12px 0; height:50px;}
+#sqm {background-color: #eae8e0; padding:12px;}
+#sqm a {font-size: 12px; display:block;}
+#sqm .search {font-size: 12px; margin-top:4px;}
+
 #summary { padding:12px;}
 #summary .name {font-weight:bold; margin-bottom:4px;}
 #summary .address {font-size:12px; margin-bottom:8px;}
 #summary .cgs {font-size: 14px;}
-#photo {background-color:#555; height:200px;}
+#photo {position:relative;}
+#photo img {width:100%}
+#photo a {position:absolute; display:block; padding:8px 8px; background-color:#fff; bottom:12px; right:8px; border-radius:4px;}
 
 #price {min-height:100px; padding:12px;}
 #price button {background-color:#156bc1; color:#fff; width:100%; font-size: 20px; padding:8px; margin-top:8px;}
-#price .total-price {margin-bottom: 4px}
+#price .total-price {margin-bottom: 4px; font-size: 24px; font-weight: bold;}
 #price .total-price .strikethrough {}
 #price .info {font-size: 13px; margin-bottom:4px;}
 
@@ -34,10 +40,22 @@ ul {padding:0; margin:0 0 0 17px;}
 #amenities-main ul li {font-size: 13px; margin-top:4px;}
 
 #location {padding:12px;}
-#location .map {height:120px; background-color: #fff; box-sizing: border-box; font-size:20px; color:#ccc; text-align:center; padding-top:36px;}
+#location .map {background-color: #fff; box-sizing: border-box; font-size:20px; color:#ccc;}
 
-#reviews {padding:12px;}
-#reviews .score {height:120px; background-color: #fff; box-sizing: border-box; font-size:20px; color:#ccc; text-align:center; padding-top:36px;}
+#reviews {padding:12px; }
+#reviews .wrapper {background-color:#fff; padding:12px 12px 8px; border-radius:4px;}
+#reviews .wrapper .score {font-size: 20px; font-weight:bold; margin-bottom: 4px;}
+#reviews .wrapper .see-reviews {font-size:13px;}
+#reviews .wrapper .bars {overflow: hidden; margin-top:8px;}
+#reviews .wrapper .bars .label {float:left; width:70px; font-size: 13px; font-weight:bold;}
+#reviews .wrapper .bars .bar {float:left; width:calc(100% - 70px); height:14px; background-color: #eee;}
+#reviews .wrapper .bars .bar > span {display:block; background-color:#000; height:14px;}
+#reviews .wrapper .ta {margin-top:12px; overflow:hidden; border-top:solid 1px #ddd; padding-top:12px;}
+#reviews .wrapper .ta .logo img {width:30px; display:block; margin-left:4px}
+#reviews .wrapper .ta .bullet-full {display:inline-block; height:7px; width:7px; background-color:#00AF87; border-radius:4px; margin-right:-3px;}
+#reviews .wrapper .ta .bullet-empty {display:inline-block; height:7px; width:7px; background-color:#fff; border-radius:4px; margin-right:-3px; border:solid 1px #00AF87; box-sizing: border-box;}
+#reviews .wrapper .ta .num-reviews {font-size:13px; font-weight: bold;}
+#reviews .wrapper .ta .disclaimer {font-size:11px; color:#999;}
 
 #rewards {padding:12px;}
 #rewards .title {font-weight:bold;}
@@ -45,20 +63,27 @@ ul {padding:0; margin:0 0 0 17px;}
 
 
 #rooms {border:solid 3px #555; padding-bottom:12px;}
-#rooms .sqm-2 {border-bottom:solid 3px #555; height:100px; box-sizing: border-box; padding:36px 12px 0; color:#ccc; text-align:center; margin-bottom:12px}
+#rooms .sqm-2 {border-bottom:solid 3px #555; box-sizing: border-box; padding:12px; margin-bottom:12px}
+#rooms .sqm-2 .date {float:left; width:calc(50% - 4px); background-color:#fff; padding:4px; box-sizing: border-box; height:100px;}
+#rooms .sqm-2 .date .title {border-bottom:1px solid #ddd; font-size:14px; padding-bottom:4px; color:#999;}
+#rooms .sqm-2 .date .ddmmyyyy {color:#156bc1; font-weight: bold; margin-top:8px;}
+#rooms .sqm-2 .date .day {color:#999; margin-top:4px; font-size:13px;}
+#rooms .sqm-2 .date .nights {color:#999; margin-top:4px; font-size:13px;}
+
 #rooms .name {background-color:#555; color:#fff; font-size: 18px; padding: 6px 12px; font-weight: bold;}
 #rooms .room {border:solid 1px #ddd; margin:0 12px;}
 #rooms .room .description {background-color:#eae8e0; height:60px; padding:8px; position:relative;}
 #rooms .room .description .room-name {font-size:14px; font-weight: bold; margin-bottom:4px;}
 #rooms .room .description .sleeps {font-size: 13px; margin-bottom: 8px;}
 #rooms .room .description a {font-weight:bold; font-size: 13px;}
-#rooms .room .description .thumb{position:absolute; top:8px; bottom:8px; right:8px; width:60px; background-color:#555;}
+#rooms .room .description .thumb{position:absolute; top:8px; bottom:8px; right:8px; width:84px; background-color:#555;}
+#rooms .room .description .thumb img {width:100%;}
 #rooms .room .rate {background-color:#fff; padding:8px;}
 #rooms h2 {font-size:16px; margin:0 12px 4px;}
 
 #rooms .recommended {padding:0 12px; margin-bottom:12px}
 #rooms .recommended .title {background-color:#eae8e0; font-weight:bold; padding:4px 8px;}
-#rooms .recommended .wrapper {background-color:#fff; padding:12px;}
+#rooms .recommended .wrapper {background-color:#fff; padding:12px; display:none;}
 #rooms .recommended .room-option {margin-bottom:8px;} 
 #rooms .recommended .room-option .amount {display:inline-block; vertical-align: top; width:30px;}
 #rooms .recommended .room-option .rate-description {display:inline-block; vertical-align: top; width:calc(100% - 142px)}
@@ -79,10 +104,10 @@ ul {padding:0; margin:0 0 0 17px;}
 .rate .rate-options-wrapper {position:relative}
 .rate .rate-options {overflow:hidden; border:solid 1px #ddd; vertical-align:top; position: relative;}
 .rate .label {padding:8px 0 4px 8px; font-size:12px; color:#999}
-.rate .price {float:right; width:calc(100% - 100px); text-align:right; padding:0px 30px 8px 0; box-sizing: border-box;}
-.rate .occupancy {float:left; width:100px; padding:0 8px 8px 8px; box-sizing: border-box;}
+.rate .price {float:right; width:calc(100% - 180px); text-align:right; padding:0px 30px 8px 0; box-sizing: border-box;}
+.rate .occupancy {float:left; width:180px; padding:0 8px 8px 8px; box-sizing: border-box; font-size:14px;}
 .rate .arrow {position:absolute; right:0; bottom:0;}
-.rate-occupancy-list {position:absolute; top:38px; background-color:#fff; width:calc(100% - 66px); border:solid 1px #ddd; display:none;}
+.rate-occupancy-list {position:absolute; top:54px; background-color:#fff; width:calc(100% - 66px); border:solid 1px #ddd; display:none;}
 .rate-occupancy-list > div {padding:8px; border-bottom:solid 1px #ddd; background-color:#eee; }
 
 
@@ -104,5 +129,11 @@ ul {padding:0; margin:0 0 0 17px;}
 #whats-around {height:200px}
 #amenities-all {}
 
+
+#overlay {position:fixed; top:0; bottom:0; left:0; right:0; background-color:#000; opacity:0.8; display:none;}
+#overlay-room {position:fixed; top:0; left:0; bottom:0; right:0; display:none;}
+#overlay-room .title {position:absolute; top:0; left:0; right:0; height:30px; background-color:#eee;}
+#overlay-room .body {position:absolute; top:30px; left:0; right:0; bottom:0; overflow-y: scroll; background-color:#fff;}
+#overlay-room .title a {position:absolute; top:8px; right:8px;}
 
 

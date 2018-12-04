@@ -16,14 +16,28 @@
 			@media screen and (min-width: 960px) {}
 			@media screen and (min-width: 1160px) {}
 
-			body {margin:0; padding:0; font-family: arial}
+			body {margin:0; padding:0; font-family: arial; }
+			a {text-decoration: none; color:#156bc1;}
+			a:visited {text-decoration: none; color:#156bc1;}
 			#header {background-color:#d32f2f; height:40px;}
-			#sqm {background-color: #eae8e0; padding:12px 0; height:50px;}
-			#tools {background-color: #fff; padding:12px 0; height:30px;}
+			#sqm {background-color: #eae8e0; padding:12px 12px;}
+			#sqm .destination {font-size:13px; font-weight:bold;}
+			#sqm .search {font-size:13px; margin-top:4px;}
+			#tools {background-color: #fff; padding:6px 12px; overflow:hidden;}
 			#hotels {background-color: #eae8e0; padding:12px; min-height:500px;}
-			#hotels .hotel {min-height: 120px; background-color: #fff; margin-bottom: 12px}
+			#hotels .hotel {min-height: 120px; background-color: #fff; margin-bottom: 12px; position:relative; border-radius:4px;}
 
-
+			#hotels .hotel .thumb {position:absolute; top:0; bottom:0; left:0; width:25%; background-color:#eee;}
+			#hotels .hotel .details {margin-left:25%; padding:8px; box-sizing: border-box;}
+			#hotels .hotel .details .name {font-size:14px; margin-bottom:4px;}
+			#hotels .hotel .details .neighbourhood {font-size:13px; margin-bottom:4px;}
+			#hotels .hotel .details .proximity {font-size:13px; margin-bottom:4px;}
+			#hotels .hotel .details .reviews .score {font-weight: bold; font-size:13px;}
+			#hotels .hotel .details .reviews .number {color:#999; font-size:12px;}
+			#hotels .hotel .details .price {text-align:right; margin-top:12px;}
+			#hotels .hotel .details .price .total-price {font-weight:bold; font-size: 20px}
+			#hotels .hotel .details .price .num-rooms {font-size:13px; font-weight:bold; margin-top:4px;}
+			#hotels .hotel .details .price .info {font-size: 11px; color:#999; margin-top:2px;}
 		</style>
 
 	</head>
@@ -32,12 +46,101 @@
 
 			<div id="page-wrapper">
 				<div id="header"></div>
-				<div id="sqm"></div>
-				<div id="tools"></div>
+				<div id="sqm">
+					<div class="destination">New York, Unites States of America</div>
+					<div class="search">Fri 15 - Wed 20 March 2019, 5 nights, <span class="dates">2 adults, 2 children</span></div>
+				</div>
+				<div id="tools">
+					<div style="float:left; background-color:#156bc1; color:#fff; padding:8px 0; margin-right:8px; text-align:center; width:80px; font-size:13px; border-radius:2px;">Filters</div>
+					<div style="float:left; background-color:#156bc1; color:#fff; padding:8px 0; margin-right:8px;text-align:center; width:80px; font-size:13px; border-radius:2px;">Sort</div>
+					<div style="float:right; border:solid 1px #156bc1; box-sizing: border-box; padding:8px 0; width:60px; text-align:center; font-size:13px; border-radius:2px;">Map</div>
+				</div>
 				<div id="hotels">
-					<div class="hotel"></div>
-					<div class="hotel"></div>
-					<div class="hotel"></div>
+					<div id="club-quarters" class="hotel">
+						<div class="thumb"></div>
+						<div class="details">
+							<div class="name"><a href="club-quarters-hotel.html?scenario=">Club Quarters Hotel</a></div>
+							<div class="neighbourhood">Midtown</div>
+							<div class="proximity">0.7 miles to City centre</div>
+							<div class="reviews"><span class="score">Fabulous 8.8</span> <span class="number">4,527 reviews</span></div>
+							<div class="price">
+								<div class="total-price">£1814</div>
+								<div class="num-rooms">for 2 rooms</div>
+								<div class="info">for <span class="guests">4 guests</span> 5 nights including taxes and fees</div>
+							</div>
+						</div>
+					</div>
+					<div id="hotel-mela" class="hotel">
+						<div class="thumb"></div>
+						<div class="details">
+							<div class="name"><a href="hotel-mela.html?scenario=">Hotel Mela Times Square</a></div>
+							<div class="neighbourhood">Midtown</div>
+							<div class="proximity">0.7 miles to City centre</div>
+							<div class="reviews"><span class="score">Good 7.8</span> <span class="number">4,527 reviews</span></div>
+							<div class="price">
+								<div class="total-price">£1558</div>
+								<div class="num-rooms">for 2 rooms</div>
+								<div class="info">for <span class="guests">4 guests</span> 5 nights including taxes and fees</div>
+							</div>
+						</div>
+					</div>
+					<div id="hamilton-heights" class="hotel">
+						<div class="thumb"></div>
+						<div class="details">
+							<div class="name"><a href="hamilton-heights.html?scenario=">Hamilton Heights Stylish Apartments</a></div>
+							<div class="neighbourhood">Upper Manhatten</div>
+							<div class="proximity">5.1 miles to City centre</div>
+							<div class="reviews"><span class="score">Very Good 8.0</span> <span class="number">3 reviews</span></div>
+							<div class="price">
+								<div class="total-price">£1353</div>
+								<div class="num-rooms">for 1 apartment</div>
+								<div class="info">for <span class="guests">4 guests</span> 5 nights including taxes and fees</div>
+							</div>
+						</div>
+					</div>
+					<div id="the-jewell" class="hotel">
+						<div class="thumb"></div>
+						<div class="details">
+							<div class="name"><a href="the-jewell.html?scenario=">The Jewel facing Rockefeller Center</a></div>
+							<div class="neighbourhood">Manhatten</div>
+							<div class="proximity">0.5 miles to City centre</div>
+							<div class="reviews"><span class="score">Fabulous 8.8</span> <span class="number">1844 reviews</span></div>
+							<div class="price">
+								<div class="total-price">£2146</div>
+								<div class="num-rooms">for 2 rooms</div>
+								<div class="info">for <span class="guests">4 guests</span> 5 nights including taxes and fees</div>
+							</div>
+						</div>
+					</div>
+					<div id="park-central" class="hotel">
+						<div class="thumb"></div>
+						<div class="details">
+							<div class="name"><a href="park-central.html?scenario=">Park Central Hotel New York</a></div>
+							<div class="neighbourhood">Manhatten</div>
+							<div class="proximity">0.6 miles to City centre</div>
+							<div class="reviews"><span class="score">Good 7.8</span> <span class="number">3762 reviews</span></div>
+							<div class="price">
+								<div class="total-price">£1998</div>
+								<div class="num-rooms">for 2 rooms</div>
+								<div class="info">for <span class="guests">4 guests</span> 5 nights including taxes and fees</div>
+							</div>
+						</div>
+					</div>
+					<div id="beekman-tower" class="hotel">
+						<div class="thumb"></div>
+						<div class="details">
+							<div class="name"><a href="beekman-tower.html?scenario=">The Beekman Tower</a></div>
+							<div class="neighbourhood">Midtown East</div>
+							<div class="proximity">1.1 miles to City centre</div>
+							<div class="reviews"><span class="score">Superb 9.0</span> <span class="number">3762 reviews</span></div>
+							<div class="price">
+								<div class="total-price">£1780</div>
+								<div class="num-rooms">for 2 apartments</div>
+								<div class="info">for <span class="guests">4 guests</span> 5 nights including taxes and fees</div>
+							</div>
+						</div>
+					</div>
+					
 				</div>
 			</div>
 
@@ -48,6 +151,55 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 		<script type="text/javascript">
+			function getParameterByName(name) {
+    			name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    			var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        			results = regex.exec(location.search);
+    			return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+			}; 
+
+
+			var scenario = getParameterByName("scenario");
+			$(".hotel .details .name a").each(function(){
+				var link = $(this).attr("href"); 
+				var url = link + scenario
+				$(this).attr("href", url);
+				//console.log(link);
+			}); 
+
+			//$(".hotel .details .name a").on("click", )
+
+			if (scenario == "scenario1"){ 
+				// set up for 2 adults, 2 children
+				$(".guests").text("2 adults and 2 children, ");
+				$("#sqm .search span").text("2 adults, 2 children");
+				$("#club-quarters .price .total-price").text("£1814");
+				$("#hotel-mela .price .total-price").text("£1558");
+				$("#the-jewell .price .total-price").text("£2146");
+				$("#park-central .price .total-price").text("£1998");
+				$("#beekman-tower .price .total-price").text("£1780");
+				
+			} else if (scenario == "scenario2") {
+				// set up for 4 adults
+				(".guests").text("4 adults, ");
+				$("#sqm .search span").text("4 adults");
+				$("#club-quarters .price .total-price").text("£1814"); 
+				$("#hotel-mela .price .total-price").text("£1558");
+				$("#the-jewell .price .total-price").text("£2148");
+				$("#park-central .price .total-price").text("£1998");
+				$("#beekman-tower .price .total-price").text("£1780");
+
+			} else {
+				// set up for 5 adults
+				$(".guests").text("5 adults, ");
+				$("#sqm .search span").text("5 adults");
+				$("#club-quarters .price .total-price").text("£2077"); 
+				$("#hotel-mela .price .total-price").text("£1767");
+				$("#the-jewell .price .total-price").text("£2326");
+				$("#park-central .price .total-price").text("£2241");
+				$("#beekman-tower .price .total-price").text("£2670");
+				$("#beekman-tower .num-rooms").text("for 3 apartments");
+			}
 
 			// run things on page load
 			$(function(){
