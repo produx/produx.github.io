@@ -24,6 +24,11 @@ $(function(){
 		console.log("description")
 		$("#overlay-room").show();
 		$("body").addClass("disable");
+		var roomName = $(this).closest(".description").find(".room-name").text();
+		var roomId = $(this).attr("rel"); 
+		$("#overlay-room .title .room-name").text(roomName); 
+		$("#overlay-room .body .details ").hide()
+		$("#overlay-room .body #" + roomId + "-details").show();
 	});
 
 	$("#overlay-room .title a").on("click", function(e){
