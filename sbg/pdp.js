@@ -11,6 +11,7 @@ $(function(){
 	$("#photo a").on("click", function(e){
 		e.preventDefault();
 		$("#overlay").show();
+		$("#overlay-gallery").show();
 		$("body").addClass("disable");
 	}); 
 
@@ -18,6 +19,12 @@ $(function(){
 		$(this).hide(); 
 		$("body").removeClass("disable");
 	}); 
+
+	$("#overlay-gallery .header a.close").on("click", function(e){
+		$("#overlay").hide();
+		$("#overlay-gallery").hide();
+		$("body").removeClass("disable");
+	})
 
 	$("#rooms .room .description a").on("click", function(e){
 		e.preventDefault();

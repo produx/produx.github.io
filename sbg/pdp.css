@@ -148,3 +148,11 @@ ul {padding:0; margin:0 0 0 17px;}
 #overlay-room .body .details .bed-choices .size {font-size:14px;}
 #overlay-room .body .details .categories > div {font-size:13px; margin-bottom:4px;}
 
+
+#overlay-gallery {position:fixed; top:0; left:0; bottom:0; right:0; color:#fff; display:none;}
+#overlay-gallery .header {position:absolute; top:0; left:0; right:0; height:40px; border-bottom:solid 1px #fff;}
+#overlay-gallery .header .title { padding:12px 12px 0; }
+#overlay-gallery .header a.close {position:absolute; display:block; top:10px; right:12px; font-size:20px; color:#fff;}
+#overlay-gallery .body {position:absolute; top:40px; left:0; right:0; bottom:0; overflow-y: scroll; padding:12px;}
+#overlay-gallery .body > div {margin-bottom:12px;}
+#overlay-gallery .body > div img {width:100%;}
