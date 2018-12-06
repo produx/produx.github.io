@@ -79,11 +79,12 @@ ul {padding:0; margin:0 0 0 17px;}
 #rooms .room .description .thumb{position:absolute; top:8px; bottom:8px; right:8px; width:84px; background-color:#555;}
 #rooms .room .description .thumb img {width:100%;}
 #rooms .room .rate {background-color:#fff; padding:8px;}
-#rooms h2 {font-size:16px; margin:0 12px 4px;}
+#rooms h2 {font-size:16px; margin:0 20px 4px;}
+#rooms p {font-size:12px; margin:0 20px 12px; color:#999;}
 
-#rooms .recommended {padding:0 12px; margin-bottom:12px}
-#rooms .recommended .title {background-color:#eae8e0; font-weight:bold; padding:4px 8px;}
-#rooms .recommended .wrapper {background-color:#fff; padding:12px; display:none;}
+#rooms .recommended {padding:0 12px; margin-bottom:12px;}
+#rooms .recommended .title {background-color:#388e3c; font-weight:bold; padding:4px 8px; color:#fff;}
+#rooms .recommended .wrapper {background-color:#fff; padding:12px; display:none; border:solid 1px #ddd;}
 #rooms .recommended .room-option {margin-bottom:8px;} 
 #rooms .recommended .room-option .amount {display:inline-block; vertical-align: top; width:30px;}
 #rooms .recommended .room-option .rate-description {display:inline-block; vertical-align: top; width:calc(100% - 142px)}
@@ -102,10 +103,10 @@ ul {padding:0; margin:0 0 0 17px;}
 .rate .rate-details .free-cancellation .expiry {font-size:12px; margin-top:4px; font-weight:normal; color:#999;}
 .rate .rate-details .wifi {font-size:13px; margin-bottom: 4px; font-weight:bold; color:#388e3c;}
 .rate .rate-options-wrapper {position:relative}
-.rate .rate-options {overflow:hidden; border:solid 1px #ddd; vertical-align:top; position: relative;}
+.rate .rate-options {overflow:hidden; border:solid 1px #ddd; vertical-align:top; position: relative; background-image: linear-gradient(to bottom, rgba(232, 232, 232, 0.4), #ffffff);}
 .rate .label {padding:8px 0 4px 8px; font-size:12px; color:#999}
-.rate .price {float:right; width:calc(100% - 180px); text-align:right; padding:0px 30px 8px 0; box-sizing: border-box;}
-.rate .occupancy {float:left; width:180px; padding:0 8px 8px 8px; box-sizing: border-box; font-size:14px;}
+.rate .price {float:right; width:calc(100% - 180px); text-align:right; padding:0px 30px 8px 0; box-sizing: border-box; font-weight:bold;}
+.rate .occupancy {float:left; width:180px; padding:0 8px 8px 8px; box-sizing: border-box; font-size:14px; }
 .rate .arrow {position:absolute; right:0; bottom:0;}
 .rate-occupancy-list {position:absolute; top:54px; background-color:#fff; width:calc(100% - 66px); border:solid 1px #ddd; display:none;}
 .rate-occupancy-list > div {padding:8px; border-bottom:solid 1px #ddd; background-color:#eee; }
