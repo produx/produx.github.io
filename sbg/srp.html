@@ -174,12 +174,19 @@
 
 
 			var scenario = getParameterByName("scenario");
+			
 			$(".hotel .details .name a").each(function(){
 				var link = $(this).attr("href"); 
 				var url = link + scenario
 				$(this).attr("href", url);
 				//console.log(link);
 			}); 
+
+			$(".hotel").on("click", function(e){
+				var link = $(this).find(".name a").attr("href");
+				var url = link + scenario;
+				window.open(url, "_self");
+			})
 
 			//$(".hotel .details .name a").on("click", )
 
