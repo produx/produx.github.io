@@ -182,10 +182,12 @@
 				//console.log(link);
 			}); 
 
+
+
 			$(".hotel").on("click", function(e){
 				var link = $(this).find(".name a").attr("href");
-				var url = link + scenario;
-				window.open(url, "_self");
+				window.open(link, "_self");
+				console.log(link)
 			})
 
 			//$(".hotel .details .name a").on("click", )
