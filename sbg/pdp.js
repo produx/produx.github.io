@@ -44,6 +44,12 @@ $(function(){
 		$("body").removeClass("disable");
 	}); 
 
+	$("#price button").click(function() {
+    	$([document.documentElement, document.body]).animate({
+        	scrollTop: $("#rooms").offset().top
+    	}, 500);
+	});
+
 	$(document).click(function(){
     	$(".rate-occupancy-list").hide();
 	});

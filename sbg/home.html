@@ -17,21 +17,26 @@
 			@media screen and (min-width: 1160px) {}
 
 			body {margin:0; padding:0; font-family: arial; color:#555;}
+			a {text-decoration: none; color:#156bc1;}
+			a:visited {text-decoration: none; color:#156bc1;}
 			h1 {margin:0; padding:0; font-size:24px;}
 			p {margin:4px 0 0 0; padding:0 0 0 0;}
-			#header {background-color:#d32f2f; height:40px;}
+			#header {background-color:#d32f2f; padding:8px 12px;}
 			#sqm {background-color: #eae8e0; padding:12px	0;}
 			#sqm #destination {margin-top:4px; padding:0 12px 12px; border-bottom: 1px solid #ddd;}
 			#sqm #destination input {font-size: 14px; padding:4px; margin-top:4px; width:100%; box-sizing: border-box;}
 			#sqm #dates {border-top:solid 1px #fff; overflow:hidden; padding:12px; border-bottom: 1px solid #ddd;}
-			#sqm #dates .checkin {float:left; background-color:#fff; width: calc(50% - 6px); height:80px; border-radius:2px; padding:4px; box-sizing: border-box;}
-			#sqm #dates .checkout {float:left; background-color:#fff; width: calc(50% - 6px); height:80px; border-radius:2px; margin-left:12px; padding:4px; box-sizing: border-box;}
+			#sqm #dates .checkin {float:left; background-color:#fff; width: calc(50% - 6px); height:100px; border-radius:2px; padding:8px; box-sizing: border-box;}
+			#sqm #dates .checkout {float:left; background-color:#fff; width: calc(50% - 6px); height:100px; border-radius:2px; margin-left:12px; padding:8px; box-sizing: border-box;}
+			#sqm #dates .title {border-bottom:solid 1px #ddd; padding:0 0 4px 0; font-size:13px;}
+			#sqm #dates .date {margin:8px 0 4px 0; font-weight:bold;}
+			#sqm #dates .info {font-size: 13px; color:#999; margin-bottom:4px;}
 			#sqm #occupancy {border-top:solid 1px #fff; border-bottom: 1px solid #ddd; padding:12px; overflow: hidden;}
 			#sqm #occupancy > div {float:left; margin-right:20px;}
 			#sqm #occupancy > div label {display:block; margin-bottom:4px; font-weight:bold;}
-			#sqm #occupancy select {font-size: 14px; color:#555; padding:4px;}
+			#sqm #occupancy select {font-size: 14px; color:#555; padding:4px 12px; background:color:#fff; -webkit-appearance: none; border-radius:2px	;}
 			#sqm #search {border-top:solid 1px #fff; padding:12px;}
-			#sqm #search button {background-color:#156bc1; color:#fff; width:100%; font-size: 20px; padding:8px;}
+			#sqm #search button {background-color:#156bc1; color:#fff; width:100%; font-size: 20px; padding:8px; border-radius:16px;}
 
 		</style>
 
@@ -41,57 +46,54 @@
 
 			<div id="page-wrapper">
 				<div id="header">
-					
+					<img src="i/logo.svg" style="height:30px"/>
 				</div>
 				<div id="sqm">
 					
 					<div id="destination">
 						<h1>Where to</h1>
 						<p>Destinations and properties around the world</p>
-						<input type="text" name="" />
+						<input type="text" name="" value="New York, United States"/>
 					</div>
 					<div id="dates">
-						<div class="checkin">Check in</div>
-						<div class="checkout">Check out</div>
+						<div class="checkin">
+							<div class="title">Check in</div>
+							<div class="date"><a href="#">15/03/2019</a></div>
+							<div class="info">Friday</div>
+						</div>
+						<div class="checkout">
+							<div class="title">Check out</div>
+							<div class="date"><a href="#">15/03/2019</a></div>
+							<div class="info">Wednesday</div>
+							<div class="info">5 nights</div>
+						</div>
 					</div>
 					<div id="occupancy">
 						<div class="adults">
 							<label>Adults</label>
-							<select>
+							<select id="adults">
 								<option>1</option>
-								<option>2</option>
+								<option value="1" selected="selected">2</option>
 								<option>3</option>
-								<option>4</option>
-								<option>5</option>
-								<option>6</option>
-								<option>7</option>
-								<option>8</option>
+								<option value="2">4</option>
+								<option value="3">5</option>
 							</select>
 						</div>
 						<div class="children">
 							<label>Children</label>
-							<select>
+							<select id="children">
+								<option>0</option>
 								<option>1</option>
 								<option>2</option>
-								<option>3</option>
-								<option>4</option>
-								<option>5</option>
-								<option>6</option>
-								<option>7</option>
-								<option>8</option>
 							</select>
 						</div>
 						<div class="rooms">
 							<label>Rooms</label>
-							<select>
+							<select id="rooms">
 								<option>Any</option>
+								<option>1</option>
 								<option>2</option>
 								<option>3</option>
-								<option>4</option>
-								<option>5</option>
-								<option>6</option>
-								<option>7</option>
-								<option>8</option>
 							</select>
 						</div>
 					</div>
@@ -111,7 +113,26 @@
 
 			// run things on page load
 			$(function(){
+				$("#search button").on("click", function(e){
+					e.preventDefault();
+					var adults = $( "#adults option:selected" ).val();
+					var url = "srp.html?scenario=scenario"+adults
+					console.log(adults);
 
+					switch(adults) {
+  						case "1":
+    						window.open(url, "_self")
+    						break;
+  						case "2":
+    						window.open(url, "_self")
+    						break;
+    					case "3":
+    						window.open(url, "_self") 
+    						break;
+  						default:
+    						//code block
+}
+				})
 			});
 
 		</script>

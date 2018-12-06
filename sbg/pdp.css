@@ -14,7 +14,7 @@ button {background-color:#156bc1; color:#fff; padding:8px 16px; border:0; font-s
 ul {padding:0; margin:0 0 0 17px;}
 
 #page-wrapper {background-color:#f5f4f0; min-height: 500px;}
-#header {background-color:#d32f2f; height:40px;}
+#header {background-color:#d32f2f; padding:8px 12px;}
 #sqm {background-color: #eae8e0; padding:12px;}
 #sqm a {font-size: 12px; display:block;}
 #sqm .search {font-size: 12px; margin-top:4px;}
@@ -28,7 +28,7 @@ ul {padding:0; margin:0 0 0 17px;}
 #photo a {position:absolute; display:block; padding:8px 8px; background-color:#fff; bottom:12px; right:8px; border-radius:4px;}
 
 #price {min-height:100px; padding:12px;}
-#price button {background-color:#156bc1; color:#fff; width:100%; font-size: 20px; padding:8px; margin-top:8px;}
+#price button {background-color:#156bc1; color:#fff; width:100%; font-size: 20px; padding:8px; margin-top:8px; border-radius:4px; border-bottom:2px solid #000;}
 #price .total-price {margin-bottom: 4px; font-size: 24px; font-weight: bold;}
 #price .total-price .strikethrough {}
 #price .info {font-size: 13px; margin-bottom:4px;}
@@ -39,27 +39,27 @@ ul {padding:0; margin:0 0 0 17px;}
 #amenities-main > div > span {font-weight:bold; font-size:14px;}
 #amenities-main ul li {font-size: 13px; margin-top:4px;}
 
-#location {padding:12px;}
-#location .map {background-color: #fff; box-sizing: border-box; font-size:20px; color:#ccc;}
+#location {padding:12px 12px 0;}
+#location .map {box-sizing: border-box; font-size:20px; color:#ccc; border:solid 1px #ddd; border-radius:4px;}
 
-#reviews {padding:12px; }
+#reviews {padding:12px 12px 0; }
 #reviews .wrapper {background-color:#fff; padding:12px 12px 8px; border-radius:4px;}
 #reviews .wrapper .score {font-size: 20px; font-weight:bold; margin-bottom: 4px;}
 #reviews .wrapper .see-reviews {font-size:13px;}
 #reviews .wrapper .bars {overflow: hidden; margin-top:8px;}
 #reviews .wrapper .bars .label {float:left; width:70px; font-size: 13px; font-weight:bold;}
 #reviews .wrapper .bars .bar {float:left; width:calc(100% - 70px); height:14px; background-color: #eee;}
-#reviews .wrapper .bars .bar > span {display:block; background-color:#000; height:14px;}
+#reviews .wrapper .bars .bar > span {display:block; background-color:#388e3c; height:14px;}
 #reviews .wrapper .ta {margin-top:12px; overflow:hidden; border-top:solid 1px #ddd; padding-top:12px;}
 #reviews .wrapper .ta .logo img {width:30px; display:block; margin-left:4px}
 #reviews .wrapper .ta .bullet-full {display:inline-block; height:7px; width:7px; background-color:#00AF87; border-radius:4px; margin-right:-3px;}
 #reviews .wrapper .ta .bullet-empty {display:inline-block; height:7px; width:7px; background-color:#fff; border-radius:4px; margin-right:-3px; border:solid 1px #00AF87; box-sizing: border-box;}
 #reviews .wrapper .ta .num-reviews {font-size:13px; font-weight: bold;}
-#reviews .wrapper .ta .disclaimer {font-size:11px; color:#999;}
+#reviews .wrapper .ta .disclaimer {font-size:11px; color:#999; margin-top:4px;}
 
-#rewards {padding:12px;}
-#rewards .title {font-weight:bold;}
-#rewards .info {font-size: 14px;}
+#rewards {padding:12px; background-color:#7b1fa2; margin:12px; color:#fff; border-radius:4px;}
+#rewards .title {font-weight:bold; margin-bottom:8px;}
+#rewards .info {font-size: 13px; margin-top:4px;}
 
 
 #rooms {border:solid 3px #555; padding-bottom:12px;}
@@ -93,14 +93,14 @@ ul {padding:0; margin:0 0 0 17px;}
 #rooms .recommended .book {border-top:solid 1px #ddd; padding:12px 0 0}
 #rooms .recommended .book .occupancy {display: inline-block; font-weight:bold; width:50%; }
 #rooms .recommended .book .total-price {display: inline-block; font-weight:bold; width:calc(50% - 8px); text-align:right;}
-#rooms .recommended .book button {margin-top:8px; width:100%}
+#rooms .recommended .book button {margin-top:8px; width:100%; border-radius:4px; border-bottom:2px solid #000;}
 
 .rate {border-top:solid 1px #ddd;}
 .rate .rate-details {margin-bottom:8px;}
-.rate .rate-details .non-refundable {font-size:14px; margin-bottom: 4px;}
-.rate .rate-details .free-cancellation {font-size:14px; margin-bottom: 8px; font-weight:bold;}
-.rate .rate-details .free-cancellation .expiry {font-size:12px; margin-top:4px; font-weight:normal;}
-.rate .rate-details .wifi {font-size:14px; margin-bottom: 4px;}
+.rate .rate-details .non-refundable {font-size:14px; margin-bottom: 8px; font-weight:bold;}
+.rate .rate-details .free-cancellation {font-size:14px; margin-bottom: 8px; font-weight:bold; color:#388e3c;}
+.rate .rate-details .free-cancellation .expiry {font-size:12px; margin-top:4px; font-weight:normal; color:#999;}
+.rate .rate-details .wifi {font-size:13px; margin-bottom: 4px; font-weight:bold; color:#388e3c;}
 .rate .rate-options-wrapper {position:relative}
 .rate .rate-options {overflow:hidden; border:solid 1px #ddd; vertical-align:top; position: relative;}
 .rate .label {padding:8px 0 4px 8px; font-size:12px; color:#999}
@@ -112,7 +112,7 @@ ul {padding:0; margin:0 0 0 17px;}
 
 
 .rate .rate-options-wrapper .add-button {text-align:right; margin-top:8px;}
-.rate .rate-options-wrapper .add-button .add {width:50px; padding:4px 0; text-align:center;}
+.rate .rate-options-wrapper .add-button .add {width:50px; padding:6px 0 4px; text-align:center; border-radius:4px; border-bottom:2px solid #000;}
 
 #basket {position:fixed; bottom:0; left:0; right:0; padding:12px; background-color:#156bc1; display:none; color:#fff; z-index:10002;}
 .rooms-selected .rate-selected {margin-bottom:8px; position:relative;}
@@ -126,8 +126,15 @@ ul {padding:0; margin:0 0 0 17px;}
 #basket .in-basket .book-rooms {float:right; width:50%; text-align:right;}
 #basket .in-basket .book-rooms button {background-color:#fff; padding:8px; color:#156bc1; border-radius:4px;}
 
-#whats-around {height:200px}
-#amenities-all {}
+#whats-around {}
+#amenities-all {padding:12px; margin-top:12px;}
+#amenities-all .amenities {border-top:solid 1px #ddd; padding:12px 0;}
+#amenities-all h2 {margin:0 0 8px 0; padding:0; font-size: 18px}
+#amenities-all h3 {margin:0 0 8px 0; padding:0; font-size: 14px}
+#amenities-all h4 {margin:0 0 8px 0; padding:0; font-size: 13px}
+#amenities-all p {margin:0 0 8px 0; padding:0; font-size: 12px; line-height: 16px;}
+#amenities-all ul {margin-bottom:8px;}
+#amenities-all ul li {margin:0; padding:0; font-size: 12px; margin-bottom:4px;}
 
 
 #overlay {position:fixed; top:0; bottom:0; left:0; right:0; background-color:#000; opacity:0.8; display:none;}

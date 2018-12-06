@@ -19,7 +19,7 @@
 			body {margin:0; padding:0; font-family: arial; }
 			a {text-decoration: none; color:#156bc1;}
 			a:visited {text-decoration: none; color:#156bc1;}
-			#header {background-color:#d32f2f; height:40px;}
+			#header {background-color:#d32f2f; padding:8px 12px;}
 			#sqm {background-color: #eae8e0; padding:12px 12px;}
 			#sqm .destination {font-size:13px; font-weight:bold;}
 			#sqm .search {font-size:13px; margin-top:4px;}
@@ -45,7 +45,9 @@
 	<body>
 
 			<div id="page-wrapper">
-				<div id="header"></div>
+				<div id="header">
+					<img src="i/logo.svg" style="height:30px"/>
+				</div>
 				<div id="sqm">
 					<div class="destination">New York, Unites States of America</div>
 					<div class="search">Fri 15 - Wed 20 March 2019, 5 nights, <span class="dates">2 adults, 2 children</span></div>
@@ -193,7 +195,7 @@
 				
 			} else if (scenario == "scenario2") {
 				// set up for 4 adults
-				(".guests").text("4 adults, ");
+				$(".guests").text("4 adults, ");
 				$("#sqm .search span").text("4 adults");
 				$("#club-quarters .price .total-price").text("£1814"); 
 				$("#hotel-mela .price .total-price").text("£1558");
