@@ -123,7 +123,7 @@ box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.75);}
 .rooms-selected .rate-selected .price {display:none;}
 #basket-modal {position:fixed; top:0; left:0; right:0; bottom:0; background-color:#fff; padding:20px; display:none; z-index:10003;}
 
-#basket .rooms-selected {border-bottom:solid 1px #fff;}
+#basket .rooms-selected {border-bottom:solid 1px #fff; font-size:14px;}
 #basket .in-basket {padding-top:8px; overflow:hidden;}
 #basket .in-basket .total-price {float:left; width:50%; font-size:20px; font-weight:bold;}
 #basket .in-basket .book-rooms {float:right; width:50%; text-align:right;}
@@ -142,10 +142,10 @@ box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.75);}
 
 #overlay {position:fixed; top:0; bottom:0; left:0; right:0; background-color:#000; opacity:0.8; display:none;}
 #overlay-room {position:fixed; top:0; left:0; bottom:0; right:0; display:none;}
-#overlay-room .title {position:absolute; top:0; left:0; right:0; height:30px; background-color:#eee; padding:8px 0 0 12px;}
+#overlay-room .title {position:absolute; top:0; left:0; right:0; height:40px; background-color:#eee; padding:12px 0 0 12px;}
 #overlay-room .title .room-name {font-weight:bold;}
-#overlay-room .body {position:absolute; top:30px; left:0; right:0; bottom:0; overflow-y: scroll; background-color:#fff; padding:12px;}
-#overlay-room .title a {position:absolute; top:8px; right:8px;}
+#overlay-room .body {position:absolute; top:40px; left:0; right:0; bottom:0; overflow-y: scroll; background-color:#fff; padding:12px;}
+#overlay-room .title a {position:absolute; top:12px; right:8px;}
 #overlay-room .body .details {}
 #overlay-room .body .details .image {margin-bottom:12px;}
 #overlay-room .body .details .sleeps {font-size:14px; margin-bottom:12px;}

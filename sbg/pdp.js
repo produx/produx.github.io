@@ -25,6 +25,7 @@ $(function(){
 	}); 
 
 	$("#overlay-gallery .header a.close").on("click", function(e){
+		e.preventDefault()
 		$("#overlay").hide();
 		$("#overlay-gallery").hide();
 		$("body").removeClass("disable");
