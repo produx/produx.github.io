@@ -8,6 +8,10 @@ var totalPrice = 0;
 
 $(function(){
 	// attach events on load
+	$("#sqm a").on("click", function(e){
+		window.history.back();
+	})
+
 	$("#photo a").on("click", function(e){
 		e.preventDefault();
 		$("#overlay").show();
@@ -32,6 +36,30 @@ $(function(){
 		$("#overlay-room").show();
 		$("body").addClass("disable");
 		var roomName = $(this).closest(".description").find(".room-name").text();
+		var roomId = $(this).attr("rel"); 
+		$("#overlay-room .title .room-name").text(roomName); 
+		$("#overlay-room .body .details ").hide()
+		$("#overlay-room .body #" + roomId + "-details").show();
+	});
+
+	$("#rooms .room .description .thumb img").on("click", function(e){
+		e.preventDefault();
+		console.log("description")
+		$("#overlay-room").show();
+		$("body").addClass("disable");
+		var roomName = $(this).closest(".description").find(".room-name").text();
+		var roomId = $(this).attr("rel"); 
+		$("#overlay-room .title .room-name").text(roomName); 
+		$("#overlay-room .body .details ").hide()
+		$("#overlay-room .body #" + roomId + "-details").show();
+	});
+
+	$(".recommended .room-option a.room-name").on("click", function(e){
+		e.preventDefault();
+					//console.log($(this).attr("rel"));
+		$("#overlay-room").show();
+		$("body").addClass("disable");
+		var roomName = $(this).text();
 		var roomId = $(this).attr("rel"); 
 		$("#overlay-room .title .room-name").text(roomName); 
 		$("#overlay-room .body .details ").hide()
