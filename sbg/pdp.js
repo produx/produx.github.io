@@ -8,6 +8,14 @@ var totalPrice = 0;
 
 $(function(){
 	// attach events on load
+	$("#basket button").on("click", function(e){
+		var h = $(this).attr("rel");
+		var p = $(this).closest(".in-basket").find(".total-price").text();
+		var url = "bf.html?hotel="+h+"&price="+p;
+		window.open(url, "_self")
+	})
+
+
 	$("#sqm a").on("click", function(e){
 		window.history.back();
 	})

@@ -123,7 +123,7 @@ box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.75);}
 .rooms-selected .rate-selected .price {display:none;}
 #basket-modal {position:fixed; top:0; left:0; right:0; bottom:0; background-color:#fff; padding:20px; display:none; z-index:10003;}
 
-#basket .rooms-selected {border-bottom:solid 1px #fff; font-size:14px;}
+#basket .rooms-selected {border-bottom:solid 1px #fff; font-size:14px;	}
 #basket .in-basket {padding-top:8px; overflow:hidden;}
 #basket .in-basket .total-price {float:left; width:50%; font-size:20px; font-weight:bold;}
 #basket .in-basket .book-rooms {float:right; width:50%; text-align:right;}
@@ -140,8 +140,8 @@ box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.75);}
 #amenities-all ul li {margin:0; padding:0; font-size: 12px; margin-bottom:4px;}
 
 
-#overlay {position:fixed; top:0; bottom:0; left:0; right:0; background-color:#000; opacity:0.8; display:none;}
-#overlay-room {position:fixed; top:0; left:0; bottom:0; right:0; display:none;}
+#overlay {position:fixed; top:0; bottom:0; left:0; right:0; background-color:#000; opacity:0.8; display:none; z-index:11002;}
+#overlay-room {position:fixed; top:0; left:0; bottom:0; right:0; display:none; z-index:11003;}
 #overlay-room .title {position:absolute; top:0; left:0; right:0; height:40px; background-color:#eee; padding:12px 0 0 12px;}
 #overlay-room .title .room-name {font-weight:bold;}
 #overlay-room .body {position:absolute; top:40px; left:0; right:0; bottom:0; overflow-y: scroll; background-color:#fff; padding:12px;}
@@ -159,7 +159,7 @@ box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.75);}
 #overlay-room .body .details .categories > div {font-size:13px; margin-bottom:4px;}
 
 
-#overlay-gallery {position:fixed; top:0; left:0; bottom:0; right:0; color:#fff; display:none;}
+#overlay-gallery {position:fixed; top:0; left:0; bottom:0; right:0; color:#fff; display:none; z-index:11003;}
 #overlay-gallery .header {position:absolute; top:0; left:0; right:0; height:40px; border-bottom:solid 1px #fff;}
 #overlay-gallery .header .title { padding:12px 12px 0; }
 #overlay-gallery .header a.close {position:absolute; display:block; top:10px; right:12px; font-size:20px; color:#fff;}

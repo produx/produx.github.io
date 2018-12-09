@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<style type="text/css">
+			@media screen and (min-width: 600px) {
+				#page-wrapper {max-width:360px; margin:auto; background-color:#eee;}
+
+			}
+			@media screen and (min-width: 750px) {}
+			@media screen and (min-width: 850px) {}
+			@media screen and (min-width: 960px) {}
+			@media screen and (min-width: 1160px) {}
+
+			body {margin:0; padding:0; font-family: arial; font-size: 14px; color:#555; background-color: #f5f4f0;}
+			#header {background-color:#d32f2f; padding:8px 12px; }
+			h2 {margin:12px 0 12px 0; padding:0;}
+			img.thumb {width:100%; border:solid 4px #fff; box-sizing: border-box; border-radius:2px;	}
+			div.name {font-size:16px; font-weight: bold; margin:12px 0 4px;}
+			div.location {margin-bottom: 12px;}
+			div.price {margin-top:4px; font-size: 18px; font-weight: bold;}
+			.field {margin-bottom:12px;}
+			.field label {display: block; font-weight: bold; margin-bottom: 4px;}
+			.field input {width:100%; box-sizing: border-box; padding:8px;}
+
+		</style>
+
+	</head>
+
+	<body>
+
+			<div id="page-wrapper">
+				<div id="header"><img src="i/logo.svg" style="height:30px"/></div>
+				<div style="padding:12px">
+					<div>Secure Booking (it only takes 2 minutes)</div>
+					<h2>Step 1: Check details</h2>
+					<img class="thumb" src="" />
+					<div class="name"></div>
+					<div class="location">New York, NY, USA</div>
+					<div>Total Price</div>
+					<div class="price"></div>
+
+					<h2 style="padding-top:12px; border-top:solid 1px #ddd;">Step 2: Enter your details</h2>
+					<div class="field">
+						<label>First name</label>
+						<input type="text" name="">
+					</div>
+					<div class="field">
+						<label>Last name</label>
+						<input type="text" name="">
+					</div>
+				</div>
+				
+			</div>
+
+
+
+		<!-- Scripts -->
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<script type="text/javascript">
+			var hotel = getParameterByName("hotel");
+			var price = getParameterByName("price");
+			
+
+			// run things on page load
+			$(function(){
+
+
+				switch(hotel) {
+  					case "1":
+    					$(".name").text("Club Quarters Hotel"); 
+    					$("img.thumb").attr("src", "https://thumbnails.trvl-media.com/ufNPHirCxf3G5jxz_KAO0mgCBa4=/582x388/smart/filters:quality(60)/images.trvl-media.com/hotels/6000000/5960000/5950500/5950418/44a5bf9b_z.jpg");
+    					break;
+  					case "2":
+    					$(".name").text("Hotel Mela Times Square"); 
+    					$("img.thumb").attr("src", "https://thumbnails.trvl-media.com/Pt0IHmw_mGXKX3aJJAKdyEs2qIQ=/582x388/smart/filters:quality(60)/images.trvl-media.com/hotels/2000000/1500000/1490100/1490016/06604936_z.jpg");
+    					break;
+    				case "3":
+    					$(".name").text("Hamilton Heights Stylish Apartments"); 
+    					$("img.thumb").attr("src", "https://thumbnails.trvl-media.com/yWU4Qc8XhpRZP2oIRV9YMSb2ce0=/582x388/smart/filters:quality(60)/images.trvl-media.com/hotels/22000000/21070000/21066300/21066219/dd50dec1_z.jpg");
+    					break;
+    				case "4":
+    					$(".name").text("The Jewel facing Rockerfeller Center"); 
+    					$("img.thumb").attr("src", "https://thumbnails.trvl-media.com/4fQkmHpoR8T73pxImUiyD_EIiKM=/582x388/smart/filters:quality(60)/images.trvl-media.com/hotels/4000000/3930000/3928700/3928653/0494d25f_z.jpg");
+    					break;
+    				case "5":
+    					$(".name").text("Park Central Hotel New York"); 
+    					$("img.thumb").attr("src", "https://thumbnails.trvl-media.com/l24KfboOFVrFWt3yDKwof_fTkXc=/582x388/smart/filters:quality(60)/images.trvl-media.com/hotels/1000000/10000/4200/4164/675037ae_z.jpg");
+    					break;
+    				case "6":
+    					$(".name").text("The Beekman Tower"); 
+    					$("img.thumb").attr("src", "https://thumbnails.trvl-media.com/HMpS9DciN9KBZtvJyMISxTFhabQ=/582x388/smart/filters:quality(60)/images.trvl-media.com/hotels/28000000/27350000/27347400/27347395/6cf95aa3_z.jpg");
+    					break;
+  					default:
+    					//code block
+				}; 
+
+				$(".price").text(price);
+
+			});
+
+			function getParameterByName(name) {
+    			name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    			var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+       				results = regex.exec(location.search);
+    			return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+			}
+
+		</script>
+	</body>
+</html>
