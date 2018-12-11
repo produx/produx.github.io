@@ -127,7 +127,7 @@ $(function(){
 
 		$(".rooms-selected").append(selectedRateDetails);
 					
-		$("#basket .total-price").text("$"+totalPrice.toString());
+		$("#basket .total-price").text("£"+totalPrice.toString());
 		var roomAdded = $(this).closest(".room").attr("rel")
 		var getNumRoomsAdded = $(".rooms-selected #" + roomAdded + " .number").text();
 					
