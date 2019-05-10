@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+		
+
+		<!-- style sheets -->
+
+		<style type="text/css">
+			@media screen and (min-width: 600px) {}
+			@media screen and (min-width: 750px) {}
+			@media screen and (min-width: 850px) {}
+			@media screen and (min-width: 960px) {}
+			@media screen and (min-width: 1160px) {}
+
+			body {margin:0; padding:0; font-family: arial, sans-serif; background-color: #fff; color:#525252;}
+			a {text-decoration:none; color:#1976D2;}
+
+			h2 {margin:0; padding:0; font-size:16px;}
+			#header-wrapper, #nav-wrapper, #search-wrapper, #content-wrapper {max-width:1260px; margin:0 auto;}
+
+			#header { background-color:#d32f2f; padding:12px 0 8px; overflow: hidden;}
+			#nav { background-color:#af1d1f; background-color: #ECEFF1; background-color: #fff;}
+			#nav-wrapper ul {overflow:hidden; list-style-type: none;margin:0; padding:0;}
+			#nav-wrapper ul li {float:left; color:#d32f2f; color:#333;  font-size:13px; margin-right:20px; padding:12px 0 12px;}
+			
+
+			#search {min-height:88px; background-color:#fff;}
+			#search #map {display:inline-block; width:225px; vertical-align:top;}
+			#search #map img {border:solid 4px #fff; margin-top:18px; width:225px;}
+			#search #query {display:inline-block; box-sizing: border-box; padding:20px 0 0 28px; vertical-align: top}
+			#search #query h1 {margin:0; padding:0; font-size:20px; margin-bottom:4px;}
+			#search #query div {font-size:14px;}
+
+			#sqm {background-color:#eae8e0; overflow: hidden;}
+			#sqm .section {padding:12px 0px; border-bottom:solid 1px #ccc; padding:16px;}
+			
+
+			/*#sqm #destination {width:100%; margin-right:8px;}
+			#checkin {margin-right:0px; border-top-right-radius: 0; border-bottom-right-radius: 0;}
+			#checkout {margin-right:8px; border-top-left-radius: 0; border-bottom-left-radius: 0; border-left:0;}
+			#sqm #occupancy {margin-right:8px;}
+			#sqm #submit {display: inline-block; vertical-align: top;}*/
+
+			#content-wrapper {position:relative;}
+			#filter-col {width:225px; position:absolute; top:0; left:0; margin-top:20px;}
+			#filter-col h3 {font-size: 18px; line-height: 20px; margin:0; padding:0;}
+			#filter-col .amount {font-size: 14px; margin-bottom:20px;}
+			#filter-col .filter-block {padding: 20px 0; border-top:solid 1px #ddd; }
+			#filter-col .filter-block ul {list-style-type: none; margin:0 0 0 0; padding:0;}
+			#filter-col .filter-block label {font-weight: bold; display: block; margin-bottom: 8px}
+			#filter-col .filter-block input[type="text"] {font-size: 14px; padding:2px 4px; font-family: "proxima-soft", arial; line-height: 14px; box-sizing: border-box; width:190px;}
+			.range {position:relative; height:26px;}
+			.range .bar {height:4px; background-color: #1976D2; position:absolute; top:12px; left:4px; right:4px;}
+			.range .handle {width:26px; height:26px; border-radius:50%; border:solid 2px #1976D2; background-color:#ffffff; -webkit-webkit-box-shadow: 1px 1px 1px 0px rgba(82,82,82,1);
+-moz-box-shadow: 1px 1px 1px 0px rgba(82,82,82,1);
+box-shadow: 1px 1px 1px 0px rgba(82,82,82,1);}
+			.range .left {position:absolute; top:0; left:0;}
+			.range .right {position:absolute; top:0; right:0;}
+
+			#results-col {width:calc(100% - 255px); margin-left:255px; background-color: #f5f5f5; box-sizing:border-box; padding:0 16px;}
+			#results-col #sort {box-sizing:border-box; background-color: #fff; border:solid 1px #f5f5f5; margin:0 -16px;}
+			#results-col #sort ul {list-style-type: none; padding:0; margin:0; overflow:hidden;}
+			#results-col #sort ul li {float:left; color:#1976D2; padding: 8px 16px;}
+			#results-col #sort ul li.select {background-color: #f5f5f5}
+
+			input[type="checkbox"] {    -webkit-appearance: checkbox;
+    box-sizing: border-box;}
+
+    		button {background-color: #1976D2; color:#fff; border:0; font-size: 16px; font-family:arial;; margin-top:0; font-weight: bold; border-radius:2px; padding:8px 12px; border-bottom:0px solid #00577C; font-size: 24px}
+
+		</style>
+
+	</head>
+
+	<body>
+		
+		
+		<div id="header">
+			<div id="header-wrapper">
+				<img src="hcom_logo_white.svg" style="height:36px"/>
+				<style type="text/css">
+					.primary-nav {float:right; list-style-type: none; margin:0; padding:0;}
+					.primary-nav li {float:left;  margin-right:20px; color:#fff; font-size:16px; text-align:right;}
+				</style>
+				<ul class="primary-nav">
+					
+					<li>
+						<div style="font-size: 13px;">Book online or call</div>
+						<div style="font-size: 20px; margin-top:4px;">020 3024 8216</div>
+					</li>
+					
+					
+				</ul>
+			</div>
+		</div>
+		
+		<div id="nav">
+			<div id="nav-wrapper">
+				<ul>
+					<li>Hotels deals</li>
+					<li>Packages and Flights</li>
+					<li>Groups and Meetings</li>
+					<li>Gift cards</li>
+					<li>Help</li>
+					<li>Website feedback</li>
+					<li style="float:right">Your bookings</li>
+					<li style="float:right">Hotels.com Rewards</li>
+					<li style="float:right">Sign in &amp; Account</li>
+				</ul>
+			</div>
+		</div>
+		<div style="position:relative; height:440px; overflow:hidden; background-color:#fff; background-image: url('hero-image.png'); background-size:cover;">
+			
+			<div class="ad-bg" style="position:absolute; left:0; right:0; bottom:0;">
+				<div style="max-width:1260px; margin:0 auto; position:relative;">
+					<div style="position:absolute; bottom:0; right:0; width:340px; height:150px; background-color:#000; opacity:0.8; border-top-right-radius: 4px; border-top-left-radius: 4px;"></div>
+				</div>
+			</div>
+
+			<div class="ad" style="position:absolute; left:0; right:0; bottom:0;">
+    			<div class="ad-wrapper" style="max-width:1260px; margin:0 auto;  position:relative">
+    				<div style="position:absolute; bottom:0; right:0; width:340px; height:150px; padding:16px; box-sizing: border-box;">
+    					<img src="logos-transparent.png" style="width:100%; "/>
+    					<div style="margin:12px 0 16px; color:#fff; font-size:14px; line-height: 18px">
+    					From colonial charm to modern architecture, explore the captivating cities and towns of Mexico
+    					</div>
+    					<div style="border-radius:4px; font-weight: bold; text-align: right;">
+    						<a href="#" style="color:#fff;">
+    							<span style="display:inline-block; vertical-align: top; padding-top:2px">Find out more</span> 
+    							<i class="material-icons" style="display:inline-block; vertical-align: top;">arrow_forward_ios</i></a> 
+    					</div>
+    				</div>
+    				
+
+    			
+    			</div>
+    		</div>
+    		
+    	</div>
+    		
+
+    	<div style="position:absolute; top:120px; width:1260px; z-index:1000; left: 50%;
+  margin-left: -630px;">
+
+  			
+    		
+  			<div id="sqm" style="width:33%; background-color:#eae8e0; border-radius:4px; -webkit-box-shadow: 0px 0px 4px 0px rgba(153,153,153,1);
+-moz-box-shadow: 0px 0px 4px 0px rgba(153,153,153,1);
+box-shadow: 0px 0px 4px 0px rgba(153,153,153,1);">
+  				
+  				<div class="section" style="">
+  					<h1 style="margin:0 0 4px 0; padding:0; font-size:28px">Where to, Craig?</h1>
+  					<div style="font-size:13px;">Destination and properties around the world...</div>
+  					<div style="margin:8px 0 4px;"><input type="text" placeholder="e.g. Las Vegas" style="font-family:arial; font-size:13px; padding:6px; border:solid 1px #ddd; width:calc(100% - 24px);"/></div>
+  					
+  				</div>
+  				<div class="section" style="overflow:hidden;border-top:solid 1px #fff;">
+  					<div style="float:left; width:calc(50% - 10px); box-sizing: border-box; margin-right: 12px;">
+  						<h2 style="margin-bottom:4px;">Check in</h2>
+  						<input type="text" placeholder="e.g. Las Vegas" style="font-family:arial; font-size:13px; padding:6px; border:solid 1px #ddd; width:calc(100% - 24px);" value="09/01/2018"/>
+  						<div style="margin-top:4px; font-size:13px;">Friday</div>
+  					</div>
+  					<div style="float:left; width:calc(50% - 10px); box-sizing: border-box;">
+  						<h2 style="margin-bottom:4px;">Check out</h2>
+  						<input type="text" placeholder="e.g. Las Vegas" style="font-family:arial; font-size:13px; padding:6px; border:solid 1px #ddd; width:calc(100% - 24px);" value="10/01/2018"/>
+  						<div style="margin-top:4px; font-size:13px;">Saturday</div>
+  					</div>
+  				</div>
+  				<div class="section" style="border-top:solid 1px #fff;">
+  					<h2>Rooms</h2>
+  					<div style="background-color:#fff; padding:8px; margin-top:4px; display: inline-block; font-size: 14px">1 room, 2 adults</div>
+  				</div>
+
+				<div id="submit" style="text-align:right; border-top:solid 1px #fff; padding:16px">
+					<button class="sqm" style="background-color: #1976D2">Search</button>
+				</div>
+				
+  			</div>
+
+    	</div>
+
+    	<style type="text/css">
+    		ul.punch {list-style-type: none; overflow: hidden; margin:0; padding:0;}
+    		ul.punch li {float:left; padding:4px 0; width:28px; text-align: center; border:dashed 1px #7B1FA2; color:#7B1FA2; margin:0 8px 8px 0; border-radius:4px; font-size: 14px}
+    	</style>
+
+    	<!--<div style="background-color:#f2eaf0; background-color:#7B1FA2; padding:16px 0; border-bottom:solid 1px #ddd;">
+    		<div style="width:1260px; margin:0 auto;">
+    			<div style=" width:280px; background-color:#fff; border-radius:8px; display:inline-block; vertical-align:top; box-sizing:border-box; padding:12px 12px 4px; position:relative;">
+    				<ul class="punch">
+    					<li>1</li>
+    					<li>2</li>
+    					<li>3</li>
+    					<li>4</li>
+    					<li>5</li>
+    				</ul>
+    				<ul class="punch">
+    					<li>6</li>
+    					<li>7</li>
+    					<li>8</li>
+    					<li>9</li>
+    					<li>10</li>
+    				</ul>
+    				<div style="position:absolute; right:12px; top:12px; bottom:12px; width:50px; border:dashed 1px #7B1FA2; border-radius:4px">
+
+    				</div>
+    			</div>
+    			<div style="display:inline-block; vertical-align:top; color:#fff; margin:12px 0 0 20px;">
+    				<div style="font-size:24px; font-weight:bold;">Collect 10 nights get 1 reward night*</div>
+    				<div style="font-size:18px; margin-top:8px">And look out for Secret Prices on selected hotels</div>
+    			</div>
+    		</div>
+    	</div>
+    		
+
+    	
+
+		<div id="sqm">
+			<div id="sqm-wrapper">
+				<div id="destination" class="field">
+					<label>Destination</label>
+					<input type="text" value="New York, New York, United States"/>
+				</div>
+				<div id="checkin" class="field">
+					<label>Check in</label>
+					<input type="text" value="Sat 09/30/17"/>
+				</div>
+				<div id="checkout" class="field">
+					<label>Check out</label>
+					<input type="text" value="Mon 11/30/17"/>
+				</div>
+				<div id="occupancy" class="field" style="width:250px">
+					<label>Rooms</label>
+					<input type="text" value="1 room, 2 adults, 0 children"/>
+				</div>
+				<div id="submit">
+					<button class="sqm" style="background-color: #1976D2">Search</button>
+				</div>
+			</div>
+		</div>-->
+
+			
+		
+
+		
+		
+
+		
+
+
+
+		<!-- Scripts -->
+		<!-- JQuery Google CDN -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="handlebars.js"></script>
+
+		<script type="text/javascript">
+
+			// run things on page load
+			$(function(){
+				$.getJSON( "ny-json.js", function(data){
+					console.log(data);
+					displayHotels(data);
+				});
+
+				var displayHotels = function(data){
+					// get hotel data
+					var hotels = data.result;
+					console.log(hotels);
+				
+					// attach to handle bar template
+        			var source   = $("#hotel-card-template").html();
+  					var template = Handlebars.compile(source);
+  					$("#hotel-list").html(template(hotels));
+				}
+			});
+
+			Handlebars.registerHelper("thumbnailUrl", function(imageUrl){
+				var url = imageUrl.replace("_b.jpg", "_l.jpg");
+				return url;
+			});
+
+			Handlebars.registerHelper("neighbourhood", function(location){
+				//var url = imageUrl.replace("_b.jpg", "_l.jpg");
+				var n = location.indexOf("/"); 
+				var nHood = location.substring(n, 0) 
+				return nHood;
+			});
+
+			Handlebars.registerHelper("showDeal", function(pricepromotion, index, avgPrice, promoPriceDescription){
+				//var res = location.split("/");
+				//var url = imageUrl.replace("_b.jpg", "_l.jpg");
+				//console.log(pricepromotion);
+				var dealType = ""
+
+				if (index == 2 || index == 6 || index == 10) {
+					dealType = '<div class="secret-price">'
+					+ '<div><div class="label">Secret Price</div></div>'
+					+ '<span class="strikethrough">' + avgPrice + '</span> '
+					+ '<span class="total">' + pricepromotion.prefix + '' + pricepromotion.formattedValue + '</span>'
+					+ '</div>'
+				} else {
+					dealType = '<div class="special-deal">'
+					+ '<div><div class="label">Special deal</div></div>'
+					+ '<span class="strikethrough">' + avgPrice + '</span> '
+					+ '<span class="total">' + pricepromotion.prefix + '' + pricepromotion.formattedValue + '</span>'
+					+ '</div>'
+
+				}
+
+				return new Handlebars.SafeString(
+    				dealType
+  				);
+			});
+
+		</script>
+	</body>
+</html>
