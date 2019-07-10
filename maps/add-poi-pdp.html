@@ -10,15 +10,45 @@
 		<script type="text/javascript"
           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKuM7xluOCtezbOo1m34AfGyr64Y2zunA&libraries=places">
       	</script>
-		<script src="add-poi.js"></script>
+		<!--<script src="add-poi.js"></script>-->
       	
 
       	<script type="text/javascript">
-			
+          var distanceService = new google.maps.DistanceMatrixService;
+			   var hotelLoc = {lat: 48.860611, lng: 2.346624}
+
 
 			$(function(){
 				
 				initialize(); 
+
+        $("i.remove").on("click", function(){
+          console.log("remove");
+          var name = $(this).siblings(".name").text();
+          console.log($(this).siblings(".name").text()); 
+          $(this).parent("li").hide();
+          
+          $(".removed").show();
+          $(".removed .name").text(name)
+        }); 
+
+        $(".why").on("click", function(e){
+          e.preventDefault();
+          $(".overlay").show();
+          $(".feedback").show();
+        })
+
+        $(".overlay").on("click", function(){
+          $(this).hide();
+          $(".feedback").hide();
+        })
+
+        $(".feedback button").on("click", function(){
+          $(".overlay").hide();
+          $(".feedback").hide();
+          $(".removed").hide();
+        })
+
 			});
 
       var initialize = function(){
@@ -32,11 +62,37 @@
 
         searchBox.addListener('place_changed', function() {
           var place = searchBox.getPlace();
+
           console.log(place);
-          $("#poi-added").append("<li>" + place.name + " (" + Math.floor(Math.random() * 10) + " minutes walk)</li>");
+          var distance = getDistance(place)
+         ;
 
         });
       }
+
+      var getDistance = function(place) {
+              distanceService.getDistanceMatrix({
+                origins: [hotelLoc],
+                destinations: [place.geometry.location],
+                travelMode: google.maps.TravelMode["WALKING"],
+                unitSystem: google.maps.UnitSystem.METRIC,
+                avoidHighways: false,
+                avoidTolls: false
+              }, function(response, status) {
+              if (status !== google.maps.DistanceMatrixStatus.OK) {
+                  alert('Error was: ' + status);
+              } else {
+                console.log(response.rows[0].elements[0]); 
+                var d = response.rows[0].elements[0].duration.text
+                var dis = d.replace(" mins", "-minute walk");
+                $("#poi-added").append("<li>" + place.name + " (" + dis + ")</li>");
+                $("#poi-input").val("");
+                 
+              }
+
+          }); 
+      }
+
 
 
 		</script>
@@ -50,122 +106,95 @@
   	</head>
   	<body>
 
-  		<!--<div id="header">
-  			<div class="wrapper">
-  				<img src="i/Horizontal_H_White.svg" style="height:36px"/>
-  			</div>
-  		</div>
-  		<div id="nav">
-  			<div class="wrapper">
-  				<ul>
-  					<li>Hotel Deals</li>
-  					<li>Packages & Flights</li>
-  					<li>Gift Cards</li>
-  					<li>Help</li>
-  					<li>Website feedback</li>
-  					<li class="right">Your bookings</li>
-  					<li class="right">Hotels.com Rewards</li>
-  					<li class="right">Sign in &amp; account</li>
-  				</ul>
-  			</div>
-  		</div>
-  		<div id="query">
-  			<div class="wrapper">
-  				<img src="i/listview.png" />
-  				<div class="search">
-  					<h1>Paris, France</h1>
-  					<div class="dates">Mon 27 - Tue 28 November 2017, 1 night, 1 room, 2 adults</div>
-  				</div>
-  			</div>
-  		</div>
-  		<div id="tools">
-  			<div class="wrapper">
-  				<label>Search map for</label>
-  				<input type="text" name="" placeholder="Location, landmark, station, etc..." />
-  				<button class="disabled">Go</button>
-  			</div>
-  		</div>
-  		<div id="filters">
-  			<div class="block">
-  				<h2>Narrow results</h2>
-  				<span class="total">2,483 hotels and holiday rentals</span>
-  			</div>
-  			<div class="block">
-  				<label>Name contains</label>
-					<div style="position:relative;">
-						<input type="text" name="hotel" placeholder="Hotel name..." style="width:calc(100% - 40px)">
-					<button style="padding:0 0 0 0; margin:0; position:absolute; top:1px; right:2px; bottom:2px; border-radius:0px;-webkit-box-shadow: 0px 0px 0px 0px rgba(82,82,82,1);
--moz-box-shadow: 0px 0px 0px 0px rgba(82,82,82,1);
-box-shadow: 0px 0px 0px 0px rgba(82,82,82,1);"><i class="material-icons">keyboard_arrow_right</i></button>
-					</div>
-  			</div>
-  			<div class="block">
-  				<label>Price</label>
-					<div class="range">
-						<div class="bar"></div>
-						<div class="handle left"></div>
-						<div class="handle right"></div>
-					</div>
-  			</div>
-  			<div class="block">
-  				<label>Star rating</label>
-					<ul id="star-rate">
-						
-						<li><input type="checkbox"/><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i></li>
-						<li><input type="checkbox" /><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i></li>
-						<li><input type="checkbox" /><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i></li>
-						<li><input type="checkbox" /><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i></li>
-						<li><input type="checkbox" /><i class="material-icons">star_rate</i></li>
-					</ul>
-  			</div>
-  			<div class="block">
-  				<label>Guest rating</label>
-					<div class="range">
-						<div class="bar"></div>
-						<div class="handle left"></div>
-						<div class="handle right"></div>
-					</div>
-  			</div>
-  			<div class="block">
-  				<h3>Hotels.com Rewards	</h3>
-  			</div>
-  			
-
-  		</div>-->
-
       <style type="text/css">
-        h2 {margin-bottom: 20px; font-size:18px;}
-        h3 {margin-bottom:12px;}
-        ul li {margin-bottom:8px; list-style-type:disc; margin-left:17px;}
-      
+        #wrapper {padding:20px 0; border-top: solid 1px #ddd; border-bottom: solid 1px #ddd; margin:50px auto; width:320px; }
+
+        a {text-decoration: none; color:#156BC1;}
+        h2 {margin-bottom: 12px; font-size:18px;}
+        h3 {margin-bottom:8px;}
+        h4 {margin-bottom:8px; margin-top:12px;}
+        ul li {margin-bottom:8px; list-style-type:disc; margin-left:17px; position:relative; padding-right:16px;}
+        ul li .remove {font-size:14px; position:absolute; right:0; top:2px;}
+        ul li .remove:hover {color:#156BC1; cursor: pointer;}
+        .removed {display:none; background-color:#FCF2C5; padding:8px 8px 4px; font-size:12px;}
+
+        .removed div {margin-bottom:4px;}
+        .removed .name {font-weight: bold;}
+        
       </style>
 
-      <div style="padding:20px 0; border-top: solid 1px #ddd; border-bottom: solid 1px #ddd; margin:20px">
+      <div id="wrapper">
   	
-      <h2>What’s around Paris Best Western Premier Louvre Saint Honore</h2>
+      <h2>What’s around Hotel Novotel Les Halles</h2>
 
-      <h3>Popular landmarks</h3>
-       <ul id="poi">
-            <li>Galeries Lafayette (20-minute walk)</li>
-            <li>Palais Royal (4-minute walk)</li>
-            <li>Louvre Museum (6-minute walk)</li>
-            <li>Forum des Halles (8-minute walk)</li>
+      <img src="https://maps.googleapis.com/maps/api/staticmap?center=48.860611,2.346624&zoom=14&size=320x100&key=AIzaSyCKuM7xluOCtezbOo1m34AfGyr64Y2zunA&markers=color:blue%7C48.860611,2.346624&size: small" />
 
-         </ul>
-
-			 <div class="poi-search" style=" width:320px; margin-top:20px">
-          <label style="display:block; margin-bottom:8px; font-size: 14px;"><strong>Add a landmark / venue</strong> (in Paris)</label>
-          <input type="text" id="poi-input" name="poi-input" placeholder="Enter a location" style="width:300px; border-radius:4px; border:solid 1px #ddd;     padding:8px">   
+       <div class="poi-search" style=" width:320px; margin:8px 0 8px 0;">
+          <!--<label style="display:block; margin-bottom:8px; font-size: 14px;"><strong>Add a landmark / venue</strong> (in Paris)</label>-->
+          <input type="text" id="poi-input" name="poi-input" placeholder="Search for a landmark" style="width:300px; border-radius:4px; border:solid 1px #ddd;     padding:8px">   
        </div>
-
-       <div style="margin-top:20px;">
+      <div>
          <ul id="poi-added">
            
          </ul>
        </div>
+
+      
+       <h4>Popular Landmarks</h4>
+       <ul id="poi">
+            <li>
+              <span class="name">Forum des Halles</span> (4-minute walk) 
+              <i class="material-icons remove">close</i>
+            </li>
+            <li>
+              <span class="name">Centre Pompidou</span> (6-minute walk)
+              <i class="material-icons remove">close</i>
+            </li>
+            <li>
+              <span class="name">Museum Georges Pompidou</span> (9-minute walk)
+              <i class="material-icons remove">close</i>
+            </li>
+            <li>
+              <span class="name">Sain Chapelle</span> (11-minute walk)
+              <i class="material-icons remove">close</i>
+            </li>
+         </ul>
+       
+        <div class="removed">
+          <div>We've removed <span class="name"></span></div>
+          <div><a href="#" class="why">Tell us why</a> | <a href="#">Undo</a></div>
+          
+        </div>
+
        </div>
 
-		
+       <style type="text/css">
+         .overlay {position:absolute; top:0; left:0; right:0; bottom:0; background-color:#000; opacity:0.7; display:none;}
+         .feedback {position:absolute; width:300px; background-color:#fff; top:20px; display:none; margin-left: auto;
+margin-right: auto;
+left: 0;
+right: 0; border-radius:8px; padding:20px;}
+          .feedback .check {margin-bottom:12px;}
+          .feedback .submit {text-align: right}
+          .feedback .submit button {background-color:#156BC1; color:#fff; border-radius:4px; padding:8px 16px; margin-top:12px;}
+       </style>
+
+		  <div class="overlay"></div>
+      <div class="feedback">
+        <h2>Tell us why</h2>
+        <div class="check">
+          <input type="checkbox" /> <label>This is not somewhere I want to visit</label>
+        </div>
+        <div class="check">
+          <input type="checkbox" /> <label>I've been here before</label>
+        </div>
+        <div class="check">
+          <input type="checkbox" /> <label>I'm not intereted in this kind of landmark</label>
+        </div>
+        <div class="submit">
+            <button>Submit</button>
+        </div>
+      </div>
 
   	</body>
 </html>

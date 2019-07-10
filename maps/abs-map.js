@@ -128,6 +128,7 @@ var addHotelPins = function(){
 
             hidePOICard();
             showHotelCard(hotel.name, latlngObj);
+            
             displayRoute(latlngObj);
 
         });
@@ -149,7 +150,7 @@ var showHotelCard = function(name, loc){
 }
 
 function displayRoute(hotelLoc) {
-
+console.log(hotelLoc);
  var request = {
     origin: hotelLoc,
     destination: loc,
