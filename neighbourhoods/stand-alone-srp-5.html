@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+		<link rel="stylesheet" type="text/css" href="../common.css">
+
+		<style type="text/css">
+		ul {margin:0; padding:0;}
+		#wrapper-query {background-color:#eae8e0; min-height:80px;}
+		#wrapper-results {max-width:1160px; margin:0 auto; padding:0 16px 0; box-sizing:border-box;}
+		#wrapper-results #filters {width:225px; float:left; background-color:#f5f4f0; height:400px;}
+		#wrapper-results #list {width:calc(100% - 245px); float:right;  height:400px;}
+		#wrapper-results #sort {padding:16px 0; border-bottom:solid 1px #ccc;}
+		#wrapper-results #list #hotels .hotel {margin-top:16px; border:solid 1px #eee; padding:8px; border-radius:4px;}
+		#wrapper-results #list #hotels .hotel .details {display: inline-block; vertical-align: top; margin-left:8px;}
+		#wrapper-results #list #hotels .hotel .address {font-size:12px; display: block; margin-top:4px;}
+		#wrapper-results #list #hotels .hotel .neighbourhood {font-size:12px; display: block; margin-top:4px;}
+		#wrapper-results #list #hotels .hotel .thumbnail {height:80px; width:120px; overflow:hidden; display:inline-block; vertical-align: top; position:relative;}
+		
+		#wrapper-results #list #hotels .hotel .thumbnail img {width:100%; position:absolute; bottom:0;}
+
+		#location-list {position:absolute; top:0; bottom:0px; left:0px; right:0px; width:200px;  background-color:#fff; border-right:8px #fff solid; overflow-y: scroll; box-sizing: border-box; padding:8px; background-color:#eee;}
+
+		
+    	.container {margin-bottom:16px; padding:0 8px;}
+    	#price {background-color:  #eae8e0; padding:8px 24px 16px ;}
+    	.container h3 {font-size:14px; margin:8px 0;}
+    	.container ul.tags {margin:0; padding:0;}
+    	.container ul.tags li {list-style-type: none; display:inline-block; margin:0; padding:4px 8px; background-color:#eee; border-radius:4px; font-size:12px; text-transform: uppercase;}
+
+
+		
+
+	#overlay:hover {cursor:pointer;}
+		</style>
+
+
+	</head>
+
+	<body>
+
+	<!-- common elements -->
+		<div id="header"></div>
+		<div id="nav"></div>
+		
+		<div id="wrapper-query">
+			
+		</div>
+
+
+		<div id="wrapper-results">
+			<div id="filters"></div>
+
+			<script id="some-template" type="text/x-handlebars-template">
+ 				{{#each hotels}}
+ 					<div class="hotel">
+ 						<div class="thumbnail">
+ 							<img src="{{imageUrl}}" />
+ 						</div>
+ 						<div class="details">
+       	 					<a class="name" href="#">{{hotelName}}</a>
+       	 					<span class="address">{{address1}}, {{address2}}, {{locality}}, {{region}}</span>
+       	 					<span class="neighbourhood">{{location}}</span>
+       	 				</div>
+       	 			</div>
+		      	{{/each}}
+    		</script>
+
+
+			<div id="list-1"></div>
+			
+			<div id="list">
+				<div id="sort">Sort by</div>
+
+				<div id="guide" style="padding:8px; background-color:#1db0ed; margin-top:8px; color:#fff;">Not sure which part of <span class="dest"></span> is right for you? <a href="#" style="color:#fff; font-weight:bold">Explore our guide to <span class="dest"></span> neighbourhoods</a></div>
+
+
+				<div id="hotels">
+					
+				<div id="loading-hotels" style="font-size:20px; margin-top:40px; text-align:center; display:none;">fetching hotels...</div>
+
+				</div>	
+			</div>
+		</div>
+		
+<div id="overlay" style="position:fixed; top:0; left:0; right:0; bottom:0; background-color:#000; opacity:0.7;"></div>
+
+<div id="guides" style="position:fixed; top:0px; width:732px; bottom:0; right:0px; background-color:#fff;">
+	<h2 style="position:absolute; top:0;margin:0; padding:0; left:0; right:0; background-color:#d41200; color:#fff; padding:32px 16px 16px; font-size:24px; font-weight:bold">Popular neighbourhoods</h2>
+	
+	<div style="position:absolute; top:100px; left:16px; bottom:0; right:0; padding-right:16px;">
+
+		<div id="neighbourhoods" style="position:absolute; top:0px; bottom:0; left:0; right:0;">
+			
+		</div>
+
+	</div>
+
+</div>
+
+<style type="text/css">
+	#neighbourhoods {overflow-y: scroll;}
+	.neighbourhood-card h2 {margin:0; padding:8px; background-color:#000; color:#fff; font-size:14px;}
+	.neighbourhood-card h3 {margin:0; padding:4px 0; color:#000;  font-size:14px;}
+	.neighbourhood-card {margin-bottom:8px; padding:8px 0; border-bottom:solid 1px #eee;}
+
+			.neighbourhood-card .image {position:relative; display:inline-block; vertical-align:top; width:250px;}
+			.neighbourhood-card .image img.thumb {width:250px; }
+			.neighbourhood-card .image img.map {display:block;}
+			.neighbourhood-card .name {color:#000; font-weight: bold; font-size:24px;}
+			.neighbourhood-card .content {box-sizing: border-box; display:inline-block; vertical-align:top; width:450px; padding:0 16px;}
+			.tags {margin:0; padding:0;}
+			.tags li {list-style-type: none; display:inline-block; padding:0; margin:0; background-color:#eee; padding:4px 8px; margin-right:4px; border-radius:4px; font-size:12px; font-weight:bold; margin-bottom:4px;}
+	.neighbourhood-card p.description {line-height: 20px; padding-right:16px;}
+			.landmarks li {list-style-type: none; margin-bottom:4px;}
+			.prices {overflow:hidden;}
+			.prices li {list-style-type: none; margin-bottom:4px; float:left; width:33%;}
+</style>
+
+<script id="neighbourhood-card" type="text/x-handlebars-template">
+ 			{{#each this}}
+ 				<div class="neighbourhood-card {{hideNeighbourhood hasContent}}" rel="{{addCount}}">
+ 					
+ 					<div class="image">
+ 						
+ 						<img class="thumb" src="{{image}}" />
+ 						<img class="map" src="{{staticMapLink staticMapUrl}}" />
+ 						
+ 					</div>
+
+ 					<div class="content">
+ 					<div class="name">{{name}}</div>
+ 					<div>
+ 							<h3>Average prices</h3>
+ 							<ul class="prices">
+ 								<li>3 Star from £123</li>	
+ 								<li>4 Star from £123</li>	
+ 								<li>5 Star from £123</li>	
+ 							</ul>
+ 						</div>
+ 					<div style="overflow:hidden; margin-top:12px;">
+ 						
+
+ 						<div style="float:left; width:50%; box-sizing:border-box; padding-right:12px">
+ 							<h3>Great for</h3>
+ 							<ul class="tags">
+ 								{{displayTags tags}}
+ 							</ul>
+
+ 						</div>
+ 						<div style="float:left; width:50%">
+ 						<h3>Landmarks</h3>
+ 						<ul class="landmarks">
+ 							{{displayTags landmarks}}	
+ 						</ul>
+
+ 					</div>
+ 						
+ 					</div>
+ 					<p class="description">{{description}}</p>
+ 					
+ 					
+ 					
+ 					</div>
+
+ 					
+ 				</div>
+		    {{/each}}
+    	</script>
+
+
+
+		<!-- Scripts -->
+
+      	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="../hcom-services.js"></script>
+		<script src="../handlebars.js"></script>
+		<script src="content.js"></script>
+		<script src="methods.js"></script>
+
+		<!-- JQuery Google CDN -->
+		
+		<script type="text/javascript">
+			var count = 0;
+			// run things on page load
+			$(function(){
+
+				
+
+      			
+				if (getParameterByName("destination")) {
+					//fetch hotels from mobile API
+					//fetchHotelList(getParameterByName("destination"), displayHotels);
+					$("#loading-hotels").show();
+					fetchContent();
+					var d = getParameterByName("destination"); 
+					var dd = d.split(",")
+					$("span.dest").append(dd[0]);
+					
+				} else {
+
+				}
+
+				// neighbourhood guides
+
+				$("#guide a").on("click", function(e){
+					$("#overlay").show();
+					$("#guides").show();
+				});
+
+				$("#overlay").on("click", function(e){
+					$("#overlay").hide();
+					$("#guides").hide();
+				});
+
+				
+
+
+			});
+
+
+			var displayHotels = function (data) {
+
+				$("#loading-hotels").hide();
+				
+				// get hotel data
+				var hotels = data.result;
+				console.log(hotels);
+				
+				// attach to handle bar template
+        		var source   = $("#some-template").html();
+  				var template = Handlebars.compile(source);
+  				$("#hotels").html(template(hotels));
+			}; 
+
+			var displayNeighbourhoods = function(data){
+				console.log("nhoods")
+				// hide loading message
+				//$("#loading-hotels").hide();
+			
+				var neighbourhood = data;
+				console.log(neighbourhood);
+				
+				// attach to handle bar template
+        		var source   = $("#neighbourhood-card").html();
+  				var template = Handlebars.compile(source);
+  				$("#neighbourhoods").html(template(neighbourhood));
+			}
+
+			Handlebars.registerHelper("addCount", function(){
+				count++
+				return count;
+			});
+
+			Handlebars.registerHelper("hideNeighbourhood", function(hasContent){
+				if (hasContent == false){
+					return "hide";
+				} else {
+					return "";
+				}
+				
+			});
+
+			Handlebars.registerHelper("displayTags", function(tags){
+				var tStr = tags.split(", ");
+				var tagsStr = ""
+
+				$.each(tStr, function(i, tag) {
+					tagsStr += "<li>" + tag + "</li>"
+				});
+
+				return new Handlebars.SafeString(tagsStr);
+			});
+
+			Handlebars.registerHelper("staticMapLink", function(staticMapUrl){
+				var smURL = "http://maps.googleapis.com/maps/api/staticmap?";
+				smURL += "&center=" + destinationObj[0].map;
+				smURL += "&zoom=" + destinationObj[0].staticMapZoom;
+				smURL += "&size=250x250"
+				smURL += "&sensor=false"
+				smURL += "&path=color:red|weight:1|fillcolor:red|" + staticMapUrl
+
+				console.log(smURL);
+
+				//http://maps.googleapis.com/maps/api/staticmap?
+				//center=35.6712935174737,139.764315704409
+				//&zoom=11
+				//&size=250x125
+				//&sensor=false
+				//&path=color:red|weight:1|fillcolor:red|35.666941,139.722226|35.668363,139.730487|35.669198,139.73818|35.670999,139.742897|35.689,139.752|35.689,139.722|35.666941,139.722226
+
+
+
+				return smURL;
+			})
+
+			
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+		<link rel="stylesheet" type="text/css" href="../reset.css">
+		<link rel="stylesheet" type="text/css" href="../canvas.css">
+
+		<!-- Roboto font -->
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+
+		<!-- Scripts -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+		<script type="text/javascript"
+          src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDGbEUwknHTaKmEpjwM-fRfJt7zbCZZtCI">
+      	</script>
+      	<script src="../hcom-services.js"></script>
+      	<script src="map_3.js"></script>
+	
+
+		<script type="text/javascript">
+
+
+
+			$(function(){
+
+				
+				//console.log(fetchHotelList(""));
+
+
+				// events 
+
+				$("#guide a").on("click", function(e){
+					$("#overlay").show();
+					$("#map").show();
+					initializeMap("Tokyo");
+
+				});
+
+				$("#overlay").on("click", function(e){
+					$("#overlay").hide();
+					$("#map").hide();
+					//initializeMap("Tokyo");
+					
+				});
+
+				$("#neighbourhoods .card .close").on("click", function(e){
+					e.preventDefault();
+					console.log("hit close")
+					$("#neighbourhoods").slideUp();
+					neighbourhoodPolygon.setVisible(false);
+				}); 
+
+				$('select').on('change', function() {
+  					//console.log( $(this).find('option:selected').text()); // or $(this).val()
+  					openNeighbourhood($(this).find('option:selected').text())
+  					var nhoodobj = neighbourhoods[$(this).find('option:selected').text().toLowerCase()]
+  					//$("#neighbourhoods .card").hide();
+					//$("#neighbourhoods #" + $(this).find('option:selected').text()).show();
+					console.log(neighbourhoods[$(this).find('option:selected').text().toLowerCase()]);
+
+					addNeighbourhoodPolygon(nhoodobj.center)
+				});
+
+
+			});
+
+			var openNeighbourhood = function(nhood){
+				console.log("neighbourhood"); 
+				$("#neighbourhoods .card").hide();
+				$("#neighbourhoods #" + nhood).show();
+				$("#neighbourhoods").slideDown();
+
+				$("select option").filter(function() {
+    				//may want to use $.trim in here
+    				return $(this).text() == nhood; 
+				}).prop('selected', true);
+
+			}
+
+		</script>
+
+	</head>
+
+	<body>
+
+		<style type="text/css">
+		body {font-family:arial; font-size: 14px;}
+		#neighbourhoods {position:absolute; top:auto; bottom:0px; left:0px; right:0px;  background-color:#fff;
+		}
+		#neighbourhoods .card:first-child {display:none;}
+		#neighbourhoods .card  h2 {font-size:18px; font-weight:bold; padding:12px; position:relative; }
+		#neighbourhoods .card img {max-width: 100%}
+		#neighbourhoods .card p {line-height: 18px; padding:12px;}
+		#neighbourhoods .card button{margin-left:12px; margin-top:12px; font-size:16px; font-family:arial; background-color: #1db0ed; color:#fff; padding:8px; border:0; border-radius: 4px;
+    -webkit-box-shadow: 0 4px #0c7daf;
+    -moz-box-shadow: 0 4px #0c7daf;
+    box-shadow: 0 4px #0c7daf;}
+		#neighbourhoods .close {position:absolute; right:14px; top:6px; color:#fff;}
+		#neighbourhoods .close:hover {}
+
+		select {border:0; font-size:16px; padding:4px 12px 12px; -webkit-appearance: none; background-color:#fff; font-weight:bold; font-family:arial; font-size:18px; position:relative; background:url("arrow_down.png") no-repeat right center; background-size: 12px; border-bottom:solid 0px; border-radius:0; width:calc(100% - 12px); outline: 0;}
+
+
+
+		@media only screen and (min-width:600px) {
+		}
+
+		@media only screen and (min-width:750px) {
+		}
+
+		@media only screen and (min-width:850px) {
+		}
+
+		@media only screen and (min-width:960px) {
+			#neighbourhoods {position:absolute; top:0px; bottom:0; left:0px; right:auto; width:300px; background-color:#fff;}
+			.hotel {box-sizing:border-box; border:solid 1px #ccc; padding:12px; height:100px; margin-bottom:16px;}
+		}
+
+		@media only screen and (min-width:1260px) {
+		}
+
+
+		</style>
+
+		<div style="background-color:#d41200; height:50px;">
+			
+		</div>
+
+		<div id="wrapper" style="max-width:1160px; margin:50px auto; overflow:hidden;">
+			<div style="width:280px; float:left; height:500px; background-color:#eee;"></div>
+			<div style="width:calc(100% - 300px); float:right;">
+				<div id="guide" style="box-sizing:border-box; background-color:#f1f1f1; padding:12px; margin-bottom:16px">
+					Never been to Tokyo before? <a href="#">View our neighbourhood guide.  </a>
+				</div>
+				<div class="hotel">Hotel name</div>
+				<div class="hotel">Hotel name</div>
+				<div class="hotel">Hotel name</div>
+				<div class="hotel">Hotel name</div>
+				<div class="hotel">Hotel name</div>
+				<div class="hotel">Hotel name</div>
+				<div class="hotel">Hotel name</div>
+			</div>
+		</div>
+		<div id="overlay" style="position:fixed; top:0; left:0; right:0; bottom:0; background-color:#000; opacity:0.7; display:none;"></div>
+		<div id="map" style="position:fixed; top:100px; left:100px; right:100px; bottom:100px; display:none;">
+
+			<div id="map_canvas" style="width:calc(300px - 100%); height:100%;"></div>
+
+
+			<div id="neighbourhoods">
+				<div style="padding:0">
+					
+					<h2 style="margin-bottom:8px; font-weight:bold; background-color:#000; color:#fff; padding:12px">Tokyo neighbourhoods</h2>
+					<select>
+						<optgroup label="Popular Neighbourhoods">
+							<option>Akasaka</option>
+							<option>Asakusa</option>
+							<option>Ginza</option>
+							<option>Nihonbashi</option>
+							<option>Shinjuku</option>
+						</optgroup>
+					</select>
+				</div>
+				<div id="Akasaka" class="card">
+				
+					<img src="https://a1.cdn-hotels.com/cos/production166/d148/22b478f0-05c0-11e4-b02d-d89d672bfba8.jpg" />
+					<p class="description">
+						It's one of the commercial centers of Tokyo, which explains why Akasaka boasts a lion's share of swanky, upmarket hotels – many of which count as attractions in their own right. Chill out in their cocktail and Champagne bars, not to mention the wealth of restaurants serving everything from exquisite tempura dishes to traditional Japanese barbecue, or yakiniku. Prices can be high, but you can bag great deals at lunchtime.
+
+					</p>
+
+					<button>View hotels in Akasaka</button>
+					
+				</div>
+
+				<div id="Asakusa" class="card" style="display:none;">
+				
+					
+					<img src="https://a1.cdn-hotels.com/cos/production187/d78/23269bb0-05c0-11e4-b376-d89d672c79ac.jpg" />
+					<p class="description">
+						There's one major reason why Asakusa should be on your Tokyo to-do list: the ancient Buddhist temple Senso-Ji, which is the largest in the city and dates right back to 645 AD. Entering through the iconic Thunder Gate, you'll be dazzled by the Nakamise arcade, with its colorful stalls selling everything from kimonos to decorative fans. You can also admire Senso-Ji's ornate pagoda and the nearby Asakusa Shrine.
+
+					</p>
+					
+					<button>View hotels in Asakusa</button>
+				</div>
+
+				<div id="Ginza" class="card" style="display:none;">
+				
+					
+					<img src="https://a1.cdn-hotels.com/cos/production20/d709/23822930-05c0-11e4-b376-d89d672c79ac.jpg" />
+					<p class="description">
+						Fashionistas flock to this part of Tokyo, and with good reason. It's the place to find high-end department stores as well as boutiques emblazoned with the names of the world's best-known fashion houses. Ginza's not just about splashing the cash, though. Iconic structures can also be seen first hand, from the clocktower on the Wako Building to the towering, neon-lit glass cylinder of the San'ai Building.
+
+					</p>
+
+					<button>View hotels in Ginza</button>
+					
+				</div>
+
+				<div id="Nihonbashi" class="card" style="display:none;">
+				
+					
+					<img src="https://a1.cdn-hotels.com/cos/production110/d1096/23ede350-05c0-11e4-8314-d89d672bd508.jpg" />
+					<p class="description">
+						Taking its name from the Nihonbashi Bridge (stone now, but the original wooden one was built back in 1603), this is one of Tokyo's business hotspots. And you'll be able to tell that just from looking up at the magnificent buildings, including the sleek Mitsui Tower. It's also the headquarters of the Tokyo Stock Exchange, though casual travelers will probably be more interested in the district's department stores and restaurants.
+					</p>
+
+					<button>View hotels in Nihonbashi</button>
+					
+				</div>
+
+				<div id="Shinjuku" class="card" style="display:none;">
+				
+					
+					<img src="https://a1.cdn-hotels.com/cos/production41/d382/244f1620-05c0-11e4-8314-d89d672bd508.jpg" />
+					<p class="description">
+						Shinjuku train station is the busiest in the world, which gives you an idea of just how buzzing this district is. It's a place of contrasts – there are the alleys of Golden Gai, whose bars are a haven for artists and musicians, and then there are the whopping skyscrapers of the Nishi-Shinjuku business zone. For serenity amid the urban sprawl, relax amid the cherry blossoms of Shinjuku Gyoen National Garden.
+
+					</p>
+
+					<button>View hotels in Shinjuku</button>
+					
+				</div>
+			</div>
+
+
+		<div>
+
+	</body>
+	</html>

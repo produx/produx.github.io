@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+		<link rel="stylesheet" type="text/css" href="common.css">
+		<link rel="stylesheet" type="text/css" href="list-overlay.css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+
+	</head>
+
+	<body>
+
+	<!-- common elements -->
+		<div id="header"></div>
+		<div id="nav"></div>
+		
+		<div id="wrapper-query">
+			<div id="query">
+				
+				<img src="http://www.hotels.com/da/assets/s/41.0/images/themes/red/pages/sha/map.png" style="display:inline-block; border:3px solid #fff; vertical-align:top;"/>
+				<div style="display:inline-block; margin-left:20px; vertical-align:top;">
+					<h1 id="destination"></h1>
+					<div style="padding:4px 0 0 0; font-size:16px">Wed 22 - Thu 23 June 2016, 1 night, 1 room, 2 adults</div>
+						
+				</div>
+
+			</div>
+		</div>
+
+
+		<div id="wrapper-results">
+			<div id="filters">
+				<div>
+					<h2>Narrow results:</h2>
+					<div id="total-hotels"></div>
+				</div>
+				<div id="f-name-contains" class="filter">
+					<h3>Name contains</h3>
+					<input type="text" />
+				</div>
+				<div id="f-price" class="filter">
+					<h3>Price</h3>
+					<div style="text-align:center; font-weight:bold; margin-bottom:4px">£0 - £500+</div>
+					<img src="slider.png" />
+				</div>
+				<div id="f-star-rating" class="filter">
+					<h3>Star rating</h3>
+					<ul class="stars">
+						<li>
+ 							<input type="checkbox">
+ 							<label>&#9733;&#9733;&#9733;&#9733;&#9733;</label>
+ 						</li>
+ 						<li>
+ 							<input type="checkbox">
+ 							<label>&#9733;&#9733;&#9733;&#9733;</label>
+ 						</li>
+ 						<li>
+ 							<input type="checkbox">
+ 							<label>&#9733;&#9733;&#9733;</label>
+ 						</li>
+ 						<li>
+ 							<input type="checkbox">
+ 							<label>&#9733;&#9733;</label>
+ 						</li>
+ 						<li>
+ 							<input type="checkbox">
+ 							<label>&#9733;</label>
+ 						</li>
+					</ul>
+				</div>
+				<div id="f-guest-rating" class="filter">
+					<h3>Guest rating</h3>
+					<div style="text-align:center; font-weight:bold; margin-bottom:4px">0 - 5</div>
+					<img src="slider.png" />
+				</div>
+				<div id="f-neighbourhoods" class="filter"></div>
+				<div id="f-landmarks" class="filter"></div>
+			</div>
+
+			<script id="some-template" type="text/x-handlebars-template">
+ 				{{#each hotels}}
+ 					<div class="hotel-card">
+ 						<div class="thumbnail">
+ 							<img src="{{imageUrl}}" />
+ 						</div>
+ 						<div class="details">
+       	 					<a class="name" href="#">{{hotelName}}</a>
+       	 					<span class="address">{{address1}}, {{address2}}, {{locality}}, {{region}}</span>
+       	 					<span class="neighbourhood">{{location}}</span>
+       	 				</div>
+       	 				<div class="price" style="">
+       	 					{{#if promoPriceDetails}}
+
+       	 				{{#if promoPriceDescription.length}}
+       	 					<div class="specialDeal">
+       	 						<span class="description">{{promoPriceDescription}}</span>
+       	 						<span class="strikethrough">{{avgPrice}}</span> 
+       	 						<span class="total">{{promoPriceDetails.prefix}}{{promoPriceDetails.formattedValue}}</span>
+       	 					</div>
+       	 				{{else}}
+       	 					<div class="standard">{{promoPriceDetails.prefix}}{{promoPriceDetails.formattedValue}}</div>
+       	 				{{/if}}
+       	 				
+       	 			{{else}}
+       	 				<div class="standard">{{avgPrice}}</div>
+       	 			{{/if}}
+       	 			<button>Choose room</button>
+       	 				</div>
+
+       	 			</div>
+		      	{{/each}}
+    		</script>
+
+
+			<div id="list-1"></div>
+			
+			<style type="text/css">
+				#sort ul {list-style-type: none; display: flex; flex-direction: row;}
+				#sort ul li {flex-grow: 1; padding:4px 0;}
+				#sort ul li:not(:first-child) {color:#026dc5; text-align: center;}
+				#sort ul li.selected {background-color:#026dc5; color:#fff; border-radius:4px;}
+			</style>
+
+			<div id="list">
+				<div id="sort">
+					<ul>
+						<li>Sort by:</li>
+						<li class="selected">Our favourites</li>
+						<li>Star rating</li>
+						<li>Distance</li>
+						<li>Guest rating</li>
+						<li>Price</li>
+					</ul>
+				</div>
+
+				<a href="" id="guide-open" style="display:block; padding:8px; background-color:#026dc5; margin-top:8px; color:#fff; height:auto; padding:16px 20px 16px 230px; box-sizing:border-box; outline:0; background: no-repeat #026dc5; background-position:left top;">
+						<span style="display:block; font-size:18px; margin-bottom:8px;">Not sure where to stay in <span class="dest"></span>?</span>
+						<span style="display:inline-block; font-size:13px; border-bottom:solid 2px #000; border-radius:4px; padding:6px 8px; background-color:#fff; color:#026dc5">Try our neighbourhood guide <i class="fa fa-arrow-right" aria-hidden="true"></i></span>
+				</a>
+			
+				<div id="loading-hotels" style="font-size:20px; margin-top:40px; text-align:center; display:none;">
+					<div style="margin-bottom:4px">List of available hotels goes here</div>
+					
+				</div>
+				<div id="loading-nhood-hotels" style="font-size:20px; margin-top:40px; text-align:center; display:none;">			<div style="margin-bottom:4px">fetching hotels</div>
+					<img src="red_spinner.gif" />
+				</div>
+
+				<div id="selected-filters" style="margin-top:8px"></div>
+
+				<div id="hotels">
+					
+					
+
+					
+
+				</div>	
+			</div>
+		</div>
+		
+<div id="overlay" style="">
+	<div style="position:absolute; top:16px; right:16px; color:#fff; font-size:20px">X</div>
+
+</div>
+
+<div id="guides">
+	<!--<h2 style="position:absolute; top:0;margin:0; padding:0; left:0; right:0; color:#fff; background-color:#d41200; padding:16px 16px 16px; position:relative;">
+		Popular <span class="dest"></span> neighbourhoods
+
+		<a id="close-guide" href="#" style="position:absolute; right:8px; top:8px; color:#fff; font-weight:normal; font-size:18px; padding:8px; ">X</a>
+	</h2>-->
+	
+	<div id="map" style="position:absolute; top:0px; left:0px; bottom:0; right:400px; background-color:#eee;">
+		<div id="map_canvas" style="width:100%; height:100%;"></div>
+	</div>
+
+	<div id="neighbourhoods" style="">
+		<div id="neighbourhood-header">
+			<h2 style="padding:0; margin:4px 8px 8px; font-size:16px"><a href="#" class="back" style="color:#fff;"><i class="fa fa-arrow-left" style="display:none;" aria-hidden="true"></i> Popular neighbourhoods and landmarks</a></h2>
+			
+		</div>
+		<div id="neighbourhood-list" style=""></div>
+
+		<div id="landmark-list" style="display:none;"></div>
+	
+		<div id="neighbourhood-content" style="display:none;">
+			<div class="image">
+				<img / style="width:100%">
+			</div>
+
+			<div class="content" style="padding:16px;">
+				<h2 id="hood-name"></h2>
+				<h3>Great for</h3>
+			<ul class="tags"></ul>
+			<p class="description" style="font-size:13px; line-height:18px"></p>
+ 			
+			
+			<h3 style="margin-top:12px;">Landmarks</h3>
+			<ul class="landmarks"></ul>
+			</div>
+			
+			
+			
+
+			
+		</div>	
+		<div class="shopfor" style="">
+			<button rel="">Shop for hotels in <span></span></button>
+		</div>
+	</div>
+
+</div>
+
+<script id="filters-neighborhoods" type="text/x-handlebars-template">
+ 	<h3>Neighbourhoods</h3>
+ 	<ul>
+ 		{{#each this}}
+ 		<li>
+ 			<input type="checkbox" name="{{id}}">
+ 			<label>{{title}}</label>
+ 		</li>
+ 		{{/each}}
+ 	</ul>			
+</script>
+
+<script id="filters-landmarks" type="text/x-handlebars-template">
+ 	<h3>Landmarks</h3>
+ 	<ul>
+ 		{{#each this}}
+ 		<li>
+ 			<input type="checkbox" name="{{id}}">
+ 			<label>{{title}}</label>
+ 		</li>
+ 		{{/each}}
+ 	</ul>			
+</script>
+
+
+<script id="neighbourhood-card" type="text/x-handlebars-template">
+ 			{{#each this}}
+ 				<div class="neighbourhood-card {{hideNeighbourhood hasContent}}" rel="{{inc @index}}">
+ 					
+ 					
+ 					<div class="name"><a href="#" class="more" rel={{@index}}><span class="num">{{inc @index}}</span><span class="title">{{name}}</span></a></div>
+ 					<div class="content">
+ 					<h3>Great for</h3>
+ 					<ul class="tags">
+ 					{{displayTags tags}}
+ 					</ul>
+ 					<h3>Popular landmarks</h3>
+ 					<ul class="landmarks">
+					{{displayLandmarks landmarks}}
+ 					</ul>	
+
+ 					</div>
+ 					
+ 					<a id="{{nid}}" rel="{{@index}}" class="more" href="#" style="display:block; padding:0 16px 8px; font-size:12px; ">More about {{name}} <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+ 					<div style="padding:8px 0 0; border-top:solid 1px #eee;">
+ 					<button class="shop" rel="{{nid}}" style="margin-bottom:8px">Shop for hotels in <span>{{name}}</span></button>	
+ 					</div>
+ 				</div>
+ 		
+		    {{/each}}
+    	</script>
+
+<script id="landmark-card" type="text/x-handlebars-template">
+ 	{{#each this}}
+ 		<div class="landmark-card">
+ 			<div class="type"><img src="pin.png" /> {{displayLandmarkType type}}</div>
+ 			<h3>{{name}}</h3>
+ 			
+ 			<div class="neighbourhood">
+ 				<h4>Neighbourhood</h4>
+ 				{{neighbourhood}}
+ 			</div>
+ 		</div>
+ 	{{/each}}
+</script>
+
+
+
+		<!-- Scripts -->
+		<script type="text/javascript"
+          src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDGbEUwknHTaKmEpjwM-fRfJt7zbCZZtCI">
+      	</script>
+      	<script src="map-labels.js"></script>
+      
+
+      	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="hcom-services.js"></script>
+		<script src="handlebars.js"></script>
+		<script src="list-overlay.js"></script>
+		<script src="content-2.js"></script>
+		<script src="methods.js"></script>
+
+		<!-- JQuery Google CDN -->
+		
+		<script type="text/javascript">
+			var count = 0;
+
+
+			// run things on page load
+			$(function(){
+
+				//$( "#header" ).load( "../components/c-header.html" );
+				//$( "#nav" ).load( "../components/c-nav.html" );
+
+
+				if (getParameterByName("localhost")) {
+					$.getJSON( "ny-json.js", function( data ) {
+  					//displayHotels(data);
+  					//displayFilters(data)
+				});
+				} else {
+					if (getParameterByName("destination")) {
+						//fetch hotels from mobile API
+						//fetchHotelList(getParameterByName("destination"), displayContent);
+						//fetchHotelList(getParameterByName("destination"), displayFilters);
+						//fetchHotelListDestinationID(getParameterByName("destinationID"), displayContent)
+						$("#loading-hotels").show();
+						
+
+						var d = getParameterByName("destination"); 
+						var dd = d.split(",")
+						$("span.dest").append(dd[0]);
+						$("#destination").text(d);
+						//$("#neighbourhood-header h2").text(d);
+
+						var ddd = dd[0].replace(" ", "-")
+						$("#guide-open").css("background-image", "url(i/" + ddd + ".png)");
+					
+					} else {
+
+					}
+				}
+
+      			$(window).on('hashchange', function() {
+  					var hash = window.location.hash;
+  					console.log(hash)
+  					if (hash == "guide-close"){
+  						//$("#overlay").hide();
+						//$("#guides").hide();
+						//$("body").removeClass("modal-open");
+  					}
+ 				});
+				
+				$("ul.tabs li a[rel='landmarks']").on("click", function(e){
+					$(this).addClass("selected");
+					$("ul.tabs li a[rel='neighbourhoods']").removeClass("selected");
+					$("#neighbourhood-list").hide();
+					$("#neighbourhood-content").hide();
+					$("#landmark-list").show();
+					removePolygonHighlight();
+					$(".shopfor").hide();
+				});
+
+				$("ul.tabs li a[rel='neighbourhoods']").on("click", function(e){
+					$(this).addClass("selected");
+					$("ul.tabs li a[rel='landmarks']").removeClass("selected");
+					$("#neighbourhood-list").show();
+					$("#neighbourhood-content").hide();
+					$("#landmark-list").hide();
+					removePolygonHighlight();
+					$(".shopfor").hide();
+				});
+
+				// neighbourhood guides
+
+				$("#guide-open").on("click", function(e){
+					e.preventDefault()
+					$("#overlay").show();
+					$("#guides").show();
+					$("body").addClass("modal-open");
+					buildMapAndContent();
+					//window.location.hash = "guide-open";
+				});
+
+				$("#overlay").on("click", function(e){
+					$("#overlay").hide();
+					$("#guides").hide();
+					$("body").removeClass("modal-open");
+					//window.location.href.split('#')[0];
+					//window.location.hash = "guide-close";
+				});
+
+				$(document).on("click", ".neighbourhood-card button", function(){
+					var hoodName = $(this).find("span").text();
+					var hoodId = $(this).attr("rel");
+					//var hoodStr = $(this).attr("rel");
+
+					shopNeighbourhood(hoodName, hoodId);
+
+					//window.location.hash = "guide-close";
+				}); 
+
+				$(".shopfor button").on("click", function(e){
+					e.preventDefault();
+					var hoodName = $(this).find("span").text();
+					var hoodId = $(this).attr("rel");
+
+					console.log(hoodName + " - " + hoodId);
+					shopNeighbourhood(hoodName, hoodId);
+				})
+
+				$("#close-guide").on("click", function(e){
+					e.preventDefault();
+					$("#overlay").hide();
+					$("#guides").hide();
+					$("body").removeClass("modal-open");
+					//window.location.hash = "guide-close";
+				})
+
+				$(document).on("click", ".neighbourhood-card .more", function(){
+					console.log("clicked " + $(this).attr("rel"))
+					showNeighbourhoodContent($(this).attr("rel"));
+					highlightSelectedPolygon($(this).attr("rel"));
+					$(".shopfor").show();
+					
+				}); 
+
+				$("#neighbourhood-header a.back").on("click", function(e){
+					$("#neighbourhood-list").show(); 
+					//$("#neighbourhood-header").show(); 
+					$("#neighbourhood-content").hide();
+					//$("#neighbourhood-content-header").hide();
+					removePolygonHighlight();
+					$(".shopfor").hide();
+					$("#neighbourhood-header i").hide();
+				})
+
+
+			});
+
+			var shopNeighbourhood = function(hoodName, hoodId){
+				$("#overlay").hide();
+					$("#guides").hide();
+					$(".hotel-card").remove();
+
+					$("#loading-nhood-hotels").show().find("div").text("Finding available hotels in " + hoodName);
+					fetchHotelListNeighbourhood(destinationStr, hoodId, displayHotels);
+					$("body").removeClass("modal-open");
+
+					$("#selected-filters").hide().html("Selected filters: <span class='fs'>" + hoodName + "</span>");
+					$( "#f-neighbourhoods input[type=checkbox]" ).prop( "checked", false );
+					$( "input[name=" + hoodId + "]" ).prop( "checked", true );
+			}
+
+			var displayContent = function(data){
+				displayHotels(data);
+				displayFiltersNeighbourhoods(data.result.neighborhoods);
+				displayFiltersLandmarks(data.result.landmarks);
+				$("#total-hotels").text(data.result.matchingHotels + " hotels")
+			}
+
+			var displayFiltersNeighbourhoods = function (data){
+				var source   = $("#filters-neighborhoods").html();
+  				var template = Handlebars.compile(source);
+  				$("#f-neighbourhoods").html(template(data));
+			}
+
+			var displayFiltersLandmarks = function (data){
+				var source   = $("#filters-landmarks").html();
+  				var template = Handlebars.compile(source);
+  				$("#f-landmarks").html(template(data));
+			}
+
+			var showNeighbourhoodContent = function(num){
+				$("#neighbourhood-header i").show();
+				$(".shopfor").show();
+				$("#neighbourhood-list").hide(); 
+				//$("#neighbourhood-header").hide(); 
+				$("#neighbourhood-content").show();
+				//$("#neighbourhood-content-header").show();
+				mapCenterNeighburhood(neighbourhoodContent[num].center);
+				$("#hood-name").text(neighbourhoodContent[num].name);
+				$("#neighbourhood-content .image img").attr("src", neighbourhoodContent[num].image);
+				$("#neighbourhood-content .description").text(neighbourhoodContent[num].description);
+
+				// add tage
+				var tags = neighbourhoodContent[num].tags.split(", ");
+				var tagsStr = ""
+				$.each(tags, function(i, tag) {
+						tagsStr += "<li><i class='fa fa-check-circle' aria-hidden='true'></i> " + tag + "</li>"
+				});
+				$("#neighbourhood-content ul.tags").html(tagsStr)
+
+				// add landmarks
+				var landmarks = neighbourhoodContent[num].landmarks;
+
+				var lStr = "";
+				$.each(landmarks, function(i, lmark) {
+						var typeObj = getObjects(typeDescription, 'type', lmark.type); 
+						var typeDesc = typeObj[0];
+						console.log(typeDesc);
+						lStr += "<li>" + "<i class='fa fa-university' aria-hidden='true' style='display:inline-block; vertical-align:top; font-size:10px'></i><div style='display:inline-block; vertical-align:top; margin-left:8px'><div>" + lmark.name + "</div><div class='type'>" + typeDesc.description + "</li></div>"
+				});
+				$("#neighbourhood-content ul.landmarks").html(lStr)
+
+				$(".shopfor button").attr("rel", neighbourhoodContent[num].nid).find("span").text(neighbourhoodContent[num].name);
+			}
+
+			
+
+			
+
+			var displayHotels = function (data) {
+
+				$("#loading-hotels").hide();
+				$("#loading-nhood-hotels").hide();
+				$("#selected-filters").show();
+				
+				// get hotel data
+				var hotels = data.result;
+				console.log(hotels);
+				
+				// attach to handle bar template
+        		var source   = $("#some-template").html();
+  				var template = Handlebars.compile(source);
+  				$("#hotels").html(template(hotels));
+			}; 
+
+			var displayNeighbourhoods = function(data){
+				var neighbourhood = data;
+        		var source   = $("#neighbourhood-card").html();
+  				var template = Handlebars.compile(source);
+  				$("#neighbourhood-list").html(template(neighbourhood));
+			}
+
+			var displayLandmarkContent = function(data){
+				var landmarks = data;
+				var source   = $("#landmark-card").html();
+  				var template = Handlebars.compile(source);
+  				$("#landmark-list").html(template(landmarks));
+			}
+
+			Handlebars.registerHelper("displayLandmarkType", function(type){
+				
+				var typeObj = getObjects(typeDescription, 'type', type); 
+				var typeDesc = typeObj[0];
+				//console.log(typeDesc.description);
+
+				return typeDesc.description;
+			})
+
+			Handlebars.registerHelper("addCount", function(){
+				count++
+				return count;
+			});
+
+			Handlebars.registerHelper("inc", function(value, options){
+    			return parseInt(value) + 1;
+			});
+
+			Handlebars.registerHelper("hideNeighbourhood", function(hasContent){
+				if (hasContent == false){
+					return "hide";
+				} else {
+					return "";
+				}
+				
+			});
+
+			Handlebars.registerHelper("displayTags", function(tags){
+				
+				//console.log(tags)
+				var tStr = tags.split(", ");
+				var tagsStr = "";
+
+				$.each(tStr, function(i, tag) {
+					tagsStr += "<li><i class='fa fa-check-circle' aria-hidden='true'></i> " + tag + "</li>"
+				});
+
+				return new Handlebars.SafeString(tagsStr);
+			});
+
+
+			Handlebars.registerHelper("displayLandmarks", function(landmarks){
+				var lm = ""
+
+				$.each(landmarks, function(i, lmark) {
+					if (lmark.primary != "false"){
+						lm += "<li><i class='material-icons' style='font-size:13px'>account_balance</i>" + lmark.name + "</li>";
+					}	
+				});
+
+				return new Handlebars.SafeString(lm);
+			});
+
+			Handlebars.registerHelper("displayName", function(name){
+			
+				return new Handlebars.SafeString("<span class='title'>" + name + "</span>");
+			})
+
+
+			Handlebars.registerHelper("staticMapLink", function(staticMapUrl){
+				var smURL = "http://maps.googleapis.com/maps/api/staticmap?";
+				smURL += "&center=" + destinationObj[0].map;
+				smURL += "&zoom=" + destinationObj[0].staticMapZoom;
+				smURL += "&size=300x220"
+				smURL += "&sensor=false"
+				smURL += "&path=color:red|weight:1|fillcolor:red|" + staticMapUrl
+
+				return smURL;
+			})
+
+			
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+		<link rel="stylesheet" type="text/css" href="../reset.css">
+		
+
+		<!-- Roboto font -->
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+
+		<!-- Scripts -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+		<script type="text/javascript"
+          src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDGbEUwknHTaKmEpjwM-fRfJt7zbCZZtCI">
+      	</script>
+      	<script src="../hcom-services.js"></script>
+      	<script src="map.js"></script>
+	
+
+		<script type="text/javascript">
+
+
+
+			$(function(){
+				initializeMap("Tokyo");
+				//console.log(fetchHotelList(""));
+
+
+				// events 
+				$("#neighbourhoods .card .close").on("click", function(e){
+					e.preventDefault();
+					console.log("hit close")
+					$(this).closest(".card").slideUp();
+
+					//neighbourhoodPolygon.setMap(null)
+
+					neighbourhoodCircle.setMap(null);
+
+
+				}); 
+
+
+
+
+			});
+
+			var openNeighbourhood = function(nhood){
+				console.log("neighbourhood"); 
+				$("#neighbourhoods #" + nhood).slideDown();
+
+			}
+
+		</script>
+
+	</head>
+
+	<body>
+
+		<style type="text/css">
+		body {font-family:arial; font-size: 14px;}
+		#neighbourhoods .card {position:absolute; bottom:12px; left:12px; right:12px;  background-color:#fff; display:none;
+		-webkit-box-shadow: 2px 2px 5px 0px rgba(153,153,153,1);
+-moz-box-shadow: 2px 2px 5px 0px rgba(153,153,153,1);
+box-shadow: 2px 2px 5px 0px rgba(153,153,153,1);}
+		#neighbourhoods .card  h2 {font-size:18px; font-weight:bold; padding:12px; position:relative;}
+		#neighbourhoods .card img {max-width: 100%}
+		#neighbourhoods .card p {line-height: 18px; padding:12px;}
+		#neighbourhoods .card .close {position:absolute; right:14px; top:6px;}
+		#neighbourhoods .card .close:hover {}
+		</style>
+
+		<div style="background-color:#d41200; height:50px;">
+			
+		</div>
+		<div id="map" style="position:absolute; top:50px; left:0; right:0; bottom:0;">
+
+			<div id="map_canvas" style="width:100%; height:100%;"></div>
+
+
+			<div id="neighbourhoods">
+				<div id="Akasaka" class="card">
+				
+					<h2>Akasaka</h2>
+					<img src="https://a1.cdn-hotels.com/cos/production166/d148/22b478f0-05c0-11e4-b02d-d89d672bfba8.jpg" />
+					<p class="description">
+						It's one of the commercial centers of Tokyo, which explains why Akasaka boasts a lion's share of swanky, upmarket hotels – many of which count as attractions in their own right. Chill out in their...
+
+					</p>
+					<a href="#" class="close"><img src="close.png" /></a>
+				</div>
+
+				<div id="Asakusa" class="card">
+				
+					<h2>Asakusa</h2>
+					<img src="https://a1.cdn-hotels.com/cos/production187/d78/23269bb0-05c0-11e4-b376-d89d672c79ac.jpg" />
+					<p class="description">
+						There's one major reason why Asakusa should be on your Tokyo to-do list: the ancient Buddhist temple Senso-Ji, which is the largest in the city and dates right back to 645 AD. Entering through the...
+
+					</p>
+					<a href="#" class="close"><img src="close.png" /></a>
+				</div>
+
+				<div id="Ginza" class="card">
+				
+					<h2>Ginza</h2>
+					<img src="https://a1.cdn-hotels.com/cos/production20/d709/23822930-05c0-11e4-b376-d89d672c79ac.jpg" />
+					<p class="description">
+						Fashionistas flock to this part of Tokyo, and with good reason. It's the place to find high-end department stores as well as boutiques emblazoned with the names of the world's best-known fashion...
+
+					</p>
+					<a href="#" class="close"><img src="close.png" /></a>
+				</div>
+
+				<div id="Nihonbashi" class="card">
+				
+					<h2>Nihonbashi</h2>
+					<img src="https://a1.cdn-hotels.com/cos/production110/d1096/23ede350-05c0-11e4-8314-d89d672bd508.jpg" />
+					<p class="description">
+						Taking its name from the Nihonbashi Bridge (stone now, but the original wooden one was built back in 1603), this is one of Tokyo's business hotspots. And you'll be able to tell that just from...
+
+					</p>
+					<a href="#" class="close"><img src="close.png" /></a>
+				</div>
+
+				<div id="Shinjuku" class="card">
+				
+					<h2>Shinjuki</h2>
+					<img src="https://a1.cdn-hotels.com/cos/production41/d382/244f1620-05c0-11e4-8314-d89d672bd508.jpg" />
+					<p class="description">
+						Shinjuku train station is the busiest in the world, which gives you an idea of just how buzzing this district is. It's a place of contrasts – there are the alleys of Golden Gai, whose bars are a...
+
+					</p>
+					<a href="#" class="close"><img src="close.png" /></a>
+				</div>
+			</div>
+
+
+		<div>
+
+	</body>
+	</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+		<link rel="stylesheet" type="text/css" href="../common.css">
+
+		<style type="text/css">
+
+		#wrapper-query {background-color:#eae8e0; min-height:80px;}
+		#wrapper-results {max-width:1160px; margin:0 auto; padding:0 16px 0; box-sizing:border-box;}
+		#wrapper-results #filters {width:225px; float:left; background-color:#f5f4f0; height:400px;}
+		#wrapper-results #list {width:calc(100% - 245px); float:right;  height:400px;}
+		#wrapper-results #sort {padding:16px 0; border-bottom:solid 1px #ccc;}
+		#wrapper-results #list #hotels .hotel {margin-top:16px; border:solid 1px #eee; padding:8px; border-radius:4px;}
+		#wrapper-results #list #hotels .hotel .details {display: inline-block; vertical-align: top; margin-left:8px;}
+		#wrapper-results #list #hotels .hotel .address {font-size:12px; display: block; margin-top:4px;}
+		#wrapper-results #list #hotels .hotel .neighbourhood {font-size:12px; display: block; margin-top:4px;}
+		#wrapper-results #list #hotels .hotel .thumbnail {height:80px; width:120px; overflow:hidden; display:inline-block; vertical-align: top; position:relative;}
+		
+		#wrapper-results #list #hotels .hotel .thumbnail img {width:100%; position:absolute; bottom:0;}
+
+
+		#neighbourhoods {position:absolute; top:auto; bottom:0px; left:0px; right:0px;  background-color:#fff;
+		}
+		#neighbourhoods {position:absolute; top:0px; bottom:0; left:0px; right:auto; width:300px; background-color:#fff;}
+		#neighbourhoods .card {position:absolute; bottom:0; left:0; right:0; top:100px; overflow-y:scroll;}
+		#neighbourhoods .card:first-child {display:none;}
+		#neighbourhoods .card  h2 {font-size:18px; font-weight:bold; padding:12px; position:relative; }
+		#neighbourhoods .card img {max-width: 100%}
+		#neighbourhoods .card p {line-height: 18px; padding:12px;}
+		#neighbourhoods .card button{margin-left:12px; margin-top:12px; font-size:16px; font-family:arial; background-color: #1db0ed; color:#fff; padding:8px; border:0; border-radius: 4px;
+    -webkit-box-shadow: 0 4px #0c7daf;
+    -moz-box-shadow: 0 4px #0c7daf;
+    box-shadow: 0 4px #0c7daf;}
+		#neighbourhoods .close {position:absolute; right:14px; top:6px; color:#fff;}
+		#neighbourhoods .close:hover {}
+
+		select {border:0; font-size:16px; padding:4px 12px 12px; -webkit-appearance: none; background-color:#fff; font-weight:bold; font-family:arial; font-size:18px; position:relative; background:url("arrow_down.png") no-repeat right center; background-size: 12px; border-bottom:solid 0px; border-radius:0; width:calc(100% - 12px); outline: 0;}
+		</style>
+
+	</head>
+
+	<body>
+
+	<!-- common elements -->
+		<div id="header"></div>
+		<div id="nav"></div>
+		
+		<div id="wrapper-query">
+			
+		</div>
+
+
+		<div id="wrapper-results">
+			<div id="filters"></div>
+
+			<script id="some-template" type="text/x-handlebars-template">
+ 				{{#each hotels}}
+ 					<div class="hotel">
+ 						<div class="thumbnail">
+ 							<img src="{{imageUrl}}" />
+ 						</div>
+ 						<div class="details">
+       	 					<a class="name" href="#">{{hotelName}}</a>
+       	 					<span class="address">{{address1}}, {{address2}}, {{locality}}, {{region}}</span>
+       	 					<span class="neighbourhood">{{location}}</span>
+       	 				</div>
+       	 			</div>
+		      	{{/each}}
+    		</script>
+
+
+			<div id="list-1"></div>
+			
+			<div id="list">
+				<div id="sort">Sort by</div>
+
+				<div id="guide" style="padding:8px; background-color:#eee; margin-top:8px;">Not sure which part of Tokyo is right for you? <a href="map.html?destination=Tokyo, Japan">Explore our guide to Tokyo neighbourhoods</a></div>
+
+
+				<div id="hotels">
+					
+				<div id="loading-hotels" style="font-size:20px; margin-top:40px; text-align:center; display:none;">fetching hotels...</div>
+
+				</div>	
+			</div>
+		</div>
+		
+
+
+
+
+
+
+
+		<!-- Scripts -->
+		<script type="text/javascript"
+          src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDGbEUwknHTaKmEpjwM-fRfJt7zbCZZtCI">
+      	</script>
+      	<script src="map_3.js"></script>
+		<script src="../hcom-services.js"></script>
+		<script src="../handlebars.js"></script>
+
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			// run things on page load
+			$(function(){
+
+				
+
+      			
+				if (getParameterByName("destination")) {
+					//fetch hotels from mobile API
+					fetchHotelList(getParameterByName("destination"), displayHotels);
+					$("#loading-hotels").show();
+				} else {
+
+				}
+
+				// neighbourhood guides
+
+				$("#guide a").on("click", function(e){
+					$("#overlay").show();
+					$("#map").show();
+					initializeMap("Tokyo");
+
+				});
+
+				$("#overlay").on("click", function(e){
+					$("#overlay").hide();
+					$("#map").hide();
+					//initializeMap("Tokyo");
+					
+				});
+
+				$("#neighbourhoods .card .close").on("click", function(e){
+					e.preventDefault();
+					console.log("hit close")
+					$("#neighbourhoods").slideUp();
+					neighbourhoodPolygon.setVisible(false);
+				}); 
+
+				$('select').on('change', function() {
+  					//console.log( $(this).find('option:selected').text()); // or $(this).val()
+  					openNeighbourhood($(this).find('option:selected').text())
+  					var nhoodobj = neighbourhoods[$(this).find('option:selected').text().toLowerCase()]
+  					//$("#neighbourhoods .card").hide();
+					//$("#neighbourhoods #" + $(this).find('option:selected').text()).show();
+					console.log(neighbourhoods[$(this).find('option:selected').text().toLowerCase()]);
+
+					addNeighbourhoodPolygon(nhoodobj.center)
+				});
+
+
+			});
+
+
+			var displayHotels = function (data) {
+				// 
+				$("#loading-hotels").hide();
+				// get hotel data
+				var hotels = data.result;
+				console.log(hotels);
+				
+				// attach to handle bar template
+        		var source   = $("#some-template").html();
+  				var template = Handlebars.compile(source);
+  				$("#hotels").html(template(hotels));
+			}
+
+			var openNeighbourhood = function(nhood){
+				console.log("neighbourhood"); 
+				$("#neighbourhoods .card").hide();
+				$("#neighbourhoods #" + nhood).show();
+				$("#neighbourhoods").slideDown();
+
+				$("select option").filter(function() {
+    				//may want to use $.trim in here
+    				return $(this).text() == nhood; 
+				}).prop('selected', true);
+
+			}
+
+		</script>
+	</body>
+</html>

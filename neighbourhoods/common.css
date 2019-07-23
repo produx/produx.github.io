@@ -1,0 +1,68 @@
+/* CSS for common elements */
+
+body {font-size:14px; color:#555; margin:0; padding:0; font-family:arial;}
+a {text-decoration: none;}
+
+
+/* Header */
+#header {min-height:60px; background-color:#d41200;}
+
+/* Global nav */
+#nav {min-height:20px; background-color:#333;}
+
+
+/* SRP Structure */
+#wrapper-query {background-color:#eae8e0; min-height:20px;}
+#wrapper-query #search {max-width:1160px; margin:0 auto; padding:0 16px 0; box-sizing:border-box;}
+#wrapper-query h1 {font-size:20px; margin:0; padding:0;}
+#wrapper-results {max-width:1160px; margin:0 auto; padding:0 16px 0; box-sizing:border-box;}
+#wrapper-results #filters {width:225px; float:left; background-color:#f5f4f0; min-height:400px;}
+#wrapper-results #list {width:calc(100% - 245px); float:right;  height:400px;}
+#wrapper-results #sort-bar {padding:8px 0 8px 0; border-bottom:solid 1px #ccc;}
+#wrapper-results #sort-bar ul {margin:0; padding:0; display:flex;}
+#wrapper-results #sort-bar ul li  {font-size:12px; font-weight:bold; list-style-type: none; margin:0; padding:8px 0; flex-direction: row; flex-grow: 1; text-align: center;}
+#wrapper-results #sort-bar ul li:not(:first-child) {color:blue;}
+#wrapper-results #sort-bar ul li.selected {background-color: #95cffe; color:#000; font-weight:bold;}
+
+
+/* Filter style - vertical*/
+#filters .container {padding:8px; border-bottom:solid 1px #ddd;}
+#filters .container h2 {padding:0; margin:0 0 4px 0; font-size:16px;}
+#filters .container h3 {padding:0; margin:0 0 4px 0; font-size:14px;}
+#filters .container p {padding:0; margin:0; font-size:12px; font-weight:bold;}
+
+/* Hotel Card template */
+.hotel-card {margin-top:16px; border:solid 1px #eee; padding:8px; border-radius:4px;}
+.hotel-card .details {display: inline-block; vertical-align: top; margin-left:8px;}
+.hotel-card .address {font-size:12px; display: block; margin-top:4px;}
+.hotel-card .neighbourhood {font-size:12px; display: block; margin-top:4px;}
+.hotel-card .thumbnail {height:80px; width:120px; overflow:hidden; display:inline-block; vertical-align: top; position:relative;}
+.hotel-card .thumbnail img {width:100%; position:absolute; bottom:0;}
+
+.hotel-card .price {margin-top:12px;}
+			.hotel-card .price .specialDeal .total {color:#d41200; font-weight:bold; font-size:28px;}
+			.hotel-card .price .specialDeal .description {color:#d41200; font-size:12px; display:block; font-weight:bold; margin-bottom:4px;}
+			.hotel-card .price .specialDeal .strikethrough {color:#555; font-size:16px; text-decoration: line-through}
+			.hotel-card .price .standard {font-weight:bold; font-size:28px;}
+			.hotel-card .price .disclaimer {font-size:11px; color:#999;}
+
+#filters #total-hotels {font-weight:bold; font-size:12px; padding:0; margin:0;}
+#filters > div {box-sizing: border-box; padding:8px; }
+    #filters ul {list-style-type: none;}
+    #filters .filter {border-top:solid 1px #ddd;}
+    #filters  h2 {font-size:16px; font-weight:bold; margin:0 0 8px 0; padding:0;}
+    #filters .filter h3 {font-size:14px; font-weight:bold; margin:0 0 12px 0; padding:0;}
+    #filters .filter ul li {overflow:hidden; margin-bottom:4px;}
+    #filters .filter ul li input[type="checkbox"] {float:left; width:16px; padding:0;}
+    #filters .filter ul li label {float:left; width:calc(100% - 30px); padding:2px 0 0 0; font-size: 12px}
+    #filters .filter ul.stars li {margin:0; padding:0;}
+    #filters .filter ul.stars li input[type="checkbox"] {float:left; width:16px; margin-top:6px;}
+    #filters .filter ul.stars li label {color:#d41200; font-size:16px; padding:0;}
+
+/* Footer */
+#footer {}
+
+#overlay-fullpage {position: fixed; top:0; bottom:0; left:0; right:0; background-color:#000; opacity:0.7; display:none;}
+
+
+

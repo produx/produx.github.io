@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- style sheets -->
+		<link rel="stylesheet" type="text/css" href="../common.css">
+
+		<style type="text/css">
+		a {color:#026dc5;}
+		#map {position:absolute; top:50px; bottom:0; left:250px; right:0;}
+		.labels {display:inline-block; background-color: #000; color:#fff; padding:4px 8px; font-size:12px; font-weight: bold;}
+		#neighbourhoods {position:absolute; top:0; right:0; padding:12px; bottom:0; background-color:#fff; width:320px}
+		#neighbourhoods .card {}
+		#neighbourhoods .card:first-child {}
+		#neighbourhoods .card img {max-width: 100%}
+		#neighbourhoods .card p {line-height: 18px; font-size: 12px;}
+		#neighbourhoods .card button{margin-left:12px; margin-top:12px; font-size:16px; font-family:arial; background-color: #1db0ed; color:#fff; padding:8px; border:0; border-radius: 4px;
+    -webkit-box-shadow: 0 4px #0c7daf;
+    -moz-box-shadow: 0 4px #0c7daf;
+    box-shadow: 0 4px #0c7daf;}
+
+    select {border:0; font-size:18px; padding:4px 0 4px; border-top:solid 1px #eee; border-bottom:solid 1px #eee; margin:8px 0; -webkit-appearance: none; background-color:#fff; font-weight:bold; font-family:arial; position:relative; background:url("arrow_down.png") no-repeat right center; background-size: 12px; border-radius:0; width:100%; outline: 0;}
+
+    select:hover{cursor:pointer;} 
+
+    	#hotel-card {position:absolute; bottom:10px; left:50%; margin-left:-300px; background-color:#fff; display:none; min-height:100px; width:600px; border-radius:4px;
+    	-webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);}
+    	#hotel-card .thumb {position:absolute; left:0; bottom:0; top:0; overflow:hidden; width:25%; border-top-left-radius: 4px; border-bottom-left-radius: 4px}
+    	#hotel-card .thumb img {max-width:100%; position:absolute; bottom:0;}
+    	#hotel-card .content {margin-left:25%; padding:8px; width:75%; box-sizing: border-box;}
+    	#hotel-card .content #hotelName {display: block; font-size:16px;}
+    	#hotel-card .content #stars {margin-bottom:4px; color:#d41200;}
+    	#hotel-card .content #qual {font-size: 12px;}
+    	#hotel-card .content #qual #badge {font-weight: bold;}
+    	#hotel-card .content #qual #number {font-weight: bold;}
+
+    	
+		
+		</style>
+
+	</head>
+
+	<body>
+
+	<!-- common elements -->
+		<!--<div id="header"></div>
+		<div id="nav"></div>
+		
+		<div id="wrapper-query"></div>-->
+
+
+		<div>
+			<div style="box-sizing: border-box; background-color:#f5f4f0; border-bottom:solid 1px #ccc;">
+				<h1 style="margin:0; padding:12px 16px; height:50px; font-size:20px; box-sizing:border-box;">Tokyo, Japan</h1>
+			</div>
+			
+			<div id="filters" style="position:absolute; top:50px; left:0px; bottom:0; padding:12px; background-color:#fff; width:250px; box-sizing:border-box">
+
+					<div class="container" style="padding-top:0"><label style="margin-bottom:4px; display:block">Search map for</label> <input type="text"></input></div>
+					<div class="container">
+							<input id="showNHoods" type="checkbox" checked /> Show neighbourhood guides</div>
+				<div class="container">
+					<h2>Narrow results</h2>
+					<p>593 hotels</p>
+				</div>
+				<div class="container">
+					<h3>Name contains</h3>
+					
+				</div>
+				<div class="container">
+					<h3>Price</h3>
+					
+				</div>
+				<div class="container">
+					<h3>Star rating</h3>
+					
+				</div>
+				<div class="container">
+					<h3>Guest rating</h3>
+					
+				</div>
+				<div class="container">
+					<h3>Neighbourhood</h3>
+					
+				</div>
+				<div class="container">
+					<h3>Landmarks</h3>
+					
+				</div>
+				<div class="container">
+					<h3>Accommodation type</h3>
+					
+				</div>
+				<div class="container">
+					<h3>Facilities</h3>
+					
+				</div>
+				<div class="container">
+					<h3>Themes / types</h3>
+					
+				</div>
+				<div class="container">
+					<h3>Accessibility Features</h3>
+					
+				</div>
+
+			</div>
+
+
+			<div id="list">
+				
+				<div id="map">
+
+					<div id="map_canvas" style="width:100%; height:100%;"></div>
+
+					
+
+					<div id="neighbourhoods" style="">
+							<h4 style="margin:0; text-transform: uppercase; font-size: 11px">Popular Neighbourhoods</h4>
+							<select>
+								<optgroup label="Popular Neighbourhoods">
+									<option>Akasaka</option>
+									<option>Asakusa</option>
+									<option>Ginza</option>
+									<option>Nihonbashi</option>
+									<option>Shinjuku</option>
+								</optgroup>
+							</select>
+
+							<div id="Akasaka" class="card">
+								<img src="https://a1.cdn-hotels.com/cos/production166/d148/22b478f0-05c0-11e4-b02d-d89d672bfba8.jpg" />
+								<p class="description">
+									It's one of the commercial centers of Tokyo, which explains why Akasaka boasts a lion's share of swanky, upmarket hotels – many of which count as attractions in their own right. Chill out in their cocktail and Champagne bars, not to mention the wealth of restaurants serving everything from exquisite tempura dishes to traditional Japanese barbecue, or yakiniku. Prices can be high, but you can bag great deals at lunchtime.
+								</p>
+							</div>
+
+							<div id="Asakusa" class="card" style="display:none;">
+								<img src="https://a1.cdn-hotels.com/cos/production187/d78/23269bb0-05c0-11e4-b376-d89d672c79ac.jpg" />
+									<p class="description">
+									There's one major reason why Asakusa should be on your Tokyo to-do list: the ancient Buddhist temple Senso-Ji, which is the largest in the city and dates right back to 645 AD. Entering through the iconic Thunder Gate, you'll be dazzled by the Nakamise arcade, with its colorful stalls selling everything from kimonos to decorative fans. You can also admire Senso-Ji's ornate pagoda and the nearby Asakusa Shrine.
+								</p>
+							</div>
+
+							<div id="Ginza" class="card" style="display:none;">
+								<img src="https://a1.cdn-hotels.com/cos/production20/d709/23822930-05c0-11e4-b376-d89d672c79ac.jpg" />
+								<p class="description">
+									Fashionistas flock to this part of Tokyo, and with good reason. It's the place to find high-end department stores as well as boutiques emblazoned with the names of the world's best-known fashion houses. Ginza's not just about splashing the cash, though. Iconic structures can also be seen first hand, from the clocktower on the Wako Building to the towering, neon-lit glass cylinder of the San'ai Building.
+								</p>
+							</div>
+
+							<div id="Nihonbashi" class="card" style="display:none;">
+								<img src="https://a1.cdn-hotels.com/cos/production110/d1096/23ede350-05c0-11e4-8314-d89d672bd508.jpg" />
+								<p class="description">
+									Taking its name from the Nihonbashi Bridge (stone now, but the original wooden one was built back in 1603), this is one of Tokyo's business hotspots. And you'll be able to tell that just from looking up at the magnificent buildings, including the sleek Mitsui Tower. It's also the headquarters of the Tokyo Stock Exchange, though casual travelers will probably be more interested in the district's department stores and restaurants.
+								</p>
+							</div>
+							<div id="Shinjuku" class="card" style="display:none;">
+								<img src="https://a1.cdn-hotels.com/cos/production41/d382/244f1620-05c0-11e4-8314-d89d672bd508.jpg" />
+								<p class="description">
+									Shinjuku train station is the busiest in the world, which gives you an idea of just how buzzing this district is. It's a place of contrasts – there are the alleys of Golden Gai, whose bars are a haven for artists and musicians, and then there are the whopping skyscrapers of the Nishi-Shinjuku business zone. For serenity amid the urban sprawl, relax amid the cherry blossoms of Shinjuku Gyoen National Garden.
+								</p>
+							</div>
+						</div>
+
+						<div id="hotel-card">
+							<div class="thumb"><img /></div>
+							<div class="content">
+								<a href="#" id="hotelName"></a>
+								<div id="stars">
+									<span id="star"></span>
+									<span id="locality"></span>
+								</div>
+								<div id="qual">
+									<span id="badge"></span> <span id="number"></span> / 5 
+									<a href="#" id="numReviews"></a>
+								</div>
+
+							</div>
+							
+						</div>
+
+					</div>
+
+				</div>	
+			</div>
+		</div>
+		
+
+
+		
+
+
+		<!-- Scripts -->
+		<script type="text/javascript"
+          src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDGbEUwknHTaKmEpjwM-fRfJt7zbCZZtCI">
+      	</script>
+      	<script src="map-labels.js"></script>
+		<script src="../hcom-services.js"></script>
+		<script src="../handlebars.js"></script>
+		<script src="n-maps-big.js"></script>
+		
+
+		<!-- JQuery Google CDN -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			// run things on page load
+			$(function(){
+      			
+				if (getParameterByName("destination")) {
+					//fetch hotels from mobile API
+
+					$.each(neighbourhoods, function(i, nhoods) { 
+						fetchHotelListNeighbourhood(getParameterByName("destination"), nhoods.nid, displayHotels);
+					});
+					
+					//fetchHotelListNeighbourhood(getParameterByName("destination"), '1645688', displayHotels);
+					
+
+					initializeMap(getParameterByName("destination"));
+					//display loading message
+					$("#loading-hotels").show();
+				} else {
+					initializeMap("Tokyo, Japan");
+				}
+
+				$('select').on('change', function() {
+  					//console.log( $(this).find('option:selected').text()); // or $(this).val()
+  					openNeighbourhood($(this).find('option:selected').text())
+  					var nhoodobj = neighbourhoods[$(this).find('option:selected').text().toLowerCase()]
+  					//$("#neighbourhoods .card").hide();
+					//$("#neighbourhoods #" + $(this).find('option:selected').text()).show();
+					//console.log(neighbourhoods[$(this).find('option:selected').text().toLowerCase()]);
+
+					addNeighbourhoodPolygon(nhoodobj.center)
+				});
+
+
+			});
+
+			var displayHotels = function (data) {
+				// hide loading message
+				//$("#loading-hotels").hide();
+			
+				var hotels = data.result.hotels;
+				//console.log(data.result.hotels[0]);
+				$.each(hotels, function(i, hotel) { 
+					var point = new google.maps.LatLng(hotel.lat, hotel.lon);
+					//console.log(hotel)
+					var marker = new google.maps.Marker({
+    					position: point,
+    					map: map, 
+    					title: hotel.hotelName,
+    					icon: "map-pin-red.png"
+  					});
+
+  					google.maps.event.addListener(marker, 'click', function () {
+   							// do something with this marker ...
+   							//this.setTitle('I am clicked');
+   							console.log(hotel);
+   							//openNeighbourhood(name);
+   							clearMarkers();
+        					$("#neighbourhoods").hide();
+        					$("#hotel-card").show();
+        					$("#hotel-card img").attr("src", hotel.imageUrl);
+        					$("#hotel-card #hotelName").text(hotel.hotelName);
+        					$("#hotel-card #stars #star").text(hotel.starRating + " stars");
+        					//$("#hotel-card #stars #locality").text(hotel.location);
+        					$("#hotel-card #qual #badge").text(hotel.qualitativeBadgeText);
+        					$("#hotel-card #qual #number").text(hotel.guestReviewRating);
+        					$("#hotel-card #qual #numReviews").text(hotel.numberOfGuestReviews + " reviews");
+        					$('#showNHoods').prop('checked', false);
+					});
+				});
+
+				
+            //pointsrand.push(point);
+                  
+				
+				
+			}
+
+			var openNeighbourhood = function(nhood){
+				console.log("opn neighbourhood"); 
+				$("#neighbourhoods .card").hide();
+				$("#neighbourhoods #" + nhood).show();
+				//$("#neighbourhoods").slideDown();
+
+				$("select option").filter(function() {
+    				//may want to use $.trim in here
+    				return $(this).text() == nhood; 
+				}).prop('selected', true);
+
+			}
+
+
+			$('#showNHoods').change(function() {
+        		if($(this).is(":checked")) {
+            		//var returnVal = confirm("Are you sure?");
+            		//$(this).attr("checked", returnVal);
+            		console.log("checked");
+            		showMarkers();
+            		$("#neighbourhoods").show();
+            		$("#hotel-card").hide();
+        		} else {
+        			clearMarkers();
+        			$("#neighbourhoods").hide();
+        		}
+        		//$('#textbox1').val($(this).is(':checked'));        
+    		});
+
+		</script>
+	</body>
+</html>
