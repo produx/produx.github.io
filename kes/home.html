@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+		<!-- scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<!-- style sheets -->
+
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="base.css">
+		<style media="screen">
+
+			.wrapper {max-width:1260px; margin:0 auto;}
+			#header {}
+			#header .wrapper ul {overflow:hidden; list-style-type: none;margin:0; padding:0;}
+			#header .wrapper ul li {float:left; position:relative;  font-size:16px; margin-left:28px; padding:6px 0 16px 0;}
+			#header .wrapper ul li a {display:block; padding:0 20px 0 0;}
+			#header .wrapper ul li a i {position:absolute; top:6px; right:0; font-size:20px;}
+
+			#nav {}
+			#nav .wrapper {padding:0px 16px;}
+			#nav .wrapper ul {overflow:hidden; list-style-type: none;margin:0; padding:0;}
+			#nav .wrapper ul li {float:left;  font-size:14px; margin-right:20px; padding:0px 0 16px;}
+
+			#marquee {min-height:300px; background-image: url(i/hp-marquee.jpeg); background-position: center center; background-size:cover;}
+			#marquee .wrapper {padding:32px 16px;}
+			#marquee .sqm {min-height: 320px; background-color: #fff; width:390px; border-radius: 8px; box-sizing: border-box; padding:20px;}
+			#marquee .sqm h1 {padding:0; margin:0; font-size: 28px;}
+			#marquee .sqm .field-destination {position:relative; background-color:#F6F4F3; border: solid 1px #E6E6E6; padding:8px; font-size:14px; color:#156BC1; border-radius:8px; margin-top:16px; box-sizing: border-box; padding-left: 38px;}
+ 			label {font-weight:bold; display: block; margin: 0 0 4px 0}
+			#marquee .sqm input[type=text]{background-color:#F6F4F3; width:100%; box-sizing: border-box; border:solid #E6E6E6 0px; font-size: 16px;}
+
+			#marquee .sqm .field-dates {position:relative; background-color:#F6F4F3; border: solid 1px #E6E6E6; padding:0px 0; font-size:14px; color:#156BC1; border-radius:8px; margin-top:16px; box-sizing: border-box; overflow:hidden;}
+			#marquee .sqm .field-dates > div {float:left; width:50%; box-sizing: border-box; position:relative; padding: 8px 0 8px 38px;}
+
+			#marquee .sqm .field-occupancy {position:relative; background-color:#F6F4F3; border: solid 1px #E6E6E6; padding:8px; font-size:14px; color:#156BC1; border-radius:8px; margin-top:16px; box-sizing: border-box; padding-left: 38px; display:inline-block; width:50%}
+			#marquee .sqm button {display:block; margin-top:16px; width:100%; background-color: #156BC1; color:#fff; text-transform: uppercase; font-weight: bold; padding:16px; font-size: 16px; border-radius:16px; border:solid 0px; }
+		</style>
+
+  </head>
+  <body>
+		<div id="header">
+			<div class="wrapper" style="padding:8px 16px; position:relative;">
+				<div class="" style="">
+					<img src="i/logo-single.png" alt="" style="height:40px;">
+				</div>
+				<div class="tools" style="position:absolute; top:12px; right:16px;">
+					<ul>
+						<li><a href="#"><img src="i/flag-uk.png" style="height:16px; display:inline-block; margin-right:4px; margin-top:2px"/> <i class="material-icons">
+keyboard_arrow_down
+</i></a></li>
+						<li><a href="#">GBP <i class="material-icons">
+keyboard_arrow_down
+</i></a></li>
+						<li><a href="#">Help <i class="material-icons">
+keyboard_arrow_down
+</i></a></li>
+						<li><a href="#">Your bookings <i class="material-icons">keyboard_arrow_down
+</i></a></li>
+						<li style="background:url('i/icon-account.png') no-repeat; background-size:30px; padding-left:36px;"><a href="#" class="primary-red">Craig <i class="material-icons">keyboard_arrow_down
+</i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div id="nav">
+			<div class="wrapper">
+				<ul class="nav-items">
+					<li><a href="#">Deals</a></li>
+					<li><a href="#">Things to do</a></li>
+					<li><a href="#">Package &amp; Flights</a></li>
+					<li><a href="#">Groups &amp; Meetings</a></li>
+					<li><a href="#">Gift Cards</a></li>
+					<li><a href="#">List your property</a></li>
+					<li><a href="#">Hotels.com Rewards</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="marquee">
+			<div class="wrapper">
+				<div class="sqm">
+					<h1 class="primary-red">Where to, Craig</h1>
+					<div class="field-destination">
+						<i class="material-icons" style="position:absolute; top:14px; left:8px;">search</i>
+						<label for="">Destination</label>
+						<input type="text" name="" value="" placeholder="Enter your destination">
+					</div>
+					<div class="field-dates">
+						<div style="border-right: solid 1px #E6E6E6;">
+							<i class="material-icons" style="position:absolute; top:14px; left:8px; font-size:20px">calendar_today</i>
+							<label for="">Check in</label>
+							<input type="text" name="" value="" placeholder="--">
+						</div>
+						<div>
+							<i class="material-icons" style="position:absolute; top:14px; left:8px; font-size:20px">calendar_today</i>
+							<label for="">Check out</label>
+							<input type="text" name="" value="" placeholder="--">
+						</div>
+
+					</div>
+					<div class="field-occupancy">
+						<i class="material-icons" style="position:absolute; top:14px; left:8px; font-size:20px">people_alt</i>
+						<label for="">Guests</label>
+						<input type="text" name="" value="" placeholder="--">
+					</div>
+					<button type="button" name="button">Search</button>
+				</div>
+			</div>
+		</div>
+  </body>
+
+</html>

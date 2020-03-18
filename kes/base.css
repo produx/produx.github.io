@@ -1,0 +1,22 @@
+/*
+Colours
+https://zeroheight.com/19a9f5b50/p/69ba6b-colour
+Primary: #D32F2F
+Purple 1: #42105B
+Blue (link): #156BC1
+*/
+
+body {
+  margin:0;
+  padding:0;
+  font-family: system, -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
+
+}
+
+.primary-red {color:#D32F2F}
+
+a {color: #156BC1; text-decoration: none;}
+@media screen and (min-width: 600px) {}
+@media screen and (min-width: 750px) {}
+@media screen and (min-width: 850px) {}
+@media screen and (min-width: 960px) {}
