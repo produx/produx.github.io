@@ -125,8 +125,9 @@ keyboard_arrow_down
 	.filter-group {border-top:solid 1px #e6e6e6; padding:16px 0;}
 	.filter-group h4 {margin:0; padding:0;}
 
-	.map {height:50px; background: url('i/srp-map-link.png') no-repeat; position:relative; margin-bottom:16px; background-size: cover; border-radius: 4px;}
-	.map a {display:inline-block; padding:4px 6px; background-color:#fff; position:absolute; bottom:0; }
+	.map {height:50px; position:relative; background: url('i/srp-map-link.png') no-repeat; position:relative; margin-bottom:16px; background-size: cover; border-radius: 4px;}
+	.map a {display:inline-block; position:absolute; background-color:#fff; top:12px; left:48px; padding:6px 12px 6px 30px; border-radius:50vh; font-size:14px; font-weight:bold;}
+	.map span {position:absolute; top:4px; left:8px; font-size:18px; }
 	.search .col-properties {float:left; width:calc(100% - 225px); box-sizing: border-box; padding:16px 0 32px 32px; }
 	.search .col-properties h2 {padding:0; margin:0}
 	.sort {overflow:hidden; border-bottom:1px solid #e6e6e6; margin-top:16px; padding:8px 0;}
@@ -151,7 +152,9 @@ keyboard_arrow_down
 				<div class="inner">
 					<div class="col-filters">
 						<div class="map">
-							<a href="#">View on map</a>
+							<a href="#"><span class="material-icons">
+map
+</span>MAP VIEW</a>
 						</div>
 						<h3>Narrow results</h3>
 						<p>556 hotels, homes and apartments</p>
