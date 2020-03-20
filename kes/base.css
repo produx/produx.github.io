@@ -10,9 +10,9 @@ body {
   margin:0;
   padding:0;
   font-family: system, -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
-
+  color:#525252;
 }
-
+h1, h2, h3, h4, h5 {color:#333333}
 .primary-red {color:#D32F2F}
 
 a {color: #156BC1; text-decoration: none;}
