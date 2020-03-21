@@ -125,15 +125,17 @@ keyboard_arrow_down
 	.filter-group {border-top:solid 1px #e6e6e6; padding:16px 0;}
 	.filter-group h4 {margin:0; padding:0;}
 
-	.map {height:50px; position:relative; background: url('i/srp-map-link.png') no-repeat; position:relative; margin-bottom:16px; background-size: cover; border-radius: 4px;}
-	.map a {display:inline-block; position:absolute; background-color:#fff; top:12px; left:48px; padding:6px 12px 6px 30px; border-radius:50vh; font-size:14px; font-weight:bold;}
+	.map {height:70px; position:relative; background: url('i/srp-map-link.png') no-repeat; position:relative; margin-bottom:16px; background-size: cover; border-radius: 8px; background-position:center;}
+	.map a {display:inline-block; position:absolute; background-color:#fff; top:20px; left:52px; padding:6px 12px 6px 30px; border-radius:50vh; font-size:14px; font-weight:bold;}
 	.map span {position:absolute; top:4px; left:8px; font-size:18px; }
 	.search .col-properties {float:left; width:calc(100% - 225px); box-sizing: border-box; padding:16px 0 32px 32px; }
 	.search .col-properties h2 {padding:0; margin:0}
-	.sort {overflow:hidden; border-bottom:1px solid #e6e6e6; margin-top:16px; padding:8px 0;}
-	.sort .item {float:left; width:18%; text-align: center; color:#156BC1;}
-	.sort .item:first-child {float:left; width:10%; text-align: left; font-weight:bold; color:#333333;}
-
+	.sort {overflow:hidden; margin-top:16px; padding:8px 0;}
+	.sort .item {float:left; text-align: center; color:#156BC1; border:solid 1px #156BC1; border-radius: 50vh; margin-right:16px; padding:4px 12px; font-size:14px;}
+	.sort .item:first-child {float:left; text-align: left; font-weight:bold; color:#333333; border:solid 0px;padding:4px 0;}
+	.sort .selected {background-color:#EDF5FD;}
+	.sort .dd {padding-left:28px; position:relative;}
+	.sort .dd span {position:absolute; top:2px; left:4px; }
 	.compression {background-color: #FCF2C5; padding:12px; border-radius:4px; margin-top:16px}
 
 	.filter-group input[type=text]{width:100%; box-sizing: border-box; padding:8px; border:solid 1px #8B8B8B; font-size:16px;}
@@ -257,14 +259,22 @@ map
 						</div>
 					</div>
 					<div class="col-properties">
-						<h2>Bellevue, Washington, United States of America</h2>
+						<h2 class='primary-red'>Bellevue, Washington, United States of America</h2>
 						<div class="sort">
 							<div class="item">Sort by</div>
-							<div class="item">Featured</div>
-							<div class="item">Star rating</div>
-							<div class="item">Distance</div>
-							<div class="item">Guest rating</div>
-							<div class="item">Price</div>
+							<div class="item selected">Featured</div>
+							<div class="item dd"><span class="material-icons">
+keyboard_arrow_down
+</span>Star rating</div>
+							<div class="item dd"><span class="material-icons">
+keyboard_arrow_down
+</span>Distance</div>
+							<div class="item dd"><span class="material-icons">
+keyboard_arrow_down
+</span>Guest rating</div>
+							<div class="item dd"><span class="material-icons">
+keyboard_arrow_down
+</span>Price</div>
 						</div>
 
 						<div class="compression">

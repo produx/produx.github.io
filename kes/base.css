@@ -9,7 +9,8 @@ Blue (link): #156BC1
 body {
   margin:0;
   padding:0;
-  font-family: system, -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
+  font-family: system, -apple-system, BlinkMacSystemFont, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
+
   color:#525252;
 }
 h1, h2, h3, h4, h5 {color:#333333}
