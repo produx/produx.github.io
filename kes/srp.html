@@ -119,7 +119,7 @@ keyboard_arrow_down
 <style media="screen">
 	.search .wrapper {padding:0px 16px 16px;}
 	.search .wrapper .inner {overflow:hidden;}
-	.search .col-filters {float:left; width:225px; box-sizing: border-box; padding:16px 0}
+	.search .col-filters {float:left; width:25%; box-sizing: border-box; padding:16px 0}
 	.search .col-filters h3 {margin:0; padding:0;}
 	.search .col-filters p {margin:4px 0 16px; padding:0; font-size: 14px;}
 	.filter-group {border-top:solid 1px #e6e6e6; padding:16px 0;}
@@ -128,11 +128,11 @@ keyboard_arrow_down
 	.map {height:70px; position:relative; background: url('i/srp-map-link.png') no-repeat; position:relative; margin-bottom:16px; background-size: cover; border-radius: 8px; background-position:center;}
 	.map a {display:inline-block; position:absolute; background-color:#fff; top:20px; left:52px; padding:6px 12px 6px 30px; border-radius:50vh; font-size:14px; font-weight:bold;}
 	.map span {position:absolute; top:4px; left:8px; font-size:18px; }
-	.search .col-properties {float:left; width:calc(100% - 225px); box-sizing: border-box; padding:16px 0 32px 32px; }
+	.search .col-properties {float:left; width:75%; box-sizing: border-box; padding:16px 0 32px 32px; }
 	.search .col-properties h2 {padding:0; margin:0}
 	.sort {overflow:hidden; margin-top:16px; padding:8px 0;}
-	.sort .item {float:left; text-align: center; color:#156BC1; border:solid 1px #156BC1; border-radius: 50vh; margin-right:16px; padding:4px 12px; font-size:14px;}
-	.sort .item:first-child {float:left; text-align: left; font-weight:bold; color:#333333; border:solid 0px;padding:4px 0;}
+	.sort .item {float:left; text-align: center; color:#333; border:solid 1px #e6e6e6; border-radius: 4px; margin-right:16px; padding:8px 12px; font-size:14px; font-weight: bold;}
+	.sort .item:first-child {float:left; text-align: left; font-weight:bold; color:#333333; border:solid 0px;padding:8px 0; font-weight: bold;}
 	.sort .selected {background-color:#EDF5FD;}
 	.sort .dd {padding-left:28px; position:relative;}
 	.sort .dd span {position:absolute; top:2px; left:4px; }
@@ -140,7 +140,9 @@ keyboard_arrow_down
 
 	.filter-group input[type=text]{width:100%; box-sizing: border-box; padding:8px; border:solid 1px #8B8B8B; font-size:16px;}
 	.filter-group ul {list-style-type: none; margin:8px 0 0; padding:0;}
-	.filter-group ul li {font-size:14px; margin-bottom:4px;}
+	.filter-group ul li {font-size:14px; padding:8px 0 8px 36px; position:relative;}
+	.filter-group ul li .checkbox {height:14px; width:14px; border:solid 2px #156BC1; border-radius:2px; position:absolute; top:7px; left:8px}
+	.filter-group ul li label{}
 	.slider {margin-top:0px; position:relative; padding-top:11px;height:20px;}
 	.slider .handle {border:solid 2px #156BC1; width:20px; height:20px; border-radius: 50%; background-color:#fff;}
 	.slider .left {position:absolute; left:0; top:0;}
@@ -168,23 +170,23 @@ map
 							<h4>Popular filters</h4>
 							<ul>
 								<li>
-									<input type="checkbox" name="pop-1" value="">
+									<div class="checkbox"></div>
 									<label for="pop-1">Free breakfast</label>
 								</li>
 								<li>
-									<input type="checkbox" name="pop-2" value="">
+									<div class="checkbox"></div>
 									<label for="pop-2">Pool</label>
 								</li>
 								<li>
-									<input type="checkbox" name="pop-3" value="">
+									<div class="checkbox"></div>
 									<label for="pop-3">Free WIFI</label>
 								</li>
 								<li>
-									<input type="checkbox" name="pop-4" value="">
+									<div class="checkbox"></div>
 									<label for="pop-4">Free Parking</label>
 								</li>
 								<li>
-									<input type="checkbox" name="pop-5" value="">
+									<div class="checkbox"></div>
 									<label for="pop-5">Pet Friendly</label>
 								</li>
 							</ul>
@@ -204,23 +206,23 @@ map
 							<h4>Star rating</h4>
 							<ul>
 								<li>
-									<input type="checkbox" name="star-5" value="">
+									<div class="checkbox"></div>
 									<label for="star-5">5-star</label>
 								</li>
 								<li>
-									<input type="checkbox" name="star-4" value="">
+									<div class="checkbox"></div>
 									<label for="star-4">4-star</label>
 								</li>
 								<li>
-									<input type="checkbox" name="star-3" value="">
+									<div class="checkbox"></div>
 									<label for="star-3">3-star</label>
 								</li>
 								<li>
-									<input type="checkbox" name="star-2" value="">
+									<div class="checkbox"></div>
 									<label for="star-2">2-star</label>
 								</li>
 								<li>
-									<input type="checkbox" name="star-1" value="">
+									<div class="checkbox"></div>
 									<label for="star-1">1-star</label>
 								</li>
 							</ul>
@@ -291,23 +293,24 @@ keyboard_arrow_down
 							.property .content .name a {font-weight: bold; font-size:18px;}
 							.property .content .name p {margin:4px 0; padding:0; font-size: 14px;}
 							.content-inner {margin-top:12px; overflow:hidden;}
-							.content-inner .thumbnail {float:left; width: 250px;}
-							.content-inner .thumbnail img {border-radius:4px;}
-							.content-inner .details {float:left; width: calc(100% - 250px); box-sizing: border-box; overflow: hidden; }
-							.content-inner .details .location {float:left; width:70%; box-sizing: border-box; padding:0 16px;}
+							.content-inner .thumbnail {float:left; width: 300px;}
+							.content-inner .thumbnail img {border-radius:4px; width:100%}
+							.content-inner .details {float:left; width: calc(100% - 300px); box-sizing: border-box; overflow: hidden; }
+							.name a {color:#333;}
+							.content-inner .details .location {box-sizing: border-box; padding:0 16px;}
 							.content-inner .details .location .nhood {font-weight:bold;}
 							.content-inner .details .location ul {list-style-type: none; padding:0; margin:0;}
 							.content-inner .details .location ul li {padding:4px 0 0; font-size:12px; color:#6E6E6E}
-							.content-inner .details .rewards {margin-top:8px; color:#7B1FA2; font-weight:bold;}
+							 .rewards {display:inline-block; margin-left:8px; color:#7B1FA2; font-weight:bold;}
 							.content-inner .details .amenities {margin-top:8px; font-size:14px; line-height: 18px; color:#6E6E6E}
-							.content-inner .details .review {float:left; width:30%; box-sizing: border-box;}
+							.content-inner .details .review {box-sizing: border-box; margin-bottom:12px;}
 							.content-inner .details .amenities span {white-space: nowrap;}
 							.review .review-inner {}
-							.review .review-inner .rating {text-align:center;}
+							.review .review-inner .rating {padding:0 16px;}
 							.review .review-inner .rating .score {display:inline-block; font-weight: bold; background-color:#EFEBE9; padding:4px; border-radius:4px;}
 							.review .review-inner .rating .score-green {display:inline-block; font-weight: bold; background-color:#218242; padding:4px 6px; border-radius:4px; color:#fff;}
 							.review .review-inner .rating .superlative {display:inline-block; font-weight: bold}
-							.review .review-inner .rating .count {font-size: 14px; margin-top:4px;}
+							.review .review-inner .rating .count {font-size: 12px; margin-top:4px;}
 							.property .price-col {float:left; width:25%; text-align:right;}
 							.property .price-col .special-deal {display:inline-block; background-color:#D32F2F; color:#fff; padding:4px 8px; font-size: 12px; border-radius: 4px; font-weight: bold; margin-bottom:4px;}
 							.property .price-col .strikethrough {display:inline-block; text-decoration: line-through;}
@@ -321,7 +324,7 @@ keyboard_arrow_down
 							<div class="property">
 								<div class="content">
 									<div class="name">
-										<a href="#">Red Lion Hotel Bellevue</a>
+										<a href="#">Red Lion Hotel Bellevue</a> <span class="rewards">Collect nights</span>
 										<p class="address">11211 Main St, Bellevue, WA, 98004, United States</p>
 									</div>
 									<div class="content-inner">
@@ -329,20 +332,6 @@ keyboard_arrow_down
 											<img src="https://thumbnails.trvl-media.com/DcLLWyaPE6CI9-uc9DK8BAj638k=/250x140/smart/filters:quality(60)/images.trvl-media.com/hotels/1000000/10000/3600/3546/b9da906a_z.jpg" alt="" />
 										</div>
 										<div class="details">
-											<div class="location">
-												<div class="nhood">West Bellevue</div>
-												<ul>
-													<li>0.5 miles to City centre</li>
-													<li>13 miles to Seattle-Tacoma International Airport (SEA)</li>
-												</ul>
-												<div class="rewards">
-													Collect nights
-												</div>
-												<div class="amenities">
-													<span>Parking available</span> <span>&#8226; Pool</span> <span>&#8226; Pet-friendly</span> <span>&#8226; Gym</span> <span>&#8226; Air Conditioning</span>
-												</div>
-											</div>
-
 											<div class="review">
 											 <div class="review-inner">
 											 	<div class="rating">
@@ -357,6 +346,16 @@ keyboard_arrow_down
 													</div>
 												</div>
 											 </div>
+											</div>
+											<div class="location">
+												<div class="nhood">West Bellevue</div>
+												<ul>
+													<li>0.5 miles to City centre</li>
+													<li>13 miles to Seattle-Tacoma International Airport (SEA)</li>
+												</ul>
+												<div class="amenities">
+													<span>Parking available</span> <span>&#8226; Pool</span> <span>&#8226; Pet-friendly</span> <span>&#8226; Gym</span> <span>&#8226; Air Conditioning</span>
+												</div>
 											</div>
 
 										</div>
@@ -384,7 +383,7 @@ keyboard_arrow_down
 							<div class="property">
 								<div class="content">
 									<div class="name">
-										<a href="#">Seattle Marriott Bellevue</a>
+										<a href="#">Seattle Marriott Bellevue</a> <span class="rewards">Collect nights</span>
 										<p class="address">200 110th Avenue NE, Bellevue, WA, 98004, United States</p>
 									</div>
 									<div class="content-inner">
@@ -392,21 +391,9 @@ keyboard_arrow_down
 											<img src="https://thumbnails.trvl-media.com/RmsXmiyEiRcg2nAuUSmu7RAkbAA=/250x140/smart/filters:quality(60)/images.trvl-media.com/hotels/9000000/8420000/8419700/8419638/6fc871ba_z.jpg" alt="" />
 										</div>
 										<div class="details">
-											<div class="location">
-												<div class="nhood">West Bellevue</div>
-												<ul>
-													<li>0.7 miles to City centre</li>
-													<li>13 miles to Seattle-Tacoma International Airport (SEA)</li>
-												</ul>
-												<div class="rewards">Collect nights</div>
-												<div class="amenities">
-													<span>Parking available</span> <span>&#8226; Pool</span> <span>&#8226; Pet-friendly</span> <span>&#8226; Gym</span> <span>&#8226; Air Conditioning</span>
-												</div>
-											</div>
-
 											<div class="review">
 											 <div class="review-inner">
-											 	<div class="rating">
+												<div class="rating">
 													<span class="score-green">
 														8.4
 													</span>
@@ -419,6 +406,18 @@ keyboard_arrow_down
 												</div>
 											 </div>
 											</div>
+											<div class="location">
+												<div class="nhood">West Bellevue</div>
+												<ul>
+													<li>0.7 miles to City centre</li>
+													<li>13 miles to Seattle-Tacoma International Airport (SEA)</li>
+												</ul>
+												<div class="amenities">
+													<span>Parking available</span> <span>&#8226; Pool</span> <span>&#8226; Pet-friendly</span> <span>&#8226; Gym</span> <span>&#8226; Air Conditioning</span>
+												</div>
+											</div>
+
+
 
 										</div>
 									</div>
@@ -441,7 +440,7 @@ keyboard_arrow_down
 							<div class="property">
 								<div class="content">
 									<div class="name">
-										<a href="#">Courtyard by Marriott Seattle Bellevue/Downtown</a>
+										<a href="#">Courtyard by Marriott Seattle Bellevue/Downtown</a> <span class="rewards">Collect nights</span>
 										<p class="address">11010 NE 8th Street, Bellevue, WA, 98004, United States</p>
 									</div>
 									<div class="content-inner">
@@ -449,18 +448,6 @@ keyboard_arrow_down
 											<img src="https://thumbnails.trvl-media.com/XFfBC-S0q4GkGrvamikwmiQFMyc=/250x140/smart/filters:quality(60)/images.trvl-media.com/hotels/2000000/1170000/1160200/1160157/c1c22af1_z.jpg" alt="" />
 										</div>
 										<div class="details">
-											<div class="location">
-												<div class="nhood">Northwest Bellevue</div>
-												<ul>
-													<li>0.4 miles to City centre</li>
-													<li>13 miles to Seattle-Tacoma International Airport (SEA)</li>
-												</ul>
-												<div class="rewards">Collect nights</div>
-												<div class="amenities">
-													<span>Parking available</span> <span>&#8226; Pool</span> <span>&#8226; Gym</span> <span>&#8226; Air Conditioning</span>
-												</div>
-											</div>
-
 											<div class="review">
 											 <div class="review-inner">
 												<div class="rating">
@@ -476,6 +463,19 @@ keyboard_arrow_down
 												</div>
 											 </div>
 											</div>
+
+											<div class="location">
+												<div class="nhood">Northwest Bellevue</div>
+												<ul>
+													<li>0.4 miles to City centre</li>
+													<li>13 miles to Seattle-Tacoma International Airport (SEA)</li>
+												</ul>
+												<div class="amenities">
+													<span>Parking available</span> <span>&#8226; Pool</span> <span>&#8226; Gym</span> <span>&#8226; Air Conditioning</span>
+												</div>
+											</div>
+
+
 
 										</div>
 									</div>
@@ -497,7 +497,7 @@ keyboard_arrow_down
 							<div class="property">
 								<div class="content">
 									<div class="name">
-										<a href="#">Bellevue Club Hotel</a>
+										<a href="#">Bellevue Club Hotel</a> <span class="rewards">Collect nights</span>
 										<p class="address">11200 SE 6th St, Bellevue, WA, 98004, United States</p>
 									</div>
 									<div class="content-inner">
@@ -505,18 +505,6 @@ keyboard_arrow_down
 											<img src="https://thumbnails.trvl-media.com/RmsXmiyEiRcg2nAuUSmu7RAkbAA=/250x140/smart/filters:quality(60)/images.trvl-media.com/hotels/9000000/8420000/8419700/8419638/6fc871ba_z.jpg" alt="" />
 										</div>
 										<div class="details">
-											<div class="location">
-												<div class="nhood">West Bellevue</div>
-												<ul>
-													<li>1.0 miles to City centre</li>
-													<li>13 miles to Seattle-Tacoma International Airport (SEA)</li>
-												</ul>
-												<div class="rewards">Collect nights</div>
-												<div class="amenities">
-													<span>Parking available</span> <span>&#8226; Pool</span> <span>&#8226; Pet-friendly</span> <span>&#8226; Gym</span> <span>&#8226; Air Conditioning</span>
-												</div>
-											</div>
-
 											<div class="review">
 											 <div class="review-inner">
 												<div class="rating">
@@ -532,6 +520,19 @@ keyboard_arrow_down
 												</div>
 											 </div>
 											</div>
+											<div class="location">
+												<div class="nhood">West Bellevue</div>
+												<ul>
+													<li>1.0 miles to City centre</li>
+													<li>13 miles to Seattle-Tacoma International Airport (SEA)</li>
+												</ul>
+
+												<div class="amenities">
+													<span>Parking available</span> <span>&#8226; Pool</span> <span>&#8226; Pet-friendly</span> <span>&#8226; Gym</span> <span>&#8226; Air Conditioning</span>
+												</div>
+											</div>
+
+
 
 										</div>
 									</div>
