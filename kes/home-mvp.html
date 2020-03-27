@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+		<!-- scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<!-- style sheets -->
+
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="base.css">
+		<style media="screen">
+
+			.wrapper {max-width:1260px; margin:0 auto;}
+			#header {}
+			#header .wrapper ul {overflow:hidden; list-style-type: none;margin:0; padding:0;}
+			#header .wrapper ul li {float:left; position:relative;  font-size:16px; margin-left:28px; padding:6px 0 16px 0;}
+			#header .wrapper ul li a {display:block; padding:0 20px 0 0;}
+			#header .wrapper ul li a i {position:absolute; top:6px; right:0; font-size:20px;}
+
+			#nav {}
+			#nav .wrapper {padding:0px 16px;}
+			#nav .wrapper ul {overflow:hidden; list-style-type: none;margin:0; padding:0;}
+			#nav .wrapper ul li {float:left;  font-size:14px; margin-right:20px; padding:0px 0 16px;}
+
+			#sqm {border-bottom:solid 1px #E6E6E6;}
+
+			#sqm .wrapper {padding:0px 16px 16px;}
+			#sqm .wrapper .inner {overflow:hidden;}
+			#sqm h1 {padding:0; margin:0; font-size: 28px; color:#D32F2F;}
+			#sqm label {font-weight:bold; display: block; margin: 0 0 4px 0}
+			#sqm input[type=text]{background-color:#F6F4F3; width:100%; box-sizing: border-box; border:solid #E6E6E6 0px; font-size: 16px;}
+			#sqm .field {box-sizing: border-box; margin-right:16px;}
+			#sqm .field-destination {float:left; width:calc(100% - 790px); position:relative; background-color:#F6F4F3; border: solid 1px #E6E6E6; padding:8px; font-size:14px; color:#156BC1; border-radius:8px; margin-top:8px; box-sizing: border-box; padding-left: 48px;}
+ 			#sqm .field-dates {float:left; width: 360px; position:relative; float:left; background-color:#F6F4F3; border: solid 1px #E6E6E6; padding:0px 0; font-size:14px; color:#156BC1; border-radius:8px; margin-top:8px; box-sizing: border-box; overflow:hidden;}
+			#sqm .field-dates > div {float:left; width:50%; box-sizing: border-box; position:relative; padding: 8px 0 8px 48px;}
+			#sqm .field-occupancy {float:left; width:240px; position:relative; background-color:#F6F4F3; border: solid 1px #E6E6E6; padding:8px; font-size:14px; color:#156BC1; border-radius:8px; margin-top:8px; box-sizing: border-box; padding-left: 48px; display:inline-block;}
+			#sqm button {float:left; width:140px; margin-top:16px; background-color: #156BC1; color:#fff; text-transform: uppercase; font-weight: bold; padding:16px; font-size: 16px; border-radius:50vh; border:solid 0px; }
+
+
+		</style>
+
+  </head>
+  <body>
+		<div id="header">
+			<div class="wrapper" style="padding:8px 16px; position:relative;">
+				<div class="" style="">
+					<img src="i/logo-single.png" alt="" style="height:40px;">
+				</div>
+				<div class="tools" style="position:absolute; top:12px; right:16px;">
+					<ul>
+
+						<li style="background:url('i/icon-account.png') no-repeat; background-size:30px; padding-left:36px; height:30px"><a href="#" class="primary-red"></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div id="sqm">
+			<div class="wrapper">
+				<div class="inner">
+					<h1>Where to</h1>
+
+					<div class="field field-destination">
+						<i class="material-icons" style="position:absolute; top:14px; left:16px;">search</i>
+						<label for="">Destination</label>
+						<input type="text" name="" value="" placeholder="Enter your destination">
+					</div>
+					<div class="field field-dates">
+						<div style="border-right: solid 1px #E6E6E6;">
+							<i class="material-icons" style="position:absolute; top:14px; left:16px; font-size:20px">calendar_today</i>
+							<label for="">Check in</label>
+							<input type="text" name="" value="" placeholder="--">
+						</div>
+						<div>
+							<i class="material-icons" style="position:absolute; top:14px; left:16px; font-size:20px">calendar_today</i>
+							<label for="">Check out</label>
+							<input type="text" name="" value="" placeholder="--">
+						</div>
+
+					</div>
+					<div class="field field-occupancy">
+						<i class="material-icons" style="position:absolute; top:14px; left:16px; font-size:20px">people_alt</i>
+						<label for="">Guests</label>
+						<input type="text" name="" value="" placeholder="--">
+					</div>
+					<button type="button" name="button">Search</button>
+				</div>
+			</div>
+		</div>
+<style media="screen">
+	.meso {}
+	.meso .inner {overflow:hidden; padding:16px 0 0; }
+	.meso .inner .block {float:left; width:50%; box-sizing: border-box;}
+	.meso .inner .copy {padding-top:56px;}
+	.meso .inner .copy h3 {margin:8px 0 0 0; padding:0;}
+	.meso .inner .copy p {color:#6E6E6E; margin:8px 0 8px 0; padding:0;}
+	.meso .inner .copy button {color:#156BC1; background-color:#fff; border:solid 1px #e6e6e6; padding:8px 16px; border-radius: 50vh; font-weight: bold; font-size: 16px;}
+</style>
+		<div class="meso">
+			<div class="wrapper">
+				<div class="inner">
+					<div class="block">
+						<img src="i/meso-marquee.png" alt="">
+					</div>
+					<div class="block copy">
+						<img src="i/meso-logo.png" alt="">
+						<h3>Find Your Sun-Soaked Smile</h3>
+						<p>Save up to 25% on hotels</p>
+						<button type="button" name="button">SEE DEALS</button>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+<style media="screen">
+	h2 {font-size:24px; margin:20px 0; padding:0;}
+	#content{padding:0pc 16px}
+	.three-col{overflow:hidden}
+	.three-col > div {float:left; width:33%; box-sizing: border-box;}
+	.three-col .item-1 {padding-right:16px;}
+	.three-col .item-2 {padding:0 8px;}
+	.three-col .item-3 {padding-left:16px;}
+	.three-col .inner {}
+	.similar-properties {margin-top:28px;}
+	.similar-properties .thumbnail {overflow:hidden; width:100%; height:200px; position:relative; border-radius:4px;}
+	.similar-properties .thumbnail img {width:100%; position:absolute; bottom:0;}
+	.similar-properties .content h3 {font-size: 16px; margin:8px 0; padding:0;}
+	.similar-properties .content .rating {font-size: 14px;}
+	.similar-properties .content .score {display:inline-block; background-color:#218242; padding:4px 6px; margin-right:2px; color:#fff; border-radius: 4px; font-weight: bold;}
+	.similar-properties .content .rating .superlative {font-weight: bold;}
+	.similar-properties .content .rating .count {font-size: 12px; color:#6E6E6E; display:inline-block; margin-left:8px;}
+	.similar-properties .content .price {text-align: right;}
+	.similar-properties .content .price .nights {font-size: 12px; color:#6E6E6E;}
+	.similar-properties .content .price .total {font-size: 20px; font-weight:bold; color:#D32F2F;}
+
+	.section {border-top:solid 1px #E6E6E6; margin-top:20px;}
+	.recommended .three-col > div {margin-bottom: 24px;}
+	.recommended .thumbnail {overflow:hidden; width:100%; height:200px; position:relative; border-radius:4px;}
+	.recommended .thumbnail img {width:100%; height:100%; position:absolute; bottom:0; right:0;}
+	.recommended .content h3 {font-size: 16px; margin:8px 0 4px; padding:0;}
+	.recommended .content span {font-size: 12px; color:#6E6E6E;}
+
+	.rewards {padding:20px 0}
+	.rewards .rewards-banner {background-color:#7B1FA2; border-radius: 4px; min-height:100px; margin-top:20px; }
+	.merch .thumbnail {overflow:hidden; width:100%; height:216px; position:relative; border-radius:4px; background-color: #e6e6e6}
+	.merch .thumbnail img {width:100%; position:absolute; bottom:0;}
+</style>
+
+
+		<div id="content">
+			<div class="wrapper">
+
+				<div class="similar-properties section">
+					<h2>Because you looked at similar properties in Bellevue</h2>
+					<div class="three-col">
+						<div class="item-1">
+							<div class="inner">
+								<div class="thumbnail">
+									<img src="https://exp.cdn-hotels.com/hotels/19000000/18030000/18023800/18023731/5f84d075_y.jpg" alt="">
+								</div>
+								<div class="content">
+									<h3>AC Hotel by Marriott Seattle Bellevue/Downtown</h3>
+									<div class="rating">
+										<span class="score">9.0</span> <span class="superlative">Superb</span> <span class="count">710 Hotels.com guest reviews</span>
+									</div>
+									<div class="price">
+										<span class="nights">1 night from</span>
+										<span class="total">$103</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="item-2">
+							<div class="inner">
+								<div class="thumbnail">
+									<img src="https://exp.cdn-hotels.com/hotels/1000000/10000/9900/9803/859eee1a_y.jpg" alt="">
+								</div>
+								<div class="content">
+									<h3>Sheraton Bellevue Hotel</h3>
+									<div class="rating">
+										<span class="score">8.6</span> <span class="superlative">Fabulous</span> <span class="count">710 Hotels.com guest reviews</span>
+									</div>
+									<div class="price">
+										<span class="nights">1 night from</span>
+										<span class="total">$103</span>
+									</div>
+								</div>
+
+							</div>
+						</div>
+						<div class="item-3">
+								<div class="thumbnail">
+									<img src="https://exp.cdn-hotels.com/hotels/9000000/8420000/8419700/8419638/6fc871ba_y.jpg" alt="">
+								</div>
+								<div class="content">
+									<h3>Seattle Marriott Bellevue</h3>
+									<div class="rating">
+										<span class="score">8.4</span> <span class="superlative">Very Good</span> <span class="count">710 Hotels.com guest reviews</span>
+									</div>
+									<div class="price">
+										<span class="nights">1 night from</span>
+										<span class="total">$94</span>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+					<div class="rewards section">
+						<img style="height:25px" src="https://a.cdn-hotels.com/uswest2/da/assets/s/63.0.10002/images/brands/hcom/hcomrewards/logos/rewards-logo-purple-no-moon-en_GB.png" alt="">
+						<div class="rewards-banner">
+
+						</div>
+					</div>
+
+					<div class="merch section">
+						<h2>Today's most popular deals</h2>
+						<div class="three-col">
+							<div class="item-1">
+								<div class="inner">
+									<div class="thumbnail">
+										<img src="i/merch-1.png" alt="">
+									</div>
+								</div>
+							</div>
+							<div class="item-2">
+								<div class="inner">
+									<div class="thumbnail">
+										<img src="i/merch-2.png" alt="">
+
+									</div>
+								</div>
+							</div>
+							<div class="item-3">
+								<div class="inner">
+									<div class="thumbnail">
+										<img src="i/merch-3.png" alt="">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<style media="screen">
+						.range .range-list {overflow:hidden;}
+						.range .range-list .range-item {float:left; width:16.66%; text-align:center;}
+						.range .range-list .range-item span {display:block; font-weight: bold; margin-top:8px;}
+					</style>
+
+					<div class="range section">
+						<h2>We do more than just hotels</h2>
+						<div class="range-list">
+							<div class="range-item">
+								<img src="i/range-apartments.png" alt="">
+								<span>Apartmemts</span>
+							</div>
+							<div class="range-item">
+								<img src="i/range-hotels.png" alt="">
+								<span>Hotels</span>
+							</div>
+							<div class="range-item">
+								<img src="i/range-cityhomes.png" alt="">
+								<span>City homes</span>
+							</div>
+							<div class="range-item">
+								<img src="i/range-retreats.png" alt="">
+								<span>Country retreats</span>
+							</div>
+							<div class="range-item">
+								<img src="i/range-holidayhomes.png" alt="">
+								<span>Holiday homes</span>
+							</div>
+							<div class="range-item">
+								<img src="i/range-resorts.png" alt="">
+								<span>Resorts</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="recommended section">
+						<h2>Recommended destinations</h2>
+						<div class="three-col">
+							<div class="item-1">
+								<div class="inner">
+									<div class="thumbnail">
+										<img src="https://a.cdn-hotels.com/gdcs/production71/d1163/ca7edc90-b7a4-11e6-9c00-0242ac110047.jpg" alt="">
+									</div>
+									<div class="content">
+										<h3>Lisbon</h3>
+										<span>39,327 people are looking for properties today</span>
+									</div>
+								</div>
+							</div>
+							<div class="item-2">
+								<div class="inner">
+									<div class="thumbnail">
+										<img src="https://a.cdn-hotels.com/gdcs/production119/d1923/eba28df0-b7a3-11e6-9c00-0242ac110047.jpg" alt="">
+									</div>
+									<div class="content">
+										<h3>New Orleans</h3>
+										<span>10,640 people are looking for properties today</span>
+									</div>
+								</div>
+							</div>
+							<div class="item-3">
+								<div class="inner">
+									<div class="thumbnail">
+										<img src="https://a.cdn-hotels.com/gdcs/production29/d1766/7dfe05a0-b58b-11e6-8447-0242ac110044.jpg" alt="">
+									</div>
+									<div class="content">
+										<h3>Orlando</h3>
+										<span>39,264 people are looking for properties today</span>
+									</div>
+								</div>
+							</div>
+							<div class="item-1">
+								<div class="inner">
+									<div class="thumbnail">
+										<img src="https://a.cdn-hotels.com/gdcs/production114/d1349/21c38750-b58c-11e6-9ee9-0242ac1100f0.jpg" alt="">
+									</div>
+									<div class="content">
+										<h3>Washington</h3>
+										<span>39,327 people are looking for properties today</span>
+									</div>
+								</div>
+							</div>
+							<div class="item-2">
+								<div class="inner">
+									<div class="thumbnail">
+										<img src="https://a.cdn-hotels.com/gdcs/production130/d110/8f622950-b58d-11e6-8447-0242ac110044.jpg" alt="">
+									</div>
+									<div class="content">
+										<h3>Dublin</h3>
+										<span>39,327 people are looking for properties today</span>
+									</div>
+								</div>
+							</div>
+							<div class="item-3">
+								<div class="inner">
+									<div class="thumbnail">
+										<img src="https://a.cdn-hotels.com/gdcs/production66/d1386/9de36340-b58d-11e6-a5f7-0242ac110090.jpg" alt="">
+									</div>
+									<div class="content">
+										<h3>Liverpool</h3>
+										<span>39,327 people are looking for properties today</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+<div class="" style="height:200px;">
+
+</div>
+			</div>
+
+		</div>
+  </body>
+
+</html>
