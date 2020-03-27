@@ -21,17 +21,17 @@
 			#header .wrapper ul li a i {position:absolute; top:6px; right:0; font-size:20px;}
 
 			#nav {border-bottom:solid 1px #E6E6E6;}
-			#nav .wrapper {padding:0px 16px;}
+			#nav .wrapper {padding:16px 16px 0;}
 			#nav .wrapper ul {overflow:hidden; list-style-type: none;margin:0; padding:0;}
 			#nav .wrapper ul li {float:left;  font-size:14px; margin-right:20px; padding:0px 0 16px;}
-
+			#nav .wrapper ul li a {color:#6e6e6e;}
 			#sqm {border-bottom:solid 1px #E6E6E6;}
 
 			#sqm .wrapper {padding:0px 16px 16px;}
 			#sqm .wrapper .inner {overflow:hidden;}
 			#sqm h1 {padding:0; margin:0; font-size: 28px;}
 			#sqm label {font-weight:bold; display: block; margin: 0 0 4px 0}
-			#sqm input[type=text]{background-color:#F6F4F3; width:100%; box-sizing: border-box; border:solid #E6E6E6 0px; font-size: 16px;}
+			#sqm input[type=text]{background-color:#F6F4F3; color:#156BC1; width:100%; box-sizing: border-box; border:solid #E6E6E6 0px; font-size: 16px;}
 			#sqm .field {box-sizing: border-box; margin-right:16px;}
 			#sqm .field-destination {float:left; width:calc(100% - 790px); position:relative; background-color:#F6F4F3; border: solid 1px #E6E6E6; padding:8px; font-size:14px; color:#156BC1; border-radius:8px; margin-top:16px; box-sizing: border-box; padding-left: 48px;}
  			#sqm .field-dates {float:left; width: 360px; position:relative; float:left; background-color:#F6F4F3; border: solid 1px #E6E6E6; padding:0px 0; font-size:14px; color:#156BC1; border-radius:8px; margin-top:16px; box-sizing: border-box; overflow:hidden;}
@@ -44,12 +44,27 @@
 
   </head>
   <body>
+
+		<div id="nav">
+			<div class="wrapper">
+				<ul class="nav-items">
+					<li><a href="#">Deals</a></li>
+					<li><a href="#">Things to do</a></li>
+					<li><a href="#">Package &amp; Flights</a></li>
+					<li><a href="#">Groups &amp; Meetings</a></li>
+					<li><a href="#">Gift Cards</a></li>
+					<li><a href="#">List your property</a></li>
+					<li><a href="#">Hotels.com Rewards</a></li>
+				</ul>
+			</div>
+		</div>
+
 		<div id="header">
-			<div class="wrapper" style="padding:8px 16px; position:relative;">
+			<div class="wrapper" style="padding:16px 16px 0; position:relative;">
 				<div class="" style="">
 					<img src="i/logo-single.png" alt="" style="height:40px;">
 				</div>
-				<div class="tools" style="position:absolute; top:12px; right:16px;">
+				<div class="tools" style="position:absolute; top:16px; right:16px;">
 					<ul>
 						<li><a href="#"><img src="i/flag-uk.png" style="height:16px; display:inline-block; margin-right:4px; margin-top:2px"/> <i class="material-icons">
 keyboard_arrow_down
@@ -69,19 +84,7 @@ keyboard_arrow_down
 			</div>
 		</div>
 
-		<div id="nav">
-			<div class="wrapper">
-				<ul class="nav-items">
-					<li><a href="#">Deals</a></li>
-					<li><a href="#">Things to do</a></li>
-					<li><a href="#">Package &amp; Flights</a></li>
-					<li><a href="#">Groups &amp; Meetings</a></li>
-					<li><a href="#">Gift Cards</a></li>
-					<li><a href="#">List your property</a></li>
-					<li><a href="#">Hotels.com Rewards</a></li>
-				</ul>
-			</div>
-		</div>
+
 
 		<div id="sqm">
 			<div class="wrapper">
@@ -91,25 +94,25 @@ keyboard_arrow_down
 					<div class="field field-destination">
 						<i class="material-icons" style="position:absolute; top:14px; left:16px;">search</i>
 						<label for="">Destination</label>
-						<input type="text" name="" value="" placeholder="Enter your destination">
+						<input type="text" name="" value="Belleview, Washington, United States" placeholder="Enter your destination">
 					</div>
 					<div class="field field-dates">
 						<div style="border-right: solid 1px #E6E6E6;">
 							<i class="material-icons" style="position:absolute; top:14px; left:16px; font-size:20px">calendar_today</i>
 							<label for="">Check in</label>
-							<input type="text" name="" value="" placeholder="--">
+							<input type="text" name="" value="Wed 20 May" placeholder="--">
 						</div>
 						<div>
 							<i class="material-icons" style="position:absolute; top:14px; left:16px; font-size:20px">calendar_today</i>
 							<label for="">Check out</label>
-							<input type="text" name="" value="" placeholder="--">
+							<input type="text" name="" value="Thu 21 May" placeholder="--">
 						</div>
 
 					</div>
 					<div class="field field-occupancy">
 						<i class="material-icons" style="position:absolute; top:14px; left:16px; font-size:20px">people_alt</i>
 						<label for="">Guests</label>
-						<input type="text" name="" value="" placeholder="--">
+						<input type="text" name="" value="1 room, 2 adults" placeholder="--">
 					</div>
 					<button type="button" name="button">Search</button>
 				</div>
