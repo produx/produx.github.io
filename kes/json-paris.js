@@ -26,7 +26,7 @@
          {"id":"236655", "name":"Hotel Oceania Paris Porte de Versailles", "loc":"2.284712 48.830375"},
          {"id":"318844", "name":"Apostrophe Hotel", "loc":"2.331696 48.841848"},
          {"id":"467927", "name":"Hôtel Delambre", "loc":"2.326019 48.841421"},
-         {"id":"468043", "name":"Adagio Paris Malakoff Châtillon", "loc":"2.309857 48.819287"},
+         /* {"id":"468043", "name":"Adagio Paris Malakoff Châtillon", "loc":"2.309857 48.819287"},
          {"id":"469156", "name":"Hotel Kyriad Paris Nord - Gonesse - Parc des Expositions", "loc":"2.443662 48.980428"},
          {"id":"135228", "name":"Mercure Paris Champs Elysees", "loc":"2.290806 48.870076"},
          {"id":"135421", "name":"Hôtel Plaza Etoile", "loc":"2.29661 48.87591"},
@@ -996,7 +996,7 @@
          {"id":"551628", "name":"Hotel du Commerce", "loc":"2.34856 48.84884"},
          {"id":"355879", "name":"Hôtel ibis Orly Chevilly Tram 7", "loc":"2.367356 48.775844"},
          {"id":"358103", "name":"Hôtel De Varenne", "loc":"2.317325 48.857039"},
-         {"id":"361749", "name":"Le Placide Saint Germain des Pres", "loc":"2.324439 48.849944"},
+         {"id":"361749", "name":"Le Placide Saint Germain des Pres", "loc":"2.324439 48.849944"},*/
          {"id":"182649", "name":"Novotel Marne La Vallee Noisy Le Grand", "loc":"2.541778 48.838014"}
       ]
 }
