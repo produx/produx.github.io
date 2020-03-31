@@ -82,17 +82,19 @@ arrow_back
 			.layers {position:absolute; bottom:140px; right:20px;}
 			.layers .control {position:relative;}
 			.layers .layer-control {}
-			.layers .button {background-color:#fff; height:40px; width:40px; padding:8px 0 0 7px; border-radius:50%; color:#156BC1; box-sizing: border-box; border:solid 0 #fff;-webkit-box-shadow: 1px 1px 1px 0px rgba(153,153,153,1);
+			.layers .button {background-color:#fff; height:40px; width:40px; padding:8px 0 0 7px; border-radius:50%; color:#156BC1; box-sizing: border-box; border:solid 1px #fff;-webkit-box-shadow: 1px 1px 1px 0px rgba(153,153,153,1);
 -moz-box-shadow: 1px 1px 1px 0px rgba(153,153,153,1);
 box-shadow: 1px 1px 1px 0px rgba(153,153,153,1);}
 			.layers .transport {position:absolute; bottom: 60px; display:none;}
 			.layers .landmarks {position:absolute; bottom: 120px; display:none;}
+
 			.close {display:none;}
 			.label {position:absolute; top:8px; width:80px; text-align:right; left:-90px;  }
 			.label span {background-color:#fff; display:inline-block; padding:4px 6px; font-weight: bold; position:absolute; right:0; -webkit-box-shadow: 1px 1px 1px 0px rgba(153,153,153,1);
 -moz-box-shadow: 1px 1px 1px 0px rgba(153,153,153,1);
 box-shadow: 1px 1px 1px 0px rgba(153,153,153,1); border-radius:4px; font-size:14px;}
 			.property-listing {position:absolute; bottom:0; left:0; right:0; height:120px; background-color:#fff;}
+			.selected {background-color:#EDF5FD;}
 		</style>
 
 		<div id="map" >
@@ -125,6 +127,8 @@ box-shadow: 1px 1px 1px 0px rgba(153,153,153,1); border-radius:4px; font-size:14
 
 		<script type="text/javascript">
 		var layers = 0;
+		var landmarks = 0;
+		var transport = 0;
 
 		$(function(){
 			$.getJSON( "json-paris-few.js", function(data){
@@ -144,7 +148,31 @@ box-shadow: 1px 1px 1px 0px rgba(153,153,153,1); border-radius:4px; font-size:14
 				$(".transport").hide();
 				$(".layers .open").show();
 				$(".layers .close").hide();
-			})
+			});
+
+			$(".landmarks .button").on("click", function(){
+				console.log(landmarks)
+				if (landmarks == 0){
+					$(this).css( "background", "#EDF5FD" );
+					landmarks = 1
+				} else {
+					$(this).css( "background", "#FFFFFF" );
+					landmarks = 0
+				}
+			});
+
+			$(".transport .button").on("click", function(){
+				console.log(landmarks)
+				if (landmarks == 0){
+					$(this).css( "background", "#EDF5FD" );
+					landmarks = 1
+				} else {
+					$(this).css( "background", "#FFFFFF" );
+					landmarks = 0
+				}
+			});
+
+
 
 			initializeMap();
 		});
