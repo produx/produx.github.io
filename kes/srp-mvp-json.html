@@ -109,7 +109,7 @@
 <style media="screen">
 	.search .wrapper {padding:0px 16px 16px;}
 	.search .wrapper .inner {overflow:hidden;}
-	.search .col-filters {float:left; width:33%; box-sizing: border-box; padding:16px 0}
+	.search .col-filters {float:left; width:25%; box-sizing: border-box; padding:16px 0}
 	.search .col-filters h3 {margin:0; padding:0;}
 	.search .col-filters p {margin:4px 0 16px; padding:0; font-size: 14px;}
 	.filter-group {border-top:solid 1px #e6e6e6; padding:24px 0;}
@@ -118,7 +118,7 @@
 	.map {position:relative; border:solid 1px #e6e6e6; border-radius:50vh; text-align: center; padding:16px 0;}
 	.map a {display:inline-block; position:relative; background-color:#fff; padding:6px 12px 6px 30px;  font-size:14px; font-weight:bold;}
 	.map span {position:absolute; top:4px; left:8px; font-size:18px; }
-	.search .col-properties {float:left; width:67%; box-sizing: border-box; padding:16px 0 32px 32px; }
+	.search .col-properties {float:left; width:75%; box-sizing: border-box; padding:16px 0 32px 32px; }
 	.search .col-properties h2 {padding:0; margin:0}
 
 
@@ -326,38 +326,42 @@ map
 							.property-mvp .price .cancellation {font-size: 12px; color:#218242; margin-top:8px;}
 							.property-mvp .price button {margin-top:16px; background-color: #156BC1; color:#fff; text-transform: uppercase; font-weight: bold; padding:12px; font-size: 14px; border-radius:50vh; border:solid 0px;}
 						</style>
-						<div class="property-list">
 
+
+						<div id="property-list"></div>
+						<script id="property-card-template" type="text/x-handlebars-template">
+							{{#each results}}
 							<div class="property-mvp">
 								<div class="thumb">
-									<img src="https://thumbnails.trvl-media.com/DcLLWyaPE6CI9-uc9DK8BAj638k=/250x140/smart/filters:quality(60)/images.trvl-media.com/hotels/1000000/10000/3600/3546/b9da906a_z.jpg" alt="" />
+									<img src="{{optimizedThumbUrls.srpDesktop}}" alt="" />
 								</div>
 								<div class="details">
 									<div class="info">
 										<div class="name">
-											<a href="#">Red Lion Hotel Bellevue</a>
+											<a href="#">{{name}}</a>
 										</div>
 										<div class="location">
-											West Bellevue &#8226; 0.5 miles to City centre
+											{{neighbourhood}} &#8226; {{distanceTo geoBullets}}
 										</div>
 										<div class="review">
+											{{#if guestReviews}}
 											<div class="rating">
-												<span class="score">{{guestRatings.rating}}</span>
-												<span class="superlative">Good</span>
+												{{reviewScore guestReviews}}
+												<span class="superlative">{{guestReviews.badgeText}}</span>
 											</div>
 											<div class="count">
-												1,473 Hotels.com guest reviews
+												{{guestReviews.totalText}}
 											</div>
-
+											{{/if}}
 										</div>
 									</div>
 									<div class="price">
-										<div class="special-deal">
-											Special deal
-										</div>
+										<!--<div class="special-deal">
+
+										</div>-->
 										<div class="price">
-											<div class="strikethrough">155</div>
-											<div class="total special">£110</div>
+											<!--<div class="strikethrough">155</div>-->
+											<div class="total">{{ratePlan.price.current}}</div>
 										</div>
 										<div class="nights">
 											for 1 room for 1 night <br />including taxes & fees
@@ -366,127 +370,63 @@ map
 								</div>
 							</div>
 
-							<div class="property-mvp">
-								<div class="thumb">
-									<img src="https://thumbnails.trvl-media.com/RmsXmiyEiRcg2nAuUSmu7RAkbAA=/250x140/smart/filters:quality(60)/images.trvl-media.com/hotels/9000000/8420000/8419700/8419638/6fc871ba_z.jpg" alt="" />
-								</div>
-								<div class="details">
-									<div class="info">
-										<div class="name">
-											<a href="#">Seattle Marriott Bellevue</a>
-										</div>
-										<div class="location">
-											West Bellevue &#8226; 0.7 miles to City centre
-										</div>
-										<div class="review">
-											<div class="rating">
-												<span class="score-green">8.4</span>
-												<span class="superlative">Very Good</span>
-											</div>
-											<div class="count">
-												1,473 Hotels.com guest reviews
-											</div>
-
-										</div>
-									</div>
-									<div class="price">
-										<div class="special-deal">
-											Special deal
-										</div>
-										<div class="price">
-											<div class="strikethrough">155</div>
-											<div class="total special">£110</div>
-										</div>
-										<div class="nights">
-											for 1 room for 1 night <br />including taxes & fees
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<div class="property-mvp">
-								<div class="thumb">
-									<img src="https://thumbnails.trvl-media.com/XFfBC-S0q4GkGrvamikwmiQFMyc=/250x140/smart/filters:quality(60)/images.trvl-media.com/hotels/2000000/1170000/1160200/1160157/c1c22af1_z.jpg" alt="" />
-								</div>
-								<div class="details">
-									<div class="info">
-										<div class="name">
-											<a href="#">Courtyard by Marriott Seattle Bellevue/Downtown</a>
-										</div>
-										<div class="location">
-											Northwest Bellevue &#8226; 0.4 miles to City centre
-										</div>
-										<div class="review">
-											<div class="rating">
-												<span class="score-green">8.6</span>
-												<span class="superlative">Fabulous</span>
-											</div>
-											<div class="count">
-												1,473 Hotels.com guest reviews
-											</div>
-
-										</div>
-									</div>
-									<div class="price">
-										<div class="special-deal">
-											Special deal
-										</div>
-										<div class="price">
-											<div class="strikethrough">155</div>
-											<div class="total special">£110</div>
-										</div>
-										<div class="nights">
-											for 1 room for 1 night <br />including taxes & fees
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<div class="property-mvp">
-								<div class="thumb">
-									<img src="https://thumbnails.trvl-media.com/DcLLWyaPE6CI9-uc9DK8BAj638k=/250x140/smart/filters:quality(60)/images.trvl-media.com/hotels/1000000/10000/3600/3546/b9da906a_z.jpg" alt="" />
-								</div>
-								<div class="details">
-									<div class="info">
-										<div class="name">
-											<a href="#">Bellevue Club Hotel</a>
-										</div>
-										<div class="location">
-											West Bellevue &#8226; 1.0 miles to City centre
-										</div>
-										<div class="review">
-											<div class="rating">
-												<span class="score-green">9.2</span>
-												<span class="superlative">Superb</span>
-											</div>
-											<div class="count">
-												1,473 Hotels.com guest reviews
-											</div>
-
-										</div>
-									</div>
-									<div class="price">
-										<div class="special-deal">
-											Special deal
-										</div>
-										<div class="price">
-											<div class="strikethrough">155</div>
-											<div class="total special">£110</div>
-										</div>
-										<div class="nights">
-											for 1 room for 1 night <br />including taxes & fees
-										</div>
-									</div>
-								</div>
-							</div>
-
-						</div>
+							{{/each}}
+						</script>
 					</div>
 				</div>
 
 			</div>
 
 		</div>
+		<script src="handlebars.js"></script>
+		<script type="text/javascript">
+
+
+		var destination = "json-srp-" + getUrlParameter("dest") + "-en.js"
+
+		$(function(){
+			$.getJSON( destination, function(json){
+				searchResultsData = json.data.body;
+				//console.log(searchResults);
+				displayResults(searchResultsData);
+
+			});
+		});
+
+		var displayResults = function(data){
+			console.log(data)
+			var results = data.searchResults;
+			//var source = $("#property-card-template").html();
+			var source = document.getElementById("property-card-template").innerHTML;
+			var template = Handlebars.compile(source);
+			$("#property-list").html(template(results));
+		}
+
+		Handlebars.registerHelper("reviewScore", function(guestReviews){
+			var score;
+			if (parseInt(guestReviews.rating) > 8) {
+				score = "<span class='score-green'>" + guestReviews.rating + "</span>"
+			} else {
+				score = "<span class='score'>" + guestReviews.rating + "</span>"
+			}
+			return new Handlebars.SafeString(score);
+		});
+
+		Handlebars.registerHelper("distanceTo", function(geoBullets){
+			var distance = geoBullets[0];
+			return distance;
+		});
+
+		function getUrlParameter(name) {
+    	name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    	var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    	var results = regex.exec(location.search);
+    	return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+		};
+
+		</script>
+
+
 
   </body>
 
