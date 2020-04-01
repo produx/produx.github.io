@@ -267,7 +267,7 @@ map
 						<div class="compression">
 							<img src="i/compression.png" style="width:40px; display:inline-block;" alt="">
 							<div class="compression-messaging" style="display:inline-block; vertical-align:top; padding-top:10px; margin-left:8px;">
-								<span style="font-weight:bold;">75% Booked!</span> Bellevue is popular for your dates. <a href="#">Try 1 week later</a>
+								<span style="font-weight:bold;">75% Booked!</span> <span class="locality">Bellevue</span> is popular for your dates. <a href="#">Try 1 week later</a>
 							</div>
 						</div>
 
@@ -387,9 +387,9 @@ map
 		$(function(){
 			$.getJSON( destination, function(json){
 				searchResultsData = json.data.body;
-				//console.log(searchResults);
+				//var locality = searchResultsData.resu
+				$(".locality").text(searchResultsData.searchResults.results[0].address.locality);
 				displayResults(searchResultsData);
-
 			});
 		});
 
@@ -404,7 +404,7 @@ map
 
 		Handlebars.registerHelper("reviewScore", function(guestReviews){
 			var score;
-			if (parseInt(guestReviews.rating) > 8) {
+			if (parseInt(guestReviews.rating) >= 8) {
 				score = "<span class='score-green'>" + guestReviews.rating + "</span>"
 			} else {
 				score = "<span class='score'>" + guestReviews.rating + "</span>"
