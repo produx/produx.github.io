@@ -279,8 +279,9 @@ map
 							.property-list {margin-top:20px;}
 							.property {border-bottom:solid 1px #e6e6e6; min-height:200px; overflow:hidden; padding:16px 0}
 							.property .content {float:left; width:75%; }
-							.property .content .name a {font-weight: bold; font-size:18px;}
+							.property .content .name a {display:inline-block; vertical-align: middle; font-weight: bold; font-size:18px;}
 							.property .content .name p {margin:4px 0; padding:0; font-size: 14px;}
+							.address{font-size:12px; margin-top:2px;}
 							.content-inner {margin-top:12px; overflow:hidden;}
 							.content-inner .thumbnail {float:left; width: 250px;}
 							.content-inner .thumbnail img {border-radius:4px;}
@@ -314,7 +315,9 @@ map
 
 							.property-mvp .details {float:left; width:calc(100% - 320px); box-sizing: border-box; position:relative; padding-left:20px}
 							.property-mvp .details a {color:#000; font-weight: bold;}
-							.property-mvp .details .location {font-size: 12px; color:#6E6E6E; margin-top:4px;}
+							.property-mvp .details .location {font-size: 12px; margin-top:8px;}
+							.property-mvp .details .location .nhood {font-weight:bold; font-size: 14px; margin-bottom:4px;}
+							.property-mvp .details .location .geobullet {white-space: nowrap;}
 							.property-mvp .review {margin-top:8px;}
 							.property-mvp .rating .score {display:inline-block; font-weight: bold; font-size: 14px; background-color:#EFEBE9; padding:4px; border-radius:4px;}
 							.property-mvp .rating .score-green {display:inline-block; font-weight: bold; font-size: 14px; background-color:#218242; padding:4px 6px; border-radius:4px; color:#fff;}
@@ -322,13 +325,19 @@ map
 							.property-mvp .rating .superlative {font-size: 14px; font-weight: bold;}
 							.property-mvp .count {font-size: 12px; color:#6E6E6E; margin-top:4px;}
 							.property-mvp .price {text-align: right;}
-							.property-mvp .price .special-deal {display:inline-block; background-color:#D32F2F; color:#fff; padding:4px 8px; font-size: 12px; border-radius: 4px; font-weight: bold; margin-bottom:4px;}
+							.property-mvp .price .special-deal {display:inline-block;background-color:#D32F2F; color:#fff; padding:4px 8px; font-size: 12px; border-radius: 4px; font-weight: bold; margin-bottom:4px;}
 							.property-mvp .price .strikethrough {display:inline-block; text-decoration: line-through;}
-							.property-mvp .price .total {font-size:20px; display:inline-block}
+							.property-mvp .price .total {font-size:20px; display:inline-block; font-weight: bold;}
 							.property-mvp .price .special {color:#D32F2F}
 							.property-mvp .price .nights {font-size: 12px; color:#6E6E6E}
 							.property-mvp .price .cancellation {font-size: 12px; color:#218242; margin-top:8px;}
-							.property-mvp .price button {margin-top:16px; background-color: #156BC1; color:#fff; text-transform: uppercase; font-weight: bold; padding:12px; font-size: 14px; border-radius:50vh; border:solid 0px;}
+							.property-mvp .price button {margin-top:16px; background-color: #156BC1; color:#fff; text-transform: uppercase; font-weight: bold; padding:12px; font-size: 12px; border-radius:50vh; border:solid 0px;}
+
+							.amenities ul {list-style-type: none; margin:8px 0 0; padding:0;}
+							.amenities ul li {float:left; font-size:12px; margin:4px 12px 0 0;}
+
+							.badging .badge {display: inline-block; margin-top:8px; font-size:12px;}
+							.vip {display: inline-block; background-color:#000; color:#fff; border-radius: 50%; font-size:10px; width:22px; height:22px; padding:4px 0 0 3px; box-sizing: border-box; vertical-align: middle;}
 						</style>
 
 
@@ -342,12 +351,24 @@ map
 								<div class="details">
 									<div class="info">
 										<div class="name">
-											<a href="#">{{name}}</a>
+											{{#if vip}}
+													<div class="badge vip">VIP</div>
+											{{/if}}<a href="#">{{name}}</a>
+											<div class="address">{{address.streetAddress}}{{#if address.extendedAddress}}, {{address.extendedAddress}}{{/if}}, {{address.locality}}</div>
 										</div>
+										<div class="badging">
+
+										</div>
+								</div>
+								<div style="position:relative; overflow:hidden; min-height:140px">
+									<div style="width:60%">
 										<div class="location">
-											{{neighbourhood}} &#8226; {{distanceTo geoBullets}}
+											<div class="nhood">{{neighbourhood}}</div>
+											{{#each geoBullets}}
+												<span class="geobullet">{{this}}</span>
+											{{/each}}
 										</div>
-										<div class="review">
+										<div class="review" style="">
 											{{#if guestReviews}}
 											<div class="rating">
 												{{reviewScore guestReviews}}
@@ -358,18 +379,36 @@ map
 											</div>
 											{{/if}}
 										</div>
+										<div class="amenities">
+											<ul>
+												{{#each popularAmenities}}
+													<li>{{description}}</li>
+												{{/each}}
+											</ul>
+										</div>
 									</div>
-									<div class="price">
-										<!--<div class="special-deal">
 
-										</div>-->
-										<div class="price">
-											<!--<div class="strikethrough">155</div>-->
+									<div class="price" style="position:absolute; bottom:0; right:0; width:40%;">
+										{{#if ratePlan.price.old}}
+											<div>
+												<div>
+													<span class="special-deal">Special deal</span>
+												</div>
+
+												<div class="strikethrough">{{ratePlan.price.old}}</div>
+												<div class="total special">{{ratePlan.price.current}}</div>
+											</div>
+											{{else}}
+
 											<div class="total">{{ratePlan.price.current}}</div>
-										</div>
+
+										{{/if}}
+
 										<div class="nights">
-											for 1 room for 1 night <br />including taxes & fees
+											{{ratePlan.price.info}} <br />{{ratePlan.price.summary}}
 										</div>
+										<button type="button" name="button">{{chooseRoom}}</button>
+									</div>
 									</div>
 								</div>
 							</div>
@@ -387,19 +426,24 @@ map
 
 
 		var destination = "json-srp-" + getUrlParameter("dest") + "-" + getUrlParameter("loc") + ".js"
+		var chooseRoomText = "choose room";
 
 		$(function(){
 			$.getJSON( destination, function(json){
 				searchResultsData = json.data.body;
+				chooseRoomText = searchResultsData.searchResults.selectButtonText;
+				//console.log(searchResultsData)
 				//var locality = searchResultsData.resu
 				$(".locality").text(searchResultsData.searchResults.results[0].address.locality);
 				displayResults(searchResultsData);
 				displaySort(searchResultsData);
+
+				console.log(chooseRoomText)
 			});
 		});
 
 		var displayResults = function(data){
-			//console.log(data)
+			console.log(data)
 			var results = data.searchResults;
 			//var source = $("#property-card-template").html();
 			var source = document.getElementById("property-card-template").innerHTML;
@@ -409,14 +453,14 @@ map
 
 		var displaySort = function(data){
 			var sortData = data.sortResults;
-			console.log(sortData);
-			$("#sort-tool ul li#favourites span").text("Our favourites");
-			$("#sort-tool ul li#stars-high span").text("Stars (high to low)");
-			$("#sort-tool ul li#stars-low span").text("Stars (low to high)");
-			$("#sort-tool ul li#distance span").text("Distance to city center");
-			$("#sort-tool ul li#guest-rating span").text("Guest rating");
-			$("#sort-tool ul li#price-high span").text("Price (high to low)");
-			$("#sort-tool ul li#price-low span").text("Price (low to high)");
+			//console.log(sortData);
+			$("#sort-tool ul li#favourites span").text(sortData.options[0].label);
+			$("#sort-tool ul li#stars-high span").text(sortData.options[1].choices[0].label);
+			$("#sort-tool ul li#stars-low span").text(sortData.options[1].choices[1].label);
+			$("#sort-tool ul li#distance span").text(sortData.options[2].choices[0].label);
+			$("#sort-tool ul li#guest-rating span").text(sortData.options[3].label);
+			$("#sort-tool ul li#price-high span").text(sortData.options[4].choices[0].label);
+			$("#sort-tool ul li#price-low span").text(sortData.options[4].choices[1].label);
 		}
 
 		Handlebars.registerHelper("reviewScore", function(guestReviews){
@@ -432,6 +476,12 @@ map
 		Handlebars.registerHelper("distanceTo", function(geoBullets){
 			var distance = geoBullets[0];
 			return distance;
+		});
+
+		Handlebars.registerHelper("chooseRoom", function(){
+			var cr = chooseRoomText
+			//console.log(cr)
+			return cr;
 		});
 
 		function getUrlParameter(name) {
