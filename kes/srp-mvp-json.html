@@ -149,16 +149,20 @@
 map
 </span>MAP VIEW</a>
 						</div>
-						<div class="filter-group sort">
-							<h4>Sort by</h4>
+
+
+
+
+						<div id="sort-tool" class="filter-group sort">
+
 							<ul>
-								<li><div class="radio"></div><span>Our favourites</span></li>
-								<li><div class="radio"></div><span>Stars (high to low)</span></li>
-								<li><div class="radio"></div><span>Stars (low to high)</span></li>
-								<li><div class="radio"></div><span>Distance to city center</span></li>
-								<li><div class="radio"></div><span>Guest rating</span></li>
-								<li><div class="radio"></div><span>Price (high to low)</span></li>
-								<li><div class="radio"></div><span>Price (low to high)</span></li>
+								<li id="favourites"><div class="radio"></div><span></span></li>
+								<li id="stars-high"><div class="radio"></div><span></span></li>
+								<li id="stars-low"><div class="radio"></div><span></span></li>
+								<li id="distance"><div class="radio"></div><span></span></li>
+								<li id="guest-rating"><div class="radio"></div><span></span></li>
+								<li id="price-high"><div class="radio"></div><span></span></li>
+								<li id="price-low"><div class="radio"></div><span></span></li>
 							</ul>
 						</div>
 						<!--<h3>Narrow results</h3>
@@ -382,7 +386,7 @@ map
 		<script type="text/javascript">
 
 
-		var destination = "json-srp-" + getUrlParameter("dest") + "-en.js"
+		var destination = "json-srp-" + getUrlParameter("dest") + "-" + getUrlParameter("loc") + ".js"
 
 		$(function(){
 			$.getJSON( destination, function(json){
@@ -390,16 +394,29 @@ map
 				//var locality = searchResultsData.resu
 				$(".locality").text(searchResultsData.searchResults.results[0].address.locality);
 				displayResults(searchResultsData);
+				displaySort(searchResultsData);
 			});
 		});
 
 		var displayResults = function(data){
-			console.log(data)
+			//console.log(data)
 			var results = data.searchResults;
 			//var source = $("#property-card-template").html();
 			var source = document.getElementById("property-card-template").innerHTML;
 			var template = Handlebars.compile(source);
 			$("#property-list").html(template(results));
+		}
+
+		var displaySort = function(data){
+			var sortData = data.sortResults;
+			console.log(sortData);
+			$("#sort-tool ul li#favourites span").text("Our favourites");
+			$("#sort-tool ul li#stars-high span").text("Stars (high to low)");
+			$("#sort-tool ul li#stars-low span").text("Stars (low to high)");
+			$("#sort-tool ul li#distance span").text("Distance to city center");
+			$("#sort-tool ul li#guest-rating span").text("Guest rating");
+			$("#sort-tool ul li#price-high span").text("Price (high to low)");
+			$("#sort-tool ul li#price-low span").text("Price (low to high)");
 		}
 
 		Handlebars.registerHelper("reviewScore", function(guestReviews){
