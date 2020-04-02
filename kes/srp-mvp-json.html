@@ -295,7 +295,7 @@ map
 							.content-inner .details .review {float:left; width:30%; box-sizing: border-box;}
 							.content-inner .details .amenities span {white-space: nowrap;}
 							.review .review-inner {}
-							.review .review-inner .rating {text-align:center;}
+							.review .review-inner .rating {}
 							.review .review-inner .rating .score {display:inline-block; font-weight: bold; background-color:#EFEBE9; padding:4px; border-radius:4px;}
 							.review .review-inner .rating .score-green {display:inline-block; font-weight: bold; background-color:#218242; padding:4px 6px; border-radius:4px; color:#fff;}
 							.review .review-inner .rating .superlative {display:inline-block; font-weight: bold}
@@ -320,10 +320,10 @@ map
 							.property-mvp .details .location .geobullet {white-space: nowrap;}
 							.property-mvp .review {margin-top:8px;}
 							.property-mvp .rating .score {display:inline-block; font-weight: bold; font-size: 14px; background-color:#EFEBE9; padding:4px; border-radius:4px;}
-							.property-mvp .rating .score-green {display:inline-block; font-weight: bold; font-size: 14px; background-color:#218242; padding:4px 6px; border-radius:4px; color:#fff;}
+							.property-mvp .rating .score-green {display:inline-block; font-weight: bold; font-size: 16px; background-color:#218242; padding:8px 8px; border-radius:4px; color:#fff;}
 
-							.property-mvp .rating .superlative {font-size: 14px; font-weight: bold;}
-							.property-mvp .count {font-size: 12px; color:#6E6E6E; margin-top:4px;}
+							.property-mvp .rating .superlative {display:inline-block; font-size: 14px; font-weight: bold; vertical-align: top;}
+							.property-mvp .count {font-size: 12px; color:#6E6E6E; margin-top:2px; font-weight:normal}
 							.property-mvp .price {text-align: right;}
 							.property-mvp .price .special-deal {display:inline-block;background-color:#D32F2F; color:#fff; padding:4px 8px; font-size: 12px; border-radius: 4px; font-weight: bold; margin-bottom:4px;}
 							.property-mvp .price .strikethrough {display:inline-block; text-decoration: line-through;}
@@ -372,11 +372,11 @@ map
 											{{#if guestReviews}}
 											<div class="rating">
 												{{reviewScore guestReviews}}
-												<span class="superlative">{{guestReviews.badgeText}}</span>
+												<div class="superlative">{{guestReviews.badgeText}} <div class="count">
+													{{guestReviews.totalText}}
+												</div></div>
 											</div>
-											<div class="count">
-												{{guestReviews.totalText}}
-											</div>
+
 											{{/if}}
 										</div>
 										<div class="amenities">
