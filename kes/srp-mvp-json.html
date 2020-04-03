@@ -279,6 +279,7 @@ map
 							.property-list {margin-top:20px;}
 							.property {border-bottom:solid 1px #e6e6e6; min-height:200px; overflow:hidden; padding:16px 0}
 							.property .content {float:left; width:75%; }
+							.property .content .name {position:relative;}
 							.property .content .name a {display:inline-block; vertical-align: middle; font-weight: bold; font-size:18px;}
 							.property .content .name p {margin:4px 0; padding:0; font-size: 14px;}
 							.address{font-size:12px; margin-top:2px;}
@@ -337,7 +338,7 @@ map
 							.amenities ul li {float:left; font-size:12px; margin:4px 12px 0 0;}
 
 							.badging .badge {display: inline-block; margin-top:8px; font-size:12px;}
-							.vip {display: inline-block; background-color:#000; color:#fff; border-radius: 50%; font-size:10px; width:22px; height:22px; padding:4px 0 0 3px; box-sizing: border-box; vertical-align: middle;}
+							.vip {position:absolute; top:0; right:0; display: inline-block; background-color:#000; color:#fff; border-radius: 50%; font-size:12px; width:30px; height:30px; padding:7px 0 0 5px; box-sizing: border-box; vertical-align: middle;}
 						</style>
 
 
@@ -351,10 +352,11 @@ map
 								<div class="details">
 									<div class="info">
 										<div class="name">
+											<a href="#">{{name}}</a>
+											<div class="address">{{address.streetAddress}}{{#if address.extendedAddress}}, {{address.extendedAddress}}{{/if}}, {{address.locality}}</div>
 											{{#if vip}}
 													<div class="badge vip">VIP</div>
-											{{/if}}<a href="#">{{name}}</a>
-											<div class="address">{{address.streetAddress}}{{#if address.extendedAddress}}, {{address.extendedAddress}}{{/if}}, {{address.locality}}</div>
+											{{/if}}
 										</div>
 										<div class="badging">
 
