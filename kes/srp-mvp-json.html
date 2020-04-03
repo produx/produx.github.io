@@ -335,7 +335,8 @@ map
 							.property-mvp .price button {margin-top:16px; background-color: #156BC1; color:#fff; text-transform: uppercase; font-weight: bold; padding:12px; font-size: 12px; border-radius:50vh; border:solid 0px;}
 
 							.amenities ul {list-style-type: none; margin:8px 0 0; padding:0;}
-							.amenities ul li {float:left; font-size:12px; margin:4px 12px 0 0;}
+							.amenities ul li {float:left; font-size:12px; margin:4px 4px 0 0; background-color:#e6e6e6; padding:2px 6px; border-radius:4px;}
+							.amenities ul li.lbg {background-color:#D32F2F; color:#fff;}
 
 							.badging .badge {display: inline-block; margin-top:8px; font-size:12px;}
 							.vip {position:absolute; top:0; right:0; display: inline-block; background-color:#000; color:#fff; border-radius: 50%; font-size:12px; width:30px; height:30px; padding:7px 0 0 5px; box-sizing: border-box; vertical-align: middle;}
@@ -383,6 +384,7 @@ map
 										</div>
 										<div class="amenities">
 											<ul>
+												{{showBadges badging}}
 												{{#each popularAmenities}}
 													<li>{{description}}</li>
 												{{/each}}
@@ -485,6 +487,22 @@ map
 			//console.log(cr)
 			return cr;
 		});
+
+		Handlebars.registerHelper("showBadges", function(badging){
+			var badgeString = "";
+			if (!jQuery.isEmptyObject(badging)){
+
+					if (badging.hotelBadge.type == "lovedByGuests"){
+						badgeString += '<li class="lbg">' + badging.hotelBadge.label + '</li>';
+						//console.log(badging.hotelBadge.label);
+					} else if (badging.hotelBadge.type == "justAdded"){
+						//badgeString += '<li class="ja">' + badging.hotelBadge.label + '</li>';
+						//console.log(badging.hotelBadge.label);
+					}
+			};
+
+			return new Handlebars.SafeString(badgeString)
+		})
 
 		function getUrlParameter(name) {
     	name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
