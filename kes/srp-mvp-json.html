@@ -39,7 +39,7 @@
 			#sqm .field-occupancy {float:left; width:240px; position:relative; background-color:#F6F4F3; border: solid 1px #E6E6E6; padding:8px; font-size:14px; color:#156BC1; border-radius:8px; margin-top:16px; box-sizing: border-box; padding-left: 48px; display:inline-block;}
 			#sqm button {float:left; width:140px; margin-top:16px; background-color: #156BC1; color:#fff; text-transform: uppercase; font-weight: bold; padding:16px; font-size: 16px; border-radius:50vh; border:solid 0px; }
 
-
+			h1 {margin:0; padding:0; font-size:24px;}
 		</style>
 
   </head>
@@ -126,7 +126,7 @@
 
 	.filter-group input[type=text]{width:100%; box-sizing: border-box; padding:8px; border:solid 1px #8B8B8B; font-size:16px;}
 	.filter-group ul {list-style-type: none; margin:8px 0 0; padding:0;}
-	.filter-group ul li {font-size:16px; padding:16px 0;}
+	.filter-group ul li {font-size:14px; padding:8px 0;}
 	.slider {margin-top:0px; position:relative; padding-top:11px;height:20px;}
 	.slider .handle {border:solid 2px #156BC1; width:20px; height:20px; border-radius: 50%; background-color:#fff;}
 	.slider .left {position:absolute; left:0; top:0;}
@@ -137,7 +137,7 @@
 	.sort {overflow:hidden; margin-top:16px;}
 	.sort ul li {position:relative;}
 	.sort ul li span {margin-left: 40px;}
-	.sort ul li	.radio {height:12px; width:12px; border-radius:50%; border:solid 2px #156BC1; position:absolute; top:16px; left:16px;}
+	.sort ul li	.radio {height:12px; width:12px; border-radius:50%; border:solid 2px #156BC1; position:absolute; top:8px; left:16px;}
 </style>
 
 		<div class="search">
@@ -149,24 +149,11 @@
 map
 </span>MAP VIEW</a>
 						</div>
-
-
-
-
-						<div id="sort-tool" class="filter-group sort">
-
-							<ul>
-								<li id="favourites"><div class="radio"></div><span></span></li>
-								<li id="stars-high"><div class="radio"></div><span></span></li>
-								<li id="stars-low"><div class="radio"></div><span></span></li>
-								<li id="distance"><div class="radio"></div><span></span></li>
-								<li id="guest-rating"><div class="radio"></div><span></span></li>
-								<li id="price-high"><div class="radio"></div><span></span></li>
-								<li id="price-low"><div class="radio"></div><span></span></li>
-							</ul>
+						<div style="margin-top:16px;">
+							<h3>Narrow results</h3>
+							<p>556 hotels, homes and apartments</p>
 						</div>
-						<!--<h3>Narrow results</h3>
-						<p>556 hotels, homes and apartments</p>-->
+
 						<div class="filter-group">
 							<h4>Name contains</h4>
 							<input type="text" name="" value="" style="margin-top:8px;">
@@ -266,9 +253,39 @@ map
 						</div>
 					</div>
 					<div class="col-properties">
+						<div style="margin-bottom:16px;">
+							<div style="display:inline-block; width:70%" class="destination">
+								<h1></h1>
+							</div>
+							<div style="display:inline-block; width:29%; text-align:right;" class="sort-dd">
+								<select style="font-size:16px;">
+									<option id="favourites"></option>
+									<option id="stars-high"></option>
+									<option id="stars-low"></option>
+									<option id="distance"></option>
+									<option id="guest-rating"></option>
+									<option id="price-high"></option>
+									<option id="price-low"></option>
+								</select>
+							</div>
+						</div>
 
 
-						<div class="compression">
+						<!--<div class="margin-bottom:200px;">
+							<div style="display:inline-block; width:70%" class="destination"></div>
+							<div style="display:inline-block; width:29%; text-align:right;" class="sort">
+								<select>
+									<option id="favourites"></option>
+									<option id="stars-high"></option>
+									<option id="stars-low"></option>
+									<option id="distance"></option>
+									<option id="guest-rating"></option>
+									<option id="price-high"></option>
+									<option id="price-low"></option>
+								</select>
+							</div>
+						</div>-->
+						<div class="compression" style="overflow:hidden;">
 							<img src="i/compression.png" style="width:40px; display:inline-block;" alt="">
 							<div class="compression-messaging" style="display:inline-block; vertical-align:top; padding-top:10px; margin-left:8px;">
 								<span style="font-weight:bold;">75% Booked!</span> <span class="locality">Bellevue</span> is popular for your dates. <a href="#">Try 1 week later</a>
@@ -279,14 +296,14 @@ map
 							.property-list {margin-top:20px;}
 							.property {border-bottom:solid 1px #e6e6e6; min-height:200px; overflow:hidden; padding:16px 0}
 							.property .content {float:left; width:75%; }
-							.property .content .name {position:relative;}
-							.property .content .name a {display:inline-block; vertical-align: middle; font-weight: bold; font-size:18px;}
+							.property .content .name {position:relative; width:60%;}
+							.property .content .name a {display:inline-block; vertical-align: middle; font-weight: bold; font-size:18px; width:60%;}
 							.property .content .name p {margin:4px 0; padding:0; font-size: 14px;}
 							.address{font-size:12px; margin-top:2px;}
 							.content-inner {margin-top:12px; overflow:hidden;}
-							.content-inner .thumbnail {float:left; width: 250px;}
+							.content-inner .thumbnail {float:left; width: 150px;}
 							.content-inner .thumbnail img {border-radius:4px;}
-							.content-inner .details {float:left; width: calc(100% - 250px); box-sizing: border-box; overflow: hidden; }
+							.content-inner .details {float:left; width: calc(100% - 150px); box-sizing: border-box; overflow: hidden; }
 							.content-inner .details .location {float:left; width:70%; box-sizing: border-box; padding:0 16px;}
 							.content-inner .details .location .nhood {font-weight:bold;}
 							.content-inner .details .location ul {list-style-type: none; padding:0; margin:0;}
@@ -301,7 +318,7 @@ map
 							.review .review-inner .rating .score-green {display:inline-block; font-weight: bold; background-color:#218242; padding:4px 6px; border-radius:4px; color:#fff;}
 							.review .review-inner .rating .superlative {display:inline-block; font-weight: bold}
 							.review .review-inner .rating .count {font-size: 14px; margin-top:4px;}
-							.property .price-col {float:left; width:25%; text-align:right;}
+							.property .price-col {float:left; width:25%; text-align:right; }
 							.property .price-col .special-deal {display:inline-block; background-color:#D32F2F; color:#fff; padding:4px 8px; font-size: 12px; border-radius: 4px; font-weight: bold; margin-bottom:4px;}
 							.property .price-col .strikethrough {display:inline-block; text-decoration: line-through;}
 							.property .price-col .total {font-size:32px; display:inline-block}
@@ -311,17 +328,20 @@ map
 							.property .price-col button {margin-top:16px; background-color: #156BC1; color:#fff; text-transform: uppercase; font-weight: bold; padding:12px; font-size: 14px; border-radius:50vh; border:solid 0px;}
 
 							.property-mvp {overflow: hidden; border-bottom:solid 1px #e6e6e6; padding:16px 0;}
-							.property-mvp .thumb {float:left; width:320px; }
+							.property-mvp .thumb {float:left; width:280px; }
 							.property-mvp .thumb img {width:100%; border-radius:4px;}
 
-							.property-mvp .details {float:left; width:calc(100% - 320px); box-sizing: border-box; position:relative; padding-left:20px}
+							.property-mvp .details {float:left; width:calc(100% - 280px); box-sizing: border-box; position:relative; padding-left:20px}
+							.property-mvp .details .info {overflow:hidden;}
+							.property-mvp .details .info .name {float:left;width:60%;}
 							.property-mvp .details a {color:#000; font-weight: bold;}
-							.property-mvp .details .location {font-size: 12px; margin-top:8px;}
-							.property-mvp .details .location .nhood {font-weight:bold; font-size: 14px; margin-bottom:4px;}
+							.property-mvp .details .badge-ja {color:#D32F2F}
+							.property-mvp .details .location {font-size: 12px; margin-top:0px;}
+							.property-mvp .details .location .nhood {font-weight:bold; font-size: 14px; margin-bottom:2px;}
 							.property-mvp .details .location .geobullet {white-space: nowrap;}
 							.property-mvp .review {margin-top:8px;}
-							.property-mvp .rating .score {display:inline-block; font-weight: bold; font-size: 14px; background-color:#EFEBE9; padding:4px; border-radius:4px;}
-							.property-mvp .rating .score-green {display:inline-block; font-weight: bold; font-size: 16px; background-color:#218242; padding:8px 8px; border-radius:4px; color:#fff;}
+							.property-mvp .rating .score {display:inline-block; font-weight: bold; font-size: 20px; background-color:#EFEBE9; padding:4px 6px; border-radius:4px; margin:2px 4px 0 0;}
+							.property-mvp .rating .score-green {display:inline-block; font-weight: bold; font-size: 18px; background-color:#218242; padding:4px 6px; border-radius:4px; color:#fff; margin:2px 4px 0 0; vertical-align: middle;}
 
 							.property-mvp .rating .superlative {display:inline-block; font-size: 14px; font-weight: bold; vertical-align: top;}
 							.property-mvp .count {font-size: 12px; color:#6E6E6E; margin-top:2px; font-weight:normal}
@@ -331,15 +351,17 @@ map
 							.property-mvp .price .total {font-size:20px; display:inline-block; font-weight: bold;}
 							.property-mvp .price .special {color:#D32F2F}
 							.property-mvp .price .nights {font-size: 12px; color:#6E6E6E}
-							.property-mvp .price .cancellation {font-size: 12px; color:#218242; margin-top:8px;}
+							.property-mvp .price .free-cancel {font-size: 12px; color:#218242; margin-top:8px;}
 							.property-mvp .price button {margin-top:16px; background-color: #156BC1; color:#fff; text-transform: uppercase; font-weight: bold; padding:12px; font-size: 12px; border-radius:50vh; border:solid 0px;}
 
 							.amenities ul {list-style-type: none; margin:8px 0 0; padding:0;}
-							.amenities ul li {float:left; font-size:12px; margin:4px 4px 0 0; background-color:#e6e6e6; padding:2px 6px; border-radius:4px;}
+							.amenities ul li {float:left; font-size:12px; margin:4px 4px 0 0; background-color:#e6e6e6; padding:2px 6px; border-radius:4px; color:#333;}
 							.amenities ul li.lbg {background-color:#D32F2F; color:#fff;}
 							.amenities ul li.rewards {background-color:#7B1FA2; color:#fff;}
 							.badging .badge {display: inline-block; margin-top:8px; font-size:12px;}
-							.vip {position:absolute; top:0; right:0; display: inline-block; background-color:#000; color:#fff; border-radius: 50%; font-size:12px; width:30px; height:30px; padding:7px 0 0 5px; box-sizing: border-box; vertical-align: middle;}
+							.rewards-wrapper {float:left; width:40%; text-align:right;}
+							.rewards-wrapper .rewards {font-size:14px; color:#7B1FA2; font-weight:bold;}
+							.vip { display: inline-block; background-color:#000; color:#fff; border-radius: 50%; font-size:10px; width:24px; height:24px; padding:6px 0 0px 4px; box-sizing: border-box; vertical-align: middle; text-align:left; margin-bottom:4px;}
 						</style>
 
 
@@ -354,21 +376,31 @@ map
 									<div class="info">
 										<div class="name">
 											<a href="#">{{name}}</a>
-											<div class="address">{{address.streetAddress}}{{#if address.extendedAddress}}, {{address.extendedAddress}}{{/if}}, {{address.locality}}</div>
+											<div class="address">
+												{{showBadgeJustAdded badging}}
+												{{#if singleUnitVacationRental}}
+
+												{{else}}
+														{{address.streetAddress}}{{#if address.extendedAddress}}, {{address.extendedAddress}}{{/if}}, {{address.locality}}
+												{{/if}}
+											</div>
+
+
+										</div>
+										<div class="rewards-wrapper">
+
 											{{#if vip}}
 													<div class="badge vip">VIP</div>
 											{{/if}}
-										</div>
-										<div class="badging">
-
+											<div class="rewards">Collect nights</div>
 										</div>
 								</div>
-								<div style="position:relative; overflow:hidden; min-height:140px">
-									<div style="width:60%">
+								<div style="position:relative; overflow:hidden; width:100%; min-height:140px; margin-top:8px;">
+									<div style="display:inline-block; width:60%; box-sizing:border-box; vertical-align:top;">
 										<div class="location">
 											<div class="nhood">{{neighbourhood}}</div>
 											{{#each geoBullets}}
-												<span class="geobullet">{{this}}</span>
+												<span class="geobullet">{{this}}</span><br />
 											{{/each}}
 										</div>
 										<div class="review" style="">
@@ -384,7 +416,6 @@ map
 										</div>
 										<div class="amenities">
 											<ul>
-												<li class="rewards">Collect nights</li>
 												{{showBadges badging}}
 												{{#each popularAmenities}}
 													<li>{{description}}</li>
@@ -393,7 +424,7 @@ map
 										</div>
 									</div>
 
-									<div class="price" style="position:absolute; bottom:0; right:0; width:40%;">
+									<div class="price" style="display:inline-block; width:39%; box-sizing:border-box; vertical-align:bottom;">
 										{{#if ratePlan.price.old}}
 											<div>
 												<div>
@@ -412,6 +443,9 @@ map
 										<div class="nights">
 											{{ratePlan.price.info}} <br />{{ratePlan.price.summary}}
 										</div>
+										{{#if ratePlan.features.freeCancellation}}
+										<div class="free-cancel">Cancel for free if your plans change</div>
+										{{/if}}
 										<button type="button" name="button">{{chooseRoom}}</button>
 									</div>
 									</div>
@@ -442,6 +476,7 @@ map
 				$(".locality").text(searchResultsData.searchResults.results[0].address.locality);
 				displayResults(searchResultsData);
 				displaySort(searchResultsData);
+				displayDestination(searchResultsData.header);
 
 				console.log(chooseRoomText)
 			});
@@ -456,16 +491,20 @@ map
 			$("#property-list").html(template(results));
 		}
 
+		var displayDestination = function(data){
+			$(".destination h1").text(data)
+		}
+
 		var displaySort = function(data){
 			var sortData = data.sortResults;
 			//console.log(sortData);
-			$("#sort-tool ul li#favourites span").text(sortData.options[0].label);
-			$("#sort-tool ul li#stars-high span").text(sortData.options[1].choices[0].label);
-			$("#sort-tool ul li#stars-low span").text(sortData.options[1].choices[1].label);
-			$("#sort-tool ul li#distance span").text(sortData.options[2].choices[0].label);
-			$("#sort-tool ul li#guest-rating span").text(sortData.options[3].label);
-			$("#sort-tool ul li#price-high span").text(sortData.options[4].choices[0].label);
-			$("#sort-tool ul li#price-low span").text(sortData.options[4].choices[1].label);
+			$("#favourites").text(sortData.options[0].label);
+			$("#stars-high").text(sortData.options[1].choices[0].label);
+			$("#stars-low").text(sortData.options[1].choices[1].label);
+			$("#distance").text(sortData.options[2].choices[0].label);
+			$("#guest-rating").text(sortData.options[3].label);
+			$("#price-high").text(sortData.options[4].choices[0].label);
+			$("#price-low").text(sortData.options[4].choices[1].label);
 		}
 
 		Handlebars.registerHelper("reviewScore", function(guestReviews){
@@ -496,14 +535,22 @@ map
 					if (badging.hotelBadge.type == "lovedByGuests"){
 						badgeString += '<li class="lbg">' + badging.hotelBadge.label + '</li>';
 						//console.log(badging.hotelBadge.label);
-					} else if (badging.hotelBadge.type == "justAdded"){
-						//badgeString += '<li class="ja">' + badging.hotelBadge.label + '</li>';
-						//console.log(badging.hotelBadge.label);
 					}
 			};
-
 			return new Handlebars.SafeString(badgeString)
-		})
+		});
+
+		Handlebars.registerHelper("showBadgeJustAdded", function(badging){
+			var badgeString = "";
+
+			if (!jQuery.isEmptyObject(badging)){
+				console.log(badging.hotelBadge.type);
+					if (badging.hotelBadge.type == "justAdded"){
+						badgeString += '<span class="badge-ja">' + badging.hotelBadge.label + '</span>';
+					}
+			};
+			return new Handlebars.SafeString(badgeString)
+		});
 
 		function getUrlParameter(name) {
     	name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
