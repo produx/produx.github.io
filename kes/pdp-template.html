@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes">
+		<!-- scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<!-- style sheets -->
+		<link rel="stylesheet" href="base.css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+		<style media="screen">
+
+			img {
+  			filter: grayscale(100%);
+			}
+
+			.wrapper {max-width:1260px; margin:0 auto; padding:0 16px; box-sizing:border-box;}
+			ul {list-style-type: none; padding:0; margin:0;}
+			button {margin-top:16px; background-color: #156BC1; color:#fff; text-transform: uppercase; font-weight: bold; padding:16px; font-size: 16px; border-radius:50vh; border:solid 0px; }
+
+
+
+			#header {}
+			#header .wrapper ul {overflow:hidden; list-style-type: none;margin:0; padding:0;}
+			#header .wrapper ul li {float:left; position:relative;  font-size:16px; margin-left:28px; padding:6px 0 8px 0;}
+			#header .wrapper ul li a {display:block; padding:0 20px 0 0;}
+			#header .wrapper ul li a i {position:absolute; top:6px; right:0; font-size:20px;}
+
+			#nav {border-bottom:solid 1px #E6E6E6;}
+			#nav .wrapper {padding:0px 16px;}
+			#nav .wrapper ul {overflow:hidden; list-style-type: none;margin:0; padding:0;}
+			#nav .wrapper ul li {float:left;  font-size:14px; margin-right:20px; padding:0px 0 16px;}
+
+			#sqm {border-bottom:solid 1px #E6E6E6;}
+
+			#sqm .wrapper {padding:0px 16px 16px;}
+			#sqm .wrapper .inner {overflow:hidden;}
+			#sqm h1 {padding:0; margin:0; font-size: 28px;}
+			#sqm label {font-weight:bold; display: block; margin: 0 0 4px 0}
+			#sqm input[type=text]{background-color:#F6F4F3; width:100%; box-sizing: border-box; border:solid #E6E6E6 0px; font-size: 16px;}
+			#sqm .field {box-sizing: border-box; margin-right:16px;}
+			#sqm .field-destination {float:left; width:calc(100% - 790px); position:relative; background-color:#F6F4F3; border: solid 1px #E6E6E6; padding:8px; font-size:14px; color:#156BC1; border-radius:8px; margin-top:16px; box-sizing: border-box; padding-left: 48px;}
+ 			#sqm .field-dates {float:left; width: 360px; position:relative; float:left; background-color:#F6F4F3; border: solid 1px #E6E6E6; padding:0px 0; font-size:14px; color:#156BC1; border-radius:8px; margin-top:16px; box-sizing: border-box; overflow:hidden;}
+			#sqm .field-dates > div {float:left; width:50%; box-sizing: border-box; position:relative; padding: 8px 0 8px 48px;}
+			#sqm .field-occupancy {float:left; width:240px; position:relative; background-color:#F6F4F3; border: solid 1px #E6E6E6; padding:8px; font-size:14px; color:#156BC1; border-radius:8px; margin-top:16px; box-sizing: border-box; padding-left: 48px; display:inline-block;}
+			#sqm button {float:left; width:140px; margin-top:16px; background-color: #156BC1; color:#fff; text-transform: uppercase; font-weight: bold; padding:16px; font-size: 16px; border-radius:50vh; border:solid 0px; }
+
+			.pdp-body {margin-top:20px;}
+
+			/* Property description */
+			h1 {margin:0 0 4px 0; padding:0; font-size: 28px;}
+			.address {font-size:14px;}
+			.tagline {margin-top:12px; font-size:16px;}
+			ul.freebies li {margin:8px 16px 8px 0;}
+			.current-price {font-size:28px; font-weight: bold;}
+
+			.block {background-color:#e6e6e6; padding:16px;}
+
+			html {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+		</style>
+  </head>
+  <body>
+
+		<div id="header">
+			<div class="wrapper" style="padding:8px 16px; position:relative;">
+				<div class="" style="">
+					<img src="i/logo-single.png" alt="" style="height:40px;">
+				</div>
+				<div class="tools" style="position:absolute; top:12px; right:16px;">
+					<ul>
+
+						<li style="background:url('i/icon-account.png') no-repeat; background-size:30px; padding-left:36px;"><a href="#" class="primary-red">Craig <i class="material-icons">keyboard_arrow_down
+</i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div id="sqm">
+			<div class="wrapper">
+				<div class="inner">
+
+
+					<div class="field field-destination">
+						<i class="material-icons" style="position:absolute; top:14px; left:16px;">search</i>
+						<label for="">Destination</label>
+						<input id="sqm-destination" type="text" name="" value="" placeholder="Enter your destination">
+					</div>
+					<div class="field field-dates">
+						<div style="border-right: solid 1px #E6E6E6;">
+							<i class="material-icons" style="position:absolute; top:14px; left:16px; font-size:20px">calendar_today</i>
+							<label for="">Check in</label>
+							<input type="text" name="" value="" placeholder="--">
+						</div>
+						<div>
+							<i class="material-icons" style="position:absolute; top:14px; left:16px; font-size:20px">calendar_today</i>
+							<label for="">Check out</label>
+							<input type="text" name="" value="" placeholder="--">
+						</div>
+
+					</div>
+					<div class="field field-occupancy">
+						<i class="material-icons" style="position:absolute; top:14px; left:16px; font-size:20px">people_alt</i>
+						<label for="">Guests</label>
+						<input type="text" name="" value="" placeholder="--">
+					</div>
+					<button type="button" name="button">Search</button>
+				</div>
+			</div>
+		</div>
+
+		<style type="text/css">
+			.jump-to {overflow:hidden; border-bottom:solid 1px #e6e6e6;}
+			.jump-to ul li {float:left; padding:16px 0; margin-right:24px;}
+			.jump-to ul li.selected {color:#D32F2F;}
+		</style>
+		<div class="jump-to">
+			<div class="wrapper">
+					<ul>
+						<li class="selected">Overview</li>
+						<li>Property highlights</li>
+						<li>Location</li>
+						<li>Room choices</li>
+						<li>Property information</li>
+						<li>Reviews</li>
+					</ul>
+			</div>
+		</div>
+
+			<div class="wrapper pdp-body" style="margin-bottom:100px;">
+				<div style="overflow:hidden; margin-bottom:16px;">
+					<div class="summary" style="float:left; width:67%">
+							<h1 class="property-name"></h1>
+							<div class="address" style="color:#6e6e6e"></div>
+							<div class="tagline"></div>
+							<ul class="freebies"></ul>
+					</div>
+					<div class="featured-price" style="float:left; width:33%; text-align:right;">
+						<div class="current-price"></div>
+						<div class="price-info" style="font-size:14px; margin-bottom:4px;"></div>
+						<div class="price-summary" style="font-size:12px; margin-bottom:4px;"></div>
+						<button type="button" name="button">Reserve</button>
+					</div>
+				</div>
+
+				<div class="" style="overflow:hidden;">
+					<div class="" style="float:left; width:67%">
+						<div class="gallery" style="">
+							<img src="" alt="" style="width:100%; border-radius:4px;">
+						</div>
+
+						<div class="thumbnails" style="margin-bottom:16px;">
+							<div class="block" style="height:80px; margin-bottom:4px;">
+								Thumbnails strip 1
+							</div>
+							<div class="block" style="height:80px;">
+								Thumbnails strip 2
+							</div>
+						</div>
+
+						<div class="property-messages block">
+							This property is closed from 20 March 2020 to 31 May 2020 (dates subject to change).
+						</div>
+					</div>
+					<div style="float:left; width:33%; box-sizing:border-box; padding-left:16px;">
+						<div class="flexible-dates" style="border:solid 1px #e6e6e6;padding:12px; border-radius:4px; margin-bottom:16px;">
+							<div class="">
+								Flexible?
+							</div>
+							<span>Compare dates and prices</span>
+						</div>
+						<div class="map-widget" style="height:120px; background-color:#e6e6e6; margin-bottom:16px;">
+							<img src="" />
+						</div>
+						<div class="review-widget" style="border:solid 1px #e6e6e6; border-radius:4px; margin-bottom:16px;">
+							<div class="review" style="padding:16px; border-bottom:solid 1px #e6e6e6;">
+								<div class="review-score" style="display:inline-block;"></div>
+								<div class="superlative" style="display:inline-block;"></div>
+								<div class="review-count" style="display:inline-block;"></div>
+							</div>
+							<div class="trust-you" style="height:200px;">
+
+							</div>
+						</div>
+
+						<div class="share" style="border:solid 1px #e6e6e6; border-radius:4px; margin-bottom:16px;">
+							<div class="" style="padding:16px; border-bottom:solid 1px #e6e6e6;">
+								<span>Email</span> <span>Share link</span>
+							</div>
+							<div class="" style="padding:16px;">
+								<span>Add</span>
+							</div>
+						</div>
+
+						<div class="rewards block" style="background-color:#faedfc;">
+							<div class="" style="margin-bottom:16px; font-weight:bold;">
+									Hotels.com Rewards
+							</div>
+							<div class="">
+								You’ll collect 1 night with this stay <br />
+								Remember, collect 10 nights, get 1 reward* night
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+
+			</div>
+
+
+  </body>
+	<script type="text/javascript">
+
+
+	var pdpData = "pdp.json"
+
+	$(function(){
+		$.getJSON( pdpData, function(json){
+			console.log(json.data.body);
+			var propertyDescription = json.data.body.propertyDescription;
+			var featuredPrice = json.data.body.featuredPrice;
+			var guestReviewData = json.data.body.guestReviews
+
+			buildPropertyDescription(propertyDescription);
+			buildFeaturedPrice(featuredPrice);
+			buildGuestReviewWidget(guestReviewData)
+		});
+	});
+
+	var buildPropertyDescription = function(data){
+		console.log(data)
+		$("h1").text(data.name)
+		$(".address").text(data.address.streetAddress + ", " + data.address.locality + ", " + data.address.region + ", " + data.address.postalCode  + ", " + data.address.countryName)
+
+		var tagLine = data.tagline[0].replace(/(<([^>]+)>)/ig,"");
+		$(".tagline").text(tagLine)
+
+		$.each(data.freebies, function(index, value) {
+  		console.log(data.freebies[index])
+			$("ul.freebies").append("<li>" + data.freebies[index] + "</li>")
+		});
+		console.log(data.optimizedHotelImageContent.hotelImages[0].availableSizes.pdpMainCarouselDesktop)
+		$(".gallery img").attr("src", data.optimizedHotelImageContent.hotelImages[0].availableSizes.pdpMainCarouselDesktop);
+
+		$(".map-widget img").attr("src", data.mapWidget.staticMapUrl)
+
+
+	};
+
+	var buildFeaturedPrice = function(data){
+		$(".current-price").text(data.currentPrice.formatted);
+		$(".price-info").text(data.priceInfo);
+		$(".price-summary").text(data.priceSummary);
+	}
+
+	var buildGuestReviewWidget = function(data){
+		$(".review-score").text(data.brands.rating);
+		$(".superlative").text(data.brands.badgeText);
+		$(".review-count").text(data.brands.total);
+	}
+
+	</script>
+</html>
