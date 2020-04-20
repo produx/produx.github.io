@@ -17,7 +17,7 @@
   			filter: grayscale(100%);
 			}
 
-			.wrapper {max-width:1260px; margin:0 auto; padding:0 16px; box-sizing:border-box;}
+			.wrapper {max-width:1200px; margin:0 auto; padding:0 16px; box-sizing:border-box;}
 			ul {list-style-type: none; padding:0; margin:0;}
 			button {margin-top:16px; background-color: #156BC1; color:#fff; text-transform: uppercase; font-weight: bold; padding:16px; font-size: 16px; border-radius:50vh; border:solid 0px; }
 
@@ -174,14 +174,17 @@
 							</div>
 							<span>Compare dates and prices</span>
 						</div>
-						<div class="map-widget" style="height:120px; background-color:#e6e6e6; margin-bottom:16px;">
-							<img src="" />
+						<div class="map-widget block" style="height:120px; background-color:#e6e6e6; margin-bottom:16px;">
+							Check location
 						</div>
 						<div class="review-widget" style="border:solid 1px #e6e6e6; border-radius:4px; margin-bottom:16px;">
 							<div class="review" style="padding:16px; border-bottom:solid 1px #e6e6e6;">
-								<div class="review-score" style="display:inline-block;"></div>
-								<div class="superlative" style="display:inline-block;"></div>
-								<div class="review-count" style="display:inline-block;"></div>
+								<div class="review-score" style="display:inline-block; font-weight: bold; background-color:#EFEBE9; padding:8px; border-radius:4px; font-size:20px; vertical-align:top; margin-right:8px;"></div>
+								<div class="" style="display:inline-block; vertical-align:top;">
+									<div class="superlative" style="font-weight:bold; margin-bottom:4px;"></div>
+									<div class="review-count" style="font-size:12px;"></div>
+								</div>
+
 							</div>
 							<div class="trust-you" style="height:200px;">
 
@@ -210,11 +213,41 @@
 					</div>
 				</div>
 
-				<div class="overflow:hidden;">
+				<div style="overflow:hidden; ">
 						<div class="" style="float:left; width:67%">
 							<div class="property-messages block">
 								This property is closed from 20 March 2020 to 31 May 2020 (dates subject to change).
 							</div>
+
+							<style media="screen">
+								.popular-amenities {padding:16px; border-bottom:solid 1px #e6e6e6;}
+								.popular-amenities ul {overflow:hidden;}
+								.popular-amenities ul li {float:left; margin-right:16px;}
+							</style>
+							<div class="popular-amenities">
+								<ul>
+								</ul>
+							</div>
+							<style media="screen">
+								.main-amenities {overflow:hidden;}
+								.main-amenities > div {float:left; width:33%;}
+								.main-amenities ul li {font-size:14px; margin-bottom:4px;}
+							</style>
+							<div class="main-amenities" style="">
+								<div class="amenities">
+									<h3>Main amenities</h3>
+									<ul></ul>
+								</div>
+								<div class="family">
+									<h3>For families</h3>
+									<ul></ul>
+								</div>
+								<div class="around">
+									<h3>What's around</h3>
+									<ul></ul>
+								</div>
+							</div>
+
 						</div>
 						<div class="" style="float:left; width:33%"></div>
 				</div>
@@ -233,11 +266,13 @@
 			console.log(json.data.body);
 			var propertyDescription = json.data.body.propertyDescription;
 			var featuredPrice = json.data.body.featuredPrice;
-			var guestReviewData = json.data.body.guestReviews
+			var guestReviewData = json.data.body.guestReviews;
+			var amenityOverviewData = json.data.body.overview;
 
 			buildPropertyDescription(propertyDescription);
 			buildFeaturedPrice(featuredPrice);
 			buildGuestReviewWidget(guestReviewData)
+			buildAmenityOverview(amenityOverviewData)
 		});
 	});
 
@@ -256,7 +291,7 @@
 		console.log(data.optimizedHotelImageContent.hotelImages[0].availableSizes.pdpMainCarouselDesktop)
 		$(".gallery img").attr("src", data.optimizedHotelImageContent.hotelImages[0].availableSizes.pdpMainCarouselDesktop);
 
-		$(".map-widget img").attr("src", data.mapWidget.staticMapUrl)
+		//$(".map-widget img").attr("src", data.mapWidget.staticMapUrl)
 
 
 	};
@@ -270,7 +305,34 @@
 	var buildGuestReviewWidget = function(data){
 		$(".review-score").text(data.brands.rating);
 		$(".superlative").text(data.brands.badgeText);
-		$(".review-count").text(data.brands.total);
+		$(".review-count").text(data.brands.total + " Hotels.com guest reviews");
+	}
+
+	var buildAmenityOverview = function(data){
+		console.log(data.overviewSections);
+		$.each(data.popularAmenities, function(index, value) {
+			//console.log(data.popularAmenities[index])
+			$(".popular-amenities ul").append("<li>" + data.popularAmenities[index].info + "</li>")
+		});
+
+		$.each(data.overviewSections[0].content, function(index, value) {
+			console.log(data.overviewSections[0].content[index])
+			$(".amenities ul").append("<li>" + data.overviewSections[0].content[index] + "</li>")
+			//$(".popular-amenities ul").append("<li>" + data.popularAmenities[index].info + "</li>")
+		});
+
+		$.each(data.overviewSections[1].content, function(index, value) {
+			console.log(data.overviewSections[1].content[index])
+			$(".family ul").append("<li>" + data.overviewSections[1].content[index] + "</li>")
+			//$(".popular-amenities ul").append("<li>" + data.popularAmenities[index].info + "</li>")
+		});
+
+		$.each(data.overviewSections[2].content, function(index, value) {
+			console.log(data.overviewSections[2].content[index])
+			$(".around ul").append("<li>" + data.overviewSections[2].content[index] + "</li>")
+			//$(".popular-amenities ul").append("<li>" + data.popularAmenities[index].info + "</li>")
+		});
+
 	}
 
 	</script>
