@@ -375,7 +375,7 @@
 	function addPriceToPinnedNav() {
 		if (window.pageYOffset > whenShowPrice) {
 			//console.log("show price in nav bar");
-			$("li.price").show();
+			$("li.price").fadeIn(400);
 
 		} else {
 			//console.log("remove price from nav bar");
