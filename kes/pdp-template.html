@@ -14,10 +14,10 @@
 		<style media="screen">
 
 			img {
-  			filter: grayscale(100%);
+
 			}
 
-			.wrapper {max-width:1200px; margin:0 auto; padding:0 16px; box-sizing:border-box;}
+			.wrapper {max-width:1200px; margin:0 auto; padding:0 16px; box-sizing:border-box; }
 			ul {list-style-type: none; padding:0; margin:0;}
 			button {margin-top:16px; background-color: #156BC1; color:#fff; text-transform: uppercase; font-weight: bold; padding:16px; font-size: 16px; border-radius:50vh; border:solid 0px; }
 
@@ -33,11 +33,12 @@
 			#nav .wrapper {padding:0px 16px;}
 			#nav .wrapper ul {overflow:hidden; list-style-type: none;margin:0; padding:0;}
 			#nav .wrapper ul li {float:left;  font-size:14px; margin-right:20px; padding:0px 0 16px;}
+			#nav a{color:#525252}
 
-			#sqm {border-bottom:solid 1px #E6E6E6;}
+			#sqm {}
 
-			#sqm .wrapper {padding:0px 16px 16px;}
-			#sqm .wrapper .inner {overflow:hidden;}
+			#sqm .wrapper {padding:0px 16px 0;}
+			#sqm .wrapper .inner {overflow:hidden; border-bottom:solid 1px #E6E6E6; padding-bottom:16px;}
 			#sqm h1 {padding:0; margin:0; font-size: 28px;}
 			#sqm label {font-weight:bold; display: block; margin: 0 0 4px 0}
 			#sqm input[type=text]{background-color:#F6F4F3; width:100%; box-sizing: border-box; border:solid #E6E6E6 0px; font-size: 16px;}
@@ -48,7 +49,20 @@
 			#sqm .field-occupancy {float:left; width:240px; position:relative; background-color:#F6F4F3; border: solid 1px #E6E6E6; padding:8px; font-size:14px; color:#156BC1; border-radius:8px; margin-top:16px; box-sizing: border-box; padding-left: 48px; display:inline-block;}
 			#sqm button {float:left; width:140px; margin-top:16px; background-color: #156BC1; color:#fff; text-transform: uppercase; font-weight: bold; padding:16px; font-size: 16px; border-radius:50vh; border:solid 0px; }
 
+
+
+
 			.pdp-body {margin-top:20px;}
+
+			.sticky {
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+
+.sticky + .pdp-body {
+	padding-top: 400px;
+}
 
 			/* Property description */
 			h1 {margin:0 0 4px 0; padding:0; font-size: 28px;}
@@ -59,11 +73,11 @@
 
 			.block {background-color:#e6e6e6; padding:16px;}
 
-			html {
+			/*html {
     -webkit-filter: grayscale(100%);
     -moz-filter: grayscale(100%);
     filter: grayscale(100%);
-}
+}*/
 		</style>
   </head>
   <body>
@@ -80,6 +94,19 @@
 </i></a></li>
 					</ul>
 				</div>
+			</div>
+		</div>
+		<div id="nav">
+			<div class="wrapper">
+				<ul class="nav-items">
+					<li><a href="#">Deals</a></li>
+					<li><a href="#">Things to do</a></li>
+					<li><a href="#">Package &amp; Flights</a></li>
+					<li><a href="#">Groups &amp; Meetings</a></li>
+					<li><a href="#">Gift Cards</a></li>
+					<li><a href="#">List your property</a></li>
+					<li><a href="#">Hotels.com Rewards</a></li>
+				</ul>
 			</div>
 		</div>
 
@@ -117,32 +144,60 @@
 		</div>
 
 		<style type="text/css">
-			.jump-to {overflow:hidden; border-bottom:solid 1px #e6e6e6;}
-			.jump-to ul li {float:left; padding:16px 0; margin-right:24px;}
-			.jump-to ul li.selected {color:#D32F2F;}
+			#jump-to {z-index:10000; background-color:#fff; }
+			.jump-to-border {border-bottom:solid 1px #e6e6e6; overflow:hidden;}
+			#jump-to ul {}
+
+			#jump-to ul li {float:left; padding:16px 0; margin-right:24px;}
+
+			#jump-to ul li.selected {color:#D32F2F; border-bottom: solid 1px #D32F2F;}
+			#jump-to ul li.price {float:right; display:none; padding:0; margin-right:0; padding-top: 6px;}
+			#jump-to ul li.price .lowest-price {display:inline-block; vertical-align: middle; font-weight: bold;}
+			#jump-to ul li.price button {font-size:12px; margin:0px 0 0 0; padding:12px 20px; display:inline-block; vertical-align: middle;}
+			.extra-height{padding-top:56px;}
 		</style>
-		<div class="jump-to">
+		<div id="jump-to">
 			<div class="wrapper">
-					<ul>
-						<li class="selected">Overview</li>
-						<li>Property highlights</li>
-						<li>Location</li>
-						<li>Room choices</li>
-						<li>Property information</li>
+					<ul class="jump-to-border">
+						<li id="overview" class="selected">Overview</li>
+						<li id="room-choices">Room choices</li>
+						<li>Map</li>
 						<li>Reviews</li>
+						<li id="location">What's around</li>
+						<li id="property-information">Property information</li>
+						<li id="small-print">Small print</li>
+						<li class="price"><span class="lowest-price">Lowest price: £141</span> <button>Reserve</button></li>
 					</ul>
 			</div>
 		</div>
 
+		<!--<div class="secret-price" style="background-color:#FAEDFC; ">
+			<div class="wrapper" >
+				<div class="inner" style="text-align:center; padding:8px; color:#7B1FA2; font-weight:bold;">
+					Secret price available
+					<button style="background-color:#fff; padding:8px 16px; margin:0; color:#156BC1;">Unlock now</button>
+				</div>
+
+			</div>
+		</div>-->
+<style type="text/css">
+	ul.tools {overflow: hidden;}
+	ul.tools li {float:left; margin-right:24px; font-size:14px;}
+</style>
 			<div class="wrapper pdp-body" style="margin-bottom:100px;">
-				<div style="overflow:hidden; margin-bottom:16px;">
+				<div class="summary-price" style="overflow:hidden; margin-bottom:16px;">
 					<div class="summary" style="float:left; width:67%">
 							<h1 class="property-name"></h1>
 							<div class="address" style="color:#6e6e6e"></div>
 							<div class="tagline"></div>
 							<ul class="freebies"></ul>
+							<ul class="tools">
+								<li>Email</li>
+								<li>Share link</li>
+								<li>Add</li>
+							</ul>
 					</div>
-					<div class="featured-price" style="float:left; width:33%; text-align:right;">
+					<div id="featured-price" style="float:left; width:33%; text-align:right;">
 						<div class="current-price"></div>
 						<div class="price-info" style="font-size:14px; margin-bottom:4px;"></div>
 						<div class="price-summary" style="font-size:12px; margin-bottom:4px;"></div>
@@ -191,30 +246,27 @@
 							</div>
 						</div>
 
-						<div class="share" style="border:solid 1px #e6e6e6; border-radius:4px; margin-bottom:16px;">
-							<div class="" style="padding:16px; border-bottom:solid 1px #e6e6e6;">
-								<span>Email</span> <span>Share link</span>
-							</div>
-							<div class="" style="padding:16px;">
-								<span>Add</span>
-							</div>
-						</div>
-
-						<div class="rewards block" style="background-color:#faedfc;">
-							<div class="" style="margin-bottom:16px; font-weight:bold;">
-									Hotels.com Rewards
-							</div>
-							<div class="">
-								You’ll collect 1 night with this stay <br />
-								Remember, collect 10 nights, get 1 reward* night
-							</div>
-						</div>
-
 					</div>
 				</div>
 
-				<div style="overflow:hidden; ">
-						<div class="" style="float:left; width:67%">
+				<div style="">
+						<div class="">
+							<div style="overflow:hidden; margin-bottom:16px;">
+								<div class="rewards" style="background-color:#faedfc; float:left; width:67%; box-sizing:border-box; padding:16px;">
+									<div class="" style="margin-bottom:8px; font-weight:bold;">
+										Hotels.com Rewards
+									</div>
+									<div class="">
+										You’ll collect 1 night with this stay <br />
+										Remember, collect 10 nights, get 1 reward* night
+									</div>
+								</div>
+
+								<div class="" style="float:left; width:33%">
+									<div style="margin-left:16px; background-color:#ddd; height:90px;">Meso</div>
+								</div>
+
+							</div>
 							<div class="property-messages block">
 								This property is closed from 20 March 2020 to 31 May 2020 (dates subject to change).
 							</div>
@@ -249,8 +301,28 @@
 							</div>
 
 						</div>
-						<div class="" style="float:left; width:33%"></div>
+
 				</div>
+
+				<div id="room-section" class="block" style="height:600px; margin-top:20px">
+					Room choices
+				</div>
+
+				<div id="location-section" class="block" style="height:400px; margin-top:20px">
+					Location
+				</div>
+
+				<div id="property-information-section" class="block" style="height:1000px; margin-top:20px">
+					At a glance<br />
+					In the property / room<br />
+					Special features<br />
+				</div>
+
+				<div id="small-print-section" class="block" style="height:400px; margin-top:20px">
+					Samll print
+				</div>
+
+				<div id="footer" style="height:500px"></div>
 
 			</div>
 
@@ -259,11 +331,87 @@
 	<script type="text/javascript">
 
 
+	window.onscroll = function() {
+		pinNavigation()
+		addPriceToPinnedNav();
+		highlightLinkInPinnedNav();
+	};
+
+	var header = document.getElementById("jump-to");
+	var sticky = header.offsetTop;
+
+	var price = document.getElementById("featured-price");
+	var priceHeight = price.offsetHeight;
+	var whenShowPrice = price.offsetTop + price.offsetHeight;
+
+	var roomSection = document.getElementById("room-section");
+	var posRoomSection = roomSection.offsetTop + 550;
+	var heightRoomSection = roomSection.offsetHeight;
+
+	var locationSection = document.getElementById("location-section");
+	var posLocationSection = locationSection.offsetTop + 550;
+
+	var propertyInformationSection = document.getElementById("property-information-section");
+	var posPropertyInformationSection = propertyInformationSection.offsetTop + 550;
+
+	var smallPrintSection = document.getElementById("small-print-section");
+	var posSmallPrintSection = smallPrintSection.offsetTop + 550;
+
+	function pinNavigation() {
+		if (window.pageYOffset > sticky) {
+			header.classList.add("sticky");
+			header.classList.add("jump-to-border");
+			$("#jump-to ul").removeClass("jump-to-border");
+			$(".summary-price").addClass("extra-height");
+			//console.log("show price in nav bar");
+		} else {
+			header.classList.remove("sticky");
+			header.classList.remove("jump-to-border");
+			$("#jump-to ul").addClass("jump-to-border");
+			$(".summary-price").removeClass("extra-height")
+		}
+	}
+
+	function addPriceToPinnedNav() {
+		if (window.pageYOffset > whenShowPrice) {
+			//console.log("show price in nav bar");
+			$("li.price").show();
+
+		} else {
+			//console.log("remove price from nav bar");
+			$("li.price").hide();
+		}
+	}
+
+	function highlightLinkInPinnedNav() {
+		//console.log(posRoomSection);
+		if (window.pageYOffset > posSmallPrintSection){
+			console.log("in small print selection");
+			$("#jump-to li").removeClass("selected");
+			$("#jump-to li#small-print").addClass("selected");
+		} else if (window.pageYOffset > posPropertyInformationSection) {
+			console.log("in property info selection");
+			$("#jump-to li").removeClass("selected");
+			$("#jump-to li#property-information").addClass("selected");
+		} else if (window.pageYOffset > posLocationSection) {
+				console.log("in location")
+				$("#jump-to li").removeClass("selected");
+				$("#jump-to li#location").addClass("selected");
+		} else if (window.pageYOffset > posRoomSection){
+				console.log("in room selection")
+				$("#jump-to li").removeClass("selected");
+				$("#jump-to li#room-choices").addClass("selected");
+		} else {
+			$("#jump-to li").removeClass("selected");
+			$("#jump-to li#overview").addClass("selected");
+		}
+	}
+
 	var pdpData = "pdp.json"
 
 	$(function(){
 		$.getJSON( pdpData, function(json){
-			console.log(json.data.body);
+			//console.log(json.data.body);
 			var propertyDescription = json.data.body.propertyDescription;
 			var featuredPrice = json.data.body.featuredPrice;
 			var guestReviewData = json.data.body.guestReviews;
@@ -277,7 +425,7 @@
 	});
 
 	var buildPropertyDescription = function(data){
-		console.log(data)
+		//console.log(data)
 		$("h1").text(data.name)
 		$(".address").text(data.address.streetAddress + ", " + data.address.locality + ", " + data.address.region + ", " + data.address.postalCode  + ", " + data.address.countryName)
 
@@ -309,26 +457,26 @@
 	}
 
 	var buildAmenityOverview = function(data){
-		console.log(data.overviewSections);
+		//console.log(data.overviewSections);
 		$.each(data.popularAmenities, function(index, value) {
 			//console.log(data.popularAmenities[index])
 			$(".popular-amenities ul").append("<li>" + data.popularAmenities[index].info + "</li>")
 		});
 
 		$.each(data.overviewSections[0].content, function(index, value) {
-			console.log(data.overviewSections[0].content[index])
+			//console.log(data.overviewSections[0].content[index])
 			$(".amenities ul").append("<li>" + data.overviewSections[0].content[index] + "</li>")
 			//$(".popular-amenities ul").append("<li>" + data.popularAmenities[index].info + "</li>")
 		});
 
 		$.each(data.overviewSections[1].content, function(index, value) {
-			console.log(data.overviewSections[1].content[index])
+			//console.log(data.overviewSections[1].content[index])
 			$(".family ul").append("<li>" + data.overviewSections[1].content[index] + "</li>")
 			//$(".popular-amenities ul").append("<li>" + data.popularAmenities[index].info + "</li>")
 		});
 
 		$.each(data.overviewSections[2].content, function(index, value) {
-			console.log(data.overviewSections[2].content[index])
+			//console.log(data.overviewSections[2].content[index])
 			$(".around ul").append("<li>" + data.overviewSections[2].content[index] + "</li>")
 			//$(".popular-amenities ul").append("<li>" + data.popularAmenities[index].info + "</li>")
 		});
