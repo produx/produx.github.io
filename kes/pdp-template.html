@@ -154,18 +154,19 @@
 			#jump-to ul li.price {float:right; display:none; padding:0; margin-right:0; padding-top: 6px;}
 			#jump-to ul li.price .lowest-price {display:inline-block; vertical-align: middle; font-weight: bold;}
 			#jump-to ul li.price button {font-size:12px; margin:0px 0 0 0; padding:12px 20px; display:inline-block; vertical-align: middle;}
+			#jump-to ul li[rel='link']:hover{cursor: pointer; color:#D32F2F}
 			.extra-height{padding-top:56px;}
 		</style>
 		<div id="jump-to">
 			<div class="wrapper">
 					<ul class="jump-to-border">
-						<li id="overview" class="selected">Overview</li>
-						<li id="room-choices">Room choices</li>
+						<li id="overview" class="selected" rel="link">Overview</li>
+						<li id="room-choices" rel="link">Room choices</li>
 						<li>Map</li>
 						<li>Reviews</li>
-						<li id="location">What's around</li>
-						<li id="property-information">Property information</li>
-						<li id="small-print">Small print</li>
+						<li id="location" rel="link">What's around</li>
+						<li id="property-information" rel="link">Property information</li>
+						<li id="small-print" rel="link">Small print</li>
 						<li class="price"><span class="lowest-price">Lowest price: £141</span> <button>Reserve</button></li>
 					</ul>
 			</div>
@@ -205,7 +206,7 @@
 					</div>
 				</div>
 
-				<div class="" style="overflow:hidden;">
+				<div id="overview-section" class="" style="overflow:hidden;">
 					<div class="" style="float:left; width:67%">
 						<div class="gallery" style="">
 							<img src="" alt="" style="width:100%; border-radius:4px;">
@@ -304,7 +305,7 @@
 
 				</div>
 
-				<div id="room-section" class="block" style="height:600px; margin-top:20px">
+				<div id="room-choices-section" class="block" style="height:600px; margin-top:20px">
 					Room choices
 				</div>
 
@@ -344,7 +345,7 @@
 	var priceHeight = price.offsetHeight;
 	var whenShowPrice = price.offsetTop + price.offsetHeight;
 
-	var roomSection = document.getElementById("room-section");
+	var roomSection = document.getElementById("room-choices-section");
 	var posRoomSection = roomSection.offsetTop + 550;
 	var heightRoomSection = roomSection.offsetHeight;
 
@@ -420,8 +421,20 @@
 			buildPropertyDescription(propertyDescription);
 			buildFeaturedPrice(featuredPrice);
 			buildGuestReviewWidget(guestReviewData)
-			buildAmenityOverview(amenityOverviewData)
+			buildAmenityOverview(amenityOverviewData);
+
+			$("#jump-to li[rel='link']").on("click", function(e){
+				e.preventDefault();
+				var elem = $(this).attr("id");
+				console.log($("#" + elem + "-section").offset().top)
+				$('html, body').animate({
+           scrollTop: $("#" + elem + "-section").offset().top - 50
+        }, 500);
+			})
+
 		});
+
+
 	});
 
 	var buildPropertyDescription = function(data){
