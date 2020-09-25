@@ -15,14 +15,14 @@ var landmarkObj;
 var restaurantObj;
 var servicesObj = [];
 
-var openInfoWindow = false; 
+var openInfoWindow = false;
 
 var map;
 //var service;
 var infowindow;
 var placesList;
 var service;
-var loc = {lat: 50.117089, lng: -5.534462}; 
+var loc = {lat: 55.667390, lng: 12.585780};
 var markerImage = new google.maps.MarkerImage('images/marker.png',
 
     // This marker is 129 pixels wide by 42 pixels tall.
@@ -32,7 +32,7 @@ var markerImage = new google.maps.MarkerImage('images/marker.png',
     new google.maps.Point(0,0),
 
     // The anchor for this image is the base of the flagpole at 18,42.
-    new google.maps.Point(18, 42)
+    new google.maps.Point(0, 0)
 );
 var types = ["hospital", "pharmacy", "store", "grocery_or_supermarket", "convenience_store"]
 var placeTypes = [
@@ -49,7 +49,7 @@ var placeTypes = [
         //{type: "bakery", rank:"distance", title:"Bakery", num_results:"2"},
         {type: "atm", rank:"distance", radius: "2000", title:"ATM", num_results:"3", iconfont: "&#xE53E;"},
         {type: "gas_station", rank:"distance", radius: "10000", title:"Petrol Station", num_results:"3", iconfont: "&#xE546;"},
-        {type: "bus_station", rank:"distance", radius: "10000", title:"Bus Station", num_results:"3", iconfont: "&#xE530;"}, 
+        {type: "bus_station", rank:"distance", radius: "10000", title:"Bus Station", num_results:"3", iconfont: "&#xE530;"},
         {type: "subway_station", rank:"distance", radius: "10000", title:"Metro", num_results:"3", iconfont: "&#xE533;"}
         //{type: "hardware_store", rank:"prominence", radius: "2000", title:"Hardware Store", num_results:"2"},
         //{type: "home_ware_store", rank:"prominence", radius: "2000", title:"Homeware Store", num_results:"2"}
@@ -57,13 +57,13 @@ var placeTypes = [
 
 
 function initializeMap() {
-    
-   
+
+
     map = new google.maps.Map(document.getElementById('map_canvas'), {
         center: loc,
         zoom: 13,
         mapTypeId: 'roadmap',
-        mapTypeId: google.maps.MapTypeId.ROADMAP, 
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
         panControl: false,
         mapTypeControl: false,
         streetViewControl:false,
@@ -92,7 +92,7 @@ function initializeMap() {
         transitLayer.setMap(map);
 
     google.maps.event.addListenerOnce(map, 'idle', function(){
-        // do something only the first time the map is loaded  
+        // do something only the first time the map is loaded
         displayHotelPin()
         fetchPOI(loc);
         fetchPOIByType(loc, "restaurant");
@@ -119,11 +119,11 @@ function initializeMap() {
         }
 
     });
-  
+
 }
 
 function calcRoute(obj) {
-    
+
     console.log(obj[0].latlng)
 
     //var locStr = obj.latlng.split(", ");
@@ -147,17 +147,13 @@ function calcRoute(obj) {
 
 var displayHotelPin = function(){
 
-    if (hotelData.roomRates.promoLowPrice == null){
-        var price = hotelData.roomRates.lowPrice;
-    } else {
-        var price = hotelData.roomRates.promoLowPrice;
-    }
+
     var markerLabel = new MarkerWithLabel({
         position: loc,
         draggable: false,
         map: map,
         icon: markerImage,
-        labelContent: "<span class='price'>" + price + "</span>",
+        labelContent: "<span class='price'>£100</span>",
         //labelAnchor: new google.maps.Point(40, 32),
         labelClass: "map-label-selected-hotel", // the CSS class for the label
         labelStyle: {opacity: 0.9}
@@ -186,7 +182,7 @@ var displayTransportPOI = function(){
             labelClass: "poi-transport", // the CSS class for the label
             labelStyle: {opacity: 0.9}
         });
-        
+
         markersTransport.push(markerLabel);
 
         var num = markersTransport.indexOf(markerLabel);
@@ -194,9 +190,9 @@ var displayTransportPOI = function(){
 
         var placeObj = [
             {
-                name:name, 
-                latlng:latlngObj, 
-                type:"transport", 
+                name:name,
+                latlng:latlngObj,
+                type:"transport",
                 transitMode:"WALKING"
             },
         ]
@@ -206,7 +202,7 @@ var displayTransportPOI = function(){
         });
 
         google.maps.event.addListener(markerLabel, 'click', function() {
-           
+
 
             if( openInfoWindow ) {
                 openInfoWindow.close();
@@ -258,7 +254,7 @@ var displayLandmarksPOI = function(){
             labelClass: "poi-transport", // the CSS class for the label
             labelStyle: {opacity: 0.9}
         });
-        
+
         markersLandmarks.push(markerLabel);
 
         var locStr = obj.latlng.split(", ");
@@ -266,9 +262,9 @@ var displayLandmarksPOI = function(){
 
         var placeObj = [
             {
-                name:name, 
-                latlng:latlngObj, 
-                type:"transport", 
+                name:name,
+                latlng:latlngObj,
+                type:"transport",
                 transitMode:"WALKING"
             },
         ]
@@ -280,7 +276,7 @@ var displayLandmarksPOI = function(){
 
 
         google.maps.event.addListener(markerLabel, 'click', function() {
-           
+
 
             if( openInfoWindow ) {
                 openInfoWindow.close();
@@ -298,14 +294,14 @@ var displayLandmarksPOI = function(){
 
         getDistance(latlngObj, "landmarks-list", num, "WALKING", "&#xE536;");
         getDistance(latlngObj, "landmarks-list", num, "TRANSIT", "&#xE533;");
-       
+
     });
 }
 
 function displayPlacesList(places, status, type, num_results){
     //console.log(places);
     if (status == google.maps.places.PlacesServiceStatus.OK) {
-        
+
         if (places.length == 0) {
             //console.log ()
             $("#list ul#" + type + "list").append("<li> non found </li>")
@@ -320,14 +316,14 @@ function displayPlacesList(places, status, type, num_results){
             }
         }
 
-        
+
 
         $.each(places, function (index, place) {
             //console.log(place);
             //displayNameDistance(loc, place, type);
-            
+
         });
-        
+
     }
 }
 
@@ -354,7 +350,7 @@ var getDistance = function(endLoc, elem, num, mode, iconFont) {
             alert('Error was: ' + status);
         } else {
             if (mode == "TRANSIT") {
-               console.log(response.rows[0].elements[0]) 
+               console.log(response.rows[0].elements[0])
             }
             //
             var distance = response.rows[0].elements[0].distance.text;
@@ -399,7 +395,7 @@ var fetchTransportByType = function(location, category){
                 if (index <= 1){
 
                     //console.log(place.name + " " + place.rating);
-                    
+
                     var markerLabel = new MarkerWithLabel({
                         position: obj.geometry.location,
                         draggable: false,
@@ -413,9 +409,9 @@ var fetchTransportByType = function(location, category){
 
                     var placeObj = [
                         {
-                            name:obj.name, 
-                            latlng:obj.geometry.location, 
-                            type:category, 
+                            name:obj.name,
+                            latlng:obj.geometry.location,
+                            type:category,
                             transitMode:"WALKING"
                         },
                     ]
@@ -441,7 +437,7 @@ var fetchTransportByType = function(location, category){
                     getDistance(obj.geometry.location, "local-transport-list", num, "WALKING", "&#xE536;");
                     clearServiceMarkers()
                 }
-                
+
             })
             //displayPlacesList(results, status, placeType.type, placeType.num_results )
     });
@@ -461,7 +457,7 @@ var fetchPOIByType = function(location, type){
                 if (obj.rating >= 2){
 
                     //console.log(place.name + " " + place.rating);
-                    
+
                     var markerLabel = new MarkerWithLabel({
                         position: obj.geometry.location,
                         draggable: false,
@@ -475,9 +471,9 @@ var fetchPOIByType = function(location, type){
 
                     var placeObj = [
                         {
-                            name:obj.name, 
-                            latlng:obj.geometry.location, 
-                            type:"food", 
+                            name:obj.name,
+                            latlng:obj.geometry.location,
+                            type:"food",
                             transitMode:"WALKING"
                         },
                     ]
@@ -503,7 +499,7 @@ var fetchPOIByType = function(location, type){
                     getDistance(obj.geometry.location, "restaurants-list", num, "WALKING", "&#xE536;");
                     clearServiceMarkers()
                 }
-                
+
             })
             //displayPlacesList(results, status, placeType.type, placeType.num_results )
     });
@@ -545,12 +541,12 @@ function fetchPOI(location) {
         //radius: 2000,
         rankBy: google.maps.places.RankBy.DISTANCE,
         types: [placeType.type]
-        
-        
+
+
         }, function(results, status){
             console.log(results[0].name + " - " + placeType.title);
             //displayPlacesList(results, status, placeType.type, placeType.num_results)
-            
+
             var markerLabel = new MarkerWithLabel({
                         position: results[0].geometry.location,
                         draggable: false,
@@ -568,9 +564,9 @@ function fetchPOI(location) {
 
                     var placeObj = [
                         {
-                            name:results[0].name, 
-                            latlng:results[0].geometry.location, 
-                            //type:"food", 
+                            name:results[0].name,
+                            latlng:results[0].geometry.location,
+                            //type:"food",
                             transitMode:"WALKING"
                         },
                     ]
@@ -595,7 +591,7 @@ function fetchPOI(location) {
             getDistance(results[0].geometry.location, "services-list", index, "DRIVING", "&#xE531;");
 
             clearServiceMarkers()
-                    
+
 
         });
 
@@ -604,10 +600,10 @@ function fetchPOI(location) {
     });
 
 
-    
-    
 
-    
+
+
+
 }
 
 
@@ -648,7 +644,7 @@ function createMarker(place) {
             //console.log (pos[0].geometry.location.k + " " + pos[0].geometry.location.B)
             map.setCenter(pos[0].geometry.location);
 
-            
+
         }
 });*/
 var typeDescription = [
@@ -664,7 +660,7 @@ var typeDescription = [
     {type: "monument", description: "Towers, Arches, Fountains, Churches, etc...", iconfont: "&#xE84F;"},
     {type: "museums", description: "Museum", iconfont: "&#xE84F;"},
     {type: "school", description: "Universities", iconfont: "&#xE84F;"},
-    {type: "shopping", description: "Shopping", iconfont: "&#xE8CB;"}, 
+    {type: "shopping", description: "Shopping", iconfont: "&#xE8CB;"},
     {type: "sign", description: "Squares or Centers", iconfont: "&#xE84F;"},
     {type: "skiing", description: "Ski resort", iconfont: "&#xE84F;"},
     {type: "stadium", description: "Sports stadiums/Arenas", iconfont: "&#xE84F;"},
@@ -679,10 +675,10 @@ var typeDescription = [
 
 var content = {
     barcelona : {
-        name: "Barcelona", 
+        name: "Barcelona",
         destinationId: "457467",
-        center: {lat: 41.297445, lng: 2.083294}, 
-        
+        center: {lat: 41.297445, lng: 2.083294},
+
         transport: [
             {name:"Barcelona–El Prat Airport", latlng:"41.297445, 2.083294", type:"airport", transitMode:"DRIVING"},
             {name:"Barcelona Sants Station", latlng:"41.379093, 2.140133", type:"train", transitMode:"DRIVING"}
@@ -698,27 +694,30 @@ var content = {
             {name:"Barcelona Cathedral", latlng:"41.383933, 2.176366", type:"monument", transitMode: "WALKING"},
             {name:"Port Olimpic", latlng:"41.386052, 2.200981", type:"monument", transitMode: "WALKING"},
             {name:"Picasso Museum", latlng:"41.385230, 2.180932", type:"monument", transitMode: "WALKING"}
-        ], 
+        ],
 
         neighbourhoods: [
             {name: "Exiample", tags:"Shopping, Architecture, Historical, Food, Friendly people", description:"Its lavish avenue, Passeig de Gracia, is the place to check out Barcelona's chic fashion boutiques, but there's another reason Eixample is a must-see district: Gaudi. The trailblazing architect's uniquely organic-looking buildings – which look more grown than built – can be seen here, including Casa Mila and the cactus-like spires of Sagrada Familia, Gaudi's great church which is as much a symbol of Barcelona as the Eiffel Tower is of Paris."}
         ]
-    }, 
+    },
 
     copenhagen : {
-        name: "Copenhagen", 
+        name: "Copenhagen",
         destinationId: "408991",
 
         transport: [
             {name:"Kastrup Airport", latlng:"55.6180, 12.6508", type:"airport", transitMode:"DRIVING"}
-        ], 
+        ],
 
         landmarks: [
             {name:"Tivoli Gardens", latlng:"55.6737, 12.5681", type:"tree", transitMode:"WALKING"},
+            {name:"Copenhagen Zoo", latlng:"55.6724, 12.5214", type:"tree", transitMode:"WALKING"},
+            {name:"The Little Mermaid", latlng:"55.6929, 12.5993", type:"monument", transitMode:"WALKING"},
+            {name:"National Museum of Denmark", latlng:"55.6746, 12.5747", type:"museums", transitMode:"WALKING"},
             {name:"Stroeget", latlng:"55.678678, 12.577490", type:"shopping", transitMode:"WALKING"},
             {name:"Church of Our Saviour", latlng:"55.672939, 12.594210", type:"historic", transitMode:"WALKING"},
-            {name:"Ny Carlsberg Glyptotek", latlng:"55.676097, 12.568337", type:"museums", transitMode:"WALKING"},
-        ], 
+
+        ],
 
         neighbourhoods: [
             {name: "Christianshavn", tags:"Shopping, Architecture, Historical, Food, Friendly people", description:"Christianshavn, set near central Copenhagen, is a relaxed, eclectic neighborhood steeped in history. Dominated by quaint canals, lined with pink, blue, and white buildings with flower-flecked balconies, Christianshavn is perfect for an enchanting amble. Spiraling Baroque church towers occupy the streets, where a blend of academics, businessmen, and artists enjoy the resplendent café culture, cool bars, and ritzy restaurants, all infused with an alternative, welcoming atmosphere. "}
@@ -773,7 +772,7 @@ function changeMarkerStyle() {
     for (var i = 0; i < markersTransport.length; i++) {
         markersTransport[i].labelClass = "poi-transport-big";
     };
-    
+
 }
 
 function defaultMarkerStyle() {
@@ -793,11 +792,5 @@ function defaultMarkerStyle() {
         markersTransport[i].labelClass = "poi-transport";
     }
 
-    
+
 }
-
-
-
-
-
-
