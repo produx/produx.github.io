@@ -11,7 +11,7 @@ var initializeMap = function() {
         center: loc,
         zoom: 13,
         mapTypeId: 'roadmap',
-        mapTypeId: google.maps.MapTypeId.ROADMAP, 
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
         panControl: false,
         mapTypeControl: true,
         streetViewControl:true,
@@ -41,32 +41,32 @@ var initializeMap = function() {
             position: place.geometry.location,
             animation: google.maps.Animation.DROP,
             map: map,
-            icon: "i/pins/landmark.svg"
+            icon: "i/pins/landmark.png"
         });
         console.log(place);
         poiMarkers.push(marker);
         map.setCenter(place.geometry.location);
         map.setZoom(14);
-        
 
-        
+
+
 
         console.log(place);
     });
-    
+
 
     google.maps.event.addListenerOnce(map, 'idle', function(){
     // do something only the first time the map is loaded
-        
+
         addHotelPins()
-        
+
     });
-    
+
 }
 
 var addHotelPins = function(){
     console.log("fetching hotel data")
-   
+
     hotels = hotelData.properties;
     //console.log("length " + hotelData.length)
     $.each(hotels, function(i, hotel){
@@ -74,7 +74,7 @@ var addHotelPins = function(){
         var latlng = hotel.loc.split(" ");
         var latlngObj = {lat:parseFloat(latlng[1]), lng:parseFloat(latlng[0])}
         //console.log(latlngObj)
-        var icon; 
+        var icon;
 
         var r = Math.floor((Math.random() * 10) + 1);
         if (r >=9) {
@@ -86,7 +86,7 @@ var addHotelPins = function(){
 
         marker = new google.maps.Marker({
             position: latlngObj,
-            map: map, 
+            map: map,
             icon: icon
         });
 
@@ -105,11 +105,11 @@ var addHotelPins = function(){
         });
 
         google.maps.event.addListener(marker, 'click', function() {
-            
+
             if (selectedPin != -1){
                 markers[selectedPin].setIcon("i/base_blue_18.png");
             }
-            selectedPin = num; 
+            selectedPin = num;
             markers[num].setIcon('i/base_blue.png');
 
         });
@@ -117,4 +117,3 @@ var addHotelPins = function(){
 
     });
 }
-
