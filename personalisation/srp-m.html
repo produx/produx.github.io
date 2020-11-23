@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes" />
+    <!-- Styles -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="personalisation.css">
+    <style type="text/css">
+
+
+    </style>
+
+
+  </head>
+  <body>
+    <div id="page-wrapper">
+      <div id="property-list"></div>
+      <script id="property-card-template" type="text/x-handlebars-template">
+        {{#each items}}
+        <div class="property-wrapper">
+          <div class="thumb"><img src="{{thumb}}" /></div>
+          <div class="property-details">
+            <div class="name">{{name}}</div>
+            <div class="location">
+              <ul>
+                <li>{{neighbourhood location}}</li>
+              </ul>
+              </div>
+            <div class="facilities">
+              <ul>{{facilities propertyFacilities}}</ul>
+            </div>
+            <div class="two-col">
+              <div class="reviews">
+                <div class="review-score">{{guestReviewScore review}}</div>
+                <div class="review-string">
+                  <span class="review-string">{{guestReviewString review}}</span>
+                  <span class="review-count">{{guestReviewCount review}} guest reviews</span>
+                </div>
+              </div>
+              <div class="price">
+                <div class="price-display">{{totalPrice price}}</div>
+                <div class="info">for 2 nights</div>
+              </div>
+            </div>
+          </div>
+          <div class="property-tools">
+            <ul>
+              <li><span class="material-icons">favorite_border</span></li>
+              <li><span class="material-icons">remove_circle_outline</span></li>
+              <li><span class="material-icons">more_horiz</span></li>
+              <li><a>Choose Room</a> <span class="material-icons">arrow_forward</span></li>
+            </ul>
+          </div>
+        </div>
+        {{/each}}
+      </script>
+
+      <!-- end of page wrapper -->
+    </div>
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="handlebars.js"></script>
+    <script src="json-properties-london.js"></script>
+
+    <script type="text/javascript">
+      //var properties = "json-properties-london.js"
+      var destination = "json/json-srp-london.js"
+
+      $(function(){
+        //console.log(propertyList)
+        displayResults(propertyList);
+        //$.each(propertyList.items, function(i, item) {
+          //console.log(item.name);
+        //});
+      });
+
+      var displayResults = function(data){
+
+  			var results = data;
+        //console.log(propertyList)
+  			//var source = $("#property-card-template").html();
+  			var source = document.getElementById("property-card-template").innerHTML;
+  			var template = Handlebars.compile(source);
+  			$("#property-list").html(template(propertyList));
+  		}
+
+      Handlebars.registerHelper("neighbourhood", function(location){
+  			//console.log(location[0].neighbourhood);
+        return location[0].neighbourhood
+  		});
+
+      Handlebars.registerHelper("facilities", function(propertyFacilities){
+        var propFacilitiesStr = "";
+        $.each(propertyFacilities[0], function(i, item) {
+          if (item[0].hasIt) {
+            propFacilitiesStr += "<li>" + item[0].name + "</li>";
+            //console.log(item[0].name);
+          } else {}
+        });
+        return new Handlebars.SafeString(propFacilitiesStr)
+  		});
+
+      Handlebars.registerHelper("guestReviewScore", function(review){
+  			return(review[0].score);
+  		});
+      Handlebars.registerHelper("guestReviewString", function(review){
+  			return(review[0].str);
+  		});
+      Handlebars.registerHelper("guestReviewCount", function(review){
+  			return(review[0].count);
+  		});
+      Handlebars.registerHelper("totalPrice", function(price){
+        console.log(price)
+        var priceStr = price[0].currencySymbol + "" + price[0].priceDisplay
+        return new Handlebars.SafeString(priceStr);
+  		});
+
+    </script>
+  </body>
+</html>
