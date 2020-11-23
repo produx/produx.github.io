@@ -3,7 +3,7 @@
   #page-wrapper {width:320px; margin:0 auto; background-color:#eee;}
 }
 
-#property-list {padding-top:20px;}
+#property-list {padding-top:8px;}
 #property-list ul {list-style-type: none; margin:0; padding:0; overflow:hidden;}
 .property-wrapper {background-color:#fff; margin-bottom:12px; border-bottom:solid 1px #ddd; border-bottom:solid 1px #ddd; padding-top:12px;}
 .property-details {padding:12px; box-sizing: border-box; min-height:60px}
@@ -42,3 +42,26 @@
 .tools-menu ul li {margin-bottom:12px;}
 
 .overlay {position:fixed; top:0; bottom:0; left:0; right:0; background-color:#000; opacity:0.8; display:none;}
+
+div.collections {padding:12px;}
+div.collections h4 {margin:0 0 8px 0; padding:0;}
+
+div.collections-menu {
+  overflow: auto;
+  white-space: nowrap;
+  background-co/lor:#fff;
+}
+
+div.collections-menu .theme {
+  display: inline-block;
+  vertical-align: top;
+  margin-right:4px;
+  background-color: white;
+  border:solid 1px #ddd;
+  width:120px;
+  height:80px;
+  border-radius:8px;
+  white-space: normal;
+  font-size:14px;
+  padding:8px;
+}
