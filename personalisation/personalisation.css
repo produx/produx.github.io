@@ -29,10 +29,10 @@
 .two-col {overflow:hidden; margin-bottom:8px;}
 .two-col > div {float:left; box-sizing: border-box;}
 
-.property-tools {border-top:solid 1px #ddd; padding:8px;}
+.property-tools {border-top:solid 1px #ddd; padding:8px 12px;}
 .property-tools ul {list-style-type: none; margin:0; padding:0; overflow:hidden;}
 .property-tools ul li {float:left; font-size:14px; margin-right:12px;}
 .property-tools ul li:last-child {float:right; margin-right:0; color:#156BC1;}
-.property-tools ul li .material-icons {font-size:20px; color:#999;}
+.property-tools ul li .material-icons {font-size:24px; color:#999;}
 .property-tools ul li:last-child a {display:inline-block; vertical-align: top; margin-top:2px}
 .property-tools ul li:last-child .material-icons {color:#156BC1;}
