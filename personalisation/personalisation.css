@@ -5,9 +5,9 @@
 
 #property-list {padding-top:20px;}
 #property-list ul {list-style-type: none; margin:0; padding:0; overflow:hidden;}
-.property-wrapper {background-color:#fff; margin-bottom:12px; border-bottom:solid 1px #ddd; border-bottom:solid 1px #ddd;}
-.property-details {padding:8px; box-sizing: border-box; min-height:60px}
-.thumb {overflow:hidden; height:140px; position:relative}
+.property-wrapper {background-color:#fff; margin-bottom:12px; border-bottom:solid 1px #ddd; border-bottom:solid 1px #ddd; padding-top:12px;}
+.property-details {padding:12px; box-sizing: border-box; min-height:60px}
+.thumb {overflow:hidden; height:120px; position:relative; margin:0 12px}
 .thumb img {position:absolute; bottom:0;}
 
 .property-details .name {font-size: 14px; font-weight: bold; margin-bottom:4px;}
@@ -31,8 +31,8 @@
 
 .property-tools {border-top:solid 1px #ddd; padding:8px;}
 .property-tools ul {list-style-type: none; margin:0; padding:0; overflow:hidden;}
-.property-tools ul li {float:left; font-size:12px; margin-right:12px;}
+.property-tools ul li {float:left; font-size:14px; margin-right:12px;}
 .property-tools ul li:last-child {float:right; margin-right:0; color:#156BC1;}
-.property-tools ul li .material-icons {font-size:18px; color:#999;}
+.property-tools ul li .material-icons {font-size:20px; color:#999;}
 .property-tools ul li:last-child a {display:inline-block; vertical-align: top; margin-top:2px}
 .property-tools ul li:last-child .material-icons {color:#156BC1;}
