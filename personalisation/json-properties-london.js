@@ -11,7 +11,7 @@ var propertyList = {
         {
           gym: [{hasIt: false, name: "Gym"}],
           restaurant: [{hasIt: true, name: "Restaurant"}],
-          preFriendly: [{hasIt: false, name: "Pet Friendly"}],
+          petFriendly: [{hasIt: false, name: "Pet Friendly"}],
           pool: [{hasIt: true, name: "Indoor Pool"}],
           parking: [{hasIt: false, name: "Parking available"}],
           spa: [{hasIt: true, name: "Spa"}],
@@ -30,16 +30,24 @@ var propertyList = {
       ]
     },
     {
-      name:"Mercure London Paddington 2",
-      thumb: "https://exp.cdn-hotels.com/hotels/1000000/10000/8200/8161/c16161a7_z.jpg?impolicy=fcrop&w=420&h=120&q=high",
+      name:"Thistle Piccadilly",
+      thumb: "https://exp.cdn-hotels.com/hotels/1000000/10000/5700/5627/5d1d0047_z.jpg?impolicy=fcrop&w=420&h=120&q=high",
       review: [
-        {score:"7.0", str:"Good", count:"422"}
+        {score:"8.6", str:"Fabulous", count:"644"}
       ],
       propertyType:"",
       propertyFacilities: [
         {
-          gym: [{hasIt: true, name: "Gym"}],
-          restaurant: [{hasIt: false, name: "Restaurant"}]
+          gym: [{hasIt: false, name: "Gym"}],
+          restaurant: [{hasIt: true, name: "Restaurant"}],
+          petFriendly: [{hasIt: false, name: "Pet Friendly"}],
+          pool: [{hasIt: false, name: "Indoor Pool"}],
+          parking: [{hasIt: false, name: "Parking available"}],
+          spa: [{hasIt: false, name: "Spa"}],
+          bar: [{hasIt: true, name: "Bar"}],
+          internet: [{hasIt: false, name: "Internet Access"}],
+          meeting: [{hasIt: false, name: "Meeting facilities"}],
+          bathtub: [{hasIt: false, name: "Bathtub"}],
         }
       ],
       roomFacilities: [],
@@ -47,7 +55,7 @@ var propertyList = {
         {priceDisplay:"123", currencySymbol:"$"}
       ],
       location: [
-        {neighbourhood: "Paddington", lat:"", lng:""}
+        {neighbourhood: "Piccadilly", lat:"", lng:""}
       ]
     }
   ]

@@ -36,3 +36,9 @@
 .property-tools ul li .material-icons {font-size:24px; color:#999;}
 .property-tools ul li:last-child a {display:inline-block; vertical-align: top; margin-top:2px}
 .property-tools ul li:last-child .material-icons {color:#156BC1;}
+
+.tools-menu {position:fixed; bottom:0; left:0; right:0; background-color:#fff;; padding:20px; border-top-left-radius: 16px; border-top-right-radius: 16px; display:none;}
+.tools-menu ul {list-style-type: none; margin:0; padding:0;}
+.tools-menu ul li {margin-bottom:12px;}
+
+.overlay {position:fixed; top:0; bottom:0; left:0; right:0; background-color:#000; opacity:0.8; display:none;}

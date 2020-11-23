@@ -26,7 +26,7 @@
             <img src="{{thumb}}" />
           </div>
           <div class="property-details">
-            <div class="name">{{name}}</div>
+            <div class="name"><a href="#">{{name}}</a></div>
             <div class="location">
               <ul>
                 <li>{{neighbourhood location}}</li>
@@ -53,15 +53,29 @@
             <ul>
               <li><span class="material-icons">favorite_border</span></li>
               <li><span class="material-icons">remove_circle_outline</span></li>
-              <li><span class="material-icons">more_horiz</span></li>
-              <li><a>Choose Room</a> <span class="material-icons">arrow_forward</span></li>
+              <li><a href="" class="more-tools"><span class="material-icons more">more_horiz</span></a></li>
+              <li><a href="">Choose Room</a> <span class="material-icons">arrow_forward</span></li>
             </ul>
           </div>
         </div>
         {{/each}}
       </script>
 
+      <div class="overlay" style=""></div>
+      <div class="tools-menu modal" style="">
+        <ul>
+          <li>Add to favourites</li>
+          <li>Not interested in this property</li>
+          <li>Show me more like this</li>
+          <li>Set search requirements</li>
+          <li>Customise displayed information</li>
+        </li>
+        <div style="border-top:solid 1px #ddd; padding-top:12px; text-align:right;">
+          <a href="#">Close</
+        </div>
+      </div>
       <!-- end of page wrapper -->
+
     </div>
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -73,11 +87,20 @@
       var destination = "json/json-srp-london.js"
 
       $(function(){
-        //console.log(propertyList)
+
         displayResults(propertyList);
-        //$.each(propertyList.items, function(i, item) {
-          //console.log(item.name);
-        //});
+
+        $("a.more-tools").on("click", function(e){
+          e.preventDefault();
+          $(".overlay").show();
+          $(".tools-menu").slideDown();
+        })
+
+        $(".overlay").on("click", function(){
+          $(this).hide();
+          $(".modal").hide();
+        })
+
       });
 
       var displayResults = function(data){
