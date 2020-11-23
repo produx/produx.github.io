@@ -7,8 +7,8 @@
 #property-list ul {list-style-type: none; margin:0; padding:0; overflow:hidden;}
 .property-wrapper {background-color:#fff; margin-bottom:12px; border-bottom:solid 1px #ddd; border-bottom:solid 1px #ddd;}
 .property-details {padding:8px; box-sizing: border-box; min-height:60px}
-.property-details .thumb {overflow:hidden;}
-.property-details .thumb img{}
+.thumb {overflow:hidden; height:140px; position:relative}
+.thumb img {position:absolute; bottom:0;}
 
 .property-details .name {font-size: 14px; font-weight: bold; margin-bottom:4px;}
 .property-details .location {font-size:12px; margin-bottom:4px;}
