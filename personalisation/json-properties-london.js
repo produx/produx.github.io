@@ -2,7 +2,7 @@ var propertyList = {
   items: [
     {
       name:"Mercure London Paddington",
-      thumb: "https://exp.cdn-hotels.com/hotels/1000000/10000/8200/8161/c16161a7_z.jpg?impolicy=fcrop&w=320&h=140&q=high",
+      thumb: "https://exp.cdn-hotels.com/hotels/1000000/10000/8200/8161/c16161a7_z.jpg?impolicy=fcrop&w=400&h=120&q=high",
       review: [
         {score:"7.0", str:"Good", count:"422"}
       ],
@@ -31,7 +31,7 @@ var propertyList = {
     },
     {
       name:"Mercure London Paddington 2",
-      thumb: "https://exp.cdn-hotels.com/hotels/1000000/10000/8200/8161/c16161a7_z.jpg?impolicy=fcrop&w=320&h=140&q=high",
+      thumb: "https://exp.cdn-hotels.com/hotels/1000000/10000/8200/8161/c16161a7_z.jpg?impolicy=fcrop&w=400&h=120&q=high",
       review: [
         {score:"7.0", str:"Good", count:"422"}
       ],
