@@ -40,11 +40,13 @@
 .tools-menu {position:fixed; bottom:0; left:0; right:0; background-color:#fff;; padding:20px; border-top-left-radius: 16px; border-top-right-radius: 16px; display:none;}
 .tools-menu ul {list-style-type: none; margin:0; padding:0;}
 .tools-menu ul li {margin-bottom:12px;}
+.tools-menu ul li span {display:inline-block; vertical-align: top;}
+.tools-menu ul li span.label {padding-top:2px; padding-left:4px;}
 
 .overlay {position:fixed; top:0; bottom:0; left:0; right:0; background-color:#000; opacity:0.8; display:none;}
 
-div.collections {padding:12px;}
-div.collections h4 {margin:0 0 8px 0; padding:0;}
+div.collections {padding:12px 0 12px 0px;}
+div.collections h4 {margin:0 0 8px 12px; padding:0;}
 
 div.collections-menu {
   overflow: auto;
@@ -65,3 +67,5 @@ div.collections-menu .theme {
   font-size:14px;
   padding:8px;
 }
+
+div.collections-menu .theme:first-child {margin-left:12px}

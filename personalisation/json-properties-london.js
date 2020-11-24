@@ -27,6 +27,9 @@ var propertyList = {
       ],
       location: [
         {neighbourhood: "Paddington", lat:"12", lng:""}
+      ],
+      theme: [
+        {iconic: false, unique: false, theatreDeals: false, homes: false; }
       ]
     },
     {
@@ -56,6 +59,9 @@ var propertyList = {
       ],
       location: [
         {neighbourhood: "Piccadilly", lat:"", lng:""}
+      ],
+      theme: [
+        {iconic: false, unique: false, theatreDeals: false, homes: false; }
       ]
     }
   ]
