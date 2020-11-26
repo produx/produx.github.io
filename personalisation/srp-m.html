@@ -21,10 +21,10 @@
       <div class="collections">
         <h4>Properties for all kinds of trips</h4>
         <div class="collections-menu">
-          <div class="theme">Iconic luxury London properties</div>
-          <div class="theme">Chic, unique and uncovered gems</div>
-          <div class="theme">Great deals in the Theatre district</div>
-          <div class="theme">Home and apartments in the city center</div>
+          <div class="theme" rel="iconic">Iconic luxury London properties</div>
+          <div class="theme" rel="unique">Chic, unique and uncovered gems</div>
+          <div class="theme" rel="theater">Great deals in the Theatre district</div>
+          <div class="theme" rel="homes">Home and apartments in the city center</div>
         </div>
       </div>
       <div id="property-list"></div>
@@ -38,7 +38,8 @@
             <div class="name"><a href="#">{{name}}</a></div>
             <div class="location">
               <ul>
-                <li>{{neighbourhood location}}</li>
+                <li class="neighbourhood">{{neighbourhood location}}</li>
+                {{addPOI}}
               </ul>
               </div>
             <div class="facilities">
@@ -91,10 +92,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="handlebars.js"></script>
     <script src="json-properties-london.js"></script>
+    <script src="json-poi-london.js"></script>
 
     <script type="text/javascript">
       //var properties = "json-properties-london.js"
       var destination = "json/json-srp-london.js"
+      var categories = {
+  			iconic: false,
+  			unique: false,
+  			theater: false,
+  			homes: false
+  		}
 
       $(function(){
 
@@ -109,6 +117,34 @@
         $(".overlay").on("click", function(){
           $(this).hide();
           $(".modal").hide();
+        });
+
+        $(".collections-menu .theme").on("click", function(){
+          var cat = $(this).attr("rel");
+
+          switch(cat) {
+            case "iconic":
+              console.log("iconic");
+              if (!categories.iconic) {
+                $(this).addClass("selected");
+                categories.iconic = true;
+              } else {
+                $(this).removeClass("selected");
+                categories.iconic = false;
+              }
+            break;
+            case "unique":
+              console.log("unique");
+            break;
+            case "theater":
+              console.log("theater");
+            break;
+            case "homes":
+              console.log("homes");
+            break;
+            default:
+            // code block
+          }
         })
 
       });
@@ -152,6 +188,13 @@
         console.log(price)
         var priceStr = price[0].currencySymbol + "" + price[0].priceDisplay
         return new Handlebars.SafeString(priceStr);
+  		});
+
+      Handlebars.registerHelper("addPOI", function(){
+        console.log(poi.transport[0].name)
+        var poiStr;
+        poiStr = "<li>&nbsp;&#8226;&nbsp;" + poi.transport[0].name + "</li>"
+        return new Handlebars.SafeString(poiStr);
   		});
 
     </script>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="mobile-web-app-capable" content="yes" />
+    <!-- Styles -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="personalisation.css">
+    <style type="text/css">
+
+
+    </style>
+
+
+  </head>
+  <body>
+    <div id="page-wrapper">
+      <div id="sqm">
+        <div class="destination"><a href="#">London, United Kingdom</a></div>
+        <div class="description">19 Feb - 21 Feb • 2 adults</div>
+        <div class="requirements"><a href="#" class="add"><span class="material-icons">add</span> <span>Add requirements</span></a></div>
+        <div class="requirements-list">
+          <ul ></ul>
+          <a href="#">Edit</a>
+        </div>
+
+      </div>
+
+      <div class="collections">
+        <h4>Find properties for all kinds of trips</h4>
+        <div class="collections-menu">
+          <div class="theme" rel="iconic">Iconic luxury London properties</div>
+          <div class="theme" rel="unique">Chic, unique and uncovered gems</div>
+          <div class="theme" rel="theater">Great deals in the Theatre district</div>
+          <div class="theme" rel="homes">Home and apartments in the city center</div>
+        </div>
+      </div>
+      <div id="property-list"></div>
+
+      <div class="overlay" style=""></div>
+      <!-- tools menu -->
+      <div class="tools-menu modal" style="">
+        <ul>
+          <li><span class="material-icons">favorite_border</span> <span class="label">Add to favourites</span></li>
+          <li><span class="material-icons">visibility</span> <span class="label">Show me more properties like this</span></li>
+          <li><span class="material-icons">remove_circle_outline</span> <span class="label">Not interested in this property</span></li>
+          <li>-----</li>
+          <li><span class="material-icons">fact_check</span> <span class="label">Manage property requirements</span></li>
+          <li><span class="material-icons">edit</span> <span class="label">Customise displayed information</span></li>
+        </li>
+        <div style="border-top:solid 1px #ddd; padding-top:12px; text-align:right;">
+          <a href="#">Close</a>
+        </div>
+      </div>
+
+      <!-- edit requirements -->
+      <div id="edit-requirements">
+        <div class="modal-header">
+          <h4>Your requirements</h4>
+          <a href="#">X</a>
+        </div>
+
+        <div class="content">
+          <p>So we can help you find the right accomodation tell us about your requirements and how important they are to you.</p>
+          <h3>Popular with people travelling to London</h3>
+          <div class="row">
+            <div class="cell-1">&nbsp;</div>
+            <div class="cell-2"><strong>Need</strong></div>
+            <div class="cell-3"><strong>Want</strong></div>
+          </div>
+          <div class="row">
+            <div class="cell-1">Wifi included</div>
+            <div class="cell-2"><input type="checkbox" name="req" value="wifi-need" rel="Wifi"/></div>
+            <div class="cell-3"><input type="checkbox" name="req" value="wifi-want" rel="Wifi"/></div>
+          </div>
+          <div class="row">
+            <div class="cell-1">Pool</div>
+            <div class="cell-2"><input type="checkbox" name="req" value="pool-need" rel="Pool"/></div>
+            <div class="cell-3"><input type="checkbox" name="req" value="pool-want" rel="Pool"/></div>
+          </div>
+          <div class="row">
+            <div class="cell-1">Parking</div>
+            <div class="cell-2"><input type="checkbox" name="req" value="parking-need" rel="Parking"/></div>
+            <div class="cell-3"><input type="checkbox" name="req" value="parking-want" rel="Parking"/></div>
+          </div>
+          <div class="row">
+            <div class="cell-1">Breakfast included</div>
+            <div class="cell-2"><input type="checkbox" name="req" value="breakfast-need" rel="Breakfast included"/></div>
+            <div class="cell-3"><input type="checkbox" name="req" value="breakfast-want" rel="Breakfast included"/></div>
+          </div>
+          <div class="row">
+            <div class="cell-1">Free cancellation</div>
+            <div class="cell-2"><input type="checkbox" name="req" value="cancel-need" rel="Free cancellation"/></div>
+            <div class="cell-3"><input type="checkbox" name="req" value="cancel-want" rel="Free cancellation"/></div>
+          </div>
+          <div class="row">
+            <div class="cell-1">In Central London</div>
+            <div class="cell-2"><input type="checkbox" name="req" value="central-need" rel="In Central London"/></div>
+            <div class="cell-3"><input type="checkbox" name="req" value="central-want" rel="In Central London"/></div>
+          </div>
+
+
+          <h3 style="margin:12px 0;">More options</h3>
+          <div class="filter-group">Price range <span class="material-icons">keyboard_arrow_down</span></div>
+          <div class="filter-group">Accommodation types <span class="material-icons">keyboard_arrow_down</span></div>
+          <div class="filter-group">Facilities <span class="material-icons">keyboard_arrow_down</span></div>
+          <div class="filter-group">Neighbourhoods <span class="material-icons">keyboard_arrow_down</span></div>
+          <div class="filter-group">Landmarks <span class="material-icons">keyboard_arrow_down</span></div>
+        </div>
+
+        <div class="ctas">
+          <button class="apply">Apply</button>
+        </div>
+      </div>
+
+      <!-- end of page wrapper -->
+
+    </div>
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="json-properties-london.js"></script>
+    <script src="json-poi-london.js"></script>
+    <script src="js-functions.js"></script>
+
+    <script type="text/javascript">
+      //var properties = "json-properties-london.js"
+      var destination = "json/json-srp-london.js"
+      var categories = {
+  			iconic: false,
+  			unique: false,
+  			theater: false,
+  			homes: false
+  		}
+
+      $(function(){
+
+        displayResults(propertyList);
+
+        $("div.name").on("click", function(e){
+          console.log($(this).text());
+        })
+
+        $("a.more-tools").on("click", function(e){
+          e.preventDefault();
+          $(".overlay").show();
+          $(".tools-menu").slideDown();
+        })
+
+        $(".overlay").on("click", function(){
+          $(this).hide();
+          $(".modal").hide();
+        });
+
+        $(".requirements a").on("click", function(){
+          $("#edit-requirements").show();
+        });
+
+        $(".requirements-list a").on("click", function(){
+          $("#edit-requirements").show();
+        });
+
+        $("#edit-requirements .modal-header a").on("click", function(e){
+          e.preventDefault();
+          $("#edit-requirements").hide();
+        })
+
+        $("#edit-requirements .apply").on("click", function(e){
+          e.preventDefault();
+          $("#edit-requirements").hide();
+          $('input:checked').each(function() {
+              console.log ($(this).attr('rel'));
+              $(".requirements-list ul").append("<li>" + $(this).attr('rel') + "</li>");
+          });
+          $(".requirements-list").show();
+          $(".requirements").hide();
+        })
+
+        $(".collections-menu .theme").on("click", function(){
+          var cat = $(this).attr("rel");
+
+          switch(cat) {
+            case "iconic":
+              console.log("iconic");
+              if (!categories.iconic) {
+                $(this).addClass("selected");
+                categories.iconic = true;
+              } else {
+                $(this).removeClass("selected");
+                categories.iconic = false;
+              }
+            break;
+            case "unique":
+              console.log("unique");
+            break;
+            case "theater":
+              console.log("theater");
+            break;
+            case "homes":
+              console.log("homes");
+            break;
+            default:
+            // code block
+          }
+        })
+
+      });
+
+    </script>
+  </body>
+</html>

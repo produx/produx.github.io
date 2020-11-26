@@ -15,10 +15,7 @@ h1, h2, h3, h4 {margin:0; padding:0;}
 #sqm .requirements {padding:8px 0 0; font-size: 14px; border-top:solid 1px #ddd; margin-top:8px;}
 #sqm .requirements a.add span {display: inline-block; vertical-align: middle}
 #sqm .requirements a.add span.material-icons {font-size: 18px;}
-.requirements-list {display:none; position:relative; padding:8px 0 0; font-size: 14px; border-top:solid 1px #ddd; margin-top:8px;}
-.requirements-list ul {list-style-type: none; padding:0; margin:0; overflow:hidden;}
-.requirements-list ul li {float:left; margin-right:12px; font-size: 14px;}
-.requirements-list a {position:absolute; display:block; right:0; top:0; padding:8px 0px 0 0; font-size:14px;}
+.requirements-list {display:none;}
 
 /* Property Listing */
 #property-list {padding-top:8px;}
@@ -65,21 +62,17 @@ h1, h2, h3, h4 {margin:0; padding:0;}
 .tools-menu ul li span.label {padding-top:2px; padding-left:4px;}
 
 /* edit requirements tool */
-#edit-requirements {position:fixed; top:0; left:0; right:0; bottom:0; z-index:1001; background-color:#fff; display:none;}
-
+#edit-requirements {position:fixed; top:0; left:0; right:0; bottom:0; z-index:1001; background-color:#fff;}
+#edit-requirements .ctas {position:absolute; bottom:0; left:0; right:0; height:50px; border-top: solid 1px #ddd;}
 #edit-requirements .content {position:absolute; left:0; right:0; top:40px; bottom:50px; overflow-y: scroll; padding:12px;}
 #edit-requirements .content h3 {}
-  #edit-requirements .content p {margin: 4px 0 12px; padding:0; line-height:1.2em}
 #edit-requirements .row {overflow:hidden;}
 #edit-requirements .row > div {box-sizing: border-box; padding:8px 0}
 #edit-requirements .row .cell-1 {float:left; width:calc(100% - 100px);}
 #edit-requirements .row .cell-2 {float:left; width:50px; text-align:center;}
 #edit-requirements .row .cell-3 {float:left; width:50px; text-align:center;}
-#edit-requirements .filter-group {border-top: solid 1px #ddd; padding:12px 0; position:relative}
-#edit-requirements .filter-group .material-icons {position: absolute; right:12px; top:10px; color:#156BC1;}
 
-#edit-requirements .ctas {position:absolute; bottom:0; left:0; right:0; height:50px; border-top: solid 1px #ddd; padding-top:6px; padding-right:12px; box-sizing: border-box; text-align: right}
-#edit-requirements button.apply {background-color:#156BC1; color:#fff; border:0; font-size:16px; padding:8px 20px; border-radius:8px; font-weight:bold;}
+
 
 /* Overlay */
 .overlay {position:fixed; top:0; bottom:0; left:0; right:0; background-color:#000; opacity:0.8; display:none;}
