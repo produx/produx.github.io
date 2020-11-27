@@ -23,8 +23,10 @@
         <div class="description">19 Feb - 21 Feb • 2 adults</div>
         <div class="requirements"><a href="#" class="add"><span class="material-icons">add</span> <span>Add requirements</span></a></div>
         <div class="requirements-list">
-          <ul ></ul>
-          <a href="#">Edit</a>
+          <div style="width:calc(100% - 40px); overflow: auto; white-space:nowrap;">
+
+          </div>
+          <a href="#" class="edit">Edit</a>
         </div>
 
       </div>
@@ -128,6 +130,7 @@
     <script type="text/javascript">
       //var properties = "json-properties-london.js"
       var destination = "json/json-srp-london.js"
+      var requirements = [];
       var categories = {
   			iconic: false,
   			unique: false,
@@ -169,11 +172,16 @@
 
         $("#edit-requirements .apply").on("click", function(e){
           e.preventDefault();
-          $("#edit-requirements").hide();
+          requirements = [];
+          $(".requirements-list > div").empty();
           $('input:checked').each(function() {
               console.log ($(this).attr('rel'));
-              $(".requirements-list ul").append("<li>" + $(this).attr('rel') + "</li>");
+              requirements.push($(this).attr('rel'));
+              $(".requirements-list > div").append("<a class='item'>" + $(this).attr('rel') + "</a>");
           });
+          console.log(requirements);
+          $("#edit-requirements").hide();
+
           $(".requirements-list").show();
           $(".requirements").hide();
         })
