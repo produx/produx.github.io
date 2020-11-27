@@ -98,14 +98,14 @@
             <div class="cell-2"><input type="checkbox" name="req" value="cancel-need" rel="Free cancellation"/></div>
             <div class="cell-3"><input type="checkbox" name="wants" value="cancel-want" rel="Free cancellation"/></div>
           </div>
-          <div class="row">
+          <!--<div class="row">
             <div class="cell-1">In Central London</div>
             <div class="cell-2"><input type="checkbox" name="req" value="central-need" rel="In Central London"/></div>
             <div class="cell-3"><input type="checkbox" name="wants" value="central-want" rel="In Central London"/></div>
-          </div>
+          </div>-->
 
 
-          <h3 style="margin:12px 0;">More options</h3>
+          <h3 style="margin:20px 0 12px;">More options</h3>
           <div class="filter-group">
             <div class="title">Price range</div>
             <div class="not-set">Not set</div>
@@ -211,11 +211,16 @@
           //console.log(requirements);
           $("#property-list").empty();
           displayResults(propertyList);
-
           $("#edit-requirements").hide();
+          if (requirements.length == 0 && wants.length == 0) {
+            $(".requirements-list").hide();
+            $(".requirements").show();
+          } else {
 
-          $(".requirements-list").show();
-          $(".requirements").hide();
+            $(".requirements-list").show();
+            $(".requirements").hide();
+          }
+
         })
 
         $(".collections-menu .theme").on("click", function(){
