@@ -66,9 +66,9 @@ h1, h2, h3, h4 {margin:0; padding:0;}
 .tools-menu ul li span.label {padding-top:2px; padding-left:4px;}
 
 /* edit requirements tool */
-#edit-requirements {position:fixed; top:0; left:0; right:0; bottom:0; z-index:1001; background-color:#fff;}
+#edit-requirements {position:fixed; top:0; left:0; right:0; bottom:0; z-index:1001; background-color:#fff; display:none;}
 
-#edit-requirements .content {position:absolute; left:0; right:0; top:40px; bottom:50px; overflow-y: scroll; padding:12px;}
+#edit-requirements .content {position:absolute; left:0; right:0; top:40px; bottom:50px; overflow-y: scroll; padding:12px; }
 #edit-requirements .content h3 {}
   #edit-requirements .content p {margin: 4px 0 12px; padding:0; line-height:1.2em}
 #edit-requirements .row {overflow:hidden;}
