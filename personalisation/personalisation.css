@@ -1,11 +1,10 @@
 /* reset */
+body {background-color:#eee;}
 h1, h2, h3, h4 {margin:0; padding:0;}
 
 
 #page-wrapper {background-color:#eee; padding-bottom:50px;}
-@media screen and (min-width: 600px) {
-  #page-wrapper {width:320px; margin:0 auto; background-color:#eee;}
-}
+.overlay {position:fixed; top:0; bottom:0; left:0; right:0; background-color:#000; opacity:0.8; display:none;}
 
 /* search */
 #sqm {background-color:#fff; border-bottom:solid 1px #ddd; padding:12px;}
@@ -86,7 +85,6 @@ h1, h2, h3, h4 {margin:0; padding:0;}
 #edit-requirements button.apply {background-color:#156BC1; color:#fff; border:0; font-size:16px; padding:8px 20px; border-radius:8px; font-weight:bold;}
 
 /* Overlay */
-.overlay {position:fixed; top:0; bottom:0; left:0; right:0; background-color:#000; opacity:0.8; display:none;}
 
 .modal-header {position:absolute; top:0; left:0; right:0; height:40px; border-bottom:solid 1px #ddd; box-sizing: border-box; padding: 10px 12px;}
 .modal-header h4 {margin:0; padding:0; font-size:18px;}
@@ -119,3 +117,11 @@ div.collections-menu .theme {
 }
 div.collections-menu .selected {border:solid 1px #000;}
 div.collections-menu .theme:first-child {margin-left:12px}
+
+@media screen and (min-width: 600px) {
+  #page-wrapper {width:320px; margin:0 auto; background-color:#eee; border-left:solid 5px #ccc; border-right:solid 5px #ccc;}
+  .overlay {position:fixed; top:0; bottom:0; left:50%; width:320px; margin-left: -160px; background-color:#000; opacity:0.8; display:none;}
+  .tools-menu {position:fixed; bottom:0; left:50%; width:320px; margin-left: -160px; background-color:#fff; padding:20px; border-top-left-radius: 16px; border-top-right-radius: 16px; display:none; box-sizing:border-box;}
+  #edit-requirements {position:fixed; top:0; left:50%; width:320px; margin-left: -160px; bottom:0; z-index:1001; background-color:#fff; display:none;}
+
+}
