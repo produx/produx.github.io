@@ -58,6 +58,8 @@ h1, h2, h3, h4 {margin:0; padding:0;}
 .property-tools ul li .material-icons {font-size:24px; color:#999;}
 .property-tools ul li:last-child a {display:inline-block; vertical-align: top; margin-top:2px}
 .property-tools ul li:last-child .material-icons {color:#156BC1;}
+.favourited {display:none;}
+.property-tools ul li a.favourited .material-icons {color: #D32F2F} 
 
 /* tools menu */
 .tools-menu {position:fixed; bottom:0; left:0; right:0; background-color:#fff;; padding:20px; border-top-left-radius: 16px; border-top-right-radius: 16px; display:none;}
@@ -92,6 +94,10 @@ h1, h2, h3, h4 {margin:0; padding:0;}
 #more-like-this .property-thumb {width:90px; height:60px; overflow:hidden; display:inline-block; vertical-align: top;}
 #more-like-this .property-thumb img {height:60px;}
 #more-like-this .filter-group {border-top: solid 1px #ddd; padding:12px 0; position:relative}
+
+/* favourite confirmed */
+.favourite-confirmed {border-top:solid 1px #ddd; padding:12px; font-size:13px; display:none;}
+.favourite-confirmed ul li {display:inline-block; border:solid 1px #156BC1; color:#156BC1; padding:4px 12px; margin-top:8px; border-radius:16px; margin-right:4px}
 
 .row {overflow:hidden;}
 .row > div {box-sizing: border-box; padding:8px 0}

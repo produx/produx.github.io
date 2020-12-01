@@ -71,7 +71,7 @@ var moreLikeThisContent = function(prop){
 var buildCard = function(item) {
   var propCard = "";
   // start card
-  propCard += "<div class='property-wrapper' id='" + item.id + "'>"
+  propCard += "<div class='property-wrapper' id='prop-id-" + item.id + "'>"
   // thumbnail
   propCard += "<div class='thumb'><img src='" + item.thumb + "' /></div>"
   // property details
@@ -149,10 +149,19 @@ var buildCard = function(item) {
   // tools
   propCard += "<div class='property-tools'>"
   propCard += "<ul><li><a href='#' class='favourite' rel='" + item.id + "'><span class='material-icons'>favorite_border</span></li>"
+  propCard += "<li><a href='#' class='favourited' rel='" + item.id + "'><span class='material-icons'>favorite</span></a></li>"
   propCard += "<li><a href='#' class='more-like-this' rel='" + item.id + "'><span class='material-icons'>visibility</span></a></li>"
   propCard += "<li><a href='#' class='more-tools'><span class='material-icons more'>more_horiz</span></a></li>"
   propCard += "<li><a href='#'>Choose Room</a> <span class='material-icons'>arrow_forward</span></li>"
   propCard += "</ul></div>"
+
+  // favourite
+  propCard += "<div class='favourite-confirmed'>"
+  propCard += "Great! Tell us what you like about this property and we can help you find others like this";
+  propCard += "<ul><li>Good price</li> <li>Good location</li> <li>Amenities</li> <li>Style</li> <li>Guest Review</li></ul>"
+  propCard += "</div>"
+
+
   // end card
   propCard += "</div>"
 

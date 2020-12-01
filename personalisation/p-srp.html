@@ -265,20 +265,31 @@
         })
 
         // more like this code
-        $("a.more-like-this").on("click", function(){
+        $("a.more-like-this").on("click", function(e){
+          e.preventDefault();
           var prop = propertyList.items[$(this).attr("rel")];
           $("#more-like-this").show();
           moreLikeThisContent(prop);
-
         });
 
         $("#more-like-this .modal-header a").on("click", function(e){
           e.preventDefault();
           $("#more-like-this").hide();
+        });
+
+        // favourite
+        $("a.favourite").on("click", function(e){
+          e.preventDefault();
+          console.log("prop-id-" + $(this).attr("rel"));
+          $(this).hide();
+          //$(this).parent(".favourited").show();
+          var propId = "prop-id-" + $(this).attr("rel");
+          $("#" + propId + " a.favourited").show();
+          $("#" + propId + " .favourite-confirmed").show();
+          //moreLikeThisContent(prop);
+        });
 
 
-
-        })
 
 
         // collections code
