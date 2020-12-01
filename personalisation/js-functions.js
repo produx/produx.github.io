@@ -31,11 +31,47 @@ var displayResults = function(data){
   });
 
 }
+//<div class="row">
+  //<div class="cell-1">Wifi included</div>
+  //<div class="cell-2"><input type="checkbox" name="req" value="wifi-need" rel="Wifi"/></div>
+  //<div class="cell-3"><input type="checkbox" name="wants" value="wifi-want" rel="Wifi"/></div>
+//</div>
+
+var moreLikeThisContent = function(prop){
+  $("#more-like-this .property-name").text(prop.name)
+  $("#more-like-this .property-thumb").empty().append("<img src='" + prop.thumb + "'/>")
+  var fList = "";
+  $("#more-like-this .property-facilities").empty();
+
+  $.each(prop.propertyFacilities, function(i, facilities) {
+    $.each(facilities, function(i, facility){
+      if (facility[0].hasIt) {
+        fList += "<div class='row'>";
+        fList += "<div class='cell-1'>" + facility[0].name + "</div>";
+        fList += "<div class='cell-2'><input type='checkbox' name='req' value='wifi-need' rel='Wifi'/></div>"
+        fList += "<div class='cell-3'><input type='checkbox' name='wants' value='wifi-want' rel='Wifi'/></div>"
+        fList += "</div>"
+      }
+    });
+  });
+  $("#more-like-this .property-location").empty();
+  var lList = "";
+  lList += "<div class='row'>";
+  lList += "<div class='cell-1'>" + prop.location[0].neighbourhood + "</div>";
+  lList += "<div class='cell-2'><input type='checkbox' name='req' value='wifi-need' rel='Wifi'/></div>"
+  lList += "<div class='cell-3'><input type='checkbox' name='wants' value='wifi-want' rel='Wifi'/></div>"
+  lList += "</div>"
+
+  $("#more-like-this .property-facilities").append(fList);
+  $("#more-like-this .property-location").append(lList);
+
+}
+
 
 var buildCard = function(item) {
   var propCard = "";
   // start card
-  propCard += "<div class='property-wrapper'>"
+  propCard += "<div class='property-wrapper' id='" + item.id + "'>"
   // thumbnail
   propCard += "<div class='thumb'><img src='" + item.thumb + "' /></div>"
   // property details
@@ -112,10 +148,10 @@ var buildCard = function(item) {
   propCard += "</div></div>"
   // tools
   propCard += "<div class='property-tools'>"
-  propCard += "<ul><li><span class='material-icons'>favorite_border</span></li>"
-  propCard += "<li><span class='material-icons'>remove_circle_outline</span></li>"
-  propCard += "<li><a href='' class='more-tools'><span class='material-icons more'>more_horiz</span></a></li>"
-  propCard += "<li><a href=''>Choose Room</a> <span class='material-icons'>arrow_forward</span></li>"
+  propCard += "<ul><li><a href='#' class='favourite' rel='" + item.id + "'><span class='material-icons'>favorite_border</span></li>"
+  propCard += "<li><a href='#' class='more-like-this' rel='" + item.id + "'><span class='material-icons'>visibility</span></a></li>"
+  propCard += "<li><a href='#' class='more-tools'><span class='material-icons more'>more_horiz</span></a></li>"
+  propCard += "<li><a href='#'>Choose Room</a> <span class='material-icons'>arrow_forward</span></li>"
   propCard += "</ul></div>"
   // end card
   propCard += "</div>"

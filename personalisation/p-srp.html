@@ -138,6 +138,47 @@
         </div>
       </div>
 
+
+      <!-- Shwo me more like this -->
+      <div id="more-like-this">
+        <div class="modal-header">
+          <h4>Show me more like this</h4>
+          <a href="#">X</a>
+        </div>
+        <div class="content">
+          <div class="property">
+            <div class="property-name"></div>
+            <div class="property-thumb"></div>
+          </div>
+
+          <p style="padding-top:12px;">Tell us what you like about this property and we'll try an find similar ones</p>
+          <div class="filter-group">
+
+            <div class="row">
+              <div class="cell-1"><strong>Property facilities</strong></div>
+              <div class="cell-2"><strong>Need</strong></div>
+              <div class="cell-3"><strong>Want</strong></div>
+            </div>
+            <div class="property-facilities">
+            </div>
+          </div>
+          <div class="filter-group">
+            <div class="row">
+              <div class="cell-1"><strong>Property location</strong></div>
+              <div class="cell-2"><strong>Need</strong></div>
+              <div class="cell-3"><strong>Want</strong></div>
+            </div>
+            <div class="property-location">
+            </div>
+          </div>
+        </div>
+
+
+        <div class="ctas">
+          <button class="apply">Apply</button>
+        </div>
+      </div>
+
       <!-- end of page wrapper -->
 
     </div>
@@ -223,6 +264,24 @@
 
         })
 
+        // more like this code
+        $("a.more-like-this").on("click", function(){
+          var prop = propertyList.items[$(this).attr("rel")];
+          $("#more-like-this").show();
+          moreLikeThisContent(prop);
+
+        });
+
+        $("#more-like-this .modal-header a").on("click", function(e){
+          e.preventDefault();
+          $("#more-like-this").hide();
+
+
+
+        })
+
+
+        // collections code
         $(".collections-menu .theme").on("click", function(){
           var cat = $(this).attr("rel");
 

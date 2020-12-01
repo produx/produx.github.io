@@ -71,12 +71,8 @@ h1, h2, h3, h4 {margin:0; padding:0;}
 
 #edit-requirements .content {position:absolute; left:0; right:0; top:40px; bottom:50px; overflow-y: scroll; padding:12px; }
 #edit-requirements .content h3 {}
-  #edit-requirements .content p {margin: 4px 0 12px; padding:0; line-height:1.2em}
-#edit-requirements .row {overflow:hidden;}
-#edit-requirements .row > div {box-sizing: border-box; padding:8px 0}
-#edit-requirements .row .cell-1 {float:left; width:calc(100% - 100px);}
-#edit-requirements .row .cell-2 {float:left; width:50px; text-align:center;}
-#edit-requirements .row .cell-3 {float:left; width:50px; text-align:center;}
+#edit-requirements .content p {margin: 4px 0 12px; padding:0; line-height:1.2em}
+
 #edit-requirements .filter-group {border-top: solid 1px #ddd; padding:12px 0; position:relative}
 #edit-requirements .filter-group .material-icons {position: absolute; right:12px; top:10px; color:#156BC1;}
 #edit-requirements .filter-group .title {font-weight:bold;}
@@ -84,44 +80,45 @@ h1, h2, h3, h4 {margin:0; padding:0;}
 #edit-requirements .ctas {position:absolute; bottom:0; left:0; right:0; height:50px; border-top: solid 1px #ddd; padding-top:6px; padding-right:12px; box-sizing: border-box; text-align: right}
 #edit-requirements button.apply {background-color:#156BC1; color:#fff; border:0; font-size:16px; padding:8px 20px; border-radius:8px; font-weight:bold;}
 
-/* Overlay */
 
+
+/* Show me more like this */
+#more-like-this {position:fixed; top:0; left:0; right:0; bottom:0; background-color:#fff; display:none; z-index:1000;}
+#more-like-this .content {position:absolute; left:0; right:0; top:40px; bottom:50px; overflow-y: scroll; padding:12px; }
+#more-like-this .ctas {position:absolute; bottom:0; left:0; right:0; height:50px; border-top: solid 1px #ddd; padding-top:6px; padding-right:12px; box-sizing: border-box; text-align: right}
+#more-like-this button.apply {background-color:#156BC1; color:#fff; border:0; font-size:16px; padding:8px 20px; border-radius:8px; font-weight:bold;}
+#more-like-this .property {background-color:#eee; margin:-12px; padding:12px;}
+#more-like-this .property-name {font-weight:bold; display:inline-block; width: calc(100% - 96px); vertical-align: top;}
+#more-like-this .property-thumb {width:90px; height:60px; overflow:hidden; display:inline-block; vertical-align: top;}
+#more-like-this .property-thumb img {height:60px;}
+#more-like-this .filter-group {border-top: solid 1px #ddd; padding:12px 0; position:relative}
+
+.row {overflow:hidden;}
+.row > div {box-sizing: border-box; padding:8px 0}
+.row .cell-1 {float:left; width:calc(100% - 100px);}
+.row .cell-2 {float:left; width:50px; text-align:center;}
+.row .cell-3 {float:left; width:50px; text-align:center;}
+
+
+/* collections */
+div.collections {padding:12px 0 12px 0px;}
+div.collections h4 {margin:0 0 8px 12px; padding:0;}
+div.collections-menu {overflow: auto; white-space: nowrap;}
+div.collections-menu .theme {display: inline-block; vertical-align: top; margin-right:4px; background-color: white; border:solid 1px #ddd; width:120px; height:80px; border-radius:8px; white-space: normal; font-size:14px; padding:8px;}
+div.collections-menu .selected {border:solid 1px #000;}
+div.collections-menu .theme:first-child {margin-left:12px}
+
+/* Modal styles */
 .modal-header {position:absolute; top:0; left:0; right:0; height:40px; border-bottom:solid 1px #ddd; box-sizing: border-box; padding: 10px 12px;}
 .modal-header h4 {margin:0; padding:0; font-size:18px;}
 .modal-header a {position:absolute; right:12px; font-size:18px; top:10px;}
 
-
-
-
-div.collections {padding:12px 0 12px 0px;}
-div.collections h4 {margin:0 0 8px 12px; padding:0;}
-
-div.collections-menu {
-  overflow: auto;
-  white-space: nowrap;
-  background-co/lor:#fff;
-}
-
-div.collections-menu .theme {
-  display: inline-block;
-  vertical-align: top;
-  margin-right:4px;
-  background-color: white;
-  border:solid 1px #ddd;
-  width:120px;
-  height:80px;
-  border-radius:8px;
-  white-space: normal;
-  font-size:14px;
-  padding:8px;
-}
-div.collections-menu .selected {border:solid 1px #000;}
-div.collections-menu .theme:first-child {margin-left:12px}
 
 @media screen and (min-width: 600px) {
   #page-wrapper {width:320px; margin:0 auto; background-color:#eee; border-left:solid 5px #ccc; border-right:solid 5px #ccc;}
   .overlay {position:fixed; top:0; bottom:0; left:50%; width:320px; margin-left: -160px; background-color:#000; opacity:0.8; display:none;}
   .tools-menu {position:fixed; bottom:0; left:50%; width:320px; margin-left: -160px; background-color:#fff; padding:20px; border-top-left-radius: 16px; border-top-right-radius: 16px; display:none; box-sizing:border-box;}
   #edit-requirements {position:fixed; top:0; left:50%; width:320px; margin-left: -160px; bottom:0; z-index:1001; background-color:#fff; display:none;}
+  #more-like-this {position:fixed; top:0; left:50%; width:320px; margin-left: -160px;  bottom:0; background-color:#fff; z-index:1000;}
 
 }
