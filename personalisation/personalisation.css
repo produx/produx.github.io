@@ -33,7 +33,7 @@ h1, h2, h3, h4 {margin:0; padding:0;}
 .property-details .location li {float:left;}
 .property-details .location .neighbourhood {font-weight:bold;}
 .property-details .facilities {font-size:14px; margin-bottom:8px;}
-.property-details .facilities ul li {float:left; margin-right:8px;}
+.property-details .facilities ul li {float:left; margin-right:8px; border-bottom: dotted 1px #ccc;}
 .property-details .facilities ul li.yes { color:#028017;}
 .property-details .facilities ul li.no {text-decoration: line-through; color:#ccc;}
 
@@ -59,7 +59,7 @@ h1, h2, h3, h4 {margin:0; padding:0;}
 .property-tools ul li:last-child a {display:inline-block; vertical-align: top; margin-top:2px}
 .property-tools ul li:last-child .material-icons {color:#156BC1;}
 .favourited {display:none;}
-.property-tools ul li a.favourited .material-icons {color: #D32F2F} 
+.property-tools ul li a.favourited .material-icons {color: #D32F2F}
 
 /* tools menu */
 .tools-menu {position:fixed; bottom:0; left:0; right:0; background-color:#fff;; padding:20px; border-top-left-radius: 16px; border-top-right-radius: 16px; display:none;}
@@ -67,6 +67,11 @@ h1, h2, h3, h4 {margin:0; padding:0;}
 .tools-menu ul li {margin-bottom:12px;}
 .tools-menu ul li span {display:inline-block; vertical-align: top;}
 .tools-menu ul li span.label {padding-top:2px; padding-left:4px;}
+
+/* single facility menu */
+.single-facility-modal {position:fixed; bottom:0; left:0; right:0; background-color:#fff;; padding:20px; border-top-left-radius: 16px; border-top-right-radius: 16px; display:none;}
+.single-facility-modal > div {margin-bottom:12px;}
+.single-facility-modal .facility-name {font-size:18px; font-weight:bold;}
 
 /* edit requirements tool */
 #edit-requirements {position:fixed; top:0; left:0; right:0; bottom:0; z-index:1001; background-color:#fff; display:none;}
@@ -80,7 +85,7 @@ h1, h2, h3, h4 {margin:0; padding:0;}
 #edit-requirements .filter-group .title {font-weight:bold;}
 #edit-requirements .filter-group .not-set {margin-top:4px; font-size:14px; color:#999;}
 #edit-requirements .ctas {position:absolute; bottom:0; left:0; right:0; height:50px; border-top: solid 1px #ddd; padding-top:6px; padding-right:12px; box-sizing: border-box; text-align: right}
-#edit-requirements button.apply {background-color:#156BC1; color:#fff; border:0; font-size:16px; padding:8px 20px; border-radius:8px; font-weight:bold;}
+button.apply {background-color:#156BC1; color:#fff; border:0; font-size:16px; padding:8px 20px; border-radius:8px; font-weight:bold;}
 
 
 
@@ -126,5 +131,6 @@ div.collections-menu .theme:first-child {margin-left:12px}
   .tools-menu {position:fixed; bottom:0; left:50%; width:320px; margin-left: -160px; background-color:#fff; padding:20px; border-top-left-radius: 16px; border-top-right-radius: 16px; display:none; box-sizing:border-box;}
   #edit-requirements {position:fixed; top:0; left:50%; width:320px; margin-left: -160px; bottom:0; z-index:1001; background-color:#fff; display:none;}
   #more-like-this {position:fixed; top:0; left:50%; width:320px; margin-left: -160px;  bottom:0; background-color:#fff; z-index:1000;}
+  .single-facility-modal {position:fixed; bottom:0; left:0; left:50%; width:320px; margin-left: -160px; background-color:#fff;; padding:20px; border-top-left-radius: 16px; border-top-right-radius: 16px; display:none; box-sizing: border-box;}
 
 }

@@ -58,6 +58,14 @@
         </div>
       </div>
 
+      <div class="single-facility-modal modal">
+        <div class="facility-name"></div>
+        <div><input type="checkbox" /> I need this</div>
+        <div><input type="checkbox" /> I want this</div>
+        <div style="border-top:solid 1px #ddd; padding-top:12px; text-align:right;">
+          <button class="apply">Apply</button>
+      </div>
+
       <!-- edit requirements -->
       <div id="edit-requirements">
         <div class="modal-header">
@@ -219,6 +227,12 @@
           $(".modal").hide();
         });
 
+        $(".modal .close").on("click", function(e){
+          e.preventDefault();
+          $(".overlay").hide();
+          $(".modal").hide();
+        })
+
         $(".requirements a").on("click", function(){
           $("#edit-requirements").show();
         });
@@ -290,7 +304,12 @@
         });
 
 
-
+        // facilties interaction
+        $(".property-details .facilities ul li").on("click", function(){
+          $(".overlay").show();
+          $(".single-facility-modal").slideDown();
+          $(".facility-name").text($(this).text());
+        })
 
         // collections code
         $(".collections-menu .theme").on("click", function(){
