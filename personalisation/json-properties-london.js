@@ -29,7 +29,10 @@ var propertyList = {
         {priceDisplay:"123", currencySymbol:"$"}
       ],
       location: [
-        {neighbourhood: "Paddington", lat:"51.517101", lng:"-0.172910", central:false}
+        {neighbourhood: "Paddington", lat:"51.517101", lng:"-0.172910", central:"0.9"}
+      ],
+      transport: [
+        {name:"Heathrow Airport", distance:"16 miles", type:"airport"}
       ],
       theme: [
         {iconic: false, unique: false, theatreDeals: false, homes: false}
@@ -64,7 +67,10 @@ var propertyList = {
         {priceDisplay:"123", currencySymbol:"$"}
       ],
       location: [
-        {neighbourhood: "Piccadilly", lat:"51.510300", lng:"-0.132290", central:true}
+        {neighbourhood: "Piccadilly", lat:"51.510300", lng:"-0.132290", central:"0.5"}
+      ],
+      transport: [
+        {name:"Heathrow Airport", distance:"16 miles", type:"airport"}
       ],
       theme: [
         {iconic: false, unique: false, theatreDeals: false, homes: false}
@@ -100,7 +106,10 @@ var propertyList = {
         {priceDisplay:"236", currencySymbol:"$"}
       ],
       location: [
-        {neighbourhood: "Canary Wharf", lat:" E14 9TP", lng:"-0.132290", central:false}
+        {neighbourhood: "Canary Wharf", lat:" E14 9TP", lng:"-0.132290", central:"2.1"}
+      ],
+      transport: [
+        {name:"Heathrow Airport", distance:"16 miles", type:"airport"}
       ],
       theme: [
         {iconic: false, unique: false, theatreDeals: false, homes: false}
@@ -135,7 +144,10 @@ var propertyList = {
         {priceDisplay:"294", currencySymbol:"$"}
       ],
       location: [
-        {neighbourhood: "Westminster", lat:"SW1W 0PS", lng:"-0.132290", central:true}
+        {neighbourhood: "Westminster", lat:"SW1W 0PS", lng:"-0.132290", central:"0.6"}
+      ],
+      transport: [
+        {name:"Heathrow Airport", distance:"16 miles", type:"airport"}
       ],
       theme: [
         {iconic: false, unique: false, theatreDeals: false, homes: false}
@@ -170,7 +182,10 @@ var propertyList = {
         {priceDisplay:"113", currencySymbol:"$"}
       ],
       location: [
-        {neighbourhood: "Westminster", lat:"W8 5SY", lng:"-0.132290", central:true}
+        {neighbourhood: "Westminster", lat:"W8 5SY", lng:"-0.132290", central:"0.6"}
+      ],
+      transport: [
+        {name:"Heathrow Airport", distance:"16 miles", type:"airport"}
       ],
       theme: [
         {iconic: false, unique: false, theatreDeals: false, homes: false}
@@ -204,7 +219,10 @@ var propertyList = {
         {priceDisplay:"137", currencySymbol:"$"}
       ],
       location: [
-        {neighbourhood: "Tower Hill", lat:"E1W 1LD", lng:"-0.132290", central:true}
+        {neighbourhood: "Tower Hill", lat:"E1W 1LD", lng:"-0.132290", central:"1.2"}
+      ],
+      transport: [
+        {name:"Heathrow Airport", distance:"16 miles", type:"airport"}
       ],
       theme: [
         {iconic: false, unique: false, theatreDeals: false, homes: false}
@@ -238,7 +256,10 @@ var propertyList = {
         {priceDisplay:"120", currencySymbol:"$"}
       ],
       location: [
-        {neighbourhood: "South Kensington", lat:"SW7 4LH", lng:"-0.132290", central:true}
+        {neighbourhood: "South Kensington", lat:"SW7 4LH", lng:"-0.132290", central:"1.6"}
+      ],
+      transport: [
+        {name:"Heathrow Airport", distance:"16", type:"airport"}
       ],
       theme: [
         {iconic: false, unique: false, theatreDeals: false, homes: false}
@@ -272,7 +293,10 @@ var propertyList = {
         {priceDisplay:"217", currencySymbol:"$"}
       ],
       location: [
-        {neighbourhood: "Bishop's", lat:"SE1 7UT", lng:"-0.132290", central:true}
+        {neighbourhood: "Bishop's", lat:"SE1 7UT", lng:"-0.132290", central:"0.3"}
+      ],
+      transport: [
+        {name:"Heathrow Airport", distance:"16", type:"airport"}
       ],
       theme: [
         {iconic: false, unique: false, theatreDeals: false, homes: false}
@@ -306,7 +330,10 @@ var propertyList = {
         {priceDisplay:"217", currencySymbol:"$"}
       ],
       location: [
-        {neighbourhood: "City of Westminster", lat:"W1H 7TN", lng:"-0.132290", central:true}
+        {neighbourhood: "City of Westminster", lat:"W1H 7TN", lng:"-0.132290", central:"0.5"}
+      ],
+      transport: [
+        {name:"Heathrow Airport", distance:"16", type:"airport"}
       ],
       theme: [
         {iconic: false, unique: false, theatreDeals: false, homes: false}
@@ -340,7 +367,10 @@ var propertyList = {
         {priceDisplay:"608", currencySymbol:"$"}
       ],
       location: [
-        {neighbourhood: "Covent Garden", lat:"WC2B 4BZ", lng:"-0.132290", central:true}
+        {neighbourhood: "Covent Garden", lat:"WC2B 4BZ", lng:"-0.132290", central:"0.4"}
+      ],
+      transport: [
+        {name:"Heathrow Airport", distance:"16", type:"airport"}
       ],
       theme: [
         {iconic: false, unique: false, theatreDeals: false, homes: false}

@@ -18,6 +18,9 @@
   </head>
   <body>
     <div id="page-wrapper">
+
+
+
       <div id="sqm">
         <div class="destination"><a href="#">London, United Kingdom</a></div>
         <div class="description">19 Feb - 21 Feb • 2 adults</div>
@@ -34,15 +37,28 @@
       <div class="collections">
         <h4>Find properties for all kinds of trips</h4>
         <div class="collections-menu">
-          <div class="theme" rel="iconic">Iconic luxury London properties</div>
-          <div class="theme" rel="unique">Chic, unique and uncovered gems</div>
-          <div class="theme" rel="theater">Great deals in the Theatre district</div>
-          <div class="theme" rel="homes">Home and apartments in the city center</div>
+          <div class="theme" rel="theater" style="background:url('i/theater.webp'); background-repeat: no-repeat; background-size: cover;">
+            <div class="title">Great deals in the Theatre district</div>
+          </div>
+          <div class="theme" rel="unique" style="background:url('i/unique.webp'); background-repeat: no-repeat; background-size: cover;">
+            <div class="title">Chic, unique and uncovered gems</div>
+          </div>
+          <div class="theme" rel="homes" style="background:url('i/homes.webp'); background-repeat: no-repeat; background-size: cover;">
+            <div class="title">Home and apartments in the city center</div>
+          </div>
+          <div class="theme" rel="iconic" style="background:url('i/iconic.webp'); background-repeat: no-repeat; background-size: cover;">
+            <div class="title">Iconic luxury London properties</div>
+          </div>
+
         </div>
       </div>
+
+
       <div id="property-list"></div>
 
+
       <div class="overlay" style=""></div>
+
       <!-- tools menu -->
       <div class="tools-menu modal" style="">
         <ul>
@@ -58,13 +74,26 @@
         </div>
       </div>
 
+
+
       <div class="single-facility-modal modal">
         <div class="facility-name"></div>
-        <div><input type="checkbox" /> I need this</div>
-        <div><input type="checkbox" /> I want this</div>
+        <div style="position:relative"><input type="checkbox" style="position:absolute; top:0; left:0;"/> <div style="margin-left:24px;">Show me more properties that have this</div></div>
         <div style="border-top:solid 1px #ddd; padding-top:12px; text-align:right;">
           <button class="apply">Apply</button>
+        </div>
       </div>
+
+      <div class="geo-bullet-modal modal">
+        <div>We are currently showing you how close this property is to the City Center</div>
+        <div>Change this to a different landmark</div>
+        <input id="poi-input" type="text" style='padding:8px; border:solid 1px #ccc;'/>
+
+        <div style="border-top:solid 1px #ddd; padding-top:12px; text-align:right; margin-top:90px;">
+          <button class="apply">Apply</button>
+        </div>
+      </div>
+
 
       <!-- edit requirements -->
       <div id="edit-requirements">
@@ -187,14 +216,20 @@
         </div>
       </div>
 
+
+
       <!-- end of page wrapper -->
 
     </div>
     <!-- Scripts -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="json-properties-london.js"></script>
     <script src="json-poi-london.js"></script>
     <script src="js-functions.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript"
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKuM7xluOCtezbOo1m34AfGyr64Y2zunA&libraries=places">
+      	</script>
+
 
     <script type="text/javascript">
       //var properties = "json-properties-london.js"
@@ -211,6 +246,7 @@
       $(function(){
 
         displayResults(propertyList);
+        initialize_poi_selection();
 
         $("div.name").on("click", function(e){
           console.log($(this).text());
@@ -281,9 +317,10 @@
         // more like this code
         $("a.more-like-this").on("click", function(e){
           e.preventDefault();
+          console.log("more like this")
           var prop = propertyList.items[$(this).attr("rel")];
-          $("#more-like-this").show();
           moreLikeThisContent(prop);
+          $("more-like-this").show();
         });
 
         $("#more-like-this .modal-header a").on("click", function(e){
@@ -307,8 +344,24 @@
         // facilties interaction
         $(".property-details .facilities ul li").on("click", function(){
           $(".overlay").show();
-          $(".single-facility-modal").slideDown();
+          $(".single-facility-modal").fadeIn("fast");
           $(".facility-name").text($(this).text());
+        });
+
+        $(".geo-bullet").on("click", function(e){
+          e.preventDefault();
+          $(".overlay").show();
+          $(".geo-bullet-modal").slideDown();
+        })
+
+        $(".geo-bullet-modal .apply").on("click", function(){
+          console.log(place.name);
+          var d = Math.random()
+          var dStr = d.toString()
+          var dist = dStr.slice(0, 3)
+          $("li.geo-bullet").text(dist + " miles to " + place.name)
+          $(".overlay").hide();
+          $(".geo-bullet-modal").hide();
         })
 
         // collections code

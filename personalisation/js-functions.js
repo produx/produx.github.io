@@ -38,6 +38,7 @@ var displayResults = function(data){
 //</div>
 
 var moreLikeThisContent = function(prop){
+  //console.log("run this")
   $("#more-like-this .property-name").text(prop.name)
   $("#more-like-this .property-thumb").empty().append("<img src='" + prop.thumb + "'/>")
   var fList = "";
@@ -65,6 +66,8 @@ var moreLikeThisContent = function(prop){
   $("#more-like-this .property-facilities").append(fList);
   $("#more-like-this .property-location").append(lList);
 
+  $("#more-like-this").show();
+
 }
 
 
@@ -80,6 +83,7 @@ var buildCard = function(item) {
   // location
     propCard += "<div class='location'><ul>"
       propCard += "<li class='neighbourhood'>" + item.location[0].neighbourhood + "</li>"
+      propCard += "<li class='geo-bullet'>" + item.location[0].central + " miles to city center</li>"
     propCard += "</ul></div>"
   // facilities
   propCard += "<div class='facilities'><ul>";
@@ -166,4 +170,23 @@ var buildCard = function(item) {
   propCard += "</div>"
 
   $("#property-list").append(propCard);
+}
+
+var place;
+var initialize_poi_selection = function(){
+  var input = document.getElementById('poi-input');
+  var options = {
+    language: 'en-GB',
+    componentRestrictions: { country: "uk" }
+  }
+
+  var searchBox = new google.maps.places.Autocomplete(input, options);
+
+  searchBox.addListener('place_changed', function() {
+    place = searchBox.getPlace();
+    console.log(place.name);
+    //var distance = getDistance(place)
+   ;
+
+  });
 }

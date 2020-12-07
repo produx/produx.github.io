@@ -30,8 +30,9 @@ h1, h2, h3, h4 {margin:0; padding:0;}
 
 .property-details .name {font-size: 16px; font-weight: bold; margin-bottom:4px;}
 .property-details .location {font-size:14px; margin-bottom:4px;}
-.property-details .location li {float:left;}
+.property-details .location li {float:left; margin-right:8px;}
 .property-details .location .neighbourhood {font-weight:bold;}
+.property-details .location li.geo-bullet {border-bottom:dotted 1px #ccc;}
 .property-details .facilities {font-size:14px; margin-bottom:8px;}
 .property-details .facilities ul li {float:left; margin-right:8px; border-bottom: dotted 1px #ccc;}
 .property-details .facilities ul li.yes { color:#028017;}
@@ -69,9 +70,13 @@ h1, h2, h3, h4 {margin:0; padding:0;}
 .tools-menu ul li span.label {padding-top:2px; padding-left:4px;}
 
 /* single facility menu */
-.single-facility-modal {position:fixed; bottom:0; left:0; right:0; background-color:#fff;; padding:20px; border-top-left-radius: 16px; border-top-right-radius: 16px; display:none;}
+.single-facility-modal {position:fixed; top:30px; left:0; right:0; background-color:#fff;; padding:20px; border-top-left-radius: 16px; border-top-right-radius: 16px; display:none;}
 .single-facility-modal > div {margin-bottom:12px;}
 .single-facility-modal .facility-name {font-size:18px; font-weight:bold;}
+
+.geo-bullet-modal {position:fixed; bottom:0; left:0; right:0; background-color:#fff;; padding:20px; border-top-left-radius: 16px; border-top-right-radius: 16px; display: none;}
+.geo-bullet-modal > div {margin-bottom:12px;}
+.geo-bullet-modal input {width:calc(100% - 12px); margin-bottom:12px;}
 
 /* edit requirements tool */
 #edit-requirements {position:fixed; top:0; left:0; right:0; bottom:0; z-index:1001; background-color:#fff; display:none;}
@@ -90,7 +95,7 @@ button.apply {background-color:#156BC1; color:#fff; border:0; font-size:16px; pa
 
 
 /* Show me more like this */
-#more-like-this {position:fixed; top:0; left:0; right:0; bottom:0; background-color:#fff; display:none; z-index:1000;}
+#more-like-this {position:fixed; top:0; left:0; right:0; bottom:0; background-color:#fff; z-index:1100;  display:none;}
 #more-like-this .content {position:absolute; left:0; right:0; top:40px; bottom:50px; overflow-y: scroll; padding:12px; }
 #more-like-this .ctas {position:absolute; bottom:0; left:0; right:0; height:50px; border-top: solid 1px #ddd; padding-top:6px; padding-right:12px; box-sizing: border-box; text-align: right}
 #more-like-this button.apply {background-color:#156BC1; color:#fff; border:0; font-size:16px; padding:8px 20px; border-radius:8px; font-weight:bold;}
@@ -99,6 +104,9 @@ button.apply {background-color:#156BC1; color:#fff; border:0; font-size:16px; pa
 #more-like-this .property-thumb {width:90px; height:60px; overflow:hidden; display:inline-block; vertical-align: top;}
 #more-like-this .property-thumb img {height:60px;}
 #more-like-this .filter-group {border-top: solid 1px #ddd; padding:12px 0; position:relative}
+
+#more-like-this-modal {position:fixed; top:0; left:0; right:0; bottom:0; background-color:#fff; z-index:1100;}
+
 
 /* favourite confirmed */
 .favourite-confirmed {border-top:solid 1px #ddd; padding:12px; font-size:13px; display:none;}
@@ -115,7 +123,9 @@ button.apply {background-color:#156BC1; color:#fff; border:0; font-size:16px; pa
 div.collections {padding:12px 0 12px 0px;}
 div.collections h4 {margin:0 0 8px 12px; padding:0;}
 div.collections-menu {overflow: auto; white-space: nowrap;}
-div.collections-menu .theme {display: inline-block; vertical-align: top; margin-right:4px; background-color: white; border:solid 1px #ddd; width:120px; height:80px; border-radius:8px; white-space: normal; font-size:14px; padding:8px;}
+div.collections-menu .theme {display: inline-block; vertical-align: top; margin-right:4px; background-color: white; border:solid 1px #ddd; width:120px; height:80px; border-radius:8px; white-space: normal; font-size:14px; padding:8px; position:relative;}
+div.collections-menu .theme .title {position:absolute; bottom:8px; left:8px; right:8px; color:#fff; font-weight:bold; font-size:14px; text-shadow: 1px 1px #333;}
+
 div.collections-menu .selected {border:solid 1px #000;}
 div.collections-menu .theme:first-child {margin-left:12px}
 
@@ -126,11 +136,14 @@ div.collections-menu .theme:first-child {margin-left:12px}
 
 
 @media screen and (min-width: 600px) {
+  #more-like-this-modal {position:fixed; top:0; left:50%; width:320px; margin-left: -160px; bottom:0; background-color:#fff; z-index:1100;}
+
   #page-wrapper {width:320px; margin:0 auto; background-color:#eee; border-left:solid 5px #ccc; border-right:solid 5px #ccc;}
   .overlay {position:fixed; top:0; bottom:0; left:50%; width:320px; margin-left: -160px; background-color:#000; opacity:0.8; display:none;}
   .tools-menu {position:fixed; bottom:0; left:50%; width:320px; margin-left: -160px; background-color:#fff; padding:20px; border-top-left-radius: 16px; border-top-right-radius: 16px; display:none; box-sizing:border-box;}
   #edit-requirements {position:fixed; top:0; left:50%; width:320px; margin-left: -160px; bottom:0; z-index:1001; background-color:#fff; display:none;}
-  #more-like-this {position:fixed; top:0; left:50%; width:320px; margin-left: -160px;  bottom:0; background-color:#fff; z-index:1000;}
-  .single-facility-modal {position:fixed; bottom:0; left:0; left:50%; width:320px; margin-left: -160px; background-color:#fff;; padding:20px; border-top-left-radius: 16px; border-top-right-radius: 16px; display:none; box-sizing: border-box;}
+  #more-like-this {position:fixed; top:0; left:50%; width:320px; margin-left: -160px;  bottom:0; background-color:#fff; z-index:1100; display:none;}
+  .single-facility-modal {position:fixed; top:30px; left:50%; width:280px; margin-left: -140px; background-color:#fff; padding:20px;  border-radius: 16px; display:none; box-sizing: border-box;}
+  .geo-bullet-modal {position:fixed; bottom:0; left:0; left:50%; width:320px; margin-left: -160px; background-color:#fff;; padding:20px; border-top-left-radius: 16px; border-top-right-radius: 16px; box-sizing: border-box;}
 
 }
